@@ -99,14 +99,15 @@ def run(dataset_root: Path, *, sample_id: str = "61_39", device: str | None = No
     if sample_id not in samples:
         raise ValueError(f"Real BigEarthNet sample is unavailable: {sample_id}")
     sample = samples[sample_id]
-    item = load_sample(sample)
     with rasterio.open(sample.optical_paths["B02"]) as grid:
+        native_crs = str(grid.crs)
+        native_bounds = tuple(grid.bounds)
         geographic_bounds = tuple(transform_bounds(grid.crs, "EPSG:4326", *grid.bounds, densify_pts=21))
 
     optical_path = sample.optical_paths["B02"]
     sar_path = sample.sar_paths["VV"]
-    optical_scene = _scene(sample, Modality.OPTICAL, optical_path, geographic_bounds, item.metadata["crs"])
-    sar_scene = _scene(sample, Modality.SAR, sar_path, geographic_bounds, item.metadata["crs"])
+    optical_scene = _scene(sample, Modality.OPTICAL, optical_path, geographic_bounds, native_crs)
+    sar_scene = _scene(sample, Modality.SAR, sar_path, geographic_bounds, native_crs)
     aoi = AOI.from_input({"type": "bbox", "bounds": list(geographic_bounds)}, source="real_bigearthnet_fixture")
     temporal = TemporalRequest.create(acquisition_date=_acquisition_time(optical_path).date().isoformat())
     optical_request = AvailabilityRequest(aoi, temporal, Modality.OPTICAL, 10.0, ("sentinel-2",))
@@ -114,6 +115,9 @@ def run(dataset_root: Path, *, sample_id: str = "61_39", device: str | None = No
     optical_selected, optical_reason = select_scene(optical_request, LocalSceneAdapter([optical_scene]).scenes)
     sar_selected, sar_reason = select_scene(sar_request, LocalSceneAdapter([sar_scene]).scenes)
 
+    item = load_sample(sample)
+    if item.metadata["crs"] != native_crs or tuple(item.metadata["bounds"]) != native_bounds:
+        raise ValueError("Materialized raster metadata does not match the selected Phase 3 scene")
     optical_meta = {"crs": item.metadata["crs"], "bounds": tuple(item.metadata["bounds"]),
                     "resolution": tuple(item.metadata["resolution"]), "transform": tuple(item.metadata["transform"]),
                     "array": item.raw_optical}
