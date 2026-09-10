@@ -1,6 +1,8 @@
 # Satquery_ai_2.0
 
 Phase 1's strict BigEarthNet/CROMA foundation and integration boundary are documented in [docs/phase1_integration.md](docs/phase1_integration.md).
+
+Phase 3's typed, source-independent operational satellite-data backbone is documented in [docs/phase3_core_satellite_orchestration.md](docs/phase3_core_satellite_orchestration.md).
 Phase 2's typed bridge into the existing physical+CROMA fusion pipeline is documented in [docs/phase2_integration.md](docs/phase2_integration.md).
 
 ## SatQuery AI web application
