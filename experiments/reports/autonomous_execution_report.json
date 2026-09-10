@@ -1,0 +1,74 @@
+{
+  "overall_status": "pipelines_1_2_3_completed_and_verified",
+  "project_root": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0",
+  "environment": {
+    "python": "E:\\Python313\\python.exe",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "cuda_required": true
+  },
+  "pipeline_1": {
+    "status": "completed_and_verified",
+    "dataset": "So2Sat-LCZ42 official Hugging Face HDF5 split",
+    "baseline_experiment": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment",
+    "v2_experiment": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery",
+    "v2_training": {
+      "status": "completed",
+      "epochs_ran": 3,
+      "best_epoch": 1,
+      "best_validation_macro_f1": 0.369927,
+      "checkpoint": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\checkpoints\\best_model.pt"
+    },
+    "v2_test_metrics": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\metrics\\evaluation_metrics.json",
+    "v2_predictions": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\predictions\\test_predictions.csv",
+    "v2_backend_inference": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\predictions\\backend_inference_sample.json",
+    "v2_results": {
+      "accuracy": 0.464321150983959,
+      "balanced_accuracy": 0.439708523706586,
+      "macro_f1": 0.37333787829173287,
+      "weighted_f1": 0.45356876399692003
+    },
+    "comparison": "D:\\Satquery_ai datasets\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\reports\\baseline_comparison.json"
+  },
+  "pipeline_2": {
+    "status": "previously_completed_and_now_validated",
+    "numbered_runner": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\runner.py",
+    "existing_report": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\execution_report.json",
+    "real_temporal_runner": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee_temporal\\runner.py",
+    "existing_report": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_temporal\\execution_report.json",
+    "existing_report_status": "real_gee_completed",
+    "validation": {
+      "authentication_successful": true,
+      "fallback_used": false,
+      "sentinel_1_dates": ["2024-01-10", "2024-02-03"],
+      "sentinel_2_dates": ["2024-01-18", "2024-02-02"],
+      "output_root": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_temporal",
+      "raster_validation": "all referenced GeoTIFFs loaded with finite values and consistent EPSG:32643 geometry"
+    },
+    "protected_outputs_untouched": true
+  },
+  "pipeline_3": {
+    "status": "previously_completed_and_now_validated",
+    "numbered_runner": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee_croma\\runner.py",
+    "existing_report": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee_croma\\outputs\\execution_report.json",
+    "existing_report_status": "real_gee_and_croma_completed",
+    "existing_real_temporal_artifacts": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal",
+    "validation": {
+      "authentication_successful": true,
+      "fallback_used": false,
+      "croma_checkpoint": "D:\\Satquery_ai datasets\\checkpoints\\CROMA_base.pt",
+      "feature_validation": "all 12 referenced arrays loaded with finite values and expected shapes",
+      "sar_l2": 0.9426819682121277,
+      "optical_l2": 7.298827648162842,
+      "joint_l2": 5.028923511505127,
+      "output_root": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal"
+    },
+    "limitation": "CROMA comparisons are descriptive representation distances, not calibrated change percentages or classification accuracy.",
+    "protected_outputs_untouched": true
+  },
+  "known_limitations": [
+    "Pipeline 2 and Pipeline 3 were completed earlier and validated from their persisted real-GEE reports and outputs; no expensive rerun was performed.",
+    "v2 improves balanced accuracy and macro F1 but not raw accuracy or weighted F1.",
+    "The original baseline artifacts and existing Pipeline 2/3 outputs were not overwritten."
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "schema_version": "2.0",
+  "analysis_id": "89d1f8b3-5730-439b-8fd8-74345ee42c10",
+  "timestamp": "2026-09-09T17:18:21.416035+00:00",
+  "query": "Compare this region between January 2020 and January 2025.",
+  "status": "rejected",
+  "development_notice": "Development demonstration using local sample data. Supervised accuracy evaluation is pending a larger labeled dataset.",
+  "query_interpretation": {
+    "task": "change_detection",
+    "aoi": null,
+    "start_date": "2020-01-01",
+    "end_date": "2025-01-01",
+    "modalities": [
+      "optical",
+      "sar"
+    ],
+    "datasets": [
+      "Sentinel-2",
+      "Sentinel-1"
+    ],
+    "requires_temporal_pair": true,
+    "required_tools": [
+      "input_validation",
+      "preprocessing",
+      "feature_extraction",
+      "hybrid_fusion",
+      "temporal_comparison",
+      "change_detection"
+    ],
+    "expected_outputs": [
+      "validation",
+      "features",
+      "evidence",
+      "explanation"
+    ],
+    "constraints": [
+      "No supervised accuracy claim without a trained, evaluated model.",
+      "Requires a spatially corresponding before-and-after image pair."
+    ],
+    "interpreter": "deterministic_local_parser"
+  },
+  "data_retrieval": {
+    "source": "local development provider",
+    "status": "available",
+    "datasets": [
+      "Sentinel-2",
+      "Sentinel-1"
+    ],
+    "assets": {
+      "sample_id": "61_39"
+    },
+    "filters": {
+      "aoi": null,
+      "start_date": "2020-01-01",
+      "end_date": "2025-01-01",
+      "cloud_filter": null
+    },
+    "warnings": [
+      "This is existing local development data; it was not retrieved from Google Earth Engine."
+    ]
+  },
+  "validation": {
+    "valid": false,
+    "checks": {
+      "aoi": true,
+      "dates": true,
+      "files": {},
+      "temporal_compatibility": null,
+      "optical_sar_compatibility": null,
+      "cloud_cover": "unknown; no cloud mask supplied",
+      "temporal_pair_valid": false
+    },
+    "errors": [
+      "Temporal analysis requires a valid spatially corresponding before-and-after image pair."
+    ],
+    "warnings": [
+      "AOI not supplied; the selected raster extent is used."
+    ],
+    "compatibility": {
+      "source": "local development provider",
+      "requires_temporal_pair": true
+    }
+  },
+  "tool_selection": {
+    "selected_tools": [
+      "input_validation",
+      "temporal_validation",
+      "evidence",
+      "confidence_assessment",
+      "explanation",
+      "report_generation"
+    ],
+    "required_inputs": [
+      "sar",
+      "optical",
+      "before image",
+      "after image"
+    ],
+    "required_models": [],
+    "unavailable_tools": [
+      {
+        "tool": "change_detection",
+        "status": "requires valid input",
+        "reason": "A matching before-and-after pair is required."
+      }
+    ],
+    "execution_order": [
+      "input_validation",
+      "temporal_validation",
+      "evidence",
+      "confidence_assessment",
+      "explanation",
+      "report_generation"
+    ],
+    "expected_outputs": [
+      "validation",
+      "features",
+      "evidence",
+      "explanation"
+    ]
+  },
+  "execution_trace": [
+    {
+      "step": 1,
+      "timestamp": "2026-09-09T17:18:21.413715+00:00",
+      "message": "User query received",
+      "status": "completed"
+    },
+    {
+      "step": 2,
+      "timestamp": "2026-09-09T17:18:21.413809+00:00",
+      "message": "Query interpreted by deterministic local parser",
+      "status": "completed"
+    },
+    {
+      "step": 3,
+      "timestamp": "2026-09-09T17:18:21.413814+00:00",
+      "message": "AOI and date range extracted",
+      "status": "completed"
+    },
+    {
+      "step": 4,
+      "timestamp": "2026-09-09T17:18:21.415717+00:00",
+      "message": "Required datasets selected",
+      "status": "completed"
+    },
+    {
+      "step": 5,
+      "timestamp": "2026-09-09T17:18:21.415724+00:00",
+      "message": "Data availability checked",
+      "status": "available"
+    },
+    {
+      "step": 6,
+      "timestamp": "2026-09-09T17:18:21.416045+00:00",
+      "message": "Inputs validated",
+      "status": "rejected"
+    },
+    {
+      "step": 7,
+      "timestamp": "2026-09-09T17:18:21.416047+00:00",
+      "message": "Available model/tool selected",
+      "status": "completed"
+    },
+    {
+      "step": 8,
+      "timestamp": "2026-09-09T17:18:21.416048+00:00",
+      "message": "Preprocessing not run",
+      "status": "skipped"
+    },
+    {
+      "step": 9,
+      "timestamp": "2026-09-09T17:18:21.416049+00:00",
+      "message": "Multimodal cube not created",
+      "status": "skipped"
+    },
+    {
+      "step": 10,
+      "timestamp": "2026-09-09T17:18:21.416051+00:00",
+      "message": "Features extracted",
+      "status": "unavailable"
+    },
+    {
+      "step": 11,
+      "timestamp": "2026-09-09T17:18:21.416052+00:00",
+      "message": "Representation analysis executed",
+      "status": "rejected"
+    },
+    {
+      "step": 12,
+      "timestamp": "2026-09-09T17:18:21.416054+00:00",
+      "message": "Evidence generated",
+      "status": "completed"
+    },
+    {
+      "step": 13,
+      "timestamp": "2026-09-09T17:18:21.416055+00:00",
+      "message": "Confidence assessed",
+      "status": "completed"
+    },
+    {
+      "step": 14,
+      "timestamp": "2026-09-09T17:18:21.416058+00:00",
+      "message": "Grounded deterministic explanation generated",
+      "status": "completed"
+    },
+    {
+      "step": 15,
+      "timestamp": "2026-09-09T17:18:21.416059+00:00",
+      "message": "Final report payload created",
+      "status": "completed"
+    }
+  ],
+  "preprocessing": [],
+  "data_cube": null,
+  "features": {
+    "status": "unavailable",
+    "spectral": {
+      "status": "unavailable"
+    },
+    "deep": {
+      "status": "unavailable"
+    },
+    "hybrid": {
+      "status": "unavailable"
+    },
+    "temporal": {
+      "status": "unavailable"
+    }
+  },
+  "model_results": {
+    "status": "pending training",
+    "prediction": null,
+    "training_performed": false
+  },
+  "evidence": [
+    {
+      "kind": "feature statistics",
+      "reference": "features.spectral.statistics",
+      "status": "unavailable"
+    },
+    {
+      "kind": "prediction mask/change map",
+      "status": "unavailable"
+    }
+  ],
+  "warnings": [
+    "This is existing local development data; it was not retrieved from Google Earth Engine.",
+    "AOI not supplied; the selected raster extent is used."
+  ],
+  "confidence": {
+    "prediction_status": "no trained task head available",
+    "calibration_status": "uncalibrated",
+    "accuracy_status": "no accuracy claim",
+    "model_confidence": null,
+    "query_level_confidence": null,
+    "validation_status": "rejected"
+  },
+  "temporal": {
+    "status": "requires valid input",
+    "message": "Temporal analysis requires a valid spatially corresponding before-and-after image pair."
+  },
+  "device": "not used",
+  "error": null,
+  "llm_explanation": "Temporal analysis requires a valid spatially corresponding before-and-after image pair. No task prediction, supervised accuracy, calibrated confidence, or change map was generated.",
+  "runtime_seconds": 0.0023505999997723848
+}

@@ -1,0 +1,431 @@
+{
+  "timestamp": "20260909T171818Z",
+  "checks": [
+    {
+      "check": "GET /",
+      "passed": true
+    },
+    {
+      "check": "GET /static/app.js",
+      "passed": true
+    },
+    {
+      "check": "GET /static/style.css",
+      "passed": true
+    },
+    {
+      "check": "GET /api/health",
+      "passed": true
+    },
+    {
+      "check": "GET /api/samples",
+      "passed": true
+    },
+    {
+      "check": "optical repeat 0 real inference",
+      "passed": true
+    },
+    {
+      "check": "optical physical dimension",
+      "passed": true
+    },
+    {
+      "check": "optical CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "optical modality",
+      "passed": true
+    },
+    {
+      "check": "optical trace",
+      "passed": true
+    },
+    {
+      "check": "optical no prediction",
+      "passed": true
+    },
+    {
+      "check": "no spurious joint output",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "sar repeat 0 real inference",
+      "passed": true
+    },
+    {
+      "check": "sar physical dimension",
+      "passed": true
+    },
+    {
+      "check": "sar CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "sar modality",
+      "passed": true
+    },
+    {
+      "check": "sar trace",
+      "passed": true
+    },
+    {
+      "check": "sar no prediction",
+      "passed": true
+    },
+    {
+      "check": "no spurious joint output",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "joint repeat 0 real inference",
+      "passed": true
+    },
+    {
+      "check": "joint physical dimension",
+      "passed": true
+    },
+    {
+      "check": "joint CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "joint modality",
+      "passed": true
+    },
+    {
+      "check": "joint trace",
+      "passed": true
+    },
+    {
+      "check": "joint no prediction",
+      "passed": true
+    },
+    {
+      "check": "actual joint fusion",
+      "passed": true
+    },
+    {
+      "check": "joint encoding used",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "optical repeat 1 real inference",
+      "passed": true
+    },
+    {
+      "check": "optical physical dimension",
+      "passed": true
+    },
+    {
+      "check": "optical CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "optical modality",
+      "passed": true
+    },
+    {
+      "check": "optical trace",
+      "passed": true
+    },
+    {
+      "check": "optical no prediction",
+      "passed": true
+    },
+    {
+      "check": "no spurious joint output",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "sar repeat 1 real inference",
+      "passed": true
+    },
+    {
+      "check": "sar physical dimension",
+      "passed": true
+    },
+    {
+      "check": "sar CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "sar modality",
+      "passed": true
+    },
+    {
+      "check": "sar trace",
+      "passed": true
+    },
+    {
+      "check": "sar no prediction",
+      "passed": true
+    },
+    {
+      "check": "no spurious joint output",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "joint repeat 1 real inference",
+      "passed": true
+    },
+    {
+      "check": "joint physical dimension",
+      "passed": true
+    },
+    {
+      "check": "joint CROMA dimension",
+      "passed": true
+    },
+    {
+      "check": "joint modality",
+      "passed": true
+    },
+    {
+      "check": "joint trace",
+      "passed": true
+    },
+    {
+      "check": "joint no prediction",
+      "passed": true
+    },
+    {
+      "check": "actual joint fusion",
+      "passed": true
+    },
+    {
+      "check": "joint encoding used",
+      "passed": true
+    },
+    {
+      "check": "finite strict JSON",
+      "passed": true
+    },
+    {
+      "check": "no absolute internal paths",
+      "passed": true
+    },
+    {
+      "check": "report download matches",
+      "passed": true
+    },
+    {
+      "check": "actual GeoTIFF upload accepted",
+      "passed": true
+    },
+    {
+      "check": "actual uploaded joint fusion",
+      "passed": true
+    },
+    {
+      "check": "upload provenance",
+      "passed": true
+    },
+    {
+      "check": "temporal",
+      "passed": true
+    },
+    {
+      "check": "invalid-aoi",
+      "passed": true
+    },
+    {
+      "check": "outside-aoi",
+      "passed": true
+    },
+    {
+      "check": "invalid-date",
+      "passed": true
+    },
+    {
+      "check": "empty-input",
+      "passed": true
+    },
+    {
+      "check": "empty query error",
+      "passed": true
+    },
+    {
+      "check": "health after repeated runs",
+      "passed": true
+    },
+    {
+      "check": "upload cleanup",
+      "passed": true
+    },
+    {
+      "check": "original ZIP unchanged",
+      "passed": true
+    }
+  ],
+  "demo_runs": [
+    {
+      "mode": "optical",
+      "repeat": 0,
+      "analysis_id": "66370d46-61ce-4d3f-b12e-6fd2703c3968",
+      "runtime_seconds": 2.634378699993249,
+      "http_seconds": 2.647553800008609,
+      "device": "cuda",
+      "physical_dimension": 52,
+      "deep_dimension": 768,
+      "hybrid_dimension": null,
+      "model_reused": false,
+      "server_resources": {
+        "rss_bytes": 2450444288,
+        "cpu_seconds": 8.234375
+      }
+    },
+    {
+      "mode": "sar",
+      "repeat": 0,
+      "analysis_id": "693bef52-3efb-41c3-bbe8-c38519045fc7",
+      "runtime_seconds": 0.026165599992964417,
+      "http_seconds": 0.029699400009121746,
+      "device": "cuda",
+      "physical_dimension": 9,
+      "deep_dimension": 768,
+      "hybrid_dimension": null,
+      "model_reused": true,
+      "server_resources": {
+        "rss_bytes": 2450350080,
+        "cpu_seconds": 8.265625
+      }
+    },
+    {
+      "mode": "joint",
+      "repeat": 0,
+      "analysis_id": "7753b3b6-2ce8-441c-8b8e-1907428ed59e",
+      "runtime_seconds": 0.10423810000065714,
+      "http_seconds": 0.10977160000766162,
+      "device": "cuda",
+      "physical_dimension": 62,
+      "deep_dimension": 2304,
+      "hybrid_dimension": 192,
+      "model_reused": true,
+      "server_resources": {
+        "rss_bytes": 2464481280,
+        "cpu_seconds": 8.390625
+      }
+    },
+    {
+      "mode": "optical",
+      "repeat": 1,
+      "analysis_id": "b926ea5b-fcbf-4e5c-87bd-0385b1e36ed7",
+      "runtime_seconds": 0.07197800000722054,
+      "http_seconds": 0.07506550000107381,
+      "device": "cuda",
+      "physical_dimension": 52,
+      "deep_dimension": 768,
+      "hybrid_dimension": null,
+      "model_reused": true,
+      "server_resources": {
+        "rss_bytes": 2464788480,
+        "cpu_seconds": 8.46875
+      }
+    },
+    {
+      "mode": "sar",
+      "repeat": 1,
+      "analysis_id": "df7a0f15-2ce4-4ef9-8bf5-996f0cc020a6",
+      "runtime_seconds": 0.02695710000989493,
+      "http_seconds": 0.030232899996917695,
+      "device": "cuda",
+      "physical_dimension": 9,
+      "deep_dimension": 768,
+      "hybrid_dimension": null,
+      "model_reused": true,
+      "server_resources": {
+        "rss_bytes": 2463522816,
+        "cpu_seconds": 8.5
+      }
+    },
+    {
+      "mode": "joint",
+      "repeat": 1,
+      "analysis_id": "37a46c70-0321-4c7d-a8ff-c1452b713ddc",
+      "runtime_seconds": 0.10248489999503363,
+      "http_seconds": 0.1186020000022836,
+      "device": "cuda",
+      "physical_dimension": 62,
+      "deep_dimension": 2304,
+      "hybrid_dimension": 192,
+      "model_reused": true,
+      "server_resources": {
+        "rss_bytes": 2465755136,
+        "cpu_seconds": 8.625
+      }
+    }
+  ],
+  "browser": "Not verified: computer-use policy stopped browser automation because the current URL could not be determined.",
+  "zip_sha256_before": "fc2aa9371e64fa80ba231061797c9e1070594551dcb4a5cfac6c7b4874ef03e3",
+  "server_memory_before": {
+    "rss_bytes": 515923968,
+    "cpu_seconds": 1.359375
+  },
+  "zip_sha256_after": "fc2aa9371e64fa80ba231061797c9e1070594551dcb4a5cfac6c7b4874ef03e3",
+  "status": "PASS WITH LIMITATIONS",
+  "server_memory_after": {
+    "rss_bytes": 2467799040,
+    "cpu_seconds": 8.78125
+  }
+}

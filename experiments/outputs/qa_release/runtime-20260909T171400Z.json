@@ -1,0 +1,1006 @@
+{
+  "startup_seconds": 1.7293763999914518,
+  "startup_traceback": false,
+  "native_temporal_exports": [
+    {
+      "sensor": "sentinel_2",
+      "band": "B1",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        false,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B2",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        false,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B3",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B4",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        false,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B5",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B6",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B7",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B8",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B8A",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B9",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B11",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_2",
+      "band": "B12",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": true,
+        "transform": true,
+        "shape": true
+      },
+      "finite_before_after": [
+        true,
+        true
+      ],
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776600.0,
+          1427450.0,
+          787580.0,
+          1438640.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776600.0,
+          0.0,
+          -10.0,
+          1438640.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_1",
+      "band": "VV",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": false,
+        "transform": false,
+        "shape": true
+      },
+      "finite_before_after": null,
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776598.8023544595,
+          1427448.798890561,
+          787578.8023544595,
+          1438638.798890561
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776598.8023544595,
+          0.0,
+          -10.0,
+          1438638.798890561,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776599.4108051877,
+          1427450.0044899485,
+          787579.4108051877,
+          1438640.0044899485
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776599.4108051877,
+          0.0,
+          -10.0,
+          1438640.0044899485,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    },
+    {
+      "sensor": "sentinel_1",
+      "band": "VH",
+      "grid_checks": {
+        "crs": true,
+        "resolution": true,
+        "extent": false,
+        "transform": false,
+        "shape": true
+      },
+      "finite_before_after": null,
+      "before_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776598.8023544595,
+          1427448.798890561,
+          787578.8023544595,
+          1438638.798890561
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776598.8023544595,
+          0.0,
+          -10.0,
+          1438638.798890561,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      },
+      "after_metadata": {
+        "crs": "EPSG:32643",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          776599.4108051877,
+          1427450.0044899485,
+          787579.4108051877,
+          1438640.0044899485
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          776599.4108051877,
+          0.0,
+          -10.0,
+          1438640.0044899485,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "shape": [
+          1119,
+          1098
+        ]
+      }
+    }
+  ],
+  "source": "Previously stored local GEE exports; no new provider retrieval performed",
+  "stored_acquisition_dates": {
+    "sentinel_1_images": [
+      "2024-01-10",
+      "2024-02-03"
+    ],
+    "sentinel_2_images": [
+      "2024-01-18",
+      "2024-02-02"
+    ]
+  },
+  "temporal_analysis_status": "Grid and finite-pixel audit only. No mask, area change, accuracy or change-detection claim."
+}

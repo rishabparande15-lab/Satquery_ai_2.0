@@ -1,0 +1,10 @@
+click
+einops
+matplotlib
+numpy
+pandas
+pyarrow
+python-dotenv
+rasterio
+torch
+earthengine-api

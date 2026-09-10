@@ -1,0 +1,335 @@
+{
+  "pipeline": "gee_only_experimental",
+  "mode": "local_reference",
+  "requested_mode": "auto",
+  "project_root": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0",
+  "dataset_root": "D:\\Satquery_ai datasets\\extracted\\small-sample",
+  "output_root": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs",
+  "sample_ids": [
+    "61_39",
+    "61_40",
+    "61_41"
+  ],
+  "gee_status": {
+    "package_available": false,
+    "authenticated": false,
+    "error": "earthengine-api is not installed"
+  },
+  "samples": [
+    {
+      "sample_id": "61_39",
+      "source": "local BigEarthNet reference; not GEE imagery",
+      "dates": null,
+      "temporal_metadata_available": false,
+      "optical_bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar_bands": [
+        "VV",
+        "VH"
+      ],
+      "optical_shape": [
+        12,
+        120,
+        120
+      ],
+      "sar_shape": [
+        2,
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "preprocessing": {
+        "shape": [
+          120,
+          120
+        ],
+        "crs": "EPSG:32633",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          373200.0,
+          5352000.0,
+          374400.0,
+          5353200.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          373200.0,
+          0.0,
+          -10.0,
+          5353200.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "dtype_reference": "uint16",
+        "optical_band_order": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B8A",
+          "B09",
+          "B11",
+          "B12"
+        ],
+        "sar_band_order": [
+          "VV",
+          "VH"
+        ],
+        "optical_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "sar_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "optical_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "sar_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "reference_map_resampling": "not applied; categorical map retained at native 10 m"
+      },
+      "summary_statistics": {
+        "optical_min": 56.5,
+        "optical_max": 5876.0,
+        "sar_min": -40.1092414855957,
+        "sar_max": -2.042356252670288
+      },
+      "validated_at": "2026-09-09T07:45:08.151844+00:00",
+      "output_files": [
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_39\\local_reference_rgb.png",
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_39\\local_reference_sar.png"
+      ]
+    },
+    {
+      "sample_id": "61_40",
+      "source": "local BigEarthNet reference; not GEE imagery",
+      "dates": null,
+      "temporal_metadata_available": false,
+      "optical_bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar_bands": [
+        "VV",
+        "VH"
+      ],
+      "optical_shape": [
+        12,
+        120,
+        120
+      ],
+      "sar_shape": [
+        2,
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "preprocessing": {
+        "shape": [
+          120,
+          120
+        ],
+        "crs": "EPSG:32633",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          373200.0,
+          5350800.0,
+          374400.0,
+          5352000.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          373200.0,
+          0.0,
+          -10.0,
+          5352000.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "dtype_reference": "uint16",
+        "optical_band_order": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B8A",
+          "B09",
+          "B11",
+          "B12"
+        ],
+        "sar_band_order": [
+          "VV",
+          "VH"
+        ],
+        "optical_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "sar_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "optical_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "sar_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "reference_map_resampling": "not applied; categorical map retained at native 10 m"
+      },
+      "summary_statistics": {
+        "optical_min": 5.0,
+        "optical_max": 6032.0,
+        "sar_min": -37.634300231933594,
+        "sar_max": -1.4822137355804443
+      },
+      "validated_at": "2026-09-09T07:45:08.310902+00:00",
+      "output_files": [
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_40\\local_reference_rgb.png",
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_40\\local_reference_sar.png"
+      ]
+    },
+    {
+      "sample_id": "61_41",
+      "source": "local BigEarthNet reference; not GEE imagery",
+      "dates": null,
+      "temporal_metadata_available": false,
+      "optical_bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar_bands": [
+        "VV",
+        "VH"
+      ],
+      "optical_shape": [
+        12,
+        120,
+        120
+      ],
+      "sar_shape": [
+        2,
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "preprocessing": {
+        "shape": [
+          120,
+          120
+        ],
+        "crs": "EPSG:32633",
+        "resolution": [
+          10.0,
+          10.0
+        ],
+        "bounds": [
+          373200.0,
+          5349600.0,
+          374400.0,
+          5350800.0
+        ],
+        "transform": [
+          10.0,
+          0.0,
+          373200.0,
+          0.0,
+          -10.0,
+          5350800.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "dtype_reference": "uint16",
+        "optical_band_order": [
+          "B01",
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B8A",
+          "B09",
+          "B11",
+          "B12"
+        ],
+        "sar_band_order": [
+          "VV",
+          "VH"
+        ],
+        "optical_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "sar_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+        "optical_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "sar_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+        "reference_map_resampling": "not applied; categorical map retained at native 10 m"
+      },
+      "summary_statistics": {
+        "optical_min": 33.0,
+        "optical_max": 6004.0,
+        "sar_min": -35.05489730834961,
+        "sar_max": 7.009509563446045
+      },
+      "validated_at": "2026-09-09T07:45:08.464192+00:00",
+      "output_files": [
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_41\\local_reference_rgb.png",
+        "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\pipelines\\gee\\outputs\\61_41\\local_reference_sar.png"
+      ]
+    }
+  ],
+  "warnings": [],
+  "errors": [],
+  "limitations": [
+    "No real GEE imagery was retrieved.",
+    "Local files are controlled references only and are not GEE outputs.",
+    "The samples lack sufficient temporal metadata for before/after change validation.",
+    "These samples are suitable for testing data loading and feature extraction, but they are not sufficient for validating before/after change detection."
+  ],
+  "runtime_seconds": 0.6018065999960527
+}

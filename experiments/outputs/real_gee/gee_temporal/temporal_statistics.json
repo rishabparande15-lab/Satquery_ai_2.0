@@ -1,0 +1,77 @@
+{
+  "method": "absolute before/after raster statistics; no calibrated change percentage",
+  "bands": {
+    "B1": {
+      "before_mean": 811.1783447265625,
+      "after_mean": 2774.085693359375,
+      "difference_mean": 1962.9073486328125,
+      "difference_abs_mean": 2017.0567626953125
+    },
+    "B2": {
+      "before_mean": 907.5453491210938,
+      "after_mean": 2747.5576171875,
+      "difference_mean": 1840.012451171875,
+      "difference_abs_mean": 1910.05029296875
+    },
+    "B3": {
+      "before_mean": 1154.2120361328125,
+      "after_mean": 2622.589599609375,
+      "difference_mean": 1468.3775634765625,
+      "difference_abs_mean": 1614.59521484375
+    },
+    "B4": {
+      "before_mean": 1258.3118896484375,
+      "after_mean": 2516.397705078125,
+      "difference_mean": 1258.085693359375,
+      "difference_abs_mean": 1463.81005859375
+    },
+    "B5": {
+      "before_mean": 1547.7266845703125,
+      "after_mean": 2743.698486328125,
+      "difference_mean": 1195.9720458984375,
+      "difference_abs_mean": 1479.8367919921875
+    },
+    "B6": {
+      "before_mean": 1933.6663818359375,
+      "after_mean": 2848.1591796875,
+      "difference_mean": 914.492919921875,
+      "difference_abs_mean": 1352.0625
+    },
+    "B7": {
+      "before_mean": 2088.715087890625,
+      "after_mean": 2925.41845703125,
+      "difference_mean": 836.7034301757812,
+      "difference_abs_mean": 1305.1182861328125
+    },
+    "B8": {
+      "before_mean": 2074.548583984375,
+      "after_mean": 2890.27490234375,
+      "difference_mean": 815.7263793945312,
+      "difference_abs_mean": 1313.8602294921875
+    },
+    "B8A": {
+      "before_mean": 2170.402099609375,
+      "after_mean": 2888.482177734375,
+      "difference_mean": 718.079833984375,
+      "difference_abs_mean": 1242.2135009765625
+    },
+    "B9": {
+      "before_mean": 2172.0400390625,
+      "after_mean": 4107.90087890625,
+      "difference_mean": 1935.8609619140625,
+      "difference_abs_mean": 2369.53271484375
+    },
+    "B11": {
+      "before_mean": 2097.685546875,
+      "after_mean": 2648.43212890625,
+      "difference_mean": 550.7466430664062,
+      "difference_abs_mean": 1069.0836181640625
+    },
+    "B12": {
+      "before_mean": 1632.45703125,
+      "after_mean": 2243.388671875,
+      "difference_mean": 610.9314575195312,
+      "difference_abs_mean": 993.433349609375
+    }
+  }
+}

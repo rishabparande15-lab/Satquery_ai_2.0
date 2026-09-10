@@ -1,0 +1,503 @@
+{
+  "analysis_id": "091129e8-ed41-40ac-8bad-065896247272",
+  "query": "Analyze the optical and SAR characteristics of this local region.",
+  "development_notice": "Development demonstration using local sample data. Supervised accuracy evaluation is pending a larger labeled dataset.",
+  "query_interpretation": {
+    "task": "joint_optical_sar_analysis",
+    "aoi": null,
+    "start_date": null,
+    "end_date": null,
+    "modalities": [
+      "optical",
+      "sar"
+    ],
+    "datasets": [
+      "Sentinel-2",
+      "Sentinel-1"
+    ],
+    "requires_temporal_pair": false,
+    "required_tools": [
+      "input_validation",
+      "preprocessing",
+      "feature_extraction",
+      "hybrid_fusion"
+    ],
+    "expected_outputs": [
+      "validation",
+      "features",
+      "evidence",
+      "explanation"
+    ],
+    "constraints": [
+      "No supervised accuracy claim without a trained, evaluated model."
+    ],
+    "interpreter": "deterministic_local_parser"
+  },
+  "data_retrieval": {
+    "source": "local development provider",
+    "status": "available",
+    "datasets": [
+      "Sentinel-2",
+      "Sentinel-1"
+    ],
+    "assets": {
+      "sample_id": "61_39",
+      "dataset_root": "D:\\Satquery_ai datasets\\extracted\\small-sample"
+    },
+    "filters": {
+      "aoi": null,
+      "start_date": null,
+      "end_date": null,
+      "cloud_filter": null
+    },
+    "warnings": [
+      "This is existing local development data; it was not retrieved from Google Earth Engine."
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "checks": {
+      "aoi": true,
+      "dates": true,
+      "files": {},
+      "temporal_compatibility": null,
+      "optical_sar_compatibility": null
+    },
+    "errors": [],
+    "warnings": [
+      "AOI was not supplied; local patch extent will be used only for development samples."
+    ],
+    "compatibility": {
+      "source": "local development provider",
+      "requires_temporal_pair": false
+    }
+  },
+  "tool_selection": {
+    "selected_tools": [
+      "input_validation",
+      "preprocessing",
+      "multimodal_cube",
+      "gee_physical_features",
+      "croma_optical_sar",
+      "hybrid_fusion",
+      "evidence",
+      "confidence_assessment",
+      "explanation",
+      "report_generation"
+    ],
+    "required_inputs": [
+      "sar",
+      "optical"
+    ],
+    "required_models": [
+      "official CROMA base + untrained hybrid fusion representation"
+    ],
+    "unavailable_tools": [],
+    "execution_order": [
+      "input_validation",
+      "preprocessing",
+      "multimodal_cube",
+      "gee_physical_features",
+      "croma_optical_sar",
+      "hybrid_fusion",
+      "evidence",
+      "confidence_assessment",
+      "explanation",
+      "report_generation"
+    ],
+    "expected_outputs": [
+      "validation",
+      "features",
+      "evidence",
+      "explanation"
+    ]
+  },
+  "execution_trace": [
+    {
+      "step": "1",
+      "timestamp": "2026-09-09T16:34:28.284667+00:00",
+      "message": "User query received"
+    },
+    {
+      "step": "2",
+      "timestamp": "2026-09-09T16:34:28.285502+00:00",
+      "message": "Query interpreted"
+    },
+    {
+      "step": "3",
+      "timestamp": "2026-09-09T16:34:28.288148+00:00",
+      "message": "Required datasets selected and availability checked"
+    },
+    {
+      "step": "4",
+      "timestamp": "2026-09-09T16:34:28.288157+00:00",
+      "message": "Inputs validated"
+    },
+    {
+      "step": "5",
+      "timestamp": "2026-09-09T16:34:28.288325+00:00",
+      "message": "Available models and tools selected"
+    },
+    {
+      "step": "6",
+      "timestamp": "2026-09-09T16:34:28.358959+00:00",
+      "message": "Preprocessing and quality enhancement completed"
+    },
+    {
+      "step": "7",
+      "timestamp": "2026-09-09T16:34:28.358999+00:00",
+      "message": "Multimodal data cube created"
+    },
+    {
+      "step": "8",
+      "timestamp": "2026-09-09T16:34:28.359874+00:00",
+      "message": "Physical and spectral features extracted"
+    },
+    {
+      "step": "9",
+      "timestamp": "2026-09-09T16:34:33.092843+00:00",
+      "message": "CROMA optical, SAR, joint and hybrid representations extracted"
+    },
+    {
+      "step": "10",
+      "timestamp": "2026-09-09T16:34:33.092884+00:00",
+      "message": "Evidence and confidence status generated"
+    },
+    {
+      "step": "11",
+      "timestamp": "2026-09-09T16:34:33.092908+00:00",
+      "message": "Grounded explanation generated"
+    }
+  ],
+  "preprocessing": [
+    {
+      "operation": "band ordering",
+      "status": "completed",
+      "detail": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12",
+        "VV",
+        "VH"
+      ]
+    },
+    {
+      "operation": "spatial alignment",
+      "status": "completed",
+      "detail": "rasterio bilinear reprojection to B02 10 m grid"
+    },
+    {
+      "operation": "normalization",
+      "status": "completed",
+      "detail": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0"
+    },
+    {
+      "operation": "cloud masking",
+      "status": "skipped",
+      "reason": "Local development sample has no validated cloud mask."
+    },
+    {
+      "operation": "SAR noise filtering",
+      "status": "skipped",
+      "reason": "No validated noise-filter configuration was supplied."
+    }
+  ],
+  "data_cube": {
+    "modalities": [
+      "optical",
+      "sar"
+    ],
+    "spatial_dimensions": [
+      120,
+      120
+    ],
+    "metadata": {
+      "shape": [
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        373200.0,
+        5352000.0,
+        374400.0,
+        5353200.0
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        373200.0,
+        0.0,
+        -10.0,
+        5353200.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dtype_reference": "uint16",
+      "optical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar_band_order": [
+        "VV",
+        "VH"
+      ],
+      "optical_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+      "sar_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+      "optical_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+      "sar_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+      "reference_map_resampling": "not applied; categorical map retained at native 10 m",
+      "sample_id": "61_39",
+      "source": "local development provider"
+    },
+    "aoi": null,
+    "quality_masks": []
+  },
+  "features": {
+    "status": "computed",
+    "spectral": {
+      "source": "local GEE-style physical feature provider",
+      "dimension": 62,
+      "feature_names": [
+        "optical_B01_mean",
+        "optical_B01_std",
+        "optical_B01_min",
+        "optical_B01_max",
+        "optical_B02_mean",
+        "optical_B02_std",
+        "optical_B02_min",
+        "optical_B02_max",
+        "optical_B03_mean",
+        "optical_B03_std",
+        "optical_B03_min",
+        "optical_B03_max",
+        "optical_B04_mean",
+        "optical_B04_std",
+        "optical_B04_min",
+        "optical_B04_max",
+        "optical_B05_mean",
+        "optical_B05_std",
+        "optical_B05_min",
+        "optical_B05_max",
+        "optical_B06_mean",
+        "optical_B06_std",
+        "optical_B06_min",
+        "optical_B06_max",
+        "optical_B07_mean",
+        "optical_B07_std",
+        "optical_B07_min",
+        "optical_B07_max",
+        "optical_B08_mean",
+        "optical_B08_std",
+        "optical_B08_min",
+        "optical_B08_max",
+        "optical_B8A_mean",
+        "optical_B8A_std",
+        "optical_B8A_min",
+        "optical_B8A_max",
+        "optical_B09_mean",
+        "optical_B09_std",
+        "optical_B09_min",
+        "optical_B09_max",
+        "optical_B11_mean",
+        "optical_B11_std",
+        "optical_B11_min",
+        "optical_B11_max",
+        "optical_B12_mean",
+        "optical_B12_std",
+        "optical_B12_min",
+        "optical_B12_max",
+        "sar_VV_mean",
+        "sar_VV_std",
+        "sar_VV_min",
+        "sar_VV_max",
+        "sar_VH_mean",
+        "sar_VH_std",
+        "sar_VH_min",
+        "sar_VH_max",
+        "index_NDVI_mean",
+        "index_NDWI_mean",
+        "index_MNDWI_mean",
+        "index_NDBI_mean",
+        "index_VV_minus_VH_mean",
+        "index_VH_over_VV_mean"
+      ],
+      "validity": "valid",
+      "statistics": {
+        "optical_B01_mean": 588.0800170898438,
+        "optical_B01_std": 358.3411560058594,
+        "optical_B01_min": 152.46527099609375,
+        "optical_B01_max": 1333.8333740234375,
+        "optical_B02_mean": 669.2672729492188,
+        "optical_B02_std": 472.05877685546875,
+        "optical_B02_min": 59.0,
+        "optical_B02_max": 1722.0,
+        "optical_B03_mean": 1003.2025756835938,
+        "optical_B03_std": 526.057373046875,
+        "optical_B03_min": 175.0,
+        "optical_B03_max": 2086.0,
+        "optical_B04_mean": 824.420654296875,
+        "optical_B04_std": 530.696533203125,
+        "optical_B04_min": 111.0,
+        "optical_B04_max": 2042.0,
+        "optical_B05_mean": 1143.292236328125,
+        "optical_B05_std": 384.5031433105469,
+        "optical_B05_min": 265.75,
+        "optical_B05_max": 2251.3125,
+        "optical_B06_mean": 2314.880615234375,
+        "optical_B06_std": 1097.686767578125,
+        "optical_B06_min": 352.6875,
+        "optical_B06_max": 4215.6875,
+        "optical_B07_mean": 2755.935302734375,
+        "optical_B07_std": 1377.1541748046875,
+        "optical_B07_min": 367.25,
+        "optical_B07_max": 5383.5,
+        "optical_B08_mean": 2817.168212890625,
+        "optical_B08_std": 1535.014892578125,
+        "optical_B08_min": 307.0,
+        "optical_B08_max": 5876.0,
+        "optical_B8A_mean": 2853.554443359375,
+        "optical_B8A_std": 1523.6500244140625,
+        "optical_B8A_min": 248.25,
+        "optical_B8A_max": 5554.625,
+        "optical_B09_mean": 2888.3701171875,
+        "optical_B09_std": 1390.4322509765625,
+        "optical_B09_min": 175.6666717529297,
+        "optical_B09_max": 5164.076171875,
+        "optical_B11_mean": 1502.917236328125,
+        "optical_B11_std": 875.4910888671875,
+        "optical_B11_min": 90.0,
+        "optical_B11_max": 3002.125,
+        "optical_B12_mean": 901.4985961914062,
+        "optical_B12_std": 668.2688598632812,
+        "optical_B12_min": 56.5,
+        "optical_B12_max": 2450.5,
+        "sar_VV_mean": -13.2265043258667,
+        "sar_VV_std": 5.785717010498047,
+        "sar_VV_min": -40.1092414855957,
+        "sar_VV_max": -2.042356252670288,
+        "sar_VH_mean": -19.015230178833008,
+        "sar_VH_std": 4.714001178741455,
+        "sar_VH_min": -39.91459655761719,
+        "sar_VH_max": -8.45213508605957,
+        "index_NDVI_mean": 0.4047641456127167,
+        "index_NDWI_mean": -0.34255924820899963,
+        "index_MNDWI_mean": -0.144534170627594,
+        "index_NDBI_mean": -0.3165016770362854,
+        "index_VV_minus_VH_mean": 0.8760915398597717,
+        "index_VH_over_VV_mean": 0.9947508573532104
+      }
+    },
+    "deep": {
+      "source": "official CROMA base",
+      "pooled_dimension": 2304,
+      "representations": {
+        "SAR_encodings": [
+          1,
+          225,
+          768
+        ],
+        "SAR_GAP": [
+          1,
+          768
+        ],
+        "optical_encodings": [
+          1,
+          225,
+          768
+        ],
+        "optical_GAP": [
+          1,
+          768
+        ],
+        "joint_encodings": [
+          1,
+          225,
+          768
+        ],
+        "joint_GAP": [
+          1,
+          768
+        ]
+      },
+      "validity": "valid"
+    },
+    "hybrid": {
+      "source": "deterministic seeded untrained fusion",
+      "dimension": 192,
+      "validity": "representation only; no task prediction"
+    },
+    "temporal": {
+      "status": "unavailable",
+      "reason": "The local three-sample development dataset is not a valid temporal pair."
+    }
+  },
+  "model_results": {
+    "selected_model": "GEE-style physical features + official CROMA + hybrid fusion",
+    "status": "feature extraction completed; task-specific heads pending training",
+    "prediction": null
+  },
+  "evidence": [
+    {
+      "kind": "user-selected local development data",
+      "reference": "61_39",
+      "status": "computed",
+      "source": "local development provider"
+    },
+    {
+      "kind": "optical raster bands",
+      "reference": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B01.tif",
+      "status": "user/local provided"
+    },
+    {
+      "kind": "SAR raster bands",
+      "reference": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S1\\S1A_IW_GRDH_1SDV_20170613T165043\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39_VH.tif",
+      "status": "user/local provided"
+    },
+    {
+      "kind": "feature statistics",
+      "reference": "features.spectral.statistics",
+      "status": "computed"
+    },
+    {
+      "kind": "prediction mask/change map",
+      "status": "unavailable",
+      "reason": "No trained segmentation or change-detection head and no valid temporal pair."
+    }
+  ],
+  "confidence": {
+    "prediction_status": "no trained task head available",
+    "calibration_status": "uncalibrated",
+    "accuracy_status": "no accuracy claim",
+    "query_level_confidence": "not computed"
+  },
+  "temporal": {
+    "status": "not requested"
+  },
+  "llm_explanation": "The local optical and SAR inputs were validated and processed jointly for: Analyze the optical and SAR characteristics of this local region.. The system computed 62 physical/geospatial features, 2304 CROMA pooled representation values, and a 192-dimensional hybrid representation. The fusion representation is an untrained prototype; a trained land-cover, water, or change prediction and supervised accuracy are not available for this development run.",
+  "runtime_seconds": 4.808264400009648
+}

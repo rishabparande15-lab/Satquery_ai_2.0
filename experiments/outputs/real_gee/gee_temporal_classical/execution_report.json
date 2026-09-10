@@ -1,0 +1,28 @@
+{
+  "data_source": "Google Earth Engine",
+  "fallback_used": false,
+  "authentication_successful": false,
+  "aoi": null,
+  "before_date_range": [
+    null,
+    null
+  ],
+  "after_date_range": [
+    null,
+    null
+  ],
+  "sentinel_1_images": [],
+  "sentinel_2_images": [],
+  "bands": [],
+  "crs": null,
+  "resolution": null,
+  "preprocessing": [],
+  "outputs": [],
+  "runtime_seconds": 24.040691800000786,
+  "warnings": [
+    "No imagery or change maps were generated and no fallback was used."
+  ],
+  "errors": [
+    "Real-GEE classical run stopped before retrieval: RuntimeError: EEException: Please authorize access to your Earth Engine account by running\n\nearthengine authenticate\n\nin your command line, or ee.Authenticate() in Python, and then retry."
+  ]
+}

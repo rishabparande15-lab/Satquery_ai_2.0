@@ -1,0 +1,11 @@
+{
+  "feature_mode": "hybrid",
+  "seed": 42,
+  "split_ratios": {"train": 0.7, "validation": 0.15, "test": 0.15},
+  "threshold": 0.5,
+  "epochs": 30,
+  "batch_size": 32,
+  "min_samples": 20,
+  "device": "cuda",
+  "notes": "Selected SatQuery AI architecture; use with a larger labeled BigEarthNet-compatible dataset."
+}

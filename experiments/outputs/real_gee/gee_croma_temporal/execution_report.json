@@ -1,0 +1,442 @@
+{
+  "data_source": "Google Earth Engine",
+  "fallback_used": false,
+  "authentication_successful": true,
+  "aoi": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          77.55,
+          12.9
+        ],
+        [
+          77.65,
+          12.9
+        ],
+        [
+          77.65,
+          13.0
+        ],
+        [
+          77.55,
+          13.0
+        ],
+        [
+          77.55,
+          12.9
+        ]
+      ]
+    ]
+  },
+  "before_date_range": [
+    "2024-01-01",
+    "2024-01-31"
+  ],
+  "after_date_range": [
+    "2024-02-01",
+    "2024-02-29"
+  ],
+  "sentinel_1_images": [
+    {
+      "system:id": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20240110T004030_20240110T004055_052037_0649ED_5386",
+      "system:time_start": 1704847230000,
+      "label": "before_sentinel_1",
+      "acquisition_date": "2024-01-10",
+      "collection": "COPERNICUS/S1_GRD",
+      "bands": [
+        "VV",
+        "VH",
+        "angle"
+      ],
+      "projection": {
+        "type": "Projection",
+        "crs": "EPSG:32643",
+        "transform": [
+          10,
+          0,
+          619788.8023544595,
+          0,
+          -10,
+          1520898.798890561
+        ]
+      }
+    },
+    {
+      "system:id": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20240203T004029_20240203T004054_052387_0655C0_E179",
+      "system:time_start": 1706920829000,
+      "label": "after_sentinel_1",
+      "acquisition_date": "2024-02-03",
+      "collection": "COPERNICUS/S1_GRD",
+      "bands": [
+        "VV",
+        "VH",
+        "angle"
+      ],
+      "projection": {
+        "type": "Projection",
+        "crs": "EPSG:32643",
+        "transform": [
+          10,
+          0,
+          619799.4108051877,
+          0,
+          -10,
+          1520910.0044899485
+        ]
+      }
+    }
+  ],
+  "sentinel_2_images": [
+    {
+      "CLOUDY_PIXEL_PERCENTAGE": 0.154101,
+      "system:id": "COPERNICUS/S2_SR_HARMONIZED/20240118T051131_20240118T052357_T43PGQ",
+      "system:time_start": 1705555510928,
+      "label": "before_sentinel_2",
+      "acquisition_date": "2024-01-18",
+      "collection": "COPERNICUS/S2_SR_HARMONIZED",
+      "bands": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B9",
+        "B11",
+        "B12",
+        "AOT",
+        "WVP",
+        "SCL",
+        "TCI_R",
+        "TCI_G",
+        "TCI_B",
+        "MSK_CLDPRB",
+        "MSK_SNWPRB",
+        "QA10",
+        "QA20",
+        "QA60",
+        "MSK_CLASSI_OPAQUE",
+        "MSK_CLASSI_CIRRUS",
+        "MSK_CLASSI_SNOW_ICE"
+      ],
+      "projection": {
+        "type": "Projection",
+        "crs": "EPSG:32643",
+        "transform": [
+          60,
+          0,
+          699960,
+          0,
+          -60,
+          1500000
+        ]
+      }
+    },
+    {
+      "CLOUDY_PIXEL_PERCENTAGE": 23.384118,
+      "system:id": "COPERNICUS/S2_SR_HARMONIZED/20240202T051029_20240202T052012_T43PGQ",
+      "system:time_start": 1706851516836,
+      "label": "after_sentinel_2",
+      "acquisition_date": "2024-02-02",
+      "collection": "COPERNICUS/S2_SR_HARMONIZED",
+      "bands": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B8A",
+        "B9",
+        "B11",
+        "B12",
+        "AOT",
+        "WVP",
+        "SCL",
+        "TCI_R",
+        "TCI_G",
+        "TCI_B",
+        "MSK_CLDPRB",
+        "MSK_SNWPRB",
+        "QA10",
+        "QA20",
+        "QA60",
+        "MSK_CLASSI_OPAQUE",
+        "MSK_CLASSI_CIRRUS",
+        "MSK_CLASSI_SNOW_ICE"
+      ],
+      "projection": {
+        "type": "Projection",
+        "crs": "EPSG:32643",
+        "transform": [
+          60,
+          0,
+          699960,
+          0,
+          -60,
+          1500000
+        ]
+      }
+    }
+  ],
+  "bands": {
+    "sentinel_1": [
+      "VV",
+      "VH"
+    ],
+    "sentinel_2": [
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6",
+      "B7",
+      "B8",
+      "B8A",
+      "B9",
+      "B11",
+      "B12"
+    ]
+  },
+  "crs": "EPSG:32643",
+  "resolution": 10,
+  "preprocessing": [
+    "Official CROMA adapter will normalize raw channels per channel using mean +/- 2 std clipped to [0,1].",
+    "Consumed only Pipeline 2 real-GEE GeoTIFF outputs.",
+    "Each band was bilinearly resized to 120x120 inside this isolated CROMA pipeline."
+  ],
+  "outputs": [
+    {
+      "period": "before",
+      "name": "SAR_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\SAR_encodings.npy"
+    },
+    {
+      "period": "before",
+      "name": "SAR_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\SAR_GAP.npy"
+    },
+    {
+      "period": "before",
+      "name": "optical_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\optical_encodings.npy"
+    },
+    {
+      "period": "before",
+      "name": "optical_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\optical_GAP.npy"
+    },
+    {
+      "period": "before",
+      "name": "joint_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\joint_encodings.npy"
+    },
+    {
+      "period": "before",
+      "name": "joint_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\before\\joint_GAP.npy"
+    },
+    {
+      "period": "after",
+      "name": "SAR_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\SAR_encodings.npy"
+    },
+    {
+      "period": "after",
+      "name": "SAR_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\SAR_GAP.npy"
+    },
+    {
+      "period": "after",
+      "name": "optical_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\optical_encodings.npy"
+    },
+    {
+      "period": "after",
+      "name": "optical_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\optical_GAP.npy"
+    },
+    {
+      "period": "after",
+      "name": "joint_encodings",
+      "shape": [
+        1,
+        225,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\joint_encodings.npy"
+    },
+    {
+      "period": "after",
+      "name": "joint_GAP",
+      "shape": [
+        1,
+        768
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\real_gee\\gee_croma_temporal\\after\\joint_GAP.npy"
+    }
+  ],
+  "runtime_seconds": 7.384629300002416,
+  "warnings": [
+    "CROMA representations are not calibrated change percentages or change maps."
+  ],
+  "errors": [],
+  "croma_checkpoint": "D:\\Satquery_ai datasets\\checkpoints\\CROMA_base.pt",
+  "croma_output_shapes": {
+    "SAR_encodings": {
+      "before": [
+        1,
+        225,
+        768
+      ],
+      "after": [
+        1,
+        225,
+        768
+      ]
+    },
+    "SAR_GAP": {
+      "before": [
+        1,
+        768
+      ],
+      "after": [
+        1,
+        768
+      ]
+    },
+    "optical_encodings": {
+      "before": [
+        1,
+        225,
+        768
+      ],
+      "after": [
+        1,
+        225,
+        768
+      ]
+    },
+    "optical_GAP": {
+      "before": [
+        1,
+        768
+      ],
+      "after": [
+        1,
+        768
+      ]
+    },
+    "joint_encodings": {
+      "before": [
+        1,
+        225,
+        768
+      ],
+      "after": [
+        1,
+        225,
+        768
+      ]
+    },
+    "joint_GAP": {
+      "before": [
+        1,
+        768
+      ],
+      "after": [
+        1,
+        768
+      ]
+    }
+  },
+  "device": "cpu",
+  "croma_input_shapes": {
+    "before_optical": [
+      12,
+      120,
+      120
+    ],
+    "before_sar": [
+      2,
+      120,
+      120
+    ],
+    "after_optical": [
+      12,
+      120,
+      120
+    ],
+    "after_sar": [
+      2,
+      120,
+      120
+    ]
+  },
+  "temporal_comparison": {
+    "SAR_GAP": {
+      "l2_distance": 0.9426819682121277,
+      "cosine_similarity": 0.9947605729103088
+    },
+    "optical_GAP": {
+      "l2_distance": 7.298827648162842,
+      "cosine_similarity": 0.7492913007736206
+    },
+    "joint_GAP": {
+      "l2_distance": 5.028923511505127,
+      "cosine_similarity": 0.9776763319969177
+    }
+  }
+}

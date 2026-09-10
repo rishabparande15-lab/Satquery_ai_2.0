@@ -1,0 +1,73 @@
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+import importlib.util
+
+import numpy as np
+
+from src.dataset_loader import Sample, discover_samples, load_sample
+
+
+@dataclass
+class LocalReference:
+    sample: Sample
+    prepared: object
+    source: str = "local BigEarthNet reference; not GEE imagery"
+
+
+def gee_status() -> dict:
+    available = importlib.util.find_spec("ee") is not None
+    status = {"package_available": available, "authenticated": False, "error": None}
+    if not available:
+        status["error"] = "earthengine-api is not installed"
+        return status
+    try:
+        import ee
+        ee.Initialize()
+        status["authenticated"] = True
+    except Exception as error:
+        status["error"] = f"GEE initialization failed: {error}"
+    return status
+
+
+def select_mode(requested: str) -> tuple[str, dict]:
+    status = gee_status()
+    if requested == "local":
+        return "local_reference", status
+    if requested == "gee":
+        if not status["authenticated"]:
+            raise RuntimeError(status["error"] or "GEE authentication unavailable")
+        return "gee", status
+    return ("gee", status) if status["authenticated"] else ("local_reference", status)
+
+
+def load_local_references(dataset_root: Path, sample_ids: tuple[str, ...]) -> list[LocalReference]:
+    samples = {sample.patch_id: sample for sample in discover_samples(dataset_root)}
+    missing = [sample_id for sample_id in sample_ids if sample_id not in samples]
+    if missing:
+        raise FileNotFoundError(f"Missing local reference samples: {missing}")
+    return [LocalReference(samples[sample_id], load_sample(samples[sample_id])) for sample_id in sample_ids]
+
+
+def local_summary(reference: LocalReference) -> dict:
+    item = reference.prepared
+    return {
+        "sample_id": reference.sample.patch_id,
+        "source": reference.source,
+        "dates": None,
+        "temporal_metadata_available": False,
+        "optical_bands": list(item.metadata["optical_band_order"]),
+        "sar_bands": list(item.metadata["sar_band_order"]),
+        "optical_shape": list(item.raw_optical.shape),
+        "sar_shape": list(item.raw_sar.shape),
+        "crs": item.metadata["crs"],
+        "resolution": item.metadata["resolution"],
+        "preprocessing": item.metadata,
+        "summary_statistics": {
+            "optical_min": float(np.nanmin(item.raw_optical)),
+            "optical_max": float(np.nanmax(item.raw_optical)),
+            "sar_min": float(np.nanmin(item.raw_sar)),
+            "sar_max": float(np.nanmax(item.raw_sar)),
+        },
+        "validated_at": datetime.now(timezone.utc).isoformat(),
+    }
