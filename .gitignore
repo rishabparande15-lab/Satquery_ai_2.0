@@ -1,3 +1,35 @@
 .env
+.env.*
+!.env.example
 __pycache__/
 *.pyc
+
+# Generated experiment outputs and feature caches. Keep experiment source,
+# configuration, and documentation tracked.
+/experiments/outputs/
+/experiments/pipelines/*/outputs/
+
+# Downloaded imagery, archives, and model/data artifacts.
+*.tif
+*.tiff
+*.zip
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.parquet
+
+# Local environments and temporary files.
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+*.tmp
+*.temp
+*.swp
