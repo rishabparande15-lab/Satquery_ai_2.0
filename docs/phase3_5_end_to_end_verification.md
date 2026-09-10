@@ -160,6 +160,7 @@ provider behavior remain unverified and intentionally out of scope.
 - `src/phase3_5_end_to_end.py`
 - `tests/test_phase3_5_end_to_end.py`
 - `docs/phase3_5_end_to_end_verification.md`
+- `README.md`
 
 Generated receipts and arrays are ignored and remain local only.
 
