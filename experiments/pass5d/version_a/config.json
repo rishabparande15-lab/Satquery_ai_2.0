@@ -1,0 +1,12 @@
+{
+  "version": "version_a_current_hybrid",
+  "dimension": 830,
+  "seed": 17,
+  "max_epochs": 60,
+  "patience": 10,
+  "batch_size": 1024,
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "selection": "validation soft-target cross-entropy",
+  "target": "scene-level 19-class labelled-pixel coverage"
+}

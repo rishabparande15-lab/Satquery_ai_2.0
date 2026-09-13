@@ -1,0 +1,16 @@
+{
+  "sample_id": "61_39",
+  "version_a": {
+    "what_is_present": "MODEL_PREDICTED scene coverage only when a task head is applied; no token-local physical answer.",
+    "spatial_questions": "UNAVAILABLE from pooled physical representation."
+  },
+  "version_b": {
+    "what_is_present": "Prediction remains scene-level; structured physical evidence is separately available.",
+    "vegetation": "Trace to NDVI tokens/regions.",
+    "water": "Trace to NDWI tokens/regions.",
+    "heterogeneity": "Trace to token distributions and local std.",
+    "sar": "Trace to VV, VH and VV-minus-VH tokens."
+  },
+  "source": "artifacts/spatial_evidence/61_39",
+  "note": "Deterministic proxy strings, not LLM output."
+}

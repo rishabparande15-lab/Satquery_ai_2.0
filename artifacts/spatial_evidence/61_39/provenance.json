@@ -1,0 +1,39 @@
+{
+  "dataset": "BigEarthNet v2 verified three-sample extract",
+  "determinism": {
+    "canonical_sha256_run_1": "5906f4de2dbcb3d541590b57c802eba14e8a5d8585f591d88bc438eb3e6e3d8c",
+    "canonical_sha256_run_2": "5906f4de2dbcb3d541590b57c802eba14e8a5d8585f591d88bc438eb3e6e3d8c",
+    "runs": 2,
+    "tolerance": "exact JSON equality; float calculations deterministic on this NumPy/runtime"
+  },
+  "evidence_sha256": "5906f4de2dbcb3d541590b57c802eba14e8a5d8585f591d88bc438eb3e6e3d8c",
+  "feature_version": "pixel_features_v1",
+  "model_version": {
+    "croma_checkpoint_sha256": "0238d814b53108f3574bf1ea240e38a0a6edd46173816d9a6962070561893b63",
+    "task_prediction": "UNAVAILABLE; no trained task head for 61_39"
+  },
+  "pixel_source_artifact": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\artifacts\\pixel_feature_probe\\61_39\\receipt.json",
+  "preprocessing_version": "croma_readme_patch_8bit_v1",
+  "sample_id": "61_39",
+  "schema_version": "spatial_evidence_v1",
+  "source_artifact": "E:\\SatQuery_ai_2.0\\Satquery_ai_2.0\\experiments\\outputs\\final_audit\\sample-61_39",
+  "source_hashes": {
+    "optical_B01": "b713addeff3c1041aef25f82ffe4390656cb1f835fc7a324dbeeacff1611c1ed",
+    "optical_B02": "ce5b1f10d6d67c42bcb1717d310f6f8c0b952a0fea339c939878a5f0505992c1",
+    "optical_B03": "2b11dc6dbdaf08087a564ab387c3c6afc2ffbfda43d7a5ad89ef7835830f219d",
+    "optical_B04": "eddbf1b103dcd9c561c5989092ca4d52c1ef141360f127dbb25398c96ff48692",
+    "optical_B05": "bfab15600047364bebde37fe36db6611945c8dc61dda6f446da34bf75778d0c9",
+    "optical_B06": "6bacb895d3615b198972fd008d68d0fea1416cc1cf5f9652a3070e5e8da31916",
+    "optical_B07": "c60c6092fe5ad8698b10f6ba0b66e2668129766c23b7ce343c232ceb302c8729",
+    "optical_B08": "dd88110cf1ca106877d16ea3619a4d38aea74ada4e19e693875b81cebe527fdf",
+    "optical_B09": "59796f5f5b79ceb2a6f52fff89090cdb1d48662984587f1ba89b5db0995d933b",
+    "optical_B11": "064458db502cfc9dbed0ad8eebd965535e1239b5b35b6837387f23e5a3947bdb",
+    "optical_B12": "926b939cbea08304d99d0906373c1e71014021d1edd4b2c9d2c482c4feb7b2a5",
+    "optical_B8A": "6874a9a21aa25186f9bebc607f3c501bf01d9219be72f8766fe858244b352c5e",
+    "sar_VH": "6b28d6f26f947bbf3ce2a380b1aa913475fcb897dacaf28871813deff22ee0e5",
+    "sar_VV": "e11bca8000b3b3bc86f5e7db11a44b188464a2ac2c24c6118351f248d16dd3cd"
+  },
+  "source_receipt_sha256": "3d150ef5d4556fb1d30bdf26b10e8161112dace2de780e302b4fbb1c63989baf",
+  "spatial_mapping_version": "north_up_row_major_120_to_15_v1",
+  "timestamp": "2026-09-11T10:19:56.917855+00:00"
+}
