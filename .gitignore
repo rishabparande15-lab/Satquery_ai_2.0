@@ -8,11 +8,15 @@ __pycache__/
 # configuration, and documentation tracked.
 /experiments/outputs/
 /experiments/pipelines/*/outputs/
+/experiments/comparison/
 
 # Downloaded imagery, archives, and model/data artifacts.
 *.tif
 *.tiff
 *.zip
+*.tar
+*.tar.*
+*.zst
 *.npy
 *.npz
 *.pt
@@ -21,15 +25,37 @@ __pycache__/
 *.safetensors
 *.onnx
 *.parquet
+*.jp2
+*.h5
+*.hdf5
+
+# Machine-local dataset/checkpoint roots. Small contracts and validated JSON
+# manifests under data/, artifacts/, and experiments/ remain intentionally trackable.
+/data/raw/
+/datasets/
+/checkpoints/
 
 # Local environments and temporary files.
 .venv/
 venv/
 env/
 .pytest_cache/
+.pytest-temp/
 .mypy_cache/
 .ruff_cache/
+.coverage
+htmlcov/
 *.log
 *.tmp
 *.temp
 *.swp
+
+# Editors, operating-system metadata, and local credentials.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.pem
+*.key
+credentials.json
+service-account*.json

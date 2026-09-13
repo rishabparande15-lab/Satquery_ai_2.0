@@ -1,0 +1,10 @@
+{
+  "feature": "joint_croma",
+  "dimension": 768,
+  "seed": 17,
+  "epochs": 60,
+  "patience": 10,
+  "batch_size": 1024,
+  "optimizer": "AdamW",
+  "selection": "validation_soft_target_cross_entropy"
+}

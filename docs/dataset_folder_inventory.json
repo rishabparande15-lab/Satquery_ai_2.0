@@ -1,0 +1,15 @@
+{
+  "dataset_root": "E:\\SatQuery_ai_2.0\\datasets_2.0",
+  "exists": true,
+  "inspected_at": "2026-09-11",
+  "entry_count": 2,
+  "zip_count": 2,
+  "additional_files": [],
+  "additional_folders": [],
+  "total_size_bytes": 2390329759,
+  "entries": [
+    {"name": "bigearthnet-v2-5000-20260911T162804Z-1-001.zip", "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip", "type": "file", "size_bytes": 511585298, "last_write_time_utc": "2026-09-11T16:30:04Z"},
+    {"name": "bigearthnet-v2-full-official-20260911T162841Z-1-031.zip", "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip", "type": "file", "size_bytes": 1878744461, "last_write_time_utc": "2026-09-11T17:29:11Z"}
+  ],
+  "notes": ["The sibling path E:\\SatQuery_ai_2.0\\datasets_2.0 was inspected; the project-root path was not used as the dataset root.", "No dataset files were modified, renamed, deleted, or extracted."]
+}

@@ -23,6 +23,8 @@ function harness(fetcher) {
 const ok=data=>Promise.resolve({ok:true,json:async()=>data});
 const result = {analysis_id:"real-fixture-id",status:"completed",llm_explanation:"Feature extraction fixture",
   device:"cpu",runtime_seconds:0.123,features:{spectral:{dimension:52},deep:{pooled_dimension:768},hybrid:{}},
+  interpretation:{status:"ANSWERED",answer:"The derived optical evidence shows moderate vegetation-related spectral evidence.",
+    technical_answer:"Technical vegetation evidence.",provenance:{sample_id:"61_39"},claims:[{claim_id:"vegetation",sensor:"OPTICAL",strength:"MODERATE",source_features:["NDVI"],region_ids:["vegetation-region-000"],token_indices:[1,2]}]},
   validation:{errors:[]},warnings:[],evidence:[],execution_trace:[],confidence:{prediction_status:"unavailable",calibration_status:"uncalibrated",accuracy_status:"no accuracy claim"}};
 function base(url){return url==="/api/samples"?ok({samples:["61_39"]}):ok({busy:false})}
 
@@ -80,4 +82,13 @@ test("server busy state prevents new upload or inference",async()=>{
   await h.submit();
   assert.equal(requests,0);
   assert.match(h.nodes.get("status").textContent,/already running/);
+});
+test("constrained interpretation renders summary, evidence, sensor, region and provenance",async()=>{
+  const h=harness(url=>url==="/api/analyze"?ok(result):base(url));
+  await h.submit();
+  assert.equal(h.nodes.get("answer").textContent,result.interpretation.answer);
+  assert.match(h.nodes.get("interpretation-evidence").textContent,/NDVI/);
+  assert.match(h.nodes.get("interpretation-sensors").textContent,/OPTICAL/);
+  assert.equal(h.nodes.get("interpretation-regions").children.length,1);
+  assert.match(h.nodes.get("interpretation-provenance").textContent,/61_39/);
 });

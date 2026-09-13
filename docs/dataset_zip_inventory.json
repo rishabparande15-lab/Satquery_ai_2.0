@@ -1,0 +1,47 @@
+{
+  "inspection_scope": "Exhaustive outer ZIP entry listing and CRC test; nested ZIP entry listing and CRC test for the selected archive.",
+  "archives": [
+    {
+      "dataset_role": "selected_subset",
+      "filename": "bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+      "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+      "size_bytes": 511585298,
+      "sha256": "B3471E5650BD263367BCF4CC650405AB2981A86621579E21A1B1D08AF630C595",
+      "outer_integrity": "PASS; ZipFile.testzip returned no bad member",
+      "outer_entry_count": 6,
+      "compressed_entry_bytes": 511583576,
+      "uncompressed_entry_bytes": 511860999,
+      "top_level_directories": ["bigearthnet-v2-5000"],
+      "entries": [
+        {"name": "bigearthnet-v2-5000/BigEarthNet-S1-selected.json", "size_bytes": 187, "compressed_bytes": 139},
+        {"name": "bigearthnet-v2-5000/Reference_Maps-selected.json", "size_bytes": 186, "compressed_bytes": 137},
+        {"name": "bigearthnet-v2-5000/metadata.parquet", "size_bytes": 220886, "compressed_bytes": 181996},
+        {"name": "bigearthnet-v2-5000/selection.json", "size_bytes": 350345, "compressed_bytes": 33889},
+        {"name": "bigearthnet-v2-5000/Reference_Maps-selected.zip", "size_bytes": 6339122, "compressed_bytes": 6340092, "nested_entries": 5000, "nested_integrity": "PASS"},
+        {"name": "bigearthnet-v2-5000/BigEarthNet-S1-selected.zip", "size_bytes": 504950273, "compressed_bytes": 505027323, "nested_entries": 10000, "nested_integrity": "PASS"}
+      ]
+    },
+    {
+      "dataset_role": "partial_official_fragments",
+      "filename": "bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
+      "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
+      "size_bytes": 1878744461,
+      "sha256": "599D4AE1F446F8AC61F7693A70A85F1F37326A87EF7A2256F03310A902B91DDE",
+      "outer_integrity": "PASS; ZipFile.testzip returned no bad member",
+      "outer_entry_count": 7,
+      "compressed_entry_bytes": 1878741765,
+      "uncompressed_entry_bytes": 1879048192,
+      "top_level_directories": ["bigearthnet-v2-full-official"],
+      "entries": [
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00128.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00187.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00147.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S1.tar.zst.parts/00058.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00131.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00148.part", "size_bytes": 268435456},
+        {"name": "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00158.part", "size_bytes": 268435456}
+      ],
+      "interpretation": "Seven intact ZIP members are present, but they are non-contiguous parts (S2: 00128, 00131, 00147, 00148, 00158, 00187; S1: 00058). They have no metadata, labels, manifest, or reconstructible complete stream in this archive."
+    }
+  ]
+}

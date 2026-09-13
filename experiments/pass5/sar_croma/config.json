@@ -1,0 +1,9 @@
+{
+  "feature": "sar_croma",
+  "dimension": 768,
+  "seed": 53,
+  "epochs": 80,
+  "patience": 12,
+  "batch_size": 512,
+  "selection": "validation_soft_target_cross_entropy"
+}

@@ -31,13 +31,27 @@ function clearResults() {
   el("results").hidden = true;
   el("download").hidden = true;
   el("download").removeAttribute("href");
-  for (const id of ["answer", "metrics", "evidence", "confidence", "warnings", "trace", "report"]) el(id).replaceChildren();
+  for (const id of ["answer", "metrics", "evidence", "confidence", "warnings", "trace", "report", "interpretation-evidence", "interpretation-sensors", "interpretation-regions", "interpretation-technical", "interpretation-provenance"]) el(id).replaceChildren();
 }
 
 function render(report) {
   el("notice").textContent = report.development_notice || demoNotice;
   el("results").hidden = false;
-  el("answer").textContent = report.llm_explanation;
+  const interpretation = report.interpretation || {};
+  el("answer").textContent = interpretation.answer || report.llm_explanation;
+  el("interpretation-status").textContent = interpretation.status || "UNAVAILABLE";
+  const claims = Array.isArray(interpretation.claims) ? interpretation.claims : [];
+  el("interpretation-evidence").textContent = claims.length ? claims.map(claim => claim.source_features.join(", ") + " (" + claim.strength.toLowerCase() + ")").join("; ") : "No allowlisted claim was emitted for this question.";
+  el("interpretation-sensors").textContent = claims.length ? [...new Set(claims.map(claim => claim.sensor))].join(" + ") + ". Evidence views remain separate unless a genuine joint semantic result exists." : "No supported sensor-specific answer.";
+  for (const claim of claims) {
+    const row=document.createElement("div"); row.className="feature-row";
+    const label=document.createElement("span"); label.textContent=claim.claim_id.replaceAll("_"," ");
+    const value=document.createElement("b"); value.textContent=claim.region_ids.length ? claim.region_ids.length+" regions · tokens "+claim.token_indices.join(", ") : "No supported region";
+    row.append(label,value); el("interpretation-regions").append(row);
+  }
+  if (!claims.length) el("interpretation-regions").textContent="Region evidence unavailable.";
+  el("interpretation-technical").textContent=interpretation.technical_answer || interpretation.answer || "Unavailable.";
+  el("interpretation-provenance").textContent=JSON.stringify(interpretation.provenance || {},null,2);
   const f = report.features;
   for (const [label, value] of [
     ["Physical features", f.spectral.dimension ?? "Unavailable"],

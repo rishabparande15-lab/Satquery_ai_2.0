@@ -1,103 +1,382 @@
-# Satquery_ai_2.0
+# SatQuery AI
 
-Phase 1's strict BigEarthNet/CROMA foundation and integration boundary are documented in [docs/phase1_integration.md](docs/phase1_integration.md).
+SatQuery AI is a local, evidence-first remote-sensing research system for validated Sentinel-1/Sentinel-2 ingestion, CROMA and physical representations, controlled scientific evaluation, spatial evidence, and constrained human-readable answers.
 
-Phase 3's typed, source-independent operational satellite-data backbone is documented in [docs/phase3_core_satellite_orchestration.md](docs/phase3_core_satellite_orchestration.md).
-Phase 3.5's real end-to-end verification is documented in [docs/phase3_5_end_to_end_verification.md](docs/phase3_5_end_to_end_verification.md).
-Phase 2's typed bridge into the existing physical+CROMA fusion pipeline is documented in [docs/phase2_integration.md](docs/phase2_integration.md).
+## Current project status
 
-## SatQuery AI web application
+**YELLOW — PARTIALLY VALIDATED.** The repository has a validated S1/S2 scientific foundation, strict raster and split controls, official CROMA execution, physical features, controlled hybrid-predictor experiments, deterministic pixel/token evidence, constrained interpretation, provenance, a loopback API, and a tested frontend. Validation is limited to the documented BigEarthNet populations and targets. Arbitrary VQA, captioning, learned grounding, temporal/change prediction, calibrated confidence, and a complete agentic controller remain open.
 
-The local application wraps the validated GEE-style/CROMA/hybrid pipeline. It supports real optical-only, SAR-only, and joint analysis from local samples or canonically described multiband GeoTIFF uploads, with AOI intersection/date validation, a 15-step trace, evidence references, honest confidence status, and persistent JSON downloads.
+The browser/API runtime performs feature and evidence analysis. It does not load a trained task head or emit land-cover, object, segmentation, or change predictions. Supervised predictors described below belong to controlled scientific evaluation workflows.
 
-Start it from the project root:
+## Project objective
 
-```powershell
-& 'E:\Python313\python.exe' -m src.api --host 127.0.0.1 --port 8000
+The long-term objective is a multimodal and multitemporal platform that accepts satellite observations and grounded questions, chooses a scientifically appropriate workflow, and returns evidence-backed results. The current system covers single-date optical, SAR, and joint representation analysis plus spatial evidence and controlled interpretation. Multitemporal prediction and open-ended vision-language behavior are future work.
+
+## Current capabilities
+
+- Sentinel-1 VV/VH and canonical 12-band Sentinel-2 ingestion.
+- Strict identity, band, CRS, transform, extent, orientation, finite-value, AOI, and date validation.
+- B02-grid alignment and the established CROMA normalization profile.
+- Official CROMA optical, SAR, and joint token/scene representations.
+- Optical/SAR physical statistics and spectral/radar relationships.
+- Current physical+CROMA hybrid representation and controlled trained-probe evaluation.
+- Pixel, local-window, edge, and 8×8 block aggregation as a spatial sidecar.
+- A 15×15 / 225-token evidence model, deterministic regions, traceable claims, and provenance.
+- Fail-closed, template-based human-readable interpretation without an LLM/VLM.
+- Persisted scientific artifacts, hashes, manifests, predictions, metrics, and reports.
+- Loopback HTTP API, upload validation, immutable JSON reports, and a browser frontend.
+
+## Scientific architecture
+
+```text
+Sentinel-1 / Sentinel-2
+          ↓
+Strict validation and identity checks
+          ↓
+Alignment and preprocessing
+          ↓
+Official CROMA representations
+          +
+Physical feature vector
+          ↓
+Physical + CROMA hybrid representation
+          ↓
+Validation-selected scientific prediction head
+          ↓
+Held-out evaluation, metrics, leakage audit, provenance
 ```
 
-Open `http://127.0.0.1:8000`, choose sample `61_39`, and run the default joint optical/SAR query. This performs actual local raster validation, 62 GEE-style physical features, official CROMA representations pooled to 2,304 values, and deterministic untrained fusion to 192 values. It deliberately does not emit land-cover, water, segmentation, or change predictions.
+Validation rejects malformed or mismatched inputs. Preprocessing creates CROMA-compatible tensors without relabelling or silently inventing data. CROMA and physical features are separate inputs to the hybrid representation. In controlled experiments, train-only scaling and training fit the predictor, validation selects the epoch, and the test split is used for final evaluation. The web runtime stops at representations/evidence because it has no deployed trained task head.
 
-For a no-server demo report:
+## Pixel and spatial-evidence architecture
 
-```powershell
-& 'E:\Python313\python.exe' -c "from src.analysis_engine import run_analysis, save_report; print(save_report(run_analysis({'query':'Analyze the optical and SAR characteristics of this local region.','sample_id':'61_39'})))"
+```text
+Raw pixels
+    ↓
+Pixel features and local statistics
+    ↓
+Non-overlapping 8×8 blocks
+    ↓
+15×15 row-major grid / 225 spatial tokens
+    ↓
+Four-connected deterministic evidence regions
+    ↓
+Validated evidence claims
 ```
 
-Temporal requests without spatially corresponding, dated before/after images are rejected. A pair that passes validation still returns an explicit unavailable status: the web temporal algorithm is not implemented. The three development samples are not a temporal pair.
+The sidecar retains fine-grained B04/B08, optical indices, VV/VH, polarization difference, 3×3/5×5/7×7 local variability, and NDVI edge information. Block summaries include mean, standard deviation, minimum, maximum, median, p25, p75, and valid ratio. It is an explainability/evidence path, not the default predictor.
 
-### QA release behavior
+## Interpretation architecture
 
-| Mode | Physical features | CROMA pooled values | Hybrid values |
-| --- | ---: | ---: | ---: |
-| Optical only | 52 | 768 | Not applicable |
-| SAR only | 9 | 768 | Not applicable |
-| Joint optical + SAR | 62 | 2304 | 192 |
+```text
+Validated spatial evidence
+           ↓
+Exact allowlisted claim filter
+           ↓
+Question route + controlled sentence templates
+           ↓
+Human-readable answer + structured traceability
+```
 
-The joint 62-feature schema is preserved for cache/checkpoint compatibility. Its two legacy SAR relationship features are clipped and are explicitly labelled as unsuitable for physical dB-ratio interpretation. SAR-only mode computes VV/VH channel statistics and the unclipped mean VV-minus-VH in the input units. No dummy modality is supplied to CROMA. The official model is cached once per source/checkpoint/device, with serialized inference and an HTTP 409 busy response for overlapping analyses.
+The adapter preserves epistemic status, evidence strength, sensor, features, token/region IDs, projected extents, source artifacts, and provenance. Unsupported semantics fail closed. It cannot turn vegetation evidence into a forest identity, water evidence into a named river, or pixels into object counts or calibrated confidence.
 
-Uploads are limited to 32 MiB combined (including form overhead), 4 million band-pixels per TIFF, and explicit optical/SAR/before/after roles. Optical uploads require 12 bands; SAR requires VV/VH. Canonical band descriptions are honored, otherwise the user must confirm the documented band order. GeoTIFFs with invalid CRS, missing values or incompatible grids are rejected. CROMA requires 120x120 pixels; other validated sizes yield physical features with an explicit partial result. AOI coordinates check intersection only; statistics cover the entire raster, without implicit cropping. Dates filter actual acquisition metadata rather than relabelling demo data.
+## Combined system architecture
 
-The API accepts opaque upload IDs, not server paths. Consumed uploads are removed before the response; abandoned uploads expire after 15 minutes (30-second cleanup sweep). Reports persist across restarts and never overwrite an existing ID. Keep the application on loopback: it is a development server, not an authenticated public deployment. The UI times out after 120 seconds; it does not interrupt an already running native model operation.
+```text
+User
+ ↓
+Frontend
+ ↓
+Loopback API
+ ↓
+Query and input validation
+ ↓
+Analysis pipeline
+ ├── Optical physical + CROMA
+ ├── SAR physical + CROMA
+ ├── Joint CROMA and physical features
+ ├── Current hybrid representation / scientific predictor workflow
+ ├── Pixel and local-feature sidecar
+ ├── Structured spatial evidence
+ └── Constrained interpretation
+             ↓
+Evidence-grounded response
+             ↓
+Immutable report, artifacts, hashes, provenance
 
-Install runtime dependencies using requirements.txt and QA dependencies using requirements-dev.txt. Node.js is needed for the pure JavaScript state tests. Run the complete checks:
+Future, not completed:
+VQA · captioning · learned grounding · temporal/change prediction
+confidence calibration · complete agentic controller
+```
+
+## Datasets
+
+### Selected BigEarthNet v2 5,000-area archive
+
+`bigearthnet-v2-5000-20260911T162804Z-1-001.zip` contains 5,000 areas, 10,000 Sentinel-1 TIFFs (VV/VH), 5,000 reference maps, and a 5,000-row metadata table with 19 CORINE-style labels. It has no Sentinel-2 rasters and no VQA, caption, box, mask, or change annotations. It supports the leakage-controlled Pass 5 SAR evaluation after excluding all 1,000 Pass 3 areas. The archive stays outside Git.
+
+### Matching local Sentinel-2
+
+`D:\Satquery_ai datasets\comparison\raw-1000\BigEarthNet-S2` supplied the matching S2 imagery used by the controlled Pass 3 and Pass 5D reproduction. That 1,000-area population overlaps the selected 5,000-area archive and is not an independent new holdout.
+
+### BigEarthNet.txt
+
+The pinned BigEarthNet.txt linkage audit matched 955 of the 1,000 selected images and 20,453 annotation records. It established identity/linkage and split preservation. Those annotations were inspected for future task planning; they are not an integrated or validated VQA model.
+
+### Fragmented official archive
+
+`bigearthnet-v2-full-official-20260911T162841Z-1-031.zip` contains seven non-contiguous `.tar.zst` fragments without the remaining parts, metadata, labels, or an authoritative reassembly manifest. It is not usable as a standalone training/evaluation source. Dataset contracts live in [`data/contracts`](data/contracts); raw data stays external.
+
+## Model and evidence components
+
+| Component | Input | Output | Purpose |
+|---|---|---|---|
+| CROMA | Normalized optical `[N,12,120,120]`, SAR `[N,2,120,120]`, or both | Spatial tokens and GAP scene vectors | Frozen pretrained representation extraction |
+| Physical pipeline | Canonical optical/SAR rasters | 52 optical, 9 SAR, or legacy joint 62 values | Interpretable scene statistics and indices |
+| Current hybrid | 62 physical + 2,304 pooled CROMA values | 192-value scene representation | Default feature representation for the current hybrid scientific predictor |
+| Pixel/local sidecar | Raw aligned optical/SAR pixels | Feature maps and 225-token summaries | Spatial detail and explainability |
+| Spatial evidence engine | Pixel/token features, geometry, source metadata | `spatial_evidence_v1` scene/tokens/regions/claims | Deterministic traceable evidence |
+| Interpretation adapter | Validated evidence + controlled question | Answer, claims, evidence links, provenance | Readable evidence presentation without free-form generation |
+
+The current hybrid remains the default predictor architecture. Pass 5D Version B is not promoted into production.
+
+## Verified CROMA and hybrid outputs
+
+The final real `61_39` API run confirmed:
+
+| Output | Shape |
+|---|---:|
+| Optical CROMA tokens | `[1,225,768]` |
+| SAR CROMA tokens | `[1,225,768]` |
+| Joint CROMA tokens | `[1,225,768]` |
+| Optical/SAR/joint scene vector, each | `[1,768]` |
+| Concatenated pooled CROMA | `[1,2304]` |
+| Physical features | `[1,62]` |
+| Hybrid representation | `[1,192]` |
+
+## Physical features
+
+The joint schema contains mean, standard deviation, minimum, and maximum for all 12 optical bands and VV/VH, plus mean NDVI, NDWI, MNDWI, NDBI, VV-minus-VH, and VH-over-VV: 62 values total. The two legacy joint SAR relationship values are clipped to `[-1,1]` for checkpoint compatibility and must not be presented as physical dB ratios. Optical-only mode produces 52 values; SAR-only mode produces VV/VH statistics plus mean VV-minus-VH for 9 values.
+
+## Pixel feature layer and Pass 5D decision
+
+Pass 5B investigated whether pixel/local/token summaries add useful spatial or predictive information. Pixel-to-token orientation and aggregation passed exactly. Pass 5D then compared the unchanged current pipeline with a pixel-enhanced candidate on the same 600/200/200 reproduction split:
+
+| Version | MAE pp | RMSE pp | Dominant accuracy |
+|---|---:|---:|---:|
+| A — current hybrid | 4.884571 | 11.025107 | 59.5% |
+| B — pixel/local/token enhanced | 4.846286 | 10.936235 | 58.5% |
+
+The paired MAE change was −0.0383 pp with a 95% interval of `[−0.1211,+0.0435]`, while accuracy decreased one point. This did not establish statistically defensible predictive superiority. Version A remains the default predictor; the pixel/token layer remains the spatial-explainability sidecar.
+
+## Spatial evidence
+
+`spatial_evidence_v1` maps each 120×120 scene into 225 row-major 8×8 blocks, groups thresholded tokens into deterministic regions, and links every claim back to feature values, token IDs, region geometry, source artifacts, and provenance. The canonical `61_39` artifact contains 225 tokens, 17 regions, and three supported claims: vegetation-related optical evidence, water-related optical evidence, and SAR polarization-contrast evidence. Two independent builds produced canonical SHA-256 `5906f4de2dbcb3d541590b57c802eba14e8a5d8585f591d88bc438eb3e6e3d8c`.
+
+No learned segmentation, object detection, or joint optical-SAR semantic claim is inferred merely because both sensors are present.
+
+## Human-readable interpretation
+
+`constrained_interpretation_v1` converts exact validated claims into simple or technical text. A verified generated answer includes:
+
+> The derived optical evidence shows moderate vegetation-related spectral evidence.
+
+> The derived SAR evidence shows moderate polarization-related surface variation.
+
+These are inferred statements over derived evidence, not model predictions or confidence claims. The adapter is deterministic and rejects altered claim wording, unsupported sensors/features, fabricated predictions, fake joint semantics, and unsupported questions.
+
+## Scientific results
+
+The controlled Pass 3 scene-level coverage experiment used a fixed 600/200/200 geographic-area split:
+
+| Model | MAE pp |
+|---|---:|
+| Constant | 7.6984 |
+| Physical | 7.7384 |
+| Optical CROMA | 5.5708 |
+| SAR CROMA | 5.6489 |
+| Joint CROMA | 4.9815 |
+| Hybrid | 4.8846 |
+
+Joint CROMA outperformed the individual CROMA branches on this experiment, and the existing hybrid achieved the lowest listed MAE. Scope is limited to the selected population, scene-level labelled-pixel coverage target, split, and evaluation protocol. It is not evidence of general VQA, token grounding, or deployment performance.
+
+An earlier distinct Phase 3.6 token-coverage comparison is retained as historical scientific evidence and must not be conflated with this scene-level table; its target granularity and probe design differ.
+
+## Testing and final checkpoint
+
+Final checkpoint verification on 2026-09-13:
+
+| Gate | Result |
+|---|---|
+| Python tests | 190 passed |
+| Frontend state tests | 7 passed |
+| Python compilation | PASS |
+| JavaScript syntax/static diagnostics | PASS |
+| Real sample `61_39` | PASS |
+| Application startup and health | PASS |
+| Real analysis/report API round trip | PASS |
+| CROMA/physical/hybrid shapes | PASS |
+| Pixel/token/region evidence | PASS |
+| Supported/adversarial interpretation questions | PASS |
+
+Browser automation was attempted, but the provided Windows computer-use Node runtime could not start. Live HTML/API checks and frontend state tests passed; this does not claim a visual cross-browser review.
+
+## Provenance and reproducibility
+
+- Area identities, source hashes, grids, transforms, normalization, model versions, splits, and environment details are persisted.
+- Train/validation/test units are whole geographic areas; joins use canonical identities rather than directory order.
+- Pass 3 repeated predictions and metrics are byte-identical in the tested environment.
+- Metrics have independent recomputation tests; checkpoint and artifact receipts verify hashes.
+- Pass 5C evidence and Pass 5E semantic outputs are deterministic.
+- Cross-device bitwise equality is not claimed.
+
+## Repository and data hygiene
+
+Raw imagery, archives, NumPy tensors, checkpoints, environments, credentials, caches, and generated scratch outputs are excluded by `.gitignore`. External dataset/checkpoint paths are machine-local. Small contracts, schemas, manifests, metrics, predictions, scientific reports, and provenance are intentionally preserved for reproducibility. The cleanup and classification record is [`docs/repository_cleanup_report.md`](docs/repository_cleanup_report.md).
+
+## Supported user questions
+
+The constrained adapter currently routes:
+
+- “What is present?”
+- “Is there vegetation?”
+- “Where is vegetation-related evidence?”
+- “Is there water?”
+- “Where is water-related evidence?”
+- “What does SAR show?”
+- “What evidence supports the answer?”
+- “Show technical details.”
+
+Scene heterogeneity returns unavailable unless the exact validated heterogeneity claim exists.
+
+## Unsupported capabilities
+
+- Arbitrary VQA and free-form image interpretation.
+- Object counting, arbitrary object detection, and exact identity/location claims.
+- Caption generation and learned/referring-expression grounding.
+- Learned segmentation in the evidence sidecar.
+- Temporal/change prediction; only pair validation exists in the web path.
+- Calibrated model or query confidence.
+- A complete autonomous/agentic task controller.
+
+## Roadmap
+
+1. Scientific foundation — **COMPLETE**
+2. Spatial/pixel evidence — **COMPLETE**
+3. Constrained interpretation — **COMPLETE**
+4. VQA — **NEXT**
+5. Captioning and learned grounding
+6. Temporal/change modelling
+7. Confidence calibration
+8. Agentic controller
+9. Domain-specific and final evaluation
+
+Roadmap entries after Phase 3 are plans, not implemented capabilities.
+
+## Reproduction
+
+Create an environment and install dependencies:
 
 ```powershell
-& 'E:\Python313\python.exe' -m pytest -q
-& 'E:\Python313\python.exe' -m compileall -q src tests
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt -r requirements-dev.txt
+Copy-Item .env.example .env
+```
+
+Edit `.env` to point to external dataset, official CROMA source, and checkpoint locations. Do not copy those assets into Git.
+
+Run the complete automated gate:
+
+```powershell
+python -m pytest -q
 node --test tests/frontend_state.test.cjs
-& 'E:\Python313\python.exe' -m src.qa_release
-& 'E:\Python313\python.exe' -m src.qa_runtime
+python -m compileall -q src tests scripts
+node --check src/static/app.js
+git diff --check
 ```
 
-The release audit requires the website to be running on port 8000 and uses real sample 61_39. It writes timestamped reports under experiments/outputs/qa_release. qa_runtime measures separate-process startup and audits the previously stored native temporal exports without retrieving or changing them. Browser visual verification remains unconfirmed because computer-use automation stopped on its current-URL policy check; HTTP and pure-JavaScript tests do not substitute for that verification.
-
-## CROMA Feature Inspection
-
-The verified BigEarthNet samples and saved CROMA features remain outside the project on D:. Run the inspection from the project root with:
+Start the local application:
 
 ```powershell
-cmd /c python -m src.inspect_features
+python -m src.api --host 127.0.0.1 --port 8000
 ```
 
-Visualizations are written to `D:\Satquery_ai datasets\croma_features\inspection\` and the machine-readable summary is written to `D:\Satquery_ai datasets\croma_features\inspection_report.json`. The module uses the existing loader and preprocessing path, preserves `[12, 120, 120]` optical and `[2, 120, 120]` SAR tensors, and treats CROMA encodings as 225-token (`15 x 15`) maps.
-
-## Hybrid BigEarthNet Proof Of Concept
-
-The supplied `bigearthnet-v2-three-samples.zip` is preserved at `D:\Satquery_ai datasets\bigearthnet-v2-three-samples.zip`. The local hybrid proof of concept uses its extracted copy, combines physical/geospatial features with official CROMA pooled optical, SAR, and joint representations, and writes compact reports under `experiments/outputs/hybrid_poc/`.
-
-Run inspection:
+Run sample `61_39` without the server:
 
 ```powershell
-& 'E:\Python313\python.exe' -m src.inspect_dataset --dataset-root 'D:\Satquery_ai datasets\extracted\small-sample'
+python -c "from src.analysis_engine import run_analysis; import json; print(json.dumps(run_analysis({'query':'What is present?','analysis_type':'joint_optical_sar_analysis','sample_id':'61_39','files':{}}), indent=2))"
 ```
 
-Run the end-to-end hybrid pipeline:
+Regenerate Pass 5C evidence into an ignored output directory before comparing it with the canonical artifact:
 
 ```powershell
-& 'E:\Python313\python.exe' -m src.hybrid_pipeline --dataset-root 'D:\Satquery_ai datasets\extracted\small-sample' --output-root 'E:\SatQuery_ai_2.0\Satquery_ai_2.0\experiments\outputs\hybrid_poc'
+python scripts/build_spatial_evidence.py --out experiments/outputs/check/spatial_61_39
 ```
 
-The three samples are single-date patches, not temporal pairs. The prototype performs feature extraction and fusion only; supervised training and scientific accuracy claims require a larger labeled dataset and valid before/after pairs.
-
-## Training-Ready Workflow
-
-When a larger labeled BigEarthNet-compatible root is supplied, prepare reproducible splits and compact cached features:
+Run the six-area scientific smoke evaluation:
 
 ```powershell
-& 'E:\Python313\python.exe' -m src.prepare_training --dataset-root '<DATASET_ROOT>' --cache-root 'experiments/outputs/training_ready/feature_cache' --split-manifest 'experiments/outputs/training_ready/splits.json' --device cuda
+python -m src.scientific_smoke --dataset-root 'D:\Satquery_ai datasets\comparison\raw-1000' --output-root experiments\outputs\smoke-check --per-split 2 --epochs 8 --device cuda
 ```
 
-Train the configurable 19-class multi-label head only after enough samples are available:
+The full 600/200/200 Pass 3 and Pass 5D experiments are persisted and should not be rerun merely for a repository check. Their reproduction commands and external prerequisites are documented in [`docs/pass3_scientific_validation.md`](docs/pass3_scientific_validation.md) and [`docs/pass5d_reproducibility.md`](docs/pass5d_reproducibility.md).
 
-```powershell
-& 'E:\Python313\python.exe' -m src.train_landcover --cache-root 'experiments/outputs/training_ready/feature_cache' --split-manifest 'experiments/outputs/training_ready/splits.json' --output-root 'experiments/outputs/training_ready/model' --device cuda
+## Directory structure
+
+```text
+src/
+  api.py                         loopback HTTP API
+  analysis_engine.py             validated runtime orchestration
+  croma_adapter.py               official CROMA boundary
+  dataset_loader.py              strict BigEarthNet ingestion
+  gee_features.py                physical features
+  pixel_features.py              pixel/local/token sidecar
+  evidence_schema.py             spatial_evidence_v1
+  interpretation_adapter.py      constrained evidence-to-text
+tests/                           Python and frontend regression tests
+docs/                            scientific, audit, design, and cleanup reports
+experiments/
+  pass3/                         validated 600/200/200 artifacts
+  pass5/                         leakage-controlled SAR generalization
+  pass5d/                        A/B predictor comparison
+  outputs/                       ignored generated runtime output
+artifacts/
+  pixel_feature_probe/61_39/     Pass 5B metadata/diagnostic
+  spatial_evidence/61_39/        canonical Pass 5C evidence
+  interpretation/61_39/          generated Pass 5E answers/provenance
+data/contracts/                  small dataset contracts, no imagery
 ```
 
-Evaluate only the untouched test split:
+## Scientific reports
 
-```powershell
-& 'E:\Python313\python.exe' -m src.evaluate_landcover --cache-root 'experiments/outputs/training_ready/feature_cache' --split-manifest 'experiments/outputs/training_ready/splits.json' --checkpoint 'experiments/outputs/training_ready/model/best.pt' --output 'experiments/outputs/training_ready/evaluation/test_report.json' --device cuda
-```
+- [Scientific gap analysis](docs/scientific_gap_analysis.md)
+- [Scientific implementation plan](docs/scientific_implementation_plan.md)
+- [Pass 3 scientific validation](docs/pass3_scientific_validation.md)
+- [Pass 3 leakage audit](docs/pass3_leakage_audit.md)
+- [Pass 4 dataset audit](docs/pass4_dataset_quality_audit.md)
+- [Pass 5B pixel feasibility](docs/pixel_feature_feasibility.md)
+- [Pass 5C spatial evidence audit](docs/spatial_evidence_audit.md)
+- [Pass 5D A/B report](docs/pass5d_pixel_vs_baseline_report.md)
+- [Pass 5E interpretation audit](docs/interpretation_adapter_audit.md)
+- [Final pipeline audit](docs/FINAL_PIPELINE_AUDIT.md)
+- [Repository cleanup report](docs/repository_cleanup_report.md)
 
-Training uses BCE-with-logits, sigmoid probabilities, micro/macro F1, per-class precision/recall/F1, Hamming loss, exact-match accuracy, and mean average precision. Confidence is explicitly marked uncalibrated until calibration data is available.
+## Final honest summary
+
+**CURRENTLY VALIDATED**
+
+- Scientific S1/S2/CROMA foundation.
+- Physical feature pipeline and controlled hybrid prediction.
+- Pixel/local spatial-evidence sidecar.
+- Structured deterministic evidence and constrained human-readable interpretation.
+- Provenance, artifact integrity, reproducibility, API, and frontend integration.
+
+**NOT YET VALIDATED**
+
+- Arbitrary VQA.
+- Captioning.
+- Learned grounding.
+- Temporal/change prediction.
+- Calibrated confidence.
+- Complete agentic controller.

@@ -36,6 +36,7 @@ from .phase3_orchestration import (
     validate_spatial_pair,
 )
 from .config import get_settings
+from .scientific_artifacts import save_artifact_bundle, verify_artifact_bundle
 
 
 def _sha256(path: Path) -> str:
@@ -90,6 +91,8 @@ class EndToEndRun:
     physical_features: np.ndarray
     croma_features: dict[str, torch.Tensor]
     hybrid_features: np.ndarray
+    raw_optical: np.ndarray
+    raw_sar: np.ndarray
 
 
 def run(dataset_root: Path, *, sample_id: str = "61_39", device: str | None = None,
@@ -199,7 +202,25 @@ def run(dataset_root: Path, *, sample_id: str = "61_39", device: str | None = No
         "SAR_GAP": phase2_input.sar_gap,
         "joint_GAP": phase2_input.joint_gap,
     }
-    return EndToEndRun(receipt, result, phase2_input, phase2_input.physical_features.copy(), croma_features, hybrid)
+    return EndToEndRun(receipt, result, phase2_input, phase2_input.physical_features.copy(), croma_features, hybrid,
+                       item.raw_optical.copy(), item.raw_sar.copy())
+
+
+def write_artifacts(run_result: EndToEndRun, root: Path) -> Path:
+    arrays = {
+        "raw_optical": run_result.raw_optical,
+        "raw_sar": run_result.raw_sar,
+        "physical_features": run_result.physical_features[0],
+        "pooled_croma_features": run_result.phase2_input.pooled_croma_features[0],
+        "hybrid_features": run_result.hybrid_features[0],
+    }
+    arrays.update({f"croma_{key}": value[0].numpy() for key, value in run_result.croma_features.items()})
+    receipt = save_artifact_bundle(root, sample_id=run_result.receipt["sample_id"], arrays=arrays,
+                                   provenance=run_result.receipt["provenance"])
+    verify_artifact_bundle(root)
+    path = Path(root) / "receipt.json"
+    assert receipt["status"] == "complete"
+    return path
 
 
 def write_receipt(run_result: EndToEndRun, path: Path) -> Path:
@@ -215,9 +236,12 @@ def main() -> None:
     parser.add_argument("--device", default=None)
     parser.add_argument("--split", choices=("train", "validation", "test"), default="test")
     parser.add_argument("--receipt", type=Path, default=Path("experiments/outputs/phase3_5/end_to_end_receipt.json"))
+    parser.add_argument("--artifacts", type=Path, default=None)
     args = parser.parse_args()
     result = run(args.dataset_root or get_settings().dataset_root, sample_id=args.sample_id, device=args.device, split=args.split)
     write_receipt(result, args.receipt)
+    if args.artifacts:
+        write_artifacts(result, args.artifacts)
     print(json.dumps({"status": result.receipt["status"], "sample_id": args.sample_id, "receipt": str(args.receipt), "output_shapes": result.receipt["output_shapes"]}, indent=2))
 
 

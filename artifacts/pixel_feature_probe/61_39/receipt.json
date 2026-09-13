@@ -1,0 +1,1258 @@
+{
+  "artifact_version": 1,
+  "status": "complete",
+  "sample_id": "61_39",
+  "arrays": {
+    "valid_mask": {
+      "file": "valid_mask.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "uint8",
+      "sha256": "d17d19939e43f4510f300e59323ea9d32ebb90cf6cbc40d81117b9b1e6bae2ec"
+    },
+    "B04": {
+      "file": "B04.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "f442dcf8911ff2d739c4e7d312374c6d91c5ece0ae8049c4b033f246c0b77241"
+    },
+    "B08": {
+      "file": "B08.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "bd8dcd00c7e2b6ec2e1603a74f6bfe0f430aca6da4d7102197b7b3bdd1eb0c47"
+    },
+    "NDVI": {
+      "file": "NDVI.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "9cecfb84b7c4c4206d452491ec3041a8d0aa46a6d52063daad61ecb6e18bae17"
+    },
+    "NDWI": {
+      "file": "NDWI.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "c0b862f3d2a3188da348553e8ce91d3bde74b23b130fecade29109821859ab6b"
+    },
+    "MNDWI": {
+      "file": "MNDWI.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "2c1bde3c02eba10012bbb05d9af9e972dc3961a1622b434b42bcde4d3e3dffc1"
+    },
+    "NDBI": {
+      "file": "NDBI.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "5f757408e71caf39b5070e2d52b4ccd1f0c2b605b908675469d0c04c2af8175d"
+    },
+    "BSI": {
+      "file": "BSI.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "96068f684fcc25d82c6c530b950d58a653c173788ac4560a24eba7f1b3427920"
+    },
+    "VV": {
+      "file": "VV.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "df8d668016bb420d35aee4539a2208e8d81963a1c42e70949a0c6656efae9c1a"
+    },
+    "VH": {
+      "file": "VH.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "1aaf5f1331bafa5d4489f7f59b14f4fa68e34277c7b5b0ea82ff466faae3c824"
+    },
+    "VV_minus_VH": {
+      "file": "VV_minus_VH.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "45708fe67e6236923c714c08f67820c04e8ef23adeead15fdafebe396c3ec5b1"
+    },
+    "NDVI_local_std_3": {
+      "file": "NDVI_local_std_3.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "281ab40e51e6459ef658b16478e09cd274e7b8df1303fcebc2704c00d13d0cdf"
+    },
+    "NDVI_local_std_5": {
+      "file": "NDVI_local_std_5.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "1f7a3e84043d0a1032da17b467ba92b87eb84cab0e01d0b61bc99c5492bab4b5"
+    },
+    "NDVI_local_std_7": {
+      "file": "NDVI_local_std_7.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "2aba1830ebb6d60a5cb097534ece83414051b51c8a8cfb3f36aaf9778fe1df80"
+    },
+    "VV_local_std_3": {
+      "file": "VV_local_std_3.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "54b543f3ec9b71af86c0af9d47d5ad036fde2d57429204682df894c0d2a5858c"
+    },
+    "VV_local_std_5": {
+      "file": "VV_local_std_5.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "a63ca7b7af8a9de2364d4c822ebb0eeddf2a66482984e608995e03ca124788f8"
+    },
+    "VV_local_std_7": {
+      "file": "VV_local_std_7.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "509933c9159b04dd573988c5731bba58f378a5175b882cea29db6bd903ac21fd"
+    },
+    "NDVI_edge_strength": {
+      "file": "NDVI_edge_strength.npy",
+      "shape": [
+        120,
+        120
+      ],
+      "dtype": "float32",
+      "sha256": "f8cd8bc0aabc17b3e465a7dbf40b0fe9aa685d25adc4ae83cf19e15e22fdcd21"
+    },
+    "token_B04": {
+      "file": "token_B04.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "d72d5788e75d0492ad361b207fadd9b3af9b18c45b125c4a9aa489213c9f2c3c"
+    },
+    "token_B08": {
+      "file": "token_B08.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "adf85f657f617beaa0b1e5448e7ff02a24a269bb8a3be65e035916e5570ba22e"
+    },
+    "token_NDVI": {
+      "file": "token_NDVI.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "adf0177524dcef967dac7ce0690df7a304fd3a7b308478249d6098006a4aaa25"
+    },
+    "token_NDWI": {
+      "file": "token_NDWI.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "5cebdb4122339776b56ea3418298ceead21df0f3bb0c2407601069e6d49ca5c0"
+    },
+    "token_MNDWI": {
+      "file": "token_MNDWI.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "f8d7d8d2ca020417557d1148ee30980132d223c99639993bc9c2945d80bd99c8"
+    },
+    "token_NDBI": {
+      "file": "token_NDBI.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "c1ae09d90e860f580d1399c4e4067e07dca9ed22f0d28a44fc8c120d4b233b25"
+    },
+    "token_BSI": {
+      "file": "token_BSI.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "2a2bbf3865d87017f8687b40e5a0e5ffed9e198f0640830eaae1d009d830e85e"
+    },
+    "token_VV": {
+      "file": "token_VV.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "3eac209653f505b9b8119f60e56e2a0e61b742a0e697ee440cbc82a8e72938bb"
+    },
+    "token_VH": {
+      "file": "token_VH.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "8cabc93098457bebd8cd932d52708c247465c9e2c5898977737c6fc06b8eb569"
+    },
+    "token_VV_minus_VH": {
+      "file": "token_VV_minus_VH.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "1665b4b7ceab9740865d0b259efbe9f5427f8f8d86899539221580dfe7dfcd11"
+    },
+    "token_NDVI_local_std_3": {
+      "file": "token_NDVI_local_std_3.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "695079a608dc9e77d4ec5908fdd4a48f1cd81efec3cc8611f656a880200774c5"
+    },
+    "token_NDVI_local_std_5": {
+      "file": "token_NDVI_local_std_5.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "9ca53e4ce83d9a7d710e9543801a840dec48e7fb244bc8c0dad0b3a71a6f6d5e"
+    },
+    "token_NDVI_local_std_7": {
+      "file": "token_NDVI_local_std_7.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "c7a0dc8344d7511e8dd4bf71d830963a53d999cd71dcaccc84eec4d43ba27a17"
+    },
+    "token_VV_local_std_3": {
+      "file": "token_VV_local_std_3.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "eff2144b5df4a07aa94aa35b63ef2712e363c80d1a848fd6ff133141d64c23c0"
+    },
+    "token_VV_local_std_5": {
+      "file": "token_VV_local_std_5.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "2a1d688ecef82fac0762d9181a732bb90cbb69194b590b249833f6d9dac644bb"
+    },
+    "token_VV_local_std_7": {
+      "file": "token_VV_local_std_7.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "0b125bc42d8208f36c79979f5040dfdd1ba9b33789f96efd4d6e1912345fe2e6"
+    },
+    "token_NDVI_edge_strength": {
+      "file": "token_NDVI_edge_strength.npy",
+      "shape": [
+        225,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "080c4a6b15a962cafb4346d48ce432b6d2d5e972bf85fc5510f8b25c9b651a2f"
+    }
+  },
+  "provenance": {
+    "dataset": "BigEarthNet v2 three-sample verified extract",
+    "sample_id": "61_39",
+    "source_bands": {
+      "optical": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar": [
+        "VV",
+        "VH"
+      ]
+    },
+    "formulas_version": "pixel_features_v1",
+    "preprocessing": "raw bands reprojected to B02 grid; indices computed before normalization",
+    "grid": {
+      "shape": [
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "bounds": [
+        373200.0,
+        5352000.0,
+        374400.0,
+        5353200.0
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        373200.0,
+        0.0,
+        -10.0,
+        5353200.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dtype_reference": "uint16",
+      "optical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "sar_band_order": [
+        "VV",
+        "VH"
+      ],
+      "optical_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+      "sar_normalization": "per-channel mean +/- 2 std, clipped to [0, 1]; nodata=0",
+      "optical_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+      "sar_resampling": "rasterio.warp.reproject bilinear to B02 10 m grid",
+      "reference_map_resampling": "not applied; categorical map retained at native 10 m",
+      "reference_shape": [
+        120,
+        120
+      ]
+    },
+    "source_files": {
+      "optical": {
+        "B01": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B01.tif",
+          "shape": [
+            20,
+            20
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            60.0,
+            0.0,
+            373200.0,
+            0.0,
+            -60.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            60.0,
+            60.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 400,
+          "invalid_pixels": 0,
+          "sha256": "b713addeff3c1041aef25f82ffe4390656cb1f835fc7a324dbeeacff1611c1ed"
+        },
+        "B02": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B02.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "ce5b1f10d6d67c42bcb1717d310f6f8c0b952a0fea339c939878a5f0505992c1"
+        },
+        "B03": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B03.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "2b11dc6dbdaf08087a564ab387c3c6afc2ffbfda43d7a5ad89ef7835830f219d"
+        },
+        "B04": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B04.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "eddbf1b103dcd9c561c5989092ca4d52c1ef141360f127dbb25398c96ff48692"
+        },
+        "B05": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B05.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "bfab15600047364bebde37fe36db6611945c8dc61dda6f446da34bf75778d0c9"
+        },
+        "B06": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B06.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "6bacb895d3615b198972fd008d68d0fea1416cc1cf5f9652a3070e5e8da31916"
+        },
+        "B07": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B07.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "c60c6092fe5ad8698b10f6ba0b66e2668129766c23b7ce343c232ceb302c8729"
+        },
+        "B08": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B08.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "dd88110cf1ca106877d16ea3619a4d38aea74ada4e19e693875b81cebe527fdf"
+        },
+        "B09": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B09.tif",
+          "shape": [
+            20,
+            20
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            60.0,
+            0.0,
+            373200.0,
+            0.0,
+            -60.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            60.0,
+            60.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 400,
+          "invalid_pixels": 0,
+          "sha256": "59796f5f5b79ceb2a6f52fff89090cdb1d48662984587f1ba89b5db0995d933b"
+        },
+        "B11": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B11.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "064458db502cfc9dbed0ad8eebd965535e1239b5b35b6837387f23e5a3947bdb"
+        },
+        "B12": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B12.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "926b939cbea08304d99d0906373c1e71014021d1edd4b2c9d2c482c4feb7b2a5"
+        },
+        "B8A": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B8A.tif",
+          "shape": [
+            60,
+            60
+          ],
+          "dtype": "uint16",
+          "crs": "EPSG:32633",
+          "transform": [
+            20.0,
+            0.0,
+            373200.0,
+            0.0,
+            -20.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            20.0,
+            20.0
+          ],
+          "nodata": 0.0,
+          "valid_pixels": 3600,
+          "invalid_pixels": 0,
+          "sha256": "6874a9a21aa25186f9bebc607f3c501bf01d9219be72f8766fe858244b352c5e"
+        }
+      },
+      "sar": {
+        "VH": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S1\\S1A_IW_GRDH_1SDV_20170613T165043\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39_VH.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "float32",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": null,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "6b28d6f26f947bbf3ce2a380b1aa913475fcb897dacaf28871813deff22ee0e5"
+        },
+        "VV": {
+          "path": "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S1\\S1A_IW_GRDH_1SDV_20170613T165043\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39\\S1A_IW_GRDH_1SDV_20170613T165043_33UUP_61_39_VV.tif",
+          "shape": [
+            120,
+            120
+          ],
+          "dtype": "float32",
+          "crs": "EPSG:32633",
+          "transform": [
+            10.0,
+            0.0,
+            373200.0,
+            0.0,
+            -10.0,
+            5353200.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds": [
+            373200.0,
+            5352000.0,
+            374400.0,
+            5353200.0
+          ],
+          "resolution": [
+            10.0,
+            10.0
+          ],
+          "nodata": null,
+          "valid_pixels": 14400,
+          "invalid_pixels": 0,
+          "sha256": "e11bca8000b3b3bc86f5e7db11a44b188464a2ac2c24c6118351f248d16dd3cd"
+        }
+      }
+    },
+    "feature_statistics": {
+      "B04": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 111.0,
+        "max": 2042.0,
+        "mean": 824.420654296875,
+        "std": 530.696533203125,
+        "percentiles": {
+          "1": 171.99000549316406,
+          "5": 208.9499969482422,
+          "25": 269.0,
+          "50": 802.0,
+          "75": 1338.0,
+          "95": 1562.0,
+          "99": 1742.0
+        },
+        "invalid_pixel_count": 0
+      },
+      "B08": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 307.0,
+        "max": 5876.0,
+        "mean": 2817.168212890625,
+        "std": 1535.014892578125,
+        "percentiles": {
+          "1": 361.989990234375,
+          "5": 418.0,
+          "25": 1065.5,
+          "50": 3230.0,
+          "75": 3972.5,
+          "95": 4864.0,
+          "99": 5192.0
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDVI": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -0.6000000238418579,
+        "max": 0.9312160611152649,
+        "mean": 0.4047641456127167,
+        "std": 0.5275445580482483,
+        "percentiles": {
+          "1": -0.5484703183174133,
+          "5": -0.5126245021820068,
+          "25": 0.18698351085186005,
+          "50": 0.5306116342544556,
+          "75": 0.8680958151817322,
+          "95": 0.9056642651557922,
+          "99": 0.9136396646499634
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDWI": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -0.88482266664505,
+        "max": 0.6862348318099976,
+        "mean": -0.34255924820899963,
+        "std": 0.5321893095970154,
+        "percentiles": {
+          "1": -0.8378142714500427,
+          "5": -0.8184375762939453,
+          "25": -0.7803928256034851,
+          "50": -0.5074721574783325,
+          "75": -0.12772929668426514,
+          "95": 0.60447758436203,
+          "99": 0.6395028233528137
+        },
+        "invalid_pixel_count": 0
+      },
+      "MNDWI": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -0.7652286887168884,
+        "max": 0.8917152285575867,
+        "mean": -0.144534170627594,
+        "std": 0.5353706479072571,
+        "percentiles": {
+          "1": -0.6583200693130493,
+          "5": -0.6119078993797302,
+          "25": -0.5515190362930298,
+          "50": -0.3680857717990875,
+          "75": 0.30314749479293823,
+          "95": 0.8334701061248779,
+          "99": 0.8713452816009521
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDBI": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -0.8172839283943176,
+        "max": 0.3151750862598419,
+        "mean": -0.3165016770362854,
+        "std": 0.15592463314533234,
+        "percentiles": {
+          "1": -0.5889118313789368,
+          "5": -0.5205060243606567,
+          "25": -0.42644545435905457,
+          "50": -0.36137276887893677,
+          "75": -0.17857706546783447,
+          "95": -0.04541796073317528,
+          "99": -0.007159957196563482
+        },
+        "invalid_pixel_count": 0
+      },
+      "BSI": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -0.5581051111221313,
+        "max": 0.2446700483560562,
+        "mean": -0.19642502069473267,
+        "std": 0.16217198967933655,
+        "percentiles": {
+          "1": -0.468549907207489,
+          "5": -0.4231734871864319,
+          "25": -0.35946524143218994,
+          "50": -0.166497141122818,
+          "75": -0.06881117820739746,
+          "95": 0.03608183190226555,
+          "99": 0.06475592404603958
+        },
+        "invalid_pixel_count": 0
+      },
+      "VV": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -40.1092414855957,
+        "max": -2.042356252670288,
+        "mean": -13.2265043258667,
+        "std": 5.785717010498047,
+        "percentiles": {
+          "1": -27.733198165893555,
+          "5": -24.456865310668945,
+          "25": -17.203922271728516,
+          "50": -11.1632661819458,
+          "75": -9.042041778564453,
+          "95": -6.665680408477783,
+          "99": -5.152224540710449
+        },
+        "invalid_pixel_count": 0
+      },
+      "VH": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -39.91459655761719,
+        "max": -8.45213508605957,
+        "mean": -19.015230178833008,
+        "std": 4.714001178741455,
+        "percentiles": {
+          "1": -30.097780227661133,
+          "5": -27.176420211791992,
+          "25": -22.562705993652344,
+          "50": -18.140846252441406,
+          "75": -15.332419395446777,
+          "95": -12.501493453979492,
+          "99": -10.973807334899902
+        },
+        "invalid_pixel_count": 0
+      },
+      "VV_minus_VH": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": -15.686752319335938,
+        "max": 22.636917114257812,
+        "mean": 5.788726329803467,
+        "std": 3.7015063762664795,
+        "percentiles": {
+          "1": -3.9914097785949707,
+          "5": -0.4414979815483093,
+          "25": 3.534621238708496,
+          "50": 5.872486591339111,
+          "75": 8.17066478729248,
+          "95": 11.587946891784668,
+          "99": 14.372737884521484
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDVI_local_std_3": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.0009810331976041198,
+        "max": 0.49537163972854614,
+        "mean": 0.048257168382406235,
+        "std": 0.07704170048236847,
+        "percentiles": {
+          "1": 0.002436351729556918,
+          "5": 0.003951527178287506,
+          "25": 0.009680712595582008,
+          "50": 0.017473552376031876,
+          "75": 0.047077663242816925,
+          "95": 0.21653492748737335,
+          "99": 0.38858023285865784
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDVI_local_std_5": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.0021977585274726152,
+        "max": 0.555103063583374,
+        "mean": 0.07725612074136734,
+        "std": 0.1090056374669075,
+        "percentiles": {
+          "1": 0.003478004364296794,
+          "5": 0.006075149867683649,
+          "25": 0.015099707990884781,
+          "50": 0.028957568109035492,
+          "75": 0.08924614638090134,
+          "95": 0.3635990023612976,
+          "99": 0.4858556091785431
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDVI_local_std_7": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.002848702250048518,
+        "max": 0.5830488801002502,
+        "mean": 0.10239067673683167,
+        "std": 0.1308988332748413,
+        "percentiles": {
+          "1": 0.004262024071067572,
+          "5": 0.008334699086844921,
+          "25": 0.01976589486002922,
+          "50": 0.043034739792346954,
+          "75": 0.12765266001224518,
+          "95": 0.4500245153903961,
+          "99": 0.53559809923172
+        },
+        "invalid_pixel_count": 0
+      },
+      "VV_local_std_3": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.21052029728889465,
+        "max": 6.133460998535156,
+        "mean": 1.6097224950790405,
+        "std": 0.766539990901947,
+        "percentiles": {
+          "1": 0.5066437721252441,
+          "5": 0.6749698519706726,
+          "25": 1.0797078609466553,
+          "50": 1.457910418510437,
+          "75": 1.9588003158569336,
+          "95": 3.154613494873047,
+          "99": 4.157968521118164
+        },
+        "invalid_pixel_count": 0
+      },
+      "VV_local_std_5": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.5561042428016663,
+        "max": 6.703593730926514,
+        "mean": 2.1206250190734863,
+        "std": 0.8922194838523865,
+        "percentiles": {
+          "1": 0.8936371803283691,
+          "5": 1.1147490739822388,
+          "25": 1.5126354694366455,
+          "50": 1.8925702571868896,
+          "75": 2.4504024982452393,
+          "95": 4.031635284423828,
+          "99": 5.114299297332764
+        },
+        "invalid_pixel_count": 0
+      },
+      "VV_local_std_7": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.8465667366981506,
+        "max": 6.536843299865723,
+        "mean": 2.402693510055542,
+        "std": 1.0032650232315063,
+        "percentiles": {
+          "1": 1.163165807723999,
+          "5": 1.359894871711731,
+          "25": 1.7007428407669067,
+          "50": 2.101914882659912,
+          "75": 2.7562813758850098,
+          "95": 4.701207160949707,
+          "99": 5.611388206481934
+        },
+        "invalid_pixel_count": 0
+      },
+      "NDVI_edge_strength": {
+        "shape": [
+          120,
+          120
+        ],
+        "dtype": "float32",
+        "min": 0.00018743023974820971,
+        "max": 0.7780343890190125,
+        "mean": 0.05471004918217659,
+        "std": 0.09984352439641953,
+        "percentiles": {
+          "1": 0.0013422577176243067,
+          "5": 0.0029928204603493214,
+          "25": 0.009190469048917294,
+          "50": 0.018913136795163155,
+          "75": 0.045731596648693085,
+          "95": 0.2456686645746231,
+          "99": 0.5398505330085754
+        },
+        "invalid_pixel_count": 0
+      }
+    },
+    "timings_seconds": {
+      "load_align": 0.0651779999898281,
+      "raw_features": 0.0002853000187315047,
+      "local_features": {
+        "NDVI_3": 0.00358099999721162,
+        "NDVI_5": 0.005454700003610924,
+        "NDVI_7": 0.006976499978918582,
+        "VV_3": 0.0024305999977514148,
+        "VV_5": 0.004653899988625199,
+        "VV_7": 0.007190299977082759
+      },
+      "all_token_aggregation": 0.17999519998556934
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "adapter_version": "constrained_interpretation_v1",
+  "source_evidence": "artifacts/spatial_evidence/61_39/evidence.json",
+  "source_evidence_sha256": "5906f4de2dbcb3d541590b57c802eba14e8a5d8585f591d88bc438eb3e6e3d8c",
+  "simple_semantic_sha256": "44b0abbfbde56628227ef85687921199faac1097b9d913c8de5addfbd8984f8f",
+  "technical_semantic_sha256": "0fcb3894e86f27a034488152a4a270d119a9846ddaf31d5995322ccf764f40da",
+  "determinism_check": "PASS; two exact structured outputs matched per mode",
+  "benchmark": {
+    "iterations": 200,
+    "median_milliseconds": 0.39024998841341585,
+    "p95_milliseconds": 0.9258999780286103
+  },
+  "limitations": [
+    "Evidence strength is descriptive and uncalibrated.",
+    "Regions are deterministic feature-threshold groups, not learned segmentation.",
+    "Optical and SAR claims are complementary sensor views, not a joint semantic prediction."
+  ]
+}

@@ -1,0 +1,8 @@
+# Pass 4 Dataset Matrix
+
+| Dataset | Task | Modality | X | Y | Samples | Spatial | Temporal | CROMA | Current Gap | Recommended Module |
+|---|---|---|---|---|---:|---|---|---|---|---|
+| BigEarthNet v2 selected subset | Multi-label land-cover classification; SAR representation audit | Sentinel-1 SAR VV/VH plus reference maps and metadata; no S2 rasters | S1 VV + VH raster patch, optionally reference-map geometry and metadata | Multi-label CORINE land-cover labels from `metadata.parquet`; reference map is a pixel label map | 5,000 areas; 10,000 S1 TIFFs; 5,000 maps | 120x120 pixels, 10 m, UTM WGS84 zones 33-35 in sampled headers; co-registered S1/map area IDs | Acquisition dates are encoded in S1/S2 identifiers, but no before/after pairs or change annotations | SAR path: DIRECTLY COMPATIBLE; joint/optical path: ADAPTABLE only after obtaining matching S2 rasters | Partial overlap with all 1,000 Pass 3 IDs; no optical raster in this ZIP | `dataset_loader`, SAR CROMA, reference-map/land-cover evaluation; exclude overlapping IDs from new test splits |
+| BigEarthNet official fragment collection | No usable task can be constructed from this archive alone | Intended S1/S2 tar.zst streams; actual archive contains seven non-contiguous opaque fragments | Not constructible from present files | Not constructible from present files | 0 verified usable samples | Unknown | Unknown | NOT COMPATIBLE as supplied | Missing stream parts, metadata, labels, and manifest | Archive acquisition/reassembly verification only; do not feed to training |
+
+No VQA, caption, box, mask, referring-expression, temporal-pair, or question/answer annotations were found in either archive.

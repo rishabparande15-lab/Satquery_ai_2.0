@@ -1,0 +1,44 @@
+{
+  "artifact_version": 1,
+  "status": "complete",
+  "sample_id": "pass5-eligible-4000",
+  "arrays": {
+    "sar_croma_gap": {
+      "file": "sar_croma_gap.npy",
+      "shape": [
+        4000,
+        768
+      ],
+      "dtype": "float32",
+      "sha256": "55dae29886fafb4dec1970b18a01763d78c65adfbbd3c3808862e7d44451510a"
+    },
+    "sar_physical": {
+      "file": "sar_physical.npy",
+      "shape": [
+        4000,
+        9
+      ],
+      "dtype": "float32",
+      "sha256": "6bb5b0c97cfc9eb4d5b87dd455bd118c82dd613a87a5475fa5635eb8b2c02080"
+    },
+    "targets": {
+      "file": "targets.npy",
+      "shape": [
+        4000,
+        19
+      ],
+      "dtype": "float32",
+      "sha256": "02f3010f6e8bf4480298f74f36c60ca0929339481409e0f89d46f8f3280fdcf7"
+    }
+  },
+  "provenance": {
+    "archive": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+    "archive_sha256": "b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595",
+    "split_sha256": "d6b523f0cb7a6ebd9bf71a60c0ff63222cbda4eed9d0aaaab8bd02c899dde4b8",
+    "croma_source": "D:\\Satquery_ai datasets\\croma_official",
+    "croma_checkpoint": "D:\\Satquery_ai datasets\\checkpoints\\CROMA_base.pt",
+    "croma_checkpoint_sha256": "0238d814b53108f3574bf1ea240e38a0a6edd46173816d9a6962070561893b63",
+    "normalization": "official per-channel mean +/- 2 sample std clipped to [0,1]",
+    "target": "Pass-3 scene-level 19-class labelled-pixel coverage"
+  }
+}

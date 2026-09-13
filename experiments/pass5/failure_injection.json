@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "cases": {
+    "missing_vv": "rejected by manifest completeness guard",
+    "missing_vh": "rejected by manifest completeness guard",
+    "corrupted_tiff": "rejected as corrupted TIFF",
+    "wrong_dimensions": "rejected as wrong dimensions",
+    "nan": "rejected as NaN/Inf",
+    "inf": "rejected as NaN/Inf",
+    "mismatched_reference": "rejected by exact CRS/bounds/transform equality guard",
+    "invalid_crs": "rejected as invalid CRS",
+    "invalid_bounds_or_orientation": "rejected as invalid orientation",
+    "duplicate_identity": "rejected by nested-member identity index"
+  },
+  "method": "synthetic in-memory GeoTIFF/ZIP injection through the production Pass-5 validation functions"
+}

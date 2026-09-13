@@ -1,0 +1,1 @@
+The derived optical evidence shows moderate vegetation-related spectral evidence. The derived optical evidence shows moderate water-related spectral evidence. The derived SAR evidence shows moderate polarization-related surface variation. Optical and SAR evidence provide complementary information; this is not a joint semantic prediction.

@@ -1,0 +1,314 @@
+[
+  {
+    "area_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+    "split": "train",
+    "country": "Austria",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "c90f90fc7ed3c168a2e7a030894e206c1b91d827459993eca8c62db7e24b9211"
+  },
+  {
+    "area_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_89_08",
+    "split": "train",
+    "country": "Belgium",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "3df624da77597ad8e7d7bc5d564af9429259d2d1db26980c11e4f67efbddfa18"
+  },
+  {
+    "area_id": "S2B_MSIL2A_20180421T100029_N9999_R122_T33TWN_22_30",
+    "split": "validation",
+    "country": "Austria",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "83d40a23d864f3df3d1b6b0320efbe01ccb5659de92a3a433fcf350372d03c75"
+  },
+  {
+    "area_id": "S2B_MSIL2A_20171107T105229_N9999_R051_T31UER_45_14",
+    "split": "validation",
+    "country": "Belgium",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "0114b309aaacb3563447d9243cdcb6a87b68f457ac902ddb4971e17473a23a06"
+  },
+  {
+    "area_id": "S2B_MSIL2A_20180421T100029_N9999_R122_T33TWN_49_49",
+    "split": "test",
+    "country": "Austria",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "73ab6b689d58236322796fc193b609697e3ade56486d67539ba74114b0e105a1"
+  },
+  {
+    "area_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_32",
+    "split": "test",
+    "country": "Belgium",
+    "raw_shapes": {
+      "optical": [
+        12,
+        120,
+        120
+      ],
+      "sar": [
+        2,
+        120,
+        120
+      ],
+      "reference": [
+        120,
+        120
+      ]
+    },
+    "croma_shapes": {
+      "SAR_encodings": [
+        1,
+        225,
+        768
+      ],
+      "SAR_GAP": [
+        1,
+        768
+      ],
+      "optical_encodings": [
+        1,
+        225,
+        768
+      ],
+      "optical_GAP": [
+        1,
+        768
+      ],
+      "joint_encodings": [
+        1,
+        225,
+        768
+      ],
+      "joint_GAP": [
+        1,
+        768
+      ]
+    },
+    "physical_dimension": 62,
+    "reference_sha256": "35c78d39070f7c7bfabdd9e66c6447280e6bf7c7f21c5aeec1048d3385149d24"
+  }
+]

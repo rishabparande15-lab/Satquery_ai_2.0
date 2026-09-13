@@ -12,8 +12,10 @@ import torch
 from .config import PROJECT_ROOT, get_settings
 from .croma_adapter import CROMAAdapter
 from .data_orchestrator import DataOrchestrator
+from .evidence_schema import build_spatial_evidence
 from .hybrid_fusion import HybridFusion, pooled_croma_features
 from .input_validation import validate_inputs, check_grid, TEMPORAL_MESSAGE
+from .interpretation_adapter import interpret_evidence, technical_companion, validate_interpretation
 from .modality_features import extract
 from .multimodal_cube import MultimodalCube
 from .query_interpreter import interpret_query
@@ -119,12 +121,14 @@ def run_analysis(request):
               "tool_selection": selection, "execution_trace": trace, "preprocessing": [], "data_cube": None,
               "features": {"status": "unavailable", "spectral": {"status": "unavailable"}, "deep": {"status": "unavailable"}, "hybrid": {"status": "unavailable"}, "temporal": {"status": "unavailable"}},
               "model_results": {"status": "pending training", "prediction": None, "training_performed": False},
+              "interpretation": {"status": "UNAVAILABLE", "answer": "Validated spatial evidence is unavailable for this request.", "claims": []},
+              "spatial_evidence": {"status": "UNAVAILABLE"},
               "evidence": [], "warnings": list(retrieval["warnings"]),
               "confidence": {"prediction_status": "no trained task head available", "calibration_status": "uncalibrated",
                              "accuracy_status": "no accuracy claim", "model_confidence": None, "query_level_confidence": None},
               "temporal": {"status": "requires valid input" if plan["requires_temporal_pair"] else "not requested", "message": TEMPORAL_MESSAGE if plan["requires_temporal_pair"] else None},
               "device": "not used", "error": None}
-    arrays = {}
+    arrays, metadata = {}, {}
     if validation["valid"] and not plan["requires_temporal_pair"]:
         try:
             arrays, metadata, references = assemble(plan, retrieval, request)
@@ -191,6 +195,32 @@ def run_analysis(request):
             validation["errors"].append("Physical feature calculation failed; check numerical range and valid pixels.")
     step("Features extracted", result["features"]["status"])
     step("Representation analysis executed", result["status"])
+    if runnable and result["features"]["spectral"]["status"] == "computed" and all(array.shape[1:] == (120, 120) for array in arrays.values()):
+        evidence_started = time.perf_counter()
+        reference_metadata = metadata.get("optical") or metadata.get("sar") or {}
+        spatial = build_spatial_evidence(
+            sample_id=request.get("sample_id") or result["analysis_id"], optical=arrays.get("optical"), sar=arrays.get("sar"),
+            transform=reference_metadata.get("transform"), crs=reference_metadata.get("crs") or "UNKNOWN",
+            scene_metadata={name: {key: value for key, value in info.items() if key not in {"bounds", "transform"}} for name, info in metadata.items()},
+            provenance={"analysis_id": result["analysis_id"], "retrieval_source": retrieval["source"],
+                        "pixel_source_artifact": f"analysis:{result['analysis_id']}:aligned_inputs",
+                        "method": "deterministic 15x15 token aggregation and four-connected evidence regions"})
+        evidence_seconds = time.perf_counter() - evidence_started
+        interpretation_started = time.perf_counter()
+        simple = interpret_evidence(spatial, query, mode="simple")
+        technical = technical_companion(spatial, query)
+        validate_interpretation(simple); validate_interpretation(technical)
+        interpretation_seconds = time.perf_counter() - interpretation_started
+        result["interpretation"] = {**simple, "technical_answer": technical["answer"],
+                                    "technical_claims": technical["claims"],
+                                    "evidence_processing_seconds": evidence_seconds,
+                                    "interpretation_seconds": interpretation_seconds,
+                                    "total_added_seconds": evidence_seconds + interpretation_seconds}
+        result["spatial_evidence"] = {"status": "AVAILABLE", "schema_version": spatial["schema_version"],
+            "scene": spatial["scene"], "sensor_views": spatial["sensor_views"], "claims": spatial["claims"],
+            "regions": spatial["regions"], "provenance": spatial["provenance"]}
+    elif runnable:
+        result["interpretation"] = interpret_evidence(None, query)
     if plan["requires_temporal_pair"] and validation["valid"]:
         result["status"] = "unavailable"
         result["temporal"] = {"status": "unavailable", "message": "Pair metadata passed validation. The web temporal algorithm is not implemented; no change or area is reported."}

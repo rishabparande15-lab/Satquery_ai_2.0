@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "identity_keys": [
+    "canonical area ID",
+    "Sentinel-1 identity",
+    "metadata identity"
+  ],
+  "pass3_count": 1000,
+  "pass5_test_count": 600,
+  "overlap": {
+    "pass3_train_vs_pass5_test": [],
+    "pass3_validation_vs_pass5_test": [],
+    "pass3_test_vs_pass5_test": [],
+    "all_pass3_vs_pass5_test": []
+  },
+  "pass5_internal_overlaps": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  }
+}
