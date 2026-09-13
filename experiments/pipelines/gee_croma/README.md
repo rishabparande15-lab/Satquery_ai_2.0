@@ -1,6 +1,18 @@
 # GEE + CROMA Experimental Pipeline
 
-This folder contains an isolated Google Earth Engine + CROMA experimental pipeline scaffold.
+**Status: canonical Pipeline 3 research harness, not the live application entry point.**
+
+This folder contains the isolated Google Earth Engine + CROMA experimental
+pipeline scaffold. The production application entry point is
+`python -m src.api`, which uses the same canonical CROMA, preprocessing,
+physical-feature, evidence, and interpretation modules through
+`src.analysis_engine.run_analysis`.
+
+The numbered runner checks GEE availability but does not itself download an
+AOI/date-selected raster. Its local-reference mode exercises the shared
+BigEarthNet/CROMA processing path. Prior real-GEE+CROMA work is preserved as
+historical experiment evidence and must not be confused with live API
+acquisition.
 
 ## Run
 

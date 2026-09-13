@@ -1,5 +1,8 @@
 # Real GEE Classical Temporal Pipeline
 
+**Status: archived Pipeline 2 research extension; reproduction-only and not
+reachable from the production API. Its thresholds are not production models.**
+
 This third isolated pipeline performs transparent classical before/after change analysis on real GEE Sentinel-1/Sentinel-2 imagery. It supports absolute differences, normalized differences, SAR log-ratio/ratio extensions, NDVI differences, and documented threshold masks once authenticated retrieval is configured.
 
 Set `GEE_PROJECT`, `GEE_AOI_GEOJSON`, and before/after date variables, run `earthengine authenticate`, then execute:

@@ -1,5 +1,8 @@
 # Real GEE Temporal Pipeline
 
+**Status: archived Pipeline 2 research extension; reproduction-only and not
+reachable from the production API. Temporal prediction remains unsupported.**
+
 This is a new isolated real-GEE temporal pipeline. It never falls back to local files in `--mode gee`.
 
 Configure `GEE_PROJECT`, `GEE_AOI_GEOJSON`, `GEE_BEFORE_START`, `GEE_BEFORE_END`, `GEE_AFTER_START`, and `GEE_AFTER_END` as local environment variables. Authenticate with `earthengine authenticate`, then run:

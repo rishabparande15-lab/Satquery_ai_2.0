@@ -1,8 +1,13 @@
-# GEE-Only Experimental Pipeline
+# Pipeline 2 Archive: GEE-Only Experiment
 
-This folder contains an isolated, minimal Google Earth Engine-only pipeline scaffold.
+**Status: archived and reproduction-only. This is not a production entry point.**
 
-## Run
+This folder preserves the isolated, minimal Google Earth Engine-only scaffold.
+The supported application runs with `python -m src.api`. Pipeline 3 does not
+import this package; the small shared GEE mode helper now lives in
+`src/gee_experiment_runtime.py`.
+
+## Historical reproduction
 
 From the project root:
 

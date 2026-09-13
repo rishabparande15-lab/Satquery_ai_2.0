@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-import importlib.util
 
 import numpy as np
 
 from src.dataset_loader import Sample, discover_samples, load_sample
+from src.gee_experiment_runtime import gee_status, select_mode
 
 
 @dataclass
@@ -13,32 +13,6 @@ class LocalReference:
     sample: Sample
     prepared: object
     source: str = "local BigEarthNet reference; not GEE imagery"
-
-
-def gee_status() -> dict:
-    available = importlib.util.find_spec("ee") is not None
-    status = {"package_available": available, "authenticated": False, "error": None}
-    if not available:
-        status["error"] = "earthengine-api is not installed"
-        return status
-    try:
-        import ee
-        ee.Initialize()
-        status["authenticated"] = True
-    except Exception as error:
-        status["error"] = f"GEE initialization failed: {error}"
-    return status
-
-
-def select_mode(requested: str) -> tuple[str, dict]:
-    status = gee_status()
-    if requested == "local":
-        return "local_reference", status
-    if requested == "gee":
-        if not status["authenticated"]:
-            raise RuntimeError(status["error"] or "GEE authentication unavailable")
-        return "gee", status
-    return ("gee", status) if status["authenticated"] else ("local_reference", status)
 
 
 def load_local_references(dataset_root: Path, sample_ids: tuple[str, ...]) -> list[LocalReference]:

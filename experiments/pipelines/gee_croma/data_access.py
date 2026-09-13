@@ -1,5 +1,5 @@
-from experiments.pipelines.gee.data_access import gee_status, select_mode
 from src.dataset_loader import discover_samples, load_sample
+from src.gee_experiment_runtime import gee_status, select_mode
 
 
 def load_local_samples(dataset_root, sample_ids):

@@ -1,5 +1,8 @@
 # Real GEE + CROMA Temporal Pipeline
 
+**Status: preserved Pipeline 3 historical experiment; reproduction-only and not
+reachable from the production API. Temporal prediction remains unsupported.**
+
 This isolated pipeline is reserved for real Sentinel-1/Sentinel-2 retrieval from GEE followed by CROMA representation extraction. It never uses local fallback data in `--mode gee` and does not treat CROMA as a change detector.
 
 Set `GEE_PROJECT`, `GEE_AOI_GEOJSON`, and before/after date variables, run `earthengine authenticate`, then execute:
