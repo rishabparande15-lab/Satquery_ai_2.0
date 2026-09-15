@@ -1,0 +1,44 @@
+{
+  "algorithm": "sha256(canonical_json(fingerprint_basis))",
+  "basis": {
+    "archive_sha256": "b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595",
+    "availability": {
+      "complete_metadata_areas": 5000,
+      "complete_multimodal_areas": 5000,
+      "complete_multimodal_by_split": {
+        "test": 200,
+        "train": 4600,
+        "validation": 200
+      },
+      "complete_optical_areas": 5000,
+      "complete_reference_areas": 5000,
+      "complete_sar_areas": 5000,
+      "missing_optical_by_split": {
+        "test": 0,
+        "train": 0,
+        "validation": 0
+      },
+      "total_selected_areas": 5000
+    },
+    "dataset_manifest_sha256": "9f0446c011c1c054cea0fae5e7a2ccf196dcbdb50df6b7fc86757e764b0758be",
+    "leakage_summary": {
+      "area_id_duplicates": 0,
+      "cross_split_positive_spatial_overlap_count": 0,
+      "duplicate_reference_content_groups": 103,
+      "duplicate_reference_cross_split_groups": 0,
+      "duplicate_s1_content_groups": 0,
+      "duplicate_s2_content_groups": 7,
+      "duplicate_s2_cross_area_groups": 0,
+      "duplicate_s2_cross_split_groups": 0,
+      "s1_identity_duplicates": 0
+    },
+    "metadata_parquet_sha256": "62f2c595dd7db2a90de502a37f1913ba9da3aef22236aeca12ff728b3f82f369",
+    "selection_json_sha256": "4a2dd90b5d3823f64935d1bd946c9f39f3f44ac032f604b82dea1d1f567c6001",
+    "split_sha256": "2232ac5bc65d3ed20c6f39deb6037bb8e0543100b247fd6c9e538eddf9feb86c",
+    "status": "ready_for_training",
+    "training_started": false
+  },
+  "fingerprint": "7dfd5cd5077e7fd0307acd3fb442d4745aa829a03611c7522e08acbc7f027625",
+  "reproducibility_sha256": "dbbf6f158389e4cc9561ae6ee9ae2d09dfb6461591675dfbd2e96e1ea0ae9aa7",
+  "status": "dataset_gate_fingerprint_only; no final model fingerprint exists"
+}

@@ -1,11 +1,21 @@
+import os
 from pathlib import Path
 
 import numpy as np
+import pytest
 
+from src.config import get_settings
 from src.dataset_loader import discover_samples, load_sample
 
 
-DATASET_ROOT = Path(r"D:\Satquery_ai datasets\extracted\small-sample")
+DATASET_ROOT = Path(os.environ.get(
+    "SATQUERY_TEST_DATASET_ROOT",
+    get_settings().dataset_root,
+))
+pytestmark = pytest.mark.skipif(
+    not (DATASET_ROOT / "metadata.parquet").is_file(),
+    reason="real three-sample dataset is not configured",
+)
 
 
 def test_real_three_sample_dataset_loads():

@@ -34,6 +34,9 @@ __pycache__/
 /data/raw/
 /datasets/
 /checkpoints/
+/artifacts/live/
+/artifacts/representation_store/
+/artifacts/receipt_catalog.json
 
 # Local environments and temporary files.
 .venv/

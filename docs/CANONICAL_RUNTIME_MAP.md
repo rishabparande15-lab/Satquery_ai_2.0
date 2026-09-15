@@ -1,6 +1,8 @@
 # Canonical Pipeline 3 Runtime Map
 
-Status: authoritative runtime map after consolidation on 2026-09-13.
+Status: authoritative runtime map, reviewed 2026-09-15.
+
+The typed capability/contracts layer, optional representation persistence, and trusted receipt catalog wrap or extend this runtime without creating another production controller. The completed 5,000-area predictor remains a controlled scientific workflow; the web runtime's 192-D seeded fusion output remains representation-only.
 
 ```text
 Browser: src/static/index.html + app.js

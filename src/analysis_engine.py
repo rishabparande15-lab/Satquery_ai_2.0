@@ -57,12 +57,13 @@ def croma_available():
     settings = get_settings()
     return (settings.croma_source / "use_croma.py").is_file() and settings.croma_checkpoint.is_file()
 
-def _deep_features(arrays, physical):
+def _deep_features(arrays, physical, persistence_session=None):
     global _adapter, _adapter_key
     settings = get_settings()
     with _runtime_lock:
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        key = (str(settings.croma_source), str(settings.croma_checkpoint), settings.croma_checkpoint.stat().st_mtime_ns, device)
+        checkpoint_mtime = settings.croma_checkpoint.stat().st_mtime_ns if settings.croma_checkpoint.is_file() else None
+        key = (str(settings.croma_source), str(settings.croma_checkpoint), checkpoint_mtime, device)
         cached = _adapter is not None and key == _adapter_key
         if not cached:
             _adapter = None
@@ -73,7 +74,27 @@ def _deep_features(arrays, physical):
             outputs = _adapter.infer_modality(arrays.get("optical"), arrays.get("sar"))
             if not all(torch.isfinite(value).all() for value in outputs.values()):
                 raise ValueError("Non-finite CROMA representation.")
+            if persistence_session is not None and persistence_session.policy.enabled:
+                from .live_representation_persistence import CROMA_REPRESENTATIONS
+                from .representation_artifacts import file_sha256
+
+                if persistence_session.policy.requested.intersection(CROMA_REPRESENTATIONS):
+                    persistence_session.capture_croma(
+                        outputs,
+                        producer_version=f"official pretrained CROMA base; checkpoint sha256:{file_sha256(settings.croma_checkpoint)}",
+                        preprocessing_version="official_croma_mean_plus_minus_2std_clip_v1",
+                    )
             pooled = pooled_croma_features(outputs) if len(arrays) == 2 else next(value for name, value in outputs.items() if name.endswith("_GAP")).detach().cpu().numpy().reshape(-1)
+            if persistence_session is not None:
+                from .live_representation_persistence import PersistableRepresentation
+
+                persistence_session.capture(
+                    PersistableRepresentation.POOLED_CROMA,
+                    pooled,
+                    modality="optical_sar" if len(arrays) == 2 else next(iter(arrays)),
+                    producer_version="pooled_croma_features_v1",
+                    preprocessing_version="official_croma_mean_plus_minus_2std_clip_v1",
+                )
             deep = {"status": "computed", "source": "official pretrained CROMA base", "device": str(_adapter.device),
                     "pooled_dimension": int(pooled.size), "representations": {k: list(v.shape) for k, v in outputs.items()},
                     "model_reused": cached, "validity": "finite", "values": pooled.tolist()}
@@ -89,6 +110,12 @@ def _deep_features(arrays, physical):
                     raise ValueError("Non-finite fusion representation.")
                 hybrid = {"status": "computed", "dimension": int(vector.size), "values": vector.tolist(),
                           "source": "deterministic seeded untrained fusion", "validity": "representation only; no task prediction"}
+                if persistence_session is not None:
+                    persistence_session.capture(
+                        PersistableRepresentation.HYBRID,
+                        vector,
+                        producer_version="deterministic_seed_42_untrained_v1",
+                    )
             return deep, hybrid
         except Exception:
             _adapter = None
@@ -97,7 +124,7 @@ def _deep_features(arrays, physical):
                 torch.cuda.empty_cache()
             raise
 
-def run_analysis(request):
+def run_analysis(request, *, persistence_session=None):
     validate_request(request)
     started = time.perf_counter()
     query = request["query"].strip()
@@ -132,6 +159,13 @@ def run_analysis(request):
     if validation["valid"] and not plan["requires_temporal_pair"]:
         try:
             arrays, metadata, references = assemble(plan, retrieval, request)
+            if persistence_session is not None:
+                from .live_representation_persistence import PersistableRepresentation
+
+                if "optical" in arrays:
+                    persistence_session.capture(PersistableRepresentation.RAW_OPTICAL, arrays["optical"])
+                if "sar" in arrays:
+                    persistence_session.capture(PersistableRepresentation.RAW_SAR, arrays["sar"])
             validation["checks"]["files"] = metadata
             validation["checks"]["optical_sar_compatibility"] = check_grid(metadata["optical"], metadata["sar"]) if len(arrays) == 2 else "not applicable"
             if len(arrays) == 2:
@@ -164,6 +198,15 @@ def run_analysis(request):
     if runnable:
         try:
             physical, report = extract(arrays)
+            if persistence_session is not None:
+                from .live_representation_persistence import PersistableRepresentation
+
+                persistence_session.capture(
+                    PersistableRepresentation.PHYSICAL_FEATURES,
+                    physical,
+                    modality="optical_sar" if len(arrays) == 2 else next(iter(arrays)),
+                    producer_version=report.get("schema"),
+                )
             report["unavailable_indices"] = [key for key, count in report["valid_pixel_counts"].items() if key.startswith("index_") and count == 0]
             if report["unavailable_indices"]:
                 report["limitations"].append("Indices with zero valid denominators have legacy zero placeholders; they are unavailable observations.")
@@ -175,7 +218,7 @@ def run_analysis(request):
             if croma_available() and all(array.shape[1:] == (120, 120) for array in arrays.values()):
                 deep_started = time.perf_counter()
                 try:
-                    deep, hybrid = _deep_features(arrays, physical)
+                    deep, hybrid = _deep_features(arrays, physical, persistence_session)
                     result["features"].update(status="computed", deep=deep, hybrid=hybrid)
                     result["device"] = deep["device"]
                     result["status"] = "completed"
@@ -244,6 +287,30 @@ def run_analysis(request):
     result["runtime_seconds"] = time.perf_counter() - started
     result["confidence"]["validation_status"] = "passed" if validation["valid"] else "rejected"
     json.dumps(result, allow_nan=False)
+    if persistence_session is not None and persistence_session.policy.enabled:
+        reference_metadata = metadata.get("optical") or metadata.get("sar") or {}
+        persistence_session.finalize(
+            scene_id=str(request.get("sample_id") or result["analysis_id"]),
+            run_id=result["analysis_id"],
+            crs=reference_metadata.get("crs"),
+            provenance={
+                "analysis_id": result["analysis_id"],
+                "input": public_retrieval,
+                "scene": {
+                    name: {
+                        key: value for key, value in information.items()
+                        if key in {"acquisition_date", "crs", "bounds", "resolution", "transform", "shape", "band_count"}
+                    }
+                    for name, information in metadata.items()
+                },
+                "preprocessing": result["preprocessing"],
+                "representation": {
+                    "physical_schema": (result["features"].get("spectral") or {}).get("schema"),
+                    "croma_source": (result["features"].get("deep") or {}).get("source"),
+                },
+                "execution": {"timestamp": result["timestamp"]},
+            },
+        )
     return result
 
 def save_report(result, output_root=None):

@@ -4,6 +4,8 @@ Date: 2026-09-13
 
 Status: forensic documentation only. This document records the implemented system and proposes boundaries for future work. It does not change scientific behavior, model weights, datasets, splits, prediction logic, API routes, or frontend behavior.
 
+> Current-status note (2026-09-15): this forensic snapshot predates the implemented architecture contracts, deterministic capability wrapper, optional representation persistence, receipt catalog, and completed exact 5,000-area scientific checkpoint. Those additions preserve the runtime boundary audited here. See [Current Project Status](CURRENT_PROJECT_STATUS.md) for the authoritative present state.
+
 ## 1. Executive Finding
 
 SatQuery AI currently contains two related but distinct execution paths:

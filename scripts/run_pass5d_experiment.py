@@ -1,6 +1,6 @@
 """Pass 5D controlled scene-level A/B experiment on the Pass 3 reproduction split."""
 from __future__ import annotations
-import argparse, gc, hashlib, io, json, platform, sys, time, zipfile
+import argparse, gc, hashlib, io, json, os, platform, sys, time, zipfile
 from pathlib import Path
 
 import numpy as np
@@ -15,10 +15,11 @@ from src.phase3_6_benchmark import ProbeSplit,fit_probe,predict_rows,sha256
 from src.phase1_foundation import CLASSES,coverage_metrics
 from src.pass3_validation import _scene_target,_independent_metrics
 
-PRIMARY=Path(r"E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-5000-20260911T162804Z-1-001.zip")
-FRAGMENTS=Path(r"E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip")
-PIPELINE=Path(r"D:\Satquery_ai datasets\comparison\pipeline-1000")
-S2_ROOT=Path(r"D:\Satquery_ai datasets\comparison\raw-1000\BigEarthNet-S2")
+LOCAL_DATA_ROOT=Path(os.environ.get("SATQUERY_LOCAL_DATA_ROOT",ROOT/"data"/"raw"))
+PRIMARY=Path(os.environ.get("PIPELINE3_5000_ARCHIVE",LOCAL_DATA_ROOT/"bigearthnet-v2-5000-20260911T162804Z-1-001.zip"))
+FRAGMENTS=Path(os.environ.get("BIGEARTHNET_FULL_ARCHIVE",LOCAL_DATA_ROOT/"bigearthnet-v2-full-official-20260911T162841Z-1-031.zip"))
+PIPELINE=Path(os.environ.get("PASS3_PIPELINE_ROOT",LOCAL_DATA_ROOT/"pipeline-1000"))
+S2_ROOT=Path(os.environ.get("PIPELINE3_S2_EXISTING_ROOT",LOCAL_DATA_ROOT/"raw-1000"/"BigEarthNet-S2"))
 SELECTED=("NDVI","NDWI","NDBI","BSI","VV_minus_VH","NDVI_local_std_5")
 
 def write(path,value): path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(value,indent=2,allow_nan=False)+"\n",encoding="utf-8")

@@ -1,0 +1,8 @@
+{
+  "status": "consumed_once",
+  "test_area_count": 200,
+  "test_ids_sha256": "dcdd9bf59a1fe36d6fb59f636914cc78aacec4611c230fdb5ac00bc8283fc9fd",
+  "metrics_sha256": "6b8458ebf3cf7dbe4dd19b793880006ad7ee64937e442f180acccd6fd1f3143e",
+  "predictions_sha256": "0822609c81237bc92d04b8f027871458a9b87509878a291ae38cbaaeb13fa8d7",
+  "scientific_fingerprint": "ac8bbefc8918b2ee16f47653e6fd91eba0d875e4ce340e27254248712a173fae"
+}

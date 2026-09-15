@@ -1,0 +1,26 @@
+{
+  "status": "no_scientific_repair_selected",
+  "problem": "Determine whether a demonstrated bottleneck warrants changing the frozen Pipeline 3 baseline before final evaluation.",
+  "evidence": {
+    "hybrid_selected_epoch": 54,
+    "hybrid_max_epochs": 60,
+    "hybrid_validation_loss": 1.526572346687317,
+    "hybrid_validation_mae_pp": 4.406416447572048,
+    "next_best_joint_validation_loss": 1.549627661705017,
+    "next_best_joint_validation_mae_pp": 4.508469911410532,
+    "seed29_hybrid_validation_loss": 1.5283280611038208,
+    "seed29_hybrid_validation_mae_pp": 4.381094604426621
+  },
+  "hypothesis": "The selected hybrid is converged under the established schedule; extending or changing the model would be an unproven optimization rather than a correction.",
+  "change": null,
+  "risk": "Changing loss, capacity, schedule, weighting, or fusion after a single validation split could overfit validation and break comparability with the established Pipeline 3 design.",
+  "validation_plan": "Retain the baseline scientific configuration and use the predetermined seed-29 repeat only to assess stability.",
+  "result": "No repair was justified. Seed-29 differed by -0.0253 pp validation MAE and +0.00176 validation cross-entropy; the baseline seed-17 hybrid remains selected by the predeclared validation-loss criterion.",
+  "triage": {
+    "P0": [],
+    "P1": [],
+    "P2": ["Physical-only training remains validation-improving at epoch 60, but it is not competitive with the selected hybrid and does not justify altering the final configuration."],
+    "P3": ["One-time CROMA feature extraction is I/O/compute intensive but cacheable."],
+    "P4": ["The live 192-dimensional seeded HybridFusion must remain explicitly labeled representation-only and must not be conflated with the evaluated 830-dimensional scientific hybrid."]
+  }
+}

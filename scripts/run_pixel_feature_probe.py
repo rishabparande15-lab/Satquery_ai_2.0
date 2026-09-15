@@ -1,6 +1,6 @@
 """Run the isolated Pass 5B diagnostic and 18-area token-level ridge probe."""
 from __future__ import annotations
-import argparse, hashlib, json, sys, time
+import argparse, hashlib, json, os, sys, time
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -111,7 +111,8 @@ def run_probe(pipeline_root: Path):
 
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--dataset-root",type=Path,default=Path(r"D:\Satquery_ai datasets\extracted\small-sample")); ap.add_argument("--pipeline-root",type=Path,default=Path(r"D:\Satquery_ai datasets\comparison\pipeline-1000")); ap.add_argument("--out",type=Path,default=ROOT/"artifacts/pixel_feature_probe/61_39"); args=ap.parse_args()
+    local_data_root=Path(os.environ.get("SATQUERY_LOCAL_DATA_ROOT",ROOT/"data"/"raw"))
+    ap=argparse.ArgumentParser(); ap.add_argument("--dataset-root",type=Path,default=Path(os.environ.get("DATASET_ROOT",local_data_root/"bigearthnet-v2-small-sample"))); ap.add_argument("--pipeline-root",type=Path,default=Path(os.environ.get("PASS3_PIPELINE_ROOT",local_data_root/"pipeline-1000"))); ap.add_argument("--out",type=Path,default=ROOT/"artifacts/pixel_feature_probe/61_39"); args=ap.parse_args()
     out=args.out; out.mkdir(parents=True,exist_ok=True); sample=next(s for s in discover_samples(args.dataset_root) if s.patch_id=="61_39")
     source=inspect_sources(sample); start=time.perf_counter(); prepared=load_sample(sample); load_s=time.perf_counter()-start
     start=time.perf_counter(); maps=candidate_maps(prepared.raw_optical,prepared.raw_sar,OPTICAL_BANDS,SAR_BANDS); raw_s=time.perf_counter()-start

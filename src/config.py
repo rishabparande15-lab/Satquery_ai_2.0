@@ -20,20 +20,24 @@ class Settings:
 
 
 def get_settings() -> Settings:
+    local_data_root = Path(os.environ.get(
+        "SATQUERY_LOCAL_DATA_ROOT",
+        str(PROJECT_ROOT / "data" / "raw"),
+    ))
     dataset_root = Path(os.environ.get(
         "DATASET_ROOT",
-        r"D:\Satquery_ai datasets\extracted\small-sample",
+        str(local_data_root / "bigearthnet-v2-small-sample"),
     ))
     features_root = Path(os.environ.get(
         "FEATURES_ROOT",
-        r"D:\Satquery_ai datasets\croma_features",
+        str(local_data_root / "croma-features"),
     ))
     croma_source = Path(os.environ.get(
         "CROMA_SOURCE",
-        r"D:\Satquery_ai datasets\croma_official",
+        str(local_data_root / "croma-official"),
     ))
     croma_checkpoint = Path(os.environ.get(
         "CROMA_CHECKPOINT",
-        str(features_root.parent / "checkpoints" / "CROMA_base.pt"),
+        str(local_data_root / "checkpoints" / "CROMA_base.pt"),
     ))
     return Settings(dataset_root, features_root, croma_source, croma_checkpoint)

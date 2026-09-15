@@ -1,0 +1,221 @@
+{
+  "status": "complete_train_validation_only",
+  "test_loaded": false,
+  "class_distribution": [
+    {
+      "index": 0,
+      "name": "Urban fabric",
+      "train_positive_areas": 1317,
+      "validation_positive_areas": 43,
+      "train_mean_coverage": 0.05849772987241285,
+      "validation_mean_coverage": 0.046933713039616125
+    },
+    {
+      "index": 1,
+      "name": "Industrial or commercial units",
+      "train_positive_areas": 230,
+      "validation_positive_areas": 7,
+      "train_mean_coverage": 0.00837484222143362,
+      "validation_mean_coverage": 0.0073664806212764234
+    },
+    {
+      "index": 2,
+      "name": "Arable land",
+      "train_positive_areas": 2162,
+      "validation_positive_areas": 101,
+      "train_mean_coverage": 0.19746276893396736,
+      "validation_mean_coverage": 0.1855619632791786
+    },
+    {
+      "index": 3,
+      "name": "Permanent crops",
+      "train_positive_areas": 235,
+      "validation_positive_areas": 8,
+      "train_mean_coverage": 0.012532400171653336,
+      "validation_mean_coverage": 0.01749513879418373
+    },
+    {
+      "index": 4,
+      "name": "Pastures",
+      "train_positive_areas": 1477,
+      "validation_positive_areas": 68,
+      "train_mean_coverage": 0.10583635841130434,
+      "validation_mean_coverage": 0.10590208319510566
+    },
+    {
+      "index": 5,
+      "name": "Complex cultivation patterns",
+      "train_positive_areas": 1566,
+      "validation_positive_areas": 63,
+      "train_mean_coverage": 0.08717892124697518,
+      "validation_mean_coverage": 0.07008545682154363
+    },
+    {
+      "index": 6,
+      "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "train_positive_areas": 1251,
+      "validation_positive_areas": 60,
+      "train_mean_coverage": 0.04912790494515123,
+      "validation_mean_coverage": 0.07289478452905314
+    },
+    {
+      "index": 7,
+      "name": "Agro-forestry areas",
+      "train_positive_areas": 148,
+      "validation_positive_areas": 6,
+      "train_mean_coverage": 0.013509551637417525,
+      "validation_mean_coverage": 0.009946527928113937
+    },
+    {
+      "index": 8,
+      "name": "Broad-leaved forest",
+      "train_positive_areas": 1700,
+      "validation_positive_areas": 85,
+      "train_mean_coverage": 0.12473065884613195,
+      "validation_mean_coverage": 0.164959559768904
+    },
+    {
+      "index": 9,
+      "name": "Coniferous forest",
+      "train_positive_areas": 1189,
+      "validation_positive_areas": 49,
+      "train_mean_coverage": 0.09034892494320798,
+      "validation_mean_coverage": 0.06301149790320779
+    },
+    {
+      "index": 10,
+      "name": "Mixed forest",
+      "train_positive_areas": 1345,
+      "validation_positive_areas": 74,
+      "train_mean_coverage": 0.08632794244342697,
+      "validation_mean_coverage": 0.10603739658195992
+    },
+    {
+      "index": 11,
+      "name": "Natural grassland and sparsely vegetated areas",
+      "train_positive_areas": 221,
+      "validation_positive_areas": 11,
+      "train_mean_coverage": 0.012132309933234785,
+      "validation_mean_coverage": 0.007848263792693615
+    },
+    {
+      "index": 12,
+      "name": "Moors, heathland and sclerophyllous vegetation",
+      "train_positive_areas": 123,
+      "validation_positive_areas": 1,
+      "train_mean_coverage": 0.007420559608410416,
+      "validation_mean_coverage": 0.0017142361402511597
+    },
+    {
+      "index": 13,
+      "name": "Transitional woodland, shrub",
+      "train_positive_areas": 868,
+      "validation_positive_areas": 38,
+      "train_mean_coverage": 0.03576485724797037,
+      "validation_mean_coverage": 0.03466338360332884
+    },
+    {
+      "index": 14,
+      "name": "Beaches, dunes, sands",
+      "train_positive_areas": 10,
+      "validation_positive_areas": 1,
+      "train_mean_coverage": 0.0002480139617514594,
+      "validation_mean_coverage": 1.0416666918899863e-06
+    },
+    {
+      "index": 15,
+      "name": "Inland wetlands",
+      "train_positive_areas": 165,
+      "validation_positive_areas": 8,
+      "train_mean_coverage": 0.010665631408286889,
+      "validation_mean_coverage": 0.019726388995768503
+    },
+    {
+      "index": 16,
+      "name": "Coastal wetlands",
+      "train_positive_areas": 8,
+      "validation_positive_areas": 1,
+      "train_mean_coverage": 0.0005530795021711485,
+      "validation_mean_coverage": 0.00031805556267499923
+    },
+    {
+      "index": 17,
+      "name": "Inland waters",
+      "train_positive_areas": 353,
+      "validation_positive_areas": 13,
+      "train_mean_coverage": 0.01875706725928467,
+      "validation_mean_coverage": 0.014704861126083414
+    },
+    {
+      "index": 18,
+      "name": "Marine waters",
+      "train_positive_areas": 386,
+      "validation_positive_areas": 16,
+      "train_mean_coverage": 0.08053047761179345,
+      "validation_mean_coverage": 0.07082916684448719
+    }
+  ],
+  "country_distribution": [
+    {
+      "country": "Austria",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Belgium",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Finland",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Ireland",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Kosovo",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Lithuania",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Luxembourg",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Portugal",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Serbia",
+      "train": 460,
+      "validation": 20
+    },
+    {
+      "country": "Switzerland",
+      "train": 460,
+      "validation": 20
+    }
+  ],
+  "target_entropy_mean": {
+    "train": 0.7329898606364467,
+    "validation": 0.7429486537164967
+  },
+  "known_audit_context": {
+    "within_train_positive_spatial_overlap_pairs": 138,
+    "within_train_duplicate_reference_content_groups": 103,
+    "cross_split_spatial_overlap_pairs": 0,
+    "cross_split_duplicate_reference_groups": 0,
+    "interpretation": "Retained as legitimate repeated-place/acquisition sampling; no samples were excluded or reweighted."
+  }
+}

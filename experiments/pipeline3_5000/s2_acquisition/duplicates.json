@@ -1,0 +1,41 @@
+{
+  "cross_area_band_content_groups": [],
+  "cross_split_duplicate_content_groups": [],
+  "duplicate_area_band_groups": [],
+  "duplicate_whole_area_content_groups": [],
+  "format_version": 1,
+  "interpretation": "Same-area cross-band equality is recorded, not discarded. Cross-area and cross-split S2 duplication are the leakage checks.",
+  "same_area_cross_band_content_groups": [
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_07_62:B01",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_07_62:B09"
+    ],
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_07_62:B06",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_07_62:B07"
+    ],
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_88_43:B01",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_88_43:B09"
+    ],
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_88_43:B05",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_88_43:B06",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_88_43:B07"
+    ],
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B01",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B09"
+    ],
+    [
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B05",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B06",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B07",
+      "S2A_MSIL2A_20180413T095031_N9999_R079_T35VLG_90_45:B8A"
+    ],
+    [
+      "S2B_MSIL2A_20170906T101019_N9999_R022_T34VDN_88_58:B01",
+      "S2B_MSIL2A_20170906T101019_N9999_R022_T34VDN_88_58:B09"
+    ]
+  ]
+}

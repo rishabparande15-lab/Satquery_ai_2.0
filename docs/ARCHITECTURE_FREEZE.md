@@ -4,6 +4,8 @@ Date: 2026-09-13
 
 Status: recommended architecture boundary for future work. This is a freeze proposal, not an implementation plan that changes the current scientific or web runtime.
 
+> Current-status note (2026-09-15): the typed contracts, deterministic capability boundary, optional representation persistence, and trusted receipt catalog described by this freeze are now implemented as infrastructure. VQA, captioning, learned grounding, temporal/change prediction, calibration, and full agentic planning remain future work. See [Current Project Status](CURRENT_PROJECT_STATUS.md).
+
 ## Freeze Decision
 
 Keep the current validated analysis behavior intact and place future capabilities behind typed, versioned boundaries. The live API remains responsible for compatibility and deterministic feature/evidence reports. Future VQA, captioning, grounding, temporal/change, calibration, and agentic orchestration must consume a shared immutable scene context through task adapters.

@@ -1,0 +1,147 @@
+{
+  "archive_observations": [
+    {
+      "direct_s2_tiff_count": 36,
+      "member_count": 50,
+      "opaque_s2_part_members": [],
+      "path": "D:\\Satquery_ai datasets\\bigearthnet-v2-three-samples.zip",
+      "rejection_reason": null,
+      "sha256": "fc2aa9371e64fa80ba231061797c9e1070594551dcb4a5cfac6c7b4874ef03e3",
+      "size_bytes": 693684,
+      "status": "candidate_s2_tiffs_present",
+      "zip_crc_bad_member": null
+    },
+    {
+      "direct_s2_tiff_count": 0,
+      "member_count": 6,
+      "opaque_s2_part_members": [],
+      "path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+      "rejection_reason": "archive contains no S2 TIFF payload",
+      "sha256": "b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595",
+      "size_bytes": 511585298,
+      "status": "rejected_no_independently_readable_s2_tiffs",
+      "zip_crc_bad_member": null
+    },
+    {
+      "direct_s2_tiff_count": 0,
+      "member_count": 7,
+      "opaque_s2_part_members": [
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00128.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00187.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00147.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00131.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00148.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00158.part"
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
+      "rejection_reason": "noncontiguous pieces of a split tar.zst cannot establish or extract exact patch identities",
+      "sha256": "599d4ae1f446f8ac61f7693a70a85f1f37326a87ef7a2256f03310a902b91dde",
+      "size_bytes": 1878744461,
+      "status": "rejected_no_independently_readable_s2_tiffs",
+      "zip_crc_bad_member": null
+    }
+  ],
+  "format_version": 1,
+  "records": [
+    {
+      "area_id": "S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39",
+      "band_count": 12,
+      "bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B11",
+        "B12",
+        "B8A"
+      ],
+      "paths": [
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B01.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B02.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B03.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B04.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B05.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B06.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B07.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B08.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B09.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B11.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B12.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_39_B8A.tif"
+      ],
+      "reason": "area_id_not_in_exact_selected_5000_manifest"
+    },
+    {
+      "area_id": "S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40",
+      "band_count": 12,
+      "bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B11",
+        "B12",
+        "B8A"
+      ],
+      "paths": [
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B01.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B02.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B03.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B04.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B05.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B06.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B07.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B08.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B09.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B11.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B12.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_40_B8A.tif"
+      ],
+      "reason": "area_id_not_in_exact_selected_5000_manifest"
+    },
+    {
+      "area_id": "S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41",
+      "band_count": 12,
+      "bands": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B11",
+        "B12",
+        "B8A"
+      ],
+      "paths": [
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B01.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B02.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B03.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B04.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B05.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B06.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B07.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B08.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B09.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B11.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B12.tif",
+        "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41\\S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_61_41_B8A.tif"
+      ],
+      "reason": "area_id_not_in_exact_selected_5000_manifest"
+    }
+  ],
+  "unmatched_area_count": 3
+}

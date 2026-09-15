@@ -1,0 +1,1862 @@
+{
+  "constant": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 8.963651512221196,
+        "rmse_pp": 14.674281020835336,
+        "bias_pp": -4.02080489869189e-06,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.596851086856433,
+        "rmse_pp": 5.650599542241049,
+        "bias_pp": -3.37655048655427e-08,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 24.574736540381032,
+        "rmse_pp": 30.249875980147422,
+        "bias_pp": -1.5713727486360332e-07,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.3885050505626206,
+        "rmse_pp": 7.417680970704552,
+        "bias_pp": -6.723598546712942e-07,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 15.596760376236489,
+        "rmse_pp": 22.80769969094709,
+        "bias_pp": 4.793883145675468e-06,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 12.512152338061044,
+        "rmse_pp": 17.668192594253394,
+        "bias_pp": 2.42944066564593e-06,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 7.607461316683444,
+        "rmse_pp": 12.125859780454945,
+        "bias_pp": 1.6157465997030554e-07,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 2.617568985836798,
+        "rmse_pp": 9.374597667670129,
+        "bias_pp": -4.2995278541322635e-07,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 17.50970593152385,
+        "rmse_pp": 24.10245589383885,
+        "bias_pp": 3.991819223459891e-06,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 14.12638295015052,
+        "rmse_pp": 21.30255513026906,
+        "bias_pp": -6.283163953491527e-06,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 13.031461617012214,
+        "rmse_pp": 18.768321061297865,
+        "bias_pp": -9.668406362280897e-07,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 2.3146943969407836,
+        "rmse_pp": 7.580664918923702,
+        "bias_pp": -4.2813316331771406e-07,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.446147722160474,
+        "rmse_pp": 6.167271091364801,
+        "bias_pp": -1.9467931807689045e-08,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.999966234534361,
+        "rmse_pp": 11.398415687648923,
+        "bias_pp": -2.8466203492944653e-07,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.04949494907328778,
+        "rmse_pp": 0.9063290287543301,
+        "bias_pp": -1.1168278591788334e-08,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 2.0628339973146743,
+        "rmse_pp": 8.127182731771942,
+        "bias_pp": -8.868468601418578e-07,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.11042351047913342,
+        "rmse_pp": 1.9979813810840081,
+        "bias_pp": -1.4526607549708822e-08,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 3.4904720789990793,
+        "rmse_pp": 10.137658810975337,
+        "bias_pp": -3.3638207241892815e-07,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 14.765793509599145,
+        "rmse_pp": 27.014892254850565,
+        "bias_pp": -3.5314334799414095e-06,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 8.460191495134495,
+        "rmse_pp": 14.354481299175733,
+        "bias_pp": 1.1563976624747738,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.521687809494324,
+        "rmse_pp": 5.8488554462930225,
+        "bias_pp": 0.10083612625021487,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 23.300743658430292,
+        "rmse_pp": 28.7881736528764,
+        "bias_pp": 1.1900804083416006,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.902494076639414,
+        "rmse_pp": 10.06112249337292,
+        "bias_pp": -0.49627453461289406,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 15.041397484455956,
+        "rmse_pp": 21.801691173704818,
+        "bias_pp": -0.006567684496985748,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 11.592520139791304,
+        "rmse_pp": 15.904818399904181,
+        "bias_pp": 1.7093488719838206,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 9.614032184676034,
+        "rmse_pp": 16.700509524636118,
+        "bias_pp": -2.3766877968155313,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 2.264550242573023,
+        "rmse_pp": 6.719387173783636,
+        "bias_pp": 0.3563019409775734,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 19.866494898451492,
+        "rmse_pp": 27.576447315375255,
+        "bias_pp": -4.022886100457981,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 12.015003490116214,
+        "rmse_pp": 16.82286517839424,
+        "bias_pp": 2.733736420836067,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 14.11080528626917,
+        "rmse_pp": 21.16330175411135,
+        "bias_pp": -1.9709463806939311,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.8665949990972877,
+        "rmse_pp": 4.43683927609092,
+        "bias_pp": 0.42840418592095375,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 0.9060589959844947,
+        "rmse_pp": 2.484642084215661,
+        "bias_pp": 0.5706323273479939,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.8791837230091915,
+        "rmse_pp": 10.557792801839664,
+        "bias_pp": 0.11014707980211824,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.02469721833767835,
+        "rmse_pp": 0.024740894929609396,
+        "bias_pp": 0.02469721833767835,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 2.961764017934911,
+        "rmse_pp": 12.64294585467383,
+        "bias_pp": -0.9060766455950215,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.08656041260110214,
+        "rmse_pp": 0.44928771441702997,
+        "bias_pp": 0.02350237942300737,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 3.125350910500856,
+        "rmse_pp": 9.457987181032237,
+        "bias_pp": 0.40522027693805285,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 13.852170944213867,
+        "rmse_pp": 25.112752833979386,
+        "bias_pp": 0.9701275452971458,
+        "support_tokens": 16
+      }
+    ]
+  },
+  "physical": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 5.562581782246802,
+        "rmse_pp": 10.153032189160864,
+        "bias_pp": 0.03845372404026895,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 2.436723938495877,
+        "rmse_pp": 4.995043562427861,
+        "bias_pp": 1.3519540411102555,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 15.705138062922007,
+        "rmse_pp": 25.17649909203665,
+        "bias_pp": -7.338165553455823,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 3.3497063076191926,
+        "rmse_pp": 7.322745081646708,
+        "bias_pp": 1.293819030421614,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 9.940374800007465,
+        "rmse_pp": 16.6621615452841,
+        "bias_pp": -0.3641616895978508,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 10.557939207906731,
+        "rmse_pp": 16.687755254710293,
+        "bias_pp": -1.213518092542021,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 6.904263705090139,
+        "rmse_pp": 11.740766793681008,
+        "bias_pp": -0.2771032509383407,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 3.3264232615120304,
+        "rmse_pp": 8.346827409689482,
+        "bias_pp": 1.3936578731771316,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 12.437273628142266,
+        "rmse_pp": 20.251842792414227,
+        "bias_pp": -2.4490024752582675,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 9.182470483734505,
+        "rmse_pp": 16.27937581948586,
+        "bias_pp": -0.5206109279967243,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 9.645373975255765,
+        "rmse_pp": 16.502176146180492,
+        "bias_pp": -1.315809366382466,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 3.113878822497297,
+        "rmse_pp": 7.2680944900310145,
+        "bias_pp": 1.1165146702541793,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 2.414265630590861,
+        "rmse_pp": 6.214203940275896,
+        "bias_pp": 1.0486427143522357,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.206143934802403,
+        "rmse_pp": 10.81045857934303,
+        "bias_pp": -0.18030862748464246,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 1.6811384048993678,
+        "rmse_pp": 2.01113465207577,
+        "bias_pp": 1.649955904487085,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 2.898775638879828,
+        "rmse_pp": 8.003175659728653,
+        "bias_pp": 0.9839912374979537,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 2.0651382036955077,
+        "rmse_pp": 2.913694357264572,
+        "bias_pp": 1.9651667162252124,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 2.8238624890936594,
+        "rmse_pp": 7.026894758504319,
+        "bias_pp": 1.3385256531875473,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 3.451809364987404,
+        "rmse_pp": 8.135314094057826,
+        "bias_pp": 1.477998377541595,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 5.236222275780165,
+        "rmse_pp": 10.275902780843976,
+        "bias_pp": 0.19752906567009632,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 2.3120868388796225,
+        "rmse_pp": 5.089886203206081,
+        "bias_pp": 1.3143521953606978,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 15.146894551503353,
+        "rmse_pp": 23.18318217653953,
+        "bias_pp": -5.971550720297383,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 4.151763538597152,
+        "rmse_pp": 10.121305629335549,
+        "bias_pp": 0.8790437958668917,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 9.240115369991372,
+        "rmse_pp": 14.95216402928568,
+        "bias_pp": -0.5820560218696755,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 10.25540779379552,
+        "rmse_pp": 15.036628062268187,
+        "bias_pp": 0.8533490862453519,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 9.117186246198798,
+        "rmse_pp": 16.242661704364583,
+        "bias_pp": -2.2344737371977317,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 3.3085873632808216,
+        "rmse_pp": 6.4904382752296,
+        "bias_pp": 2.1155508144875057,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 15.477743159275917,
+        "rmse_pp": 24.241115414298225,
+        "bias_pp": -4.026121784472423,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 8.549538882454044,
+        "rmse_pp": 14.276884299541013,
+        "bias_pp": 1.1462330501574343,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 10.900463397860676,
+        "rmse_pp": 18.57652812522522,
+        "bias_pp": -3.4373187192700243,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 2.7521814858191647,
+        "rmse_pp": 4.706738393188362,
+        "bias_pp": 1.5282450738013722,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.9274277611402795,
+        "rmse_pp": 3.0495924398470278,
+        "bias_pp": 1.6010208035586402,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.182304039364681,
+        "rmse_pp": 9.84203759184121,
+        "bias_pp": 0.17704499640967697,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 1.70964563616144,
+        "rmse_pp": 1.9265343860665656,
+        "bias_pp": 1.70964563616144,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 3.734494279458886,
+        "rmse_pp": 12.273752569031062,
+        "bias_pp": 0.06524811251438223,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 2.0323540089884773,
+        "rmse_pp": 2.2657358581828713,
+        "bias_pp": 2.0323540089884773,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 2.851483102829661,
+        "rmse_pp": 8.456194893985494,
+        "bias_pp": 1.2293508475995623,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 3.810055051921154,
+        "rmse_pp": 9.868206050628245,
+        "bias_pp": 1.4025529445989378,
+        "support_tokens": 16
+      }
+    ]
+  },
+  "optical_croma": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 3.24396998311853,
+        "rmse_pp": 6.254196401782871,
+        "bias_pp": 0.02336978301871709,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.3160761846995783,
+        "rmse_pp": 3.1391195921590587,
+        "bias_pp": 0.6202594923702829,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 9.7807925068667,
+        "rmse_pp": 16.617635284781883,
+        "bias_pp": -2.071245862310846,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.1277490666259236,
+        "rmse_pp": 5.857655385957167,
+        "bias_pp": 0.4744176334865059,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 7.767548456150775,
+        "rmse_pp": 13.730048344858773,
+        "bias_pp": -0.7420099817236097,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 8.85443690214641,
+        "rmse_pp": 14.635314663233828,
+        "bias_pp": -0.819537069941011,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 5.842062381794816,
+        "rmse_pp": 10.483303057693794,
+        "bias_pp": -0.23582546847202743,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.8136695833775816,
+        "rmse_pp": 5.631174470497814,
+        "bias_pp": 0.7362033912487158,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 8.065618338987024,
+        "rmse_pp": 14.658213486865803,
+        "bias_pp": -1.8603102054522602,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 5.8735389581347555,
+        "rmse_pp": 11.894483952145766,
+        "bias_pp": -0.46494837366459746,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 7.708710917445535,
+        "rmse_pp": 13.787606339102393,
+        "bias_pp": -0.04425510701701656,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.996622664170223,
+        "rmse_pp": 5.539479552106763,
+        "bias_pp": 0.5220098433621101,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.6659266543591535,
+        "rmse_pp": 5.055990011608277,
+        "bias_pp": 0.5894423435286962,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 4.449333959389679,
+        "rmse_pp": 9.422406098789999,
+        "bias_pp": -0.08577948859505467,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.7714524272066584,
+        "rmse_pp": 0.9623514813760268,
+        "bias_pp": 0.7570591730639179,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 1.7515742943434578,
+        "rmse_pp": 5.176539716883014,
+        "bias_pp": 0.6384090214451135,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.7831121687486302,
+        "rmse_pp": 1.116065054165298,
+        "bias_pp": 0.7514262866221226,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 1.7382490328463578,
+        "rmse_pp": 5.366953337808376,
+        "bias_pp": 0.457943081010102,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 1.5325704876345398,
+        "rmse_pp": 5.2852482839651875,
+        "bias_pp": 0.7533717199463333,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 2.957772075950288,
+        "rmse_pp": 6.193035285693913,
+        "bias_pp": 0.7187257190767014,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.309393155417638,
+        "rmse_pp": 4.922922324129984,
+        "bias_pp": 0.5603483438317198,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 10.788561256060097,
+        "rmse_pp": 18.82046332644462,
+        "bias_pp": -1.661962432799521,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 3.0233394780007075,
+        "rmse_pp": 9.384273173489666,
+        "bias_pp": -0.05832603754970478,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 8.404314596322527,
+        "rmse_pp": 14.511929828555825,
+        "bias_pp": -1.6891472752902903,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 9.96493385314185,
+        "rmse_pp": 15.957784202931911,
+        "bias_pp": 1.460410391544579,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 8.445790199987766,
+        "rmse_pp": 15.421253223273201,
+        "bias_pp": -2.356620587973213,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.794811657491664,
+        "rmse_pp": 4.8319322038537385,
+        "bias_pp": 1.043084761920909,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 11.056853410289845,
+        "rmse_pp": 19.53394854335213,
+        "bias_pp": -2.068713628923064,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 6.171335871360505,
+        "rmse_pp": 12.843160166904248,
+        "bias_pp": -0.14432772298459184,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 9.976677419509892,
+        "rmse_pp": 17.130726152376123,
+        "bias_pp": -1.3086008862649594,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.9722655809928256,
+        "rmse_pp": 4.536002458237331,
+        "bias_pp": 0.7926274559904414,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.4299546876736713,
+        "rmse_pp": 3.741222550711646,
+        "bias_pp": 1.1147195534595085,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.311218762150973,
+        "rmse_pp": 10.610785409899636,
+        "bias_pp": 0.8418155293539229,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.8513446915167151,
+        "rmse_pp": 1.1804339013889342,
+        "bias_pp": 0.8513446915167151,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 2.4787622382327754,
+        "rmse_pp": 8.774990493063601,
+        "bias_pp": -0.06719557853193692,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.8313941529777367,
+        "rmse_pp": 1.071399611726028,
+        "bias_pp": 0.8045038080599625,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 2.50000232905586,
+        "rmse_pp": 9.37746820394477,
+        "bias_pp": 0.358880857755139,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 2.471204581866914,
+        "rmse_pp": 10.179579122183698,
+        "bias_pp": 0.8084330178899108,
+        "support_tokens": 16
+      }
+    ]
+  },
+  "sar_croma": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 3.1836926336789086,
+        "rmse_pp": 6.084858423984858,
+        "bias_pp": 0.10624731795393556,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.383467511616207,
+        "rmse_pp": 2.8958988281784785,
+        "bias_pp": 0.7325675511086086,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 11.714183128741526,
+        "rmse_pp": 19.3315574319733,
+        "bias_pp": -1.7521939270264348,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.4816086833176167,
+        "rmse_pp": 6.70001132624219,
+        "bias_pp": 0.5170906715675301,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 8.908921066987768,
+        "rmse_pp": 15.664248812456641,
+        "bias_pp": -0.6782747278243343,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 9.24473715640209,
+        "rmse_pp": 15.302102426958868,
+        "bias_pp": -0.8149167266133661,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 5.995076043431231,
+        "rmse_pp": 10.886164364475853,
+        "bias_pp": -0.401362457603467,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 2.6310535943151665,
+        "rmse_pp": 7.548599854701836,
+        "bias_pp": 0.8425724643744052,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 9.453318266244937,
+        "rmse_pp": 17.02372388095668,
+        "bias_pp": -2.290916959502521,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 8.185870308359721,
+        "rmse_pp": 15.51500604036918,
+        "bias_pp": -0.6149017106443811,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 8.68846858174047,
+        "rmse_pp": 15.45168823350502,
+        "bias_pp": -0.8906087092437838,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.9769160826173862,
+        "rmse_pp": 5.282113912786972,
+        "bias_pp": 0.6239763182202889,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.7485255202687253,
+        "rmse_pp": 5.260833792578632,
+        "bias_pp": 0.6352885085010039,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 4.796088053405204,
+        "rmse_pp": 10.128026603846344,
+        "bias_pp": 0.04149417502532956,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.9219418148399912,
+        "rmse_pp": 1.107838162226816,
+        "bias_pp": 0.8982536790903712,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 2.2722244364105157,
+        "rmse_pp": 6.920823840644953,
+        "bias_pp": 0.6617875891997755,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.9587890183100408,
+        "rmse_pp": 1.6022069813477327,
+        "bias_pp": 0.9010337773014845,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 1.8242687141491645,
+        "rmse_pp": 5.6244690730909515,
+        "bias_pp": 0.6831406196619078,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 2.0778830123439467,
+        "rmse_pp": 6.333559091426076,
+        "bias_pp": 0.7997224741384343,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 3.2888127635749513,
+        "rmse_pp": 6.388443609957893,
+        "bias_pp": 1.09910589694553,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.2990233329037437,
+        "rmse_pp": 3.0677208509985365,
+        "bias_pp": 0.6625861780630657,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 13.335861236269775,
+        "rmse_pp": 21.68324696125234,
+        "bias_pp": -1.4032946952613967,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 3.1309868734388147,
+        "rmse_pp": 9.228935965239073,
+        "bias_pp": 0.04256212283507921,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 9.108265661548309,
+        "rmse_pp": 16.12484513320411,
+        "bias_pp": -2.4973022835026986,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 9.753682762472028,
+        "rmse_pp": 15.64515979951163,
+        "bias_pp": 0.8933857188461221,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 8.493610247602167,
+        "rmse_pp": 15.435586270372193,
+        "bias_pp": -2.342913878517745,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 2.4373798087581235,
+        "rmse_pp": 6.531272259264975,
+        "bias_pp": 0.9303483307703573,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 11.41109380221633,
+        "rmse_pp": 19.57735256004872,
+        "bias_pp": -2.2871062581293677,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 8.168713211442283,
+        "rmse_pp": 15.096154064635922,
+        "bias_pp": 1.8033191572287435,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 10.522921512152843,
+        "rmse_pp": 18.04002609993311,
+        "bias_pp": -2.393190367329007,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.8549224454254727,
+        "rmse_pp": 4.694400232227605,
+        "bias_pp": 0.9087126072772662,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.3409685073174842,
+        "rmse_pp": 2.6434337939651633,
+        "bias_pp": 1.0447903899230369,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.009382138345485,
+        "rmse_pp": 9.71607979963157,
+        "bias_pp": 0.33567295909985084,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.9780871600523824,
+        "rmse_pp": 1.2044039457037519,
+        "bias_pp": 0.9780871600523824,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 3.21175780265321,
+        "rmse_pp": 12.271940985359542,
+        "bias_pp": -0.45543070392022855,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 1.0247104651061818,
+        "rmse_pp": 1.2800838085535762,
+        "bias_pp": 0.9818888044683263,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 2.0250991386710666,
+        "rmse_pp": 7.813478815943171,
+        "bias_pp": 0.5493190311244689,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 2.4129916407255223,
+        "rmse_pp": 8.441677798319745,
+        "bias_pp": 1.1494593896059087,
+        "support_tokens": 16
+      }
+    ]
+  },
+  "joint_croma": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 2.9316444422957155,
+        "rmse_pp": 5.709702114998237,
+        "bias_pp": 0.018319527952508616,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 0.8619407815454392,
+        "rmse_pp": 2.516585189224795,
+        "bias_pp": 0.2445322721020365,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 9.242421816500029,
+        "rmse_pp": 15.187499038738393,
+        "bias_pp": -1.17269899127743,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 1.732637919225153,
+        "rmse_pp": 5.3708164288749956,
+        "bias_pp": 0.20131399592602361,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 7.072941214901183,
+        "rmse_pp": 12.58249636845553,
+        "bias_pp": -0.298603553306311,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 8.696555659921371,
+        "rmse_pp": 14.081597940031736,
+        "bias_pp": -0.2977567785062454,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 5.684486458686078,
+        "rmse_pp": 9.943375188083218,
+        "bias_pp": 0.06815388097558035,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.4153458716966931,
+        "rmse_pp": 5.429490038739772,
+        "bias_pp": 0.32245665185027866,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 7.4101517145725415,
+        "rmse_pp": 12.91783382028948,
+        "bias_pp": -0.7577162696762324,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 5.821352730007342,
+        "rmse_pp": 11.619551465304497,
+        "bias_pp": -0.350178035869305,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 7.337244607570509,
+        "rmse_pp": 13.066362438297933,
+        "bias_pp": 0.17936499081459295,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.4110503376777808,
+        "rmse_pp": 4.552246844459694,
+        "bias_pp": 0.2159178327720852,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.17463224245559,
+        "rmse_pp": 4.411271922669058,
+        "bias_pp": 0.2266735034797353,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 4.376103226698298,
+        "rmse_pp": 9.0668978413105,
+        "bias_pp": -0.003097550035696461,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.3651471895228576,
+        "rmse_pp": 0.5872074363964809,
+        "bias_pp": 0.3455154662974169,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 1.3186009598018782,
+        "rmse_pp": 4.585927394804875,
+        "bias_pp": 0.2766104750050291,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.3637358788225267,
+        "rmse_pp": 0.6551447635799242,
+        "bias_pp": 0.3330249178817044,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 1.0976102569601787,
+        "rmse_pp": 3.7343924480731836,
+        "bias_pp": 0.14586256264169215,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 0.819928681622158,
+        "rmse_pp": 3.4968228892472935,
+        "bias_pp": 0.3023050006456248,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 3.2711448958873586,
+        "rmse_pp": 7.305926420172097,
+        "bias_pp": 0.7584429328128529,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 1.000398602005589,
+        "rmse_pp": 4.818251072624757,
+        "bias_pp": 0.25289442555003916,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 9.899395837930175,
+        "rmse_pp": 17.426987007825733,
+        "bias_pp": -1.8224998900427027,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.6366992505314037,
+        "rmse_pp": 9.456597586221655,
+        "bias_pp": -0.532186894346939,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 8.589978366767605,
+        "rmse_pp": 15.22167709669023,
+        "bias_pp": -1.2069528727758787,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 10.135857445974,
+        "rmse_pp": 16.03908846297472,
+        "bias_pp": 1.8068471363225058,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 8.730427346748826,
+        "rmse_pp": 15.144431164306582,
+        "bias_pp": -1.5016639898932171,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.6665695941279637,
+        "rmse_pp": 5.884453422388845,
+        "bias_pp": 0.4389035588334309,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 9.783078594233015,
+        "rmse_pp": 16.319783088074328,
+        "bias_pp": -0.4498211242192303,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 6.741408972352567,
+        "rmse_pp": 13.394993100702045,
+        "bias_pp": 0.7188069518225373,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 9.596088670384738,
+        "rmse_pp": 16.044794349160167,
+        "bias_pp": -1.7771050199955483,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.4470924927113629,
+        "rmse_pp": 3.9263621076773485,
+        "bias_pp": 0.3195460207020915,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 0.9283688930562661,
+        "rmse_pp": 2.504647388098804,
+        "bias_pp": 0.6705296603730844,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.2296121780302265,
+        "rmse_pp": 9.492424522655854,
+        "bias_pp": 1.3206018558768908,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.3840724398760358,
+        "rmse_pp": 0.5305426619822747,
+        "bias_pp": 0.3840724398760358,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 1.9579940121429473,
+        "rmse_pp": 8.236785176520662,
+        "bias_pp": -0.18377850998244583,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.4162292053079,
+        "rmse_pp": 0.7651948418098315,
+        "bias_pp": 0.35830161544436123,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 1.4013458015251672,
+        "rmse_pp": 7.66286736010857,
+        "bias_pp": -0.2656624240480596,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 1.8462801110090368,
+        "rmse_pp": 9.080170981868884,
+        "bias_pp": 0.7107246061877959,
+        "support_tokens": 16
+      }
+    ]
+  },
+  "hybrid": {
+    "train": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 2.8171620178898205,
+        "rmse_pp": 5.5035859409078896,
+        "bias_pp": -0.023595701723295986,
+        "support_tokens": 1317
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 0.7829357108488317,
+        "rmse_pp": 2.360772371006724,
+        "bias_pp": 0.21635782502757256,
+        "support_tokens": 230
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 8.720212960692507,
+        "rmse_pp": 14.413047380208052,
+        "bias_pp": -1.0299825304968395,
+        "support_tokens": 2162
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 1.7003391326236297,
+        "rmse_pp": 5.114841004927732,
+        "bias_pp": 0.3041646093806578,
+        "support_tokens": 235
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 6.8237433523976225,
+        "rmse_pp": 12.123937941503506,
+        "bias_pp": -0.1454320253545368,
+        "support_tokens": 1477
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 8.525984968759635,
+        "rmse_pp": 13.862899163779478,
+        "bias_pp": -0.3207636259704692,
+        "support_tokens": 1566
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 5.559811086259555,
+        "rmse_pp": 9.944316848870649,
+        "bias_pp": -0.16573861552872116,
+        "support_tokens": 1251
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.245799238396293,
+        "rmse_pp": 4.9994391352434,
+        "bias_pp": 0.3056558416625595,
+        "support_tokens": 148
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 7.03205105368873,
+        "rmse_pp": 12.300785783133577,
+        "bias_pp": -0.5243442957035668,
+        "support_tokens": 1700
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 5.373145739752856,
+        "rmse_pp": 10.883713333424835,
+        "bias_pp": -0.2737989349364089,
+        "support_tokens": 1189
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 7.133305311596215,
+        "rmse_pp": 12.845912819205873,
+        "bias_pp": 0.06938562772648389,
+        "support_tokens": 1345
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.3706744032018416,
+        "rmse_pp": 4.459707808683893,
+        "bias_pp": 0.23390874777812487,
+        "support_tokens": 221
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 1.1057645804480527,
+        "rmse_pp": 4.1940054712478,
+        "bias_pp": 0.20433830281724216,
+        "support_tokens": 123
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 4.284971939046135,
+        "rmse_pp": 8.89176755459075,
+        "bias_pp": 0.04122758041831869,
+        "support_tokens": 868
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.2917290214166156,
+        "rmse_pp": 0.42062550429097156,
+        "bias_pp": 0.2817677054696382,
+        "support_tokens": 10
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 1.2060980451035717,
+        "rmse_pp": 4.259368662818779,
+        "bias_pp": 0.22932598296351017,
+        "support_tokens": 165
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.3088108186811565,
+        "rmse_pp": 0.575881561631478,
+        "bias_pp": 0.280772762225199,
+        "support_tokens": 8
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 0.9714688208276822,
+        "rmse_pp": 3.36709991789524,
+        "bias_pp": 0.0958180735407773,
+        "support_tokens": 353
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 0.6880062161094578,
+        "rmse_pp": 3.0322533190461445,
+        "bias_pp": 0.2209326914387722,
+        "support_tokens": 386
+      }
+    ],
+    "validation": [
+      {
+        "index": 0,
+        "name": "Urban fabric",
+        "mae_pp": 3.211094362880621,
+        "rmse_pp": 7.031784501199254,
+        "bias_pp": 0.48559590823534426,
+        "support_tokens": 43
+      },
+      {
+        "index": 1,
+        "name": "Industrial or commercial units",
+        "mae_pp": 0.894483221709379,
+        "rmse_pp": 4.435941712610399,
+        "bias_pp": 0.19358754124550615,
+        "support_tokens": 7
+      },
+      {
+        "index": 2,
+        "name": "Arable land",
+        "mae_pp": 10.080394998532274,
+        "rmse_pp": 17.510320413009566,
+        "bias_pp": -1.230463087790423,
+        "support_tokens": 101
+      },
+      {
+        "index": 3,
+        "name": "Permanent crops",
+        "mae_pp": 2.6805464583670653,
+        "rmse_pp": 9.47162037061971,
+        "bias_pp": -0.487734780042625,
+        "support_tokens": 8
+      },
+      {
+        "index": 4,
+        "name": "Pastures",
+        "mae_pp": 8.319051299715749,
+        "rmse_pp": 14.897337795550815,
+        "bias_pp": -1.0316953021042432,
+        "support_tokens": 68
+      },
+      {
+        "index": 5,
+        "name": "Complex cultivation patterns",
+        "mae_pp": 10.22651381374959,
+        "rmse_pp": 16.228410615979392,
+        "bias_pp": 1.9075410003184168,
+        "support_tokens": 63
+      },
+      {
+        "index": 6,
+        "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "mae_pp": 8.627240298316513,
+        "rmse_pp": 15.26229573351529,
+        "bias_pp": -1.90953126369214,
+        "support_tokens": 60
+      },
+      {
+        "index": 7,
+        "name": "Agro-forestry areas",
+        "mae_pp": 1.688213053938398,
+        "rmse_pp": 6.425876621927122,
+        "bias_pp": 0.6860847397115322,
+        "support_tokens": 6
+      },
+      {
+        "index": 8,
+        "name": "Broad-leaved forest",
+        "mae_pp": 9.590356878142423,
+        "rmse_pp": 16.292881954914186,
+        "bias_pp": -0.17294008829855356,
+        "support_tokens": 85
+      },
+      {
+        "index": 9,
+        "name": "Coniferous forest",
+        "mae_pp": 6.145883254900099,
+        "rmse_pp": 12.561628264535722,
+        "bias_pp": 0.5004361293581207,
+        "support_tokens": 49
+      },
+      {
+        "index": 10,
+        "name": "Mixed forest",
+        "mae_pp": 9.07551297139348,
+        "rmse_pp": 15.814548992276558,
+        "bias_pp": -1.55649912301013,
+        "support_tokens": 74
+      },
+      {
+        "index": 11,
+        "name": "Natural grassland and sparsely vegetated areas",
+        "mae_pp": 1.5304257656715203,
+        "rmse_pp": 4.214975326145455,
+        "bias_pp": 0.37647855759480464,
+        "support_tokens": 11
+      },
+      {
+        "index": 12,
+        "name": "Moors, heathland and sclerophyllous vegetation",
+        "mae_pp": 0.8433958895385381,
+        "rmse_pp": 2.5002880938165295,
+        "bias_pp": 0.5618579134225961,
+        "support_tokens": 1
+      },
+      {
+        "index": 13,
+        "name": "Transitional woodland, shrub",
+        "mae_pp": 5.155149697230347,
+        "rmse_pp": 9.430371574755645,
+        "bias_pp": 1.1944011568181787,
+        "support_tokens": 38
+      },
+      {
+        "index": 14,
+        "name": "Beaches, dunes, sands",
+        "mae_pp": 0.3275554991341778,
+        "rmse_pp": 0.4814373069170945,
+        "bias_pp": 0.3275554991341778,
+        "support_tokens": 1
+      },
+      {
+        "index": 15,
+        "name": "Inland wetlands",
+        "mae_pp": 1.9463850037359336,
+        "rmse_pp": 8.691363366270096,
+        "bias_pp": -0.35711488768675537,
+        "support_tokens": 8
+      },
+      {
+        "index": 16,
+        "name": "Coastal wetlands",
+        "mae_pp": 0.349216324306326,
+        "rmse_pp": 0.639724434578426,
+        "bias_pp": 0.29179608545382507,
+        "support_tokens": 1
+      },
+      {
+        "index": 17,
+        "name": "Inland waters",
+        "mae_pp": 1.2467446508879902,
+        "rmse_pp": 7.483501854615046,
+        "bias_pp": -0.4548780529813712,
+        "support_tokens": 13
+      },
+      {
+        "index": 18,
+        "name": "Marine waters",
+        "mae_pp": 1.7837490617184812,
+        "rmse_pp": 9.383839310782578,
+        "bias_pp": 0.6755223489253694,
+        "support_tokens": 16
+      }
+    ]
+  }
+}

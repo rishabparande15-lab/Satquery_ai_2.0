@@ -1,0 +1,62 @@
+{
+  "archives_inspected": [
+    {
+      "direct_s2_tiff_count": 36,
+      "member_count": 50,
+      "opaque_s2_part_members": [],
+      "path": "D:\\Satquery_ai datasets\\bigearthnet-v2-three-samples.zip",
+      "rejection_reason": null,
+      "sha256": "fc2aa9371e64fa80ba231061797c9e1070594551dcb4a5cfac6c7b4874ef03e3",
+      "size_bytes": 693684,
+      "status": "candidate_s2_tiffs_present",
+      "zip_crc_bad_member": null
+    },
+    {
+      "direct_s2_tiff_count": 0,
+      "member_count": 6,
+      "opaque_s2_part_members": [],
+      "path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+      "rejection_reason": "archive contains no S2 TIFF payload",
+      "sha256": "b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595",
+      "size_bytes": 511585298,
+      "status": "rejected_no_independently_readable_s2_tiffs",
+      "zip_crc_bad_member": null
+    },
+    {
+      "direct_s2_tiff_count": 0,
+      "member_count": 7,
+      "opaque_s2_part_members": [
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00128.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00187.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00147.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00131.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00148.part",
+        "bigearthnet-v2-full-official/BigEarthNet-S2.tar.zst.parts/00158.part"
+      ],
+      "path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
+      "rejection_reason": "noncontiguous pieces of a split tar.zst cannot establish or extract exact patch identities",
+      "sha256": "599d4ae1f446f8ac61f7693a70a85f1f37326a87ef7a2256f03310a902b91dde",
+      "size_bytes": 1878744461,
+      "status": "rejected_no_independently_readable_s2_tiffs",
+      "zip_crc_bad_member": null
+    }
+  ],
+  "candidate_roots": [
+    "D:\\Satquery_ai datasets\\comparison\\raw-1000\\BigEarthNet-S2",
+    "D:\\Satquery_ai datasets\\comparison\\raw-5000-additional\\BigEarthNet-S2",
+    "D:\\Satquery_ai datasets\\extracted\\small-sample\\BigEarthNet-S2"
+  ],
+  "completeness_gate_ready": true,
+  "format_version": 1,
+  "matched_valid_s2_count": 5000,
+  "preexisting_valid_s2_count": 1000,
+  "recovered_s2_count": 4000,
+  "rejected_candidate_area_count": 3,
+  "selected_count": 5000,
+  "split_counts": {
+    "test": 200,
+    "train": 4600,
+    "validation": 200
+  },
+  "unresolved_selected_count": 0
+}

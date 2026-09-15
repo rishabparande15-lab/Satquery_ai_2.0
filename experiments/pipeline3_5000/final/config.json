@@ -1,0 +1,28 @@
+{
+  "status": "frozen_for_single_test_evaluation",
+  "selected_model": "hybrid",
+  "selected_model_definition": "linear softmax probe over concatenated 62-dimensional physical and 768-dimensional joint CROMA GAP features",
+  "input_dimension": 830,
+  "selection_criterion": "minimum validation soft-target cross entropy",
+  "selection_value": 1.526572346687317,
+  "validation_mae_pp": 4.406416447572048,
+  "seed": 17,
+  "selected_epoch": 54,
+  "checkpoint": "D:\\Satquery_ai datasets\\comparison\\pipeline3-5000\\models\\baseline\\hybrid.pt",
+  "checkpoint_file_sha256": "0694dd82d4a3c03663ed7128adb4be6df729178e07b4ff8a1ec4295ed912130f",
+  "model_state_sha256": "85d9390c66a887276db24a7cadb58c398770cde2e17488a1a9c42e16819da634",
+  "baseline_configuration_sha256": "d99d1726e7668a534496732ce27afe5f9d053350d43b5546b64bd07d22d540f1",
+  "dataset_fingerprint": "7dfd5cd5077e7fd0307acd3fb442d4745aa829a03611c7522e08acbc7f027625",
+  "split_fingerprint": "2232ac5bc65d3ed20c6f39deb6037bb8e0543100b247fd6c9e538eddf9feb86c",
+  "code_commit_at_start": "831b68b1825fc145ea6772de5dedf8770f2f9ccc",
+  "repair": null,
+  "repeatability": {
+    "repeat_seed": 29,
+    "repeat_validation_loss": 1.5283280611038208,
+    "repeat_validation_mae_pp": 4.381094604426621,
+    "repeat_validation_accuracy": 0.585,
+    "primary_validation_accuracy": 0.6,
+    "interpretation": "Stable validation MAE and loss; seed 17 remains primary because seeds were not candidates for selection."
+  },
+  "test_protocol": "One event scores all frozen baseline ablations and this selected model; no test result informed selection."
+}

@@ -1,0 +1,50 @@
+{
+  "algorithm": "sha256(canonical_json(scientific_basis))",
+  "fingerprint": "9e7aa5977c6bc2f1f7671b2f5955c4414fda7d426c155e02be2ae1b183e77f4a",
+  "basis": {
+    "dataset_fingerprint": "7dfd5cd5077e7fd0307acd3fb442d4745aa829a03611c7522e08acbc7f027625",
+    "split_fingerprint": "2232ac5bc65d3ed20c6f39deb6037bb8e0543100b247fd6c9e538eddf9feb86c",
+    "configuration_sha256": "d99d1726e7668a534496732ce27afe5f9d053350d43b5546b64bd07d22d540f1",
+    "seed": 17,
+    "validation_metrics": {
+      "constant": {
+        "mae_pp": 7.862752736195321,
+        "rmse_pp": 15.780418456326007,
+        "dominant_class_accuracy": 0.2
+      },
+      "physical": {
+        "mae_pp": 6.19452393596322,
+        "rmse_pp": 12.815010823664856,
+        "dominant_class_accuracy": 0.51
+      },
+      "optical_croma": {
+        "mae_pp": 4.828417368315804,
+        "rmse_pp": 11.446718482084348,
+        "dominant_class_accuracy": 0.58
+      },
+      "sar_croma": {
+        "mae_pp": 5.200435290035587,
+        "rmse_pp": 12.00283886709771,
+        "dominant_class_accuracy": 0.545
+      },
+      "joint_croma": {
+        "mae_pp": 4.508528563715904,
+        "rmse_pp": 10.87615589787606,
+        "dominant_class_accuracy": 0.615
+      },
+      "hybrid": {
+        "mae_pp": 4.406416447572048,
+        "rmse_pp": 10.837337822696309,
+        "dominant_class_accuracy": 0.6
+      }
+    },
+    "state_dict_sha256": {
+      "constant": null,
+      "physical": "1db44fe1f4a0838c2d0d45a163168d4b22f4eb64ba1e2f6dc44eb4a39e9b7128",
+      "optical_croma": "95d027b6334d86f1303db49d8aac6ffd59c2cd4bfc76c971943559b152f90bba",
+      "sar_croma": "d073da98c5c4fcc8101be711ca984addd0e1c3b905e815a39b9f77489a347333",
+      "joint_croma": "0e4858464714b107c9b2c2a77b84e09a6eff9979df1aaa504f3df5016422ade7",
+      "hybrid": "85d9390c66a887276db24a7cadb58c398770cde2e17488a1a9c42e16819da634"
+    }
+  }
+}

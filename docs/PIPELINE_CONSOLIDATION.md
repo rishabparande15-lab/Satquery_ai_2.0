@@ -4,6 +4,8 @@ Date: 2026-09-13
 Decision: Pipeline 3 is the canonical SatQuery architecture.  
 Scope: audit, dependency separation, runtime clarification, and preservation of scientific history. No model, dataset, split, preprocessing, prediction, metric, evidence, interpretation, API, or frontend behavior was intentionally changed.
 
+Current release note (2026-09-15): Pipeline 3 remains canonical; Pipeline 1 and Pipeline 2 remain archived. The exact 5,000-area multimodal Pipeline 3 checkpoint is now complete and authoritative. See [Current Project Status](CURRENT_PROJECT_STATUS.md).
+
 The forensic source of numbered pipeline identity is
 `experiments/reports/autonomous_execution_report.json`. The former
 `experiments/pipelines/README.md` used a conflicting Pipeline 1 label; that

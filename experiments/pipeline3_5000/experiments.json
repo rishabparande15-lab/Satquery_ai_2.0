@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "experiments": [
+    {
+      "name": "exact_5000_dataset_forensic_audit",
+      "result": "ready_for_training"
+    },
+    {
+      "name": "frozen_pipeline3_5000_baseline",
+      "result": "complete",
+      "test_used_for_selection": false
+    },
+    {
+      "name": "hybrid_seed29_repeat",
+      "result": "stable",
+      "test_used_for_selection": false
+    },
+    {
+      "name": "controlled_repair_decision",
+      "result": "no repair justified"
+    },
+    {
+      "name": "single_final_test_event",
+      "result": "complete",
+      "test_area_count": 200
+    }
+  ],
+  "failed_or_hidden_trials": []
+}

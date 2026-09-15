@@ -1,0 +1,46 @@
+{
+  "status": "frozen_before_training",
+  "task": "scene-level 19-class labelled-pixel coverage",
+  "dataset_fingerprint": "7dfd5cd5077e7fd0307acd3fb442d4745aa829a03611c7522e08acbc7f027625",
+  "dataset_manifest_sha256": "9f0446c011c1c054cea0fae5e7a2ccf196dcbdb50df6b7fc86757e764b0758be",
+  "split_fingerprint": "2232ac5bc65d3ed20c6f39deb6037bb8e0543100b247fd6c9e538eddf9feb86c",
+  "split_counts": {
+    "train": 4600,
+    "validation": 200,
+    "test": 200
+  },
+  "models": {
+    "constant": 19,
+    "physical": 62,
+    "optical_croma": 768,
+    "sar_croma": 768,
+    "joint_croma": 768,
+    "hybrid": 830
+  },
+  "hybrid_definition": "concatenate physical 62-vector and joint CROMA 768-vector",
+  "excluded_predictor": "The live 192-dimensional deterministic seeded HybridFusion is an untrained representation and is not a learned baseline predictor.",
+  "croma": {
+    "source_revision": "59505a6bcadbf36ba20767270154bf9f3067c5e7",
+    "checkpoint_sha256": "0238d814b53108f3574bf1ea240e38a0a6edd46173816d9a6962070561893b63",
+    "image_resolution": 120,
+    "normalization_implementation": "src.croma_adapter.CROMAAdapter._croma_normalize",
+    "normalization": "per-image per-channel mean +/- 2 sample-standard-deviations, clip to [0,1]; constant channels become zero"
+  },
+  "probe": {
+    "head": "single linear layer followed by softmax for prediction",
+    "loss": "soft-target cross entropy",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "batch_size": 1024,
+    "max_epochs": 60,
+    "patience": 10,
+    "seed": 17,
+    "selection": "minimum validation soft-target cross entropy",
+    "feature_standardization": "train-only mean/std folded into linear probe",
+    "scheduler": null,
+    "augmentation": null,
+    "class_weighting": null
+  },
+  "test_protocol": "Test examples, predictions, and metrics remain sealed during baseline training and all validation-only repair decisions; all frozen baseline ablations and the final selected configuration are scored in one final test event."
+}
