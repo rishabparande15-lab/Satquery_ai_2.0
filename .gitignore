@@ -74,3 +74,4 @@ service-account*.json
 # Generated annotation and revalidation artifacts
 /artifacts/annotations/
 /experiments/pipeline3_5000/revalidation_6R2B/
+/experiments/pipeline3_5000/audit_runs/

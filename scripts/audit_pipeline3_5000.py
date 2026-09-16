@@ -31,7 +31,11 @@ ARCHIVE = Path(os.environ.get(
     "PIPELINE3_5000_ARCHIVE",
     LOCAL_DATA_ROOT / "bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
 ))
-OUT = ROOT / "experiments" / "pipeline3_5000"
+CANONICAL_OUT = ROOT / "experiments" / "pipeline3_5000"
+OUT = Path(os.environ.get(
+    "PIPELINE3_AUDIT_OUTPUT",
+    ROOT / "experiments" / "pipeline3_5000" / "audit_runs" / "current",
+))
 PREFIX = "bigearthnet-v2-5000/"
 EXPECTED_ARCHIVE_SHA256 = "b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595"
 EXPECTED_S2_BANDS = frozenset({"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B11", "B12"})
@@ -52,6 +56,14 @@ def sha256_file(path: Path) -> str:
 
 def canonical_sha256(value) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+
+def validate_output_root(output_root: Path) -> None:
+    if output_root.resolve() == CANONICAL_OUT.resolve():
+        raise RuntimeError(
+            "The dataset audit cannot write canonical Pipeline 3 experiment records; "
+            "set PIPELINE3_AUDIT_OUTPUT to a separate runtime output directory."
+        )
 
 
 def write_json(name: str, value) -> str:
@@ -160,6 +172,7 @@ def positive_spatial_overlaps(rows: list[dict]) -> list[dict]:
 
 
 def main() -> None:
+    validate_output_root(OUT)
     started = time.perf_counter()
     OUT.mkdir(parents=True, exist_ok=True)
     if not ARCHIVE.is_file():

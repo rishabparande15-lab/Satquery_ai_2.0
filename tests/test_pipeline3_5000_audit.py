@@ -5,6 +5,10 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
+from scripts.audit_pipeline3_5000 import CANONICAL_OUT, OUT as AUDIT_OUTPUT, validate_output_root
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "experiments" / "pipeline3_5000"
@@ -77,6 +81,30 @@ def test_audit_fingerprints_match_machine_readable_artifacts():
     canonical = json.dumps(fingerprint["basis"], sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
     assert fingerprint["fingerprint"] == hashlib.sha256(canonical).hexdigest()
     assert fingerprint["status"].startswith("dataset_gate_fingerprint_only")
+
+
+def test_canonical_scientific_metrics_and_fingerprints_are_protected():
+    baseline = _load("baseline_metrics.json")
+    final = _load("final_metrics.json")
+    final_config = _load("final/config.json")
+    final_fingerprint = _load("final/fingerprint.json")
+
+    assert baseline["status"] == "complete_validation_and_final_test"
+    assert final["status"] == "complete"
+    assert baseline["test"] == final["test"]
+    assert baseline["test"]["mae_pp"] == pytest.approx(4.103428673440559, abs=1e-12)
+    assert baseline["test"]["rmse_pp"] == pytest.approx(9.587331212294444, abs=1e-12)
+    assert baseline["test"]["dominant_class_accuracy"] == pytest.approx(0.65, abs=1e-12)
+    assert final_config["dataset_fingerprint"] == "7dfd5cd5077e7fd0307acd3fb442d4745aa829a03611c7522e08acbc7f027625"
+    assert final_config["split_fingerprint"] == "2232ac5bc65d3ed20c6f39deb6037bb8e0543100b247fd6c9e538eddf9feb86c"
+    assert final_config["model_state_sha256"] == "85d9390c66a887276db24a7cadb58c398770cde2e17488a1a9c42e16819da634"
+    assert final_fingerprint["fingerprint"] == "ac8bbefc8918b2ee16f47653e6fd91eba0d875e4ce340e27254248712a173fae"
+
+
+def test_dataset_audit_runtime_output_cannot_target_canonical_records():
+    assert AUDIT_OUTPUT.resolve() != CANONICAL_OUT.resolve()
+    with pytest.raises(RuntimeError, match="cannot write canonical"):
+        validate_output_root(CANONICAL_OUT)
 
 
 def test_leakage_findings_distinguish_within_train_repeats_from_cross_split_leakage():
