@@ -13,11 +13,20 @@ import time
 from urllib.parse import urlparse
 from uuid import uuid4
 
-from .analysis_engine import RequestError, run_analysis, save_report, validate_request
+from .analysis_engine import RequestError, save_report, validate_request
+from .architecture_contracts import TaskRequest
 from .config import PROJECT_ROOT, get_settings
 from .dataset_loader import discover_samples
+from .deterministic_scene_analysis import TASK_TYPE, run_deterministic_scene_analysis_with_context
 from .input_validation import inspect_raster
 from .imagery_availability import provider_status, registry_response, search_imagery
+from .pipeline3_scene_probe import IdentityResolutionError, ModelContractError, list_pipeline3_area_ids
+from .query_interpreter import interpret_query
+
+# Compatibility seam for existing API fault-injection tests.  This name now
+# points only to the registry dispatcher; it is not the legacy Pipeline 3
+# function and therefore cannot bypass CapabilityRegistry.
+run_analysis = run_deterministic_scene_analysis_with_context
 
 LOGGER = logging.getLogger(__name__)
 STATIC_ROOT = PROJECT_ROOT / "src" / "static"
@@ -29,6 +38,25 @@ UPLOAD_TTL = 15 * 60
 ANALYSIS_LOCK = threading.Lock()
 UPLOAD_LOCK = threading.Lock()
 UPLOADS = {}
+
+
+def build_task_request(request):
+    """Translate validated HTTP input into the sole capability boundary."""
+    plan = interpret_query(
+        request["query"], aoi=request.get("aoi"), start_date=request.get("start_date"),
+        end_date=request.get("end_date"), analysis_type=request.get("analysis_type"),
+    )
+    sample_id = request.get("sample_id")
+    full_manifest_identity = isinstance(sample_id, str) and sample_id.startswith(("S1A_", "S1B_", "S2A_", "S2B_"))
+    modalities = ("optical", "sar") if full_manifest_identity else tuple(plan.modalities)
+    return TaskRequest(
+        task_type=TASK_TYPE,
+        scene_id=sample_id,
+        scene_reference={"input_type": "satellite_scene", "request": request},
+        query=request["query"], requested_modalities=modalities,
+        parameters={"requested_analysis_type": plan.task},
+        execution_metadata={"entrypoint": "POST /api/analyze", "dispatch": "CapabilityRegistry"},
+    )
 
 def cleanup_uploads(tokens=None):
     with UPLOAD_LOCK:
@@ -120,10 +148,14 @@ class Handler(BaseHTTPRequestHandler):
                 self._json({"status": "ok", "service": "SatQuery AI", "busy": ANALYSIS_LOCK.locked()})
             elif route == "/api/samples":
                 try:
-                    samples = [item.patch_id for item in discover_samples(get_settings().dataset_root)]
-                    self._json({"samples": samples, "source": "local development provider"})
+                    samples = list_pipeline3_area_ids()
+                    self._json({"samples": samples, "source": "exact Pipeline 3 manifest"})
                 except (ValueError, OSError):
-                    self._json({"samples": [], "warning": "Local dataset unavailable. Check DATASET_ROOT or upload imagery."})
+                    try:
+                        samples = [item.patch_id for item in discover_samples(get_settings().dataset_root, strict=True)]
+                        self._json({"samples": samples, "source": "strict local dataset metadata"})
+                    except (ValueError, OSError):
+                        self._json({"samples": [], "warning": "Local dataset unavailable. Check DATASET_ROOT or upload imagery."})
             elif route == "/api/sources":
                 status = provider_status()
                 self._json({"sources": registry_response(), **status})
@@ -188,13 +220,27 @@ class Handler(BaseHTTPRequestHandler):
                 request["files"] = {role: str(UPLOADS[token]["path"]) for role, token in files.items()}
                 for token in tokens:
                     UPLOADS[token]["created"] = float("inf")  # protected until this request's finally block
-            result = run_analysis(request)
+            task_request = build_task_request(request)
+            adapted = run_analysis(task_request)
+            result = dict(adapted.legacy_result)
+            result["task_result"] = adapted.task_result.to_dict()
+            result["scene_contract"] = adapted.scene.to_dict()
+            result["capability_route"] = {
+                "task_request": TASK_TYPE,
+                "registry": "authoritative",
+                "capability": "deterministic_scene_analysis",
+                "adapter": "Pipeline3AnalysisAdapter",
+            }
             save_report(result, REPORT_ROOT)
             payload, response_status = result, 422 if result["status"] == "rejected" else 200
         except HTTPProblem as exc:
             payload, response_status = {"status": "error", "error": {"code": exc.code, "message": exc.message}}, exc.status
         except RequestError as exc:
             payload, response_status = {"status": "error", "error": {"code": "invalid_request", "message": str(exc)}}, 400
+        except IdentityResolutionError as exc:
+            payload, response_status = {"status": "error", "error": {"code": "identity_resolution_failed", "message": str(exc)}}, 422
+        except ModelContractError as exc:
+            payload, response_status = {"status": "error", "error": {"code": "model_contract_failed", "message": str(exc)}}, 422
         except (socket.timeout, TimeoutError):
             payload, response_status = {"status": "error", "error": {"code": "request_timeout", "message": "Request timed out. Retry the upload or analysis."}}, 408
         except Exception:

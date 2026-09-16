@@ -55,6 +55,7 @@ class RepresentationType(str, Enum):
     JOINT_CROMA = "joint_croma"
     CROMA_SCENE = "croma_scene"
     HYBRID = "hybrid"
+    SCENE_PREDICTION = "scene_prediction"
     REGIONS = "regions"
     EVIDENCE = "evidence"
     METADATA = "metadata"
@@ -548,7 +549,7 @@ class AdaptedAnalysis:
 def _live_representation_refs(
     *, analysis_id: str, scene_id: str, modalities: tuple[str, ...],
     cube: Mapping[str, Any], features: Mapping[str, Any],
-    spatial: Mapping[str, Any], crs: str | None,
+    spatial: Mapping[str, Any], model_results: Mapping[str, Any], crs: str | None,
 ) -> tuple[RepresentationRef, ...]:
     """Describe live values truthfully without persisting or recomputing them."""
     run_reference = f"run:{analysis_id}"
@@ -624,6 +625,19 @@ def _live_representation_refs(
             producer_version=hybrid.get("source"), provenance_reference=run_reference,
             status="materialized",
         ))
+    prediction = model_results.get("prediction")
+    if isinstance(prediction, Mapping) and prediction.get("level") == "scene":
+        shape = tuple(prediction.get("shape") or ())
+        if shape != (19,):
+            raise ValueError(f"scene prediction must have shape [19], got {shape}")
+        references.append(RepresentationRef(
+            reference_id=f"{run_reference}:scene_prediction", scene_id=scene_id,
+            representation_type=RepresentationType.SCENE_PREDICTION, modality="optical_sar",
+            shape=shape, dtype="float32", spatial_reference=SpatialReference(level="scene"),
+            producer=str(prediction.get("model") or "validated scene probe"),
+            producer_version=str((prediction.get("checkpoint") or {}).get("state_dict_sha256") or "unknown"),
+            provenance_reference=run_reference, status="materialized",
+        ))
     if spatial.get("status") == "AVAILABLE":
         common = {
             "scene_id": scene_id,
@@ -683,6 +697,7 @@ def adapt_run_analysis_output(result: Mapping[str, Any], request: Mapping[str, A
     else:
         coregistration = "unknown"
     features = result.get("features") or {}
+    model_results = result.get("model_results") or {}
     crs = spatial_scene.get("crs") or reference_metadata.get("crs")
     representations = RepresentationSet(
         physical_features=features.get("spectral"),
@@ -696,6 +711,7 @@ def adapt_run_analysis_output(result: Mapping[str, Any], request: Mapping[str, A
             cube=cube,
             features=features,
             spatial=spatial,
+            model_results=model_results,
             crs=crs,
         ),
     )
@@ -738,10 +754,16 @@ def adapt_run_analysis_output(result: Mapping[str, Any], request: Mapping[str, A
         task_type=task_type,
         output={
             "analysis": result,
-            "model_results": result.get("model_results"),
+            "task_metadata": {"task_type": task_type, "analysis_id": analysis_id},
+            "input_identity": identifiers,
+            "representations_used": [reference.to_dict() for reference in representations.references],
+            "model_output": model_results,
             "features": features,
+            "evidence": evidence,
             "interpretation": result.get("interpretation"),
             "explanation": result.get("llm_explanation"),
+            "warnings": result.get("warnings") or [],
+            "confidence": {"value": None, "calibrated": False, "status": "unavailable"},
         },
         evidence=evidence,
         confidence=None,

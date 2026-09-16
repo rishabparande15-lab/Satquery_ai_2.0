@@ -3,7 +3,7 @@ const SAMPLE_PREVIEWS = {"61_39":{"views":{"optical":"data:image/png;base64,iVBO
 const el = (id) => document.getElementById(id);
 let busy = false;
 let timer = null;
-const demoNotice = "Development demonstration using local sample data. Supervised accuracy evaluation is pending a larger labeled dataset.";
+const demoNotice = "Exact Pipeline 3 areas use the validated scene-level probe. Reported aggregate evaluation is not calibrated per-scene confidence.";
 function setBusy(value) {
   for (const id of ["run","reset","find-imagery","query","mode","source","sample","resolution","provider","availability-source","cloud-threshold","optical","sar","before","after","band-order","aoi","start","end"]) el(id).disabled = value;
 }
@@ -53,10 +53,12 @@ function render(report) {
   el("interpretation-technical").textContent=interpretation.technical_answer || interpretation.answer || "Unavailable.";
   el("interpretation-provenance").textContent=JSON.stringify(interpretation.provenance || {},null,2);
   const f = report.features;
+  const scenePrediction = report.model_results?.prediction?.level === "scene" ? report.model_results.prediction : null;
   for (const [label, value] of [
     ["Physical features", f.spectral.dimension ?? "Unavailable"],
     ["CROMA values", f.deep.pooled_dimension ?? "Unavailable"],
     ["Hybrid values", f.hybrid.dimension ?? "N/A"],
+    ["Scene model output", scenePrediction ? scenePrediction.shape.join(" × ") + " (scene-level)" : "Unavailable"],
     ["Runtime / device", report.runtime_seconds.toFixed(3) + "s / " + report.device]]) {
     const box = document.createElement("div"); box.className = "metric";
     const strong = document.createElement("strong"); strong.textContent = value;
@@ -130,7 +132,8 @@ el("analysis-form").addEventListener("submit", async (event) => {
     const report = await request("/api/analyze", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
     if (el("source").value === "upload") { reportPreviews.set(report.analysis_id, {...uploadedPreviews}); if (reportPreviews.size > 5) reportPreviews.delete(reportPreviews.keys().next().value); }
     render(report);
-    el("status").textContent = report.status === "completed" ? "Feature analysis completed. Task predictions remain unavailable." : report.status === "partial" ? "Partial result: physical features available. See limitations." : report.status === "rejected" ? "Input validation rejected this request. Correct the inputs and retry." : "Requested analysis unavailable. See report.";
+    const hasScenePrediction = report.model_results?.prediction?.level === "scene";
+    el("status").textContent = report.status === "completed" ? (hasScenePrediction ? "Analysis completed with a scene-level 19-class model output. This is not a spatial prediction." : "Feature analysis completed. Task predictions remain unavailable.") : report.status === "partial" ? "Partial result: physical features available. See limitations." : report.status === "rejected" ? "Input validation rejected this request. Correct the inputs and retry." : "Requested analysis unavailable. See report.";
   } catch (error) {
     el("status").textContent = error.message;
     el("activity-badge").textContent = "ATTENTION";
@@ -187,8 +190,8 @@ function updateModeNote() {
   const mode = el("mode").value;
   el("mode-note").textContent = mode.includes("temporal") || mode.includes("change") ?
     "Before/after inputs are validated. The temporal analysis algorithm and difference map are unavailable." :
-    mode === "land_cover_classification" ? "Feature extraction is available. A trained classification head and predictions are not available." :
-    mode === "joint_optical_sar_analysis" ? "Both modalities are required for the established joint representation and untrained hybrid fusion." :
+    mode === "land_cover_classification" ? "Exact Pipeline 3 areas use the validated scene-level 830D-to-19 probe; it is not segmentation or grounding." :
+    mode === "joint_optical_sar_analysis" ? "Both modalities are required for the validated 62D + joint CROMA GAP 768D scene probe." :
     "Physical statistics and pretrained representations, without trained task predictions.";
 }
 function updateResolutionStatus() {

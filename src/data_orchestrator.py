@@ -32,7 +32,11 @@ class DataOrchestrator:
         settings = get_settings()
         if sample_id and settings.dataset_root.exists():
             try:
-                ids = {sample.patch_id for sample in discover_samples(settings.dataset_root)}
+                # Full BigEarthNet collections must use metadata-backed complete
+                # identities.  The suffix parser remains only for the legacy
+                # three-sample fixture, which has no metadata table.
+                strict = (settings.dataset_root / "metadata.parquet").is_file()
+                ids = {sample.patch_id for sample in discover_samples(settings.dataset_root, strict=strict)}
             except (ValueError, OSError):
                 return RetrievalResult("local development provider", "unavailable", plan.get("datasets", []), {}, filters, ["Local sample discovery failed; check the dataset configuration."])
             if sample_id in ids:

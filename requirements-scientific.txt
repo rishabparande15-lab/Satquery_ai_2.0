@@ -9,3 +9,5 @@ python-dotenv
 rasterio
 torch
 earthengine-api
+pytest
+psutil

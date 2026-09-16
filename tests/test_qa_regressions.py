@@ -231,6 +231,34 @@ def test_internal_failure_format_does_not_expose_exception(client):
     assert not api.ANALYSIS_LOCK.locked()
 
 
+def test_http_analysis_constructs_task_request_and_uses_registry_dispatch(client, monkeypatch):
+    from types import SimpleNamespace
+    from src.architecture_contracts import TaskRequest
+    from src.deterministic_scene_analysis import TASK_TYPE
+
+    observed = []
+    legacy = {
+        "analysis_id": "2c706ffc-bb67-4680-bdcd-df356f80f9f5",
+        "status": "completed", "features": {}, "validation": {}, "warnings": [],
+    }
+    class Result:
+        status = "success"
+        def to_dict(self): return {"status": self.status, "task_type": TASK_TYPE}
+    class Scene:
+        def to_dict(self): return {"scene_id": "61_39"}
+    def dispatch(request):
+        assert isinstance(request, TaskRequest)
+        observed.append(request)
+        return SimpleNamespace(legacy_result=legacy, task_result=Result(), scene=Scene())
+    monkeypatch.setattr(api, "run_analysis", dispatch)
+    monkeypatch.setattr(api, "save_report", lambda *args, **kwargs: None)
+
+    status, body, _ = client("POST", "/api/analyze", {"query": "optical", "sample_id": "61_39"})
+    assert status == 200
+    assert len(observed) == 1 and observed[0].task_type == TASK_TYPE
+    assert body["capability_route"]["registry"] == "authoritative"
+
+
 @pytest.mark.parametrize("dates", [("2025-01-01", "2020-01-01"), ("2025-02-30", None)])
 def test_invalid_date_is_controlled(dates):
     r = engine.run_analysis({"query": "optical", "sample_id": "61_39", "start_date": dates[0], "end_date": dates[1]})

@@ -1,9 +1,4 @@
-"""Executable deterministic scene-analysis capability for Pipeline 3.
-
-This module is an architectural boundary only.  It delegates every scientific
-calculation to ``analysis_engine.run_analysis`` and maps that unchanged result
-through the Phase 6A.3 contracts.
-"""
+"""Executable deterministic scene-analysis capability for Pipeline 3."""
 from __future__ import annotations
 
 from copy import deepcopy
@@ -59,9 +54,17 @@ class Pipeline3AnalysisAdapter:
         runner = self._runner
         session = RepresentationPersistenceSession(persistence_policy)
         if runner is None:
-            from .analysis_engine import run_analysis
+            sample_id = str(legacy_request.get("sample_id") or "")
+            if sample_id.startswith(("S1A_", "S1B_", "S2A_", "S2B_")):
+                if session.policy.enabled:
+                    raise ValueError("representation persistence is not supported by the validated scene-probe adapter")
+                from .pipeline3_scene_probe import run_pipeline3_scene_probe
 
-            legacy_result = run_analysis(legacy_request, persistence_session=session)
+                legacy_result = run_pipeline3_scene_probe(legacy_request)
+            else:
+                from .analysis_engine import run_analysis
+
+                legacy_result = run_analysis(legacy_request, persistence_session=session)
         else:
             if session.policy.enabled:
                 raise ValueError("persistence requires the canonical Pipeline 3 runner")

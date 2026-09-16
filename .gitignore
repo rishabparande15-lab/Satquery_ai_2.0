@@ -37,6 +37,8 @@ __pycache__/
 /artifacts/live/
 /artifacts/representation_store/
 /artifacts/receipt_catalog.json
+/artifacts/annotations/bigearthnet_txt/annotations.jsonl
+/artifacts/annotations/image_language/*.jsonl
 
 # Local environments and temporary files.
 .venv/
@@ -62,3 +64,13 @@ Thumbs.db
 *.key
 credentials.json
 service-account*.json
+
+# Local scientific Python environment
+.venv-scientific/
+
+# Local dataset restoration state
+/experiments/pipeline3_5000/s2_acquisition/missing_s2_area_ids.txt
+
+# Generated annotation and revalidation artifacts
+/artifacts/annotations/
+/experiments/pipeline3_5000/revalidation_6R2B/
