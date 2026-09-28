@@ -22,6 +22,7 @@ from .input_validation import inspect_raster
 from .imagery_availability import provider_status, registry_response, search_imagery
 from .pipeline3_scene_probe import IdentityResolutionError, ModelContractError, list_pipeline3_area_ids
 from .query_interpreter import interpret_query
+from .agent.api_integration import analyze_controller_request
 
 # Compatibility seam for existing API fault-injection tests.  This name now
 # points only to the registry dispatcher; it is not the legacy Pipeline 3
@@ -206,6 +207,13 @@ class Handler(BaseHTTPRequestHandler):
             except (ValueError, UnicodeError):
                 raise HTTPProblem(400, "invalid_json", "Request body must contain valid finite JSON.") from None
             validate_request(request)
+            if request.get("controller") is True:
+                try:
+                    controller_result = analyze_controller_request(request)
+                except ValueError as exc:
+                    raise RequestError(str(exc)) from None
+                self._json(controller_result, 422 if controller_result["status"] == "BLOCKED" else 200)
+                return
             acquired = ANALYSIS_LOCK.acquire(blocking=False)
             if not acquired:
                 raise HTTPProblem(409, "analysis_busy", "An analysis is already running. Wait for it to finish and retry.")

@@ -39,6 +39,7 @@ __pycache__/
 /artifacts/receipt_catalog.json
 /artifacts/annotations/bigearthnet_txt/annotations.jsonl
 /artifacts/annotations/image_language/*.jsonl
+/artifacts/image_language/bigearthnet_txt/samples.jsonl
 
 # Local environments and temporary files.
 .venv/
@@ -46,6 +47,8 @@ venv/
 env/
 .pytest_cache/
 .pytest-temp/
+.pytest_tmp/
+.pytest_tmp*/
 .mypy_cache/
 .ruff_cache/
 .coverage
@@ -73,5 +76,7 @@ service-account*.json
 
 # Generated annotation and revalidation artifacts
 /artifacts/annotations/
+/artifacts/representation_links/
+/artifacts/representation_catalog/
 /experiments/pipeline3_5000/revalidation_6R2B/
 /experiments/pipeline3_5000/audit_runs/

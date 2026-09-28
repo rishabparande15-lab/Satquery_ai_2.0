@@ -8,8 +8,8 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from src.architecture_contracts import ArtifactRef, ArtifactType
-from src.annotation_foundation import (SCHEMA_VERSION, ingest, load_images, parse_geometry, read_source,
-                                       write_artifact)
+from src.annotation_foundation import (SCHEMA_VERSION, build_image_id_index, ingest, load_images,
+                                       normalize_image_id, parse_geometry, read_source, write_artifact)
 
 
 def fixtures(tmp_path):
@@ -195,6 +195,13 @@ def test_pinned_official_sample_against_frozen_manifest():
     assert {r["task_type"] for r in records} == {"binary_qa", "multiple_choice_qa", "caption", "text_box", "point_box"}
     assert all(r["validation_status"] == "validated" for r in records)
     assert all(r["raw_source"] in raw for r in records)
+    spatial = [r for r in records if r["task_type"] in {"text_box", "point_box"}]
+    assert len(spatial) == 2
+    assert all(r["geometry_frame"] == "source_unit_square_unmapped" for r in spatial)
+    assert all(r["coordinate_convention_status"] == "UNKNOWN" for r in spatial)
+    assert all(r["box"] == [0.0, 0.0, 1.0, 0.52] for r in spatial)
+    assert next(r for r in spatial if r["task_type"] == "point_box")["point"] == [0.46, 0.21]
+    assert all("analysis_pixel" not in r and "token_coordinates" not in r for r in spatial)
     assert audit["matched_image_counts"] == {"test": 1}
     assert leakage["image_level_leakage"] == 0
 
@@ -215,3 +222,32 @@ def test_coordinate_convention_and_metadata_policy_are_explicitly_unknown_or_con
     assert training_eligibility_for("METADATA_ONLY") == "EXCLUDED_FROM_VISUAL_VQA"
     assert training_eligibility_for("VISUAL_ONLY") == "ELIGIBLE_VISUAL_VQA"
     assert training_eligibility_for("UNKNOWN_DEPENDENCY") == "QUARANTINE"
+
+
+def test_image_id_normalization_preserves_full_identity_and_rejects_collisions():
+    assert normalize_image_id("tiles/S2A_PATCH_01.SAFE") == "S2A_PATCH_01"
+    assert normalize_image_id("tiles\\S2A_PATCH_01.zip") == "S2A_PATCH_01"
+    assert build_image_id_index(["S2A_PATCH_01.SAFE"]) == {"S2A_PATCH_01": "S2A_PATCH_01.SAFE"}
+    with pytest.raises(ValueError, match="Ambiguous"):
+        build_image_id_index(["S2A_PATCH_01.SAFE", "S2A_PATCH_01.zip"])
+    with pytest.raises(ValueError, match="non-empty"):
+        normalize_image_id("  ")
+
+
+def test_canonical_alias_fields_and_conflict_categories(tmp_path):
+    index, _ = load_images(*fixtures(tmp_path))
+    rows = [
+        source_row(ID="answer-a", input="Is there water?", output="Yes."),
+        source_row(ID="answer-b", input="Is there water?", output="No."),
+        source_row(ID="box-a", type="bounding box", category="reference",
+                   input="<ref>water</ref>", output="[0.0 0.0, 0.5 0.5]"),
+        source_row(ID="box-b", type="bounding box", category="reference",
+                   input="<ref>water</ref>", output="[0.0 0.0, 0.8 0.8]"),
+    ]
+    records, _, leakage = ingest(rows, index)
+    assert all(record["annotation_type"] == record["task_type"] for record in records)
+    assert all(record["source_record"] == record["source_record_id"] for record in records)
+    assert leakage["image_level_conflict"] == 1
+    assert leakage["spatial_conflict"] == 1
+    assert any("image_level_conflict" in record["validation_issues"] for record in records)
+    assert any("spatial_conflict" in record["validation_issues"] for record in records)

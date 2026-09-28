@@ -30,6 +30,17 @@ from .representation_artifacts import ArtifactResolver
 CATALOG_VERSION = 1
 
 
+def validate_materialization_receipts(materialization_manifest: Path) -> list[dict[str, Any]]:
+    """Validate Phase 2D.2 shard receipts through the trusted receipt boundary.
+
+    Shard-backed samples are intentionally not registered as standalone NPY
+    artifacts: their integrity is the verified NPZ artifact plus array key,
+    deterministic sample index, ordered image identity, and sample hash.
+    """
+    from .representation_materialization import load_verified_receipts
+    return load_verified_receipts(materialization_manifest)
+
+
 class LifecycleStatus(str, Enum):
     ACTIVE = "active"
     INVALID = "invalid"

@@ -1,6 +1,6 @@
 # Current Project Status
 
-Date: 2026-09-15
+Date: 2026-09-18
 
 Status: **READY FOR NEXT RESEARCH PHASE**
 
@@ -39,6 +39,8 @@ The exact metrics, ablations, repeatability checks, per-class analysis, test rec
 - Optional receipt-backed live representation persistence.
 - Trusted local receipt catalog with checksum-verified materialization and lifecycle state.
 - Exact 5,000-area S2 acquisition, multimodal completeness audit, frozen training, validation selection, sealed test evaluation, and scientific artifact generation.
+- Phase 2D.2 authoritative representation materialization: all 5,000 areas have checksum-verified 62-D physical, 768-D joint CROMA GAP, and 830-D hybrid representations in 157 resumable shards, with 15,000 verified typed receipts and zero failures.
+- Phase 2E image-language foundation: `image_language_sample_v1`, deterministic BigEarthNet.txt view, task/modality/output contracts, verified representation-input assembly, prompt boundary, model/benchmark adapter interfaces, provenance fingerprints, and image-group leakage enforcement. The real view contains 101,542 validated samples; no VLM inference or training was performed.
 
 These are architecture infrastructure components; they are not additional AI models.
 
@@ -48,6 +50,7 @@ These are architecture infrastructure components; they are not additional AI mod
 - Physical feature extraction.
 - Official CROMA optical, SAR, joint, pooled, and spatial representations.
 - Controlled hybrid scene-level prediction using the 830-D scientific representation.
+- Deterministic lookup of the complete 5,000-area core representation set through `representation_catalog_v1`; optional representation families remain explicitly missing.
 - Spatial evidence and deterministic evidence claims.
 - Constrained interpretation and provenance.
 - Architecture contracts, representation/artifact references, optional local persistence, and trusted receipt lookup/materialization.
@@ -56,6 +59,8 @@ These are architecture infrastructure components; they are not additional AI mod
 ## Future capabilities
 
 The following are **not currently implemented**: VQA, captioning, learned grounding, temporal/change prediction, change VQA, calibrated confidence, and a full agentic planner. They must be introduced as separately validated capabilities without changing this frozen checkpoint.
+
+Implemented image-language infrastructure does not change that capability status: model training, VQA execution, caption generation, learned grounding, temporal language reasoning, and benchmark evaluation remain unimplemented.
 
 ## Dataset roles
 
@@ -82,6 +87,7 @@ The repository does not claim these future datasets are integrated.
 - VQA and production temporal/change prediction are unavailable.
 - Confidence is descriptive and not calibrated probability.
 - The receipt catalog is local.
+- BigEarthNet.txt source geometry remains unmapped; Phase 2D.2 representation availability does not establish spatial grounding.
 - Representation persistence is synchronous/local.
 - Hidden ISRO/SAC evaluation remains future work.
 

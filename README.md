@@ -47,6 +47,136 @@ intentionally separate.
 
 Pipeline 3 combines validated optical/SAR rasters, deterministic 62-dimensional physical features, and the frozen CROMA base model. Its evaluated scientific path concatenates `physical_62d` with `joint_croma_gap_768d` in that order to form `hybrid_830d` for the coverage probe. The live application uses its own deterministic analysis and evidence path; the evaluated probe is not silently substituted for an API prediction service.
 
+## Pipeline 3 — Scientific Multimodal Prediction Flow
+
+Pipeline 3 is the current validated scientific prediction path. It is a
+scene-level Sentinel-1/Sentinel-2 representation and coverage-prediction
+workflow, separate from the future EO-VLM language layer.
+
+```text
+Sentinel-2 optical                         Sentinel-1 SAR
+        |                                         |
+        v                                         v
+S2 preprocessing                         S1 preprocessing
+        |                                         |
+        v                                         v
+[N,12,120,120] optical tensor             [N,2,120,120] SAR tensor
+        |                                         |
+        +------------------+----------------------+
+                           v
+                    frozen CROMA Base
+                           |
+             +-------------+-------------+
+             |             |             |
+             v             v             v
+       optical tokens   SAR tokens   joint tokens
+       [N,225,768]     [N,225,768]   [N,225,768]
+                           |
+                           v
+                  joint CROMA GAP [N,768]
+                           |
+physical features [N,62] --+--> hybrid_830d [N,830]
+                                      |
+                                      v
+                    linear 19-output softmax probe
+                                      |
+                                      v
+                     scene-level scientific prediction
+```
+
+### CROMA Input Tensors
+
+The exact tensors supplied to CROMA are float32 batches with a common
+120×120 analysis grid:
+
+| Modality | Shape | Channel order and preparation |
+| --- | --- | --- |
+| Sentinel-2 optical | `[N,12,120,120]` | `B01,B02,B03,B04,B05,B06,B07,B08,B8A,B09,B11,B12`; native 10/20/60 m rasters are converted to float32 and bilinearly resampled, with B02 defining the north-up 10 m grid. |
+| Sentinel-1 SAR | `[N,2,120,120]` | `VV,VH`; converted to float32 and bilinearly resampled onto the same validated grid. |
+
+Here `N` is the batch/area dimension. The CROMA adapter applies its verified
+per-image, per-channel mean ± two sample standard deviation normalization,
+clips to `[0,1]`, and maps constant channels to zero. These are model input
+tensors, not raw source rasters.
+
+### Representation Levels
+
+The pipeline distinguishes the following objects:
+
+1. Raw source imagery: Sentinel-1 and Sentinel-2 rasters.
+2. Preprocessed CROMA tensors: the two float32 tensors above.
+3. CROMA learned representations: optical, SAR, and joint latent token grids
+   of `[N,225,768]`, plus scene-level `[N,768]` GAP vectors. The 225 tokens
+   form a 15×15 row-major grid; they are latent features, not class maps.
+4. Physical feature representation: `physical_62d`, deterministic physical
+   scene features computed from the validated optical/SAR arrays.
+5. Hybrid scientific representation: `hybrid_830d`, the ordered concatenation
+   of `physical_62d` followed by `joint_croma_gap_768d`.
+6. Pipeline 3 prediction: a scene-level 19-output linear softmax probe over
+   the hybrid vector.
+
+### Hybrid Scientific Representation
+
+The current scientific representation is exactly:
+
+```text
+physical_62d (62) + joint_croma_gap_768d (768) = hybrid_830d (830)
+```
+
+The 830-D vector is the input to the validated scientific predictor. It is not
+a generic vision-language embedding and is not designated as the universal
+input representation for a future EO-VLM. The live application's separate
+untrained `HybridFusion` 192-vector is not this predictor input.
+
+### Current Scientific Model and Verified Result
+
+The implemented flow is:
+
+```text
+raw S1/S2 → preprocessing → frozen CROMA → joint CROMA GAP
+→ physical + CROMA fusion → hybrid_830d → scientific prediction head
+```
+
+The verified Pipeline 3 result uses 5,000 areas with a 4,600 / 200 / 200
+train/validation/test split. On the 200-area held-out test set it achieved
+65.0% dominant-class accuracy, 4.1034286734 percentage-point MAE, and
+9.5873312123 percentage-point RMSE. These are scene-level scientific
+coverage metrics, not VQA, captioning, grounding, or VLM metrics.
+
+### Materialized, On-Demand, and Deferred Representations
+
+Under the Phase 2H policy, the verified core materializes `physical_62d`,
+`joint_croma_gap_768d`, and `hybrid_830d`. Raw optical/SAR imagery and CROMA
+spatial token grids are generated or loaded on demand for a justified
+consumer. Temporal representations, learned fusion, region embeddings, and
+other future representations remain deferred.
+
+### Pipeline 3 and the Future EO-VLM
+
+Pipeline 3 currently provides the validated scientific representation and
+prediction path:
+
+```text
+CURRENT: S1/S2 → CROMA → hybrid_830d → scientific predictor
+```
+
+The future EO-VLM is a separate image-language layer intended eventually to
+support VQA, captioning, grounding, optical-SAR language reasoning, and
+temporal/change reasoning, followed by an evidence reconciler and agentic
+answer. Its future path is conceptually:
+
+```text
+FUTURE: S1/S2 and/or appropriate learned representations
+        → EO-VLM → VQA/captioning/grounding/temporal reasoning
+        → evidence reconciler → agentic answer
+```
+
+Those capabilities are not implemented by Pipeline 3. CROMA is a frozen
+representation extractor, not a change detector. Learned grounding,
+temporal learned reasoning, and learned optical-SAR language reasoning are
+not implemented; current constrained interpretation is not learned VLM
+reasoning. BigEarthNet spatial semantics remain unresolved and fail-closed.
+
 ## Current capabilities
 
 The local application enters through `python -m src.api` and dispatches analysis to `src.analysis_engine.run_analysis`. It validates inputs and rasters, extracts deterministic physical features and available CROMA representations, creates spatial evidence, and returns constrained interpretation and provenance through a loopback HTTP API and browser frontend. Provider-backed geospatial availability/search depends on configuration; `/api/analyze` does not implicitly download provider rasters.
@@ -73,8 +203,8 @@ The verified BigEarthNet v2 selected dataset has **5,000 Sentinel-1/SAR inputs, 
 
 | Metric | Frozen result |
 | --- | ---: |
-| Mean absolute error | **4.1034286465 percentage points** |
-| Root mean squared error | **9.5873311030 percentage points** |
+| Mean absolute error | **4.1034286734 percentage points** |
+| Root mean squared error | **9.5873312123 percentage points** |
 | Dominant-class accuracy | **65.0%** |
 
 - Scientific fingerprint: `ac8bbefc8918b2ee16f47653e6fd91eba0d875e4ce340e27254248712a173fae`

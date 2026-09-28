@@ -35,6 +35,7 @@ function clearResults() {
 }
 
 function render(report) {
+  if (report.execution_id) return renderControllerResult(report);
   el("notice").textContent = report.development_notice || demoNotice;
   el("results").hidden = false;
   const interpretation = report.interpretation || {};
@@ -78,6 +79,23 @@ function render(report) {
   el("report").textContent = JSON.stringify(report, null, 2);
   el("download").href = "/api/report/" + encodeURIComponent(report.analysis_id);
   el("download").hidden = false;
+  enhanceResults(report);
+}
+
+function renderControllerResult(report) {
+  el("notice").textContent = "Controller-routed result. Evidence types and blocked capability boundaries are preserved.";
+  el("results").hidden = false;
+  el("answer").textContent = report.final_answer?.text || report.blocked_reason || "No executable evidence was produced.";
+  el("interpretation-status").textContent = report.capability_status || report.status || "UNAVAILABLE";
+  el("interpretation-evidence").textContent = "Task: " + (report.task_type || "unknown") + ".";
+  el("interpretation-sensors").textContent = report.blocked_reason ? "Fallback: NONE." : "See typed evidence below.";
+  el("interpretation-regions").textContent = "No grounding is implied by this response.";
+  el("interpretation-technical").textContent = report.blocked_reason || "Controller execution completed.";
+  el("interpretation-provenance").textContent = JSON.stringify(report.provenance || {}, null, 2);
+  for (const item of report.evidence || []) { const p=document.createElement("p"); p.textContent=(item.evidence_type || "EVIDENCE") + ": " + (item.source || "controller"); el("evidence").append(p); }
+  el("confidence").textContent = "Confidence is reported only when supplied by evidence; otherwise UNKNOWN.";
+  for (const step of report.execution_trace?.steps || []) { const li=document.createElement("li"); li.textContent=step.name + " — " + step.status; el("trace").append(li); }
+  el("report").textContent=JSON.stringify(report,null,2);
   enhanceResults(report);
 }
 

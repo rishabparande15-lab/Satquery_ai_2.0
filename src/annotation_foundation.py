@@ -12,6 +12,7 @@ from typing import Any, Iterable
 
 SCHEMA_VERSION = "annotation_schema_v1"
 MATCH_VERSION = "dual_sentinel_exact_v1"
+IMAGE_ID_NORMALIZATION_VERSION = "basename_strip_known_archive_suffixes_v1"
 OFFICIAL_REVISION = "72d865f2146f0a85b720f7f3ca1cdbaeafc3d316"
 OFFICIAL_SHA256 = "d3b97f999456016bb13c2a8e94b8f47825654f07a0394a6b266a38b750ca1554"
 OFFICIAL_URL = ("https://huggingface.co/datasets/BIFOLD-BigEarthNetv2-0/BigEarthNet.txt/resolve/"
@@ -27,6 +28,36 @@ _NUMBER = r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?"
 _BOX = re.compile(rf"^\[\s*({_NUMBER})\s+({_NUMBER})\s*,\s*({_NUMBER})\s+({_NUMBER})\s*\]$")
 _POINT = re.compile(rf"<point>\(\s*({_NUMBER})\s*,\s*({_NUMBER})\s*\)</point>")
 _REF = re.compile(r"<ref>(.*?)</ref>", re.DOTALL)
+_KNOWN_IMAGE_SUFFIX = re.compile(r"(?:\.SAFE|\.zip)$", re.IGNORECASE)
+
+
+def normalize_image_id(value: Any) -> str:
+    """Normalize only observed BigEarthNet container/name variants.
+
+    The canonical identity remains the complete patch name.  Directory prefixes
+    and the observed .SAFE/.zip wrappers are presentation details; no suffix,
+    tile, date, or sensor token is discarded because that could create a false
+    collision.
+    """
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("Image identifier must be a non-empty string")
+    candidate = value.strip().replace("\\", "/").rsplit("/", 1)[-1]
+    candidate = _KNOWN_IMAGE_SUFFIX.sub("", candidate).strip()
+    if not candidate or candidate in {".", ".."} or "/" in candidate:
+        raise ValueError("Malformed image identifier")
+    return candidate
+
+
+def build_image_id_index(values: Iterable[str]) -> dict[str, str]:
+    """Build a collision-checked normalized-ID index preserving source values."""
+    index: dict[str, str] = {}
+    for value in values:
+        normalized = normalize_image_id(value)
+        previous = index.get(normalized)
+        if previous is not None and previous != value:
+            raise ValueError(f"Ambiguous image identifier normalization: {previous!r} and {value!r}")
+        index[normalized] = value
+    return index
 
 
 def classify_metadata_dependency(task_type: str | None, question: str | None = None,
@@ -115,15 +146,17 @@ def load_images(manifest_path: Path, split_path: Path) -> tuple[dict[tuple[str, 
     owner = {}
     for name, values in ids.items():
         for image_id in values:
-            if image_id in owner:
+            normalized_id = normalize_image_id(image_id)
+            if normalized_id in owner:
                 raise ValueError("Image identifier occurs across splits")
-            owner[image_id] = name
+            owner[normalized_id] = name
     index, seen_s1, seen_s2 = {}, {}, {}
     for image in manifest["rows"]:
-        area = image["area_id"]
+        area = normalize_image_id(image["area_id"])
         if area not in owner or image.get("split") != owner[area]:
             raise ValueError("Image manifest disagrees with split manifest")
-        s2, s1 = image["s2_identity"], image["s1_identity"]
+        s2, s1 = normalize_image_id(image["s2_identity"]), normalize_image_id(image["s1_identity"])
+        image = {**image, "area_id": area, "s2_identity": s2, "s1_identity": s1}
         for identity, seen in ((s1, seen_s1), (s2, seen_s2)):
             if identity in seen and seen[identity] != area:
                 raise ValueError("Sensor identity shared by multiple areas")
@@ -222,6 +255,8 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
     source_ids, qa_splits = defaultdict(set), defaultdict(set)
     image_partitions = defaultdict(set)
     image_questions = Counter()
+    image_question_answers = defaultdict(set)
+    image_spatial_values = defaultdict(set)
     optical_owners = {optical: image for (optical, _), image in image_index.items()}
     sar_owners = {sar: image for (_, sar), image in image_index.items()}
     audit = Counter()
@@ -230,8 +265,11 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
             raise ValueError("Source row is not an object")
         raw = dict(row)
         optical, sar = row.get("patch_id"), row.get("s1_name")
-        if not isinstance(optical, str): optical = None
-        if not isinstance(sar, str): sar = None
+        try:
+            optical = normalize_image_id(optical) if optical is not None else None
+            sar = normalize_image_id(sar) if sar is not None else None
+        except ValueError:
+            optical, sar = None, None
         image = image_index.get((optical, sar)) if optical and sar else None
         if image:
             match_status = "exact_match"
@@ -263,17 +301,22 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
             "optical_identity": optical, "sar_identity": sar,
             "split": image["split"] if image else None,
             "task_type": task, "source_task_type": source_type,
+            "annotation_type": task,
             "source_category": category, "source_dataset": "BigEarthNet.txt",
-            "source_record_id": source_id, "source_partition": row.get("split"),
+            "source_record_id": source_id, "source_record": source_id,
+            "source_partition": row.get("split"),
             "use_partition": None,
             "question": input_value if task in {"binary_qa", "multiple_choice_qa"} else None,
             "answer": output_value if task in {"binary_qa", "multiple_choice_qa"} else None,
             "options": row.get("options"),
+            "choices": row.get("options"),
             "caption": output_value if task == "caption" else None,
-            "box": box, "point": point, "geometry_frame": geometry_frame,
+            "box": box, "bbox": box, "point": point, "geometry_frame": geometry_frame,
             "referenced_text": ref_match.group(1) if ref_match else (input_value if task in {"text_box", "point_box"} else None),
             "raw_source": raw, "source_record_sha256": raw_hash,
             "metadata_dependency": metadata_dependency,
+            "metadata": {key: row[key] for key in ("latitude", "longitude", "country", "season", "climate_zone")
+                         if key in row},
             "training_eligibility": training_eligibility_for(metadata_dependency),
             "coordinate_convention_status": COORDINATE_CONVENTION_STATUS,
             "provenance": {"source_revision": source_revision,
@@ -292,6 +335,10 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
         if image and task in {"binary_qa", "multiple_choice_qa"} and isinstance(input_value, str) and isinstance(output_value, str):
             qa_splits[(input_value, output_value)].add(image["split"])
             image_questions[(image["area_id"], input_value)] += 1
+            image_question_answers[(image["area_id"], input_value)].add(output_value)
+        if image and task in {"text_box", "point_box"}:
+            image_spatial_values[(image["area_id"], input_value)].add(
+                canonical_bytes({"box": box, "point": point}))
         record["validation_issues"] = sorted(set(issues))
         record["validation_status"] = "quarantined" if issues else "validated"
         records.append(record)
@@ -318,6 +365,12 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
             record["validation_issues"].append("duplicate_source_record")
         if record["source_record_id"] and len(source_ids[record["source_record_id"]]) > 1:
             record["validation_issues"].append("duplicate_source_id_conflict")
+        qa_key = (record["image_id"], record["question"])
+        if record["image_id"] and len(image_question_answers.get(qa_key, set())) > 1:
+            record["validation_issues"].append("image_level_conflict")
+        spatial_key = (record["image_id"], record["raw_source"].get("input"))
+        if record["image_id"] and len(image_spatial_values.get(spatial_key, set())) > 1:
+            record["validation_issues"].append("spatial_conflict")
         if record["validation_issues"]:
             record["validation_issues"] = sorted(set(record["validation_issues"]))
             record["validation_status"] = "quarantined"
@@ -330,7 +383,11 @@ def ingest(rows: Iterable[dict], image_index: dict[tuple[str, str], dict], *,
     match_audit = dict(sorted(Counter(r["match_status"] for r in records).items()))
     leakage = {"duplicate_annotation_ids": sum(v - 1 for v in id_counts.values() if v > 1),
                "duplicate_source_records": sum(v - 1 for v in raw_counts.values() if v > 1),
+               "duplicate_exact": sum(v - 1 for v in raw_counts.values() if v > 1),
+               "duplicate_conflict": sum(len(v) > 1 for v in source_ids.values()),
                "duplicate_source_ids_with_different_content": sum(len(v) > 1 for v in source_ids.values()),
+               "image_level_conflict": sum(len(v) > 1 for v in image_question_answers.values()),
+               "spatial_conflict": sum(len(v) > 1 for v in image_spatial_values.values()),
                "identical_qa_across_splits": sum(len(v) > 1 for v in qa_splits.values()),
                "identical_qa_across_splits_is_not_image_leakage": True,
                "duplicate_image_question_combinations": sum(v - 1 for v in image_questions.values() if v > 1),
@@ -374,7 +431,11 @@ def write_artifact(source: Path, manifest: Path, split: Path, output: Path, *,
             if any(not isinstance(row.get(k), str) or not row[k].strip()
                    for k in ("patch_id", "s1_name", "input", "output", "type", "split")):
                 scan["malformed_required_fields"] += 1
-            if isinstance(row.get("patch_id"), str) and row["patch_id"] in eligible_optical:
+            try:
+                normalized_patch_id = normalize_image_id(row.get("patch_id"))
+            except ValueError:
+                normalized_patch_id = None
+            if normalized_patch_id in eligible_optical:
                 yield row
             else:
                 scan["outside_selected_image_inventory"] += 1
