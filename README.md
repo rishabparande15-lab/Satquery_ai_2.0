@@ -4,7 +4,9 @@ SatQuery AI is a remote-sensing research and local application project built aro
 
 ## Current status
 
-The exact BigEarthNet v2 **5,000-area multimodal scientific baseline is complete**. The architecture foundation through Phase 2H is complete: image-language contracts, the fail-closed spatial audit, Ravi engineering integration, and representation/compute/storage policy are documented. A concrete Earth observation vision-language model (VLM) has **not** been selected or implemented.
+**SatQuery v1 is complete as a paired Sentinel-1 + Sentinel-2 multimodal system, with documented limitations.** Its primary language route is BigEarthNet paired S1 `[2,120,120]` VV/VH plus S2 `[12,120,120]` multispectral imagery → official joint CROMA → Phase 3Q.1 `CromaJointProjector` → frozen Qwen2.5-VL-3B-Instruct → Binary, MCQ, or Caption structured response. Use `SatQueryV1Controller.run_satquery(...)`; see the [v1 architecture](docs/SATQUERY_V1_MULTIMODAL_ARCHITECTURE.md) and [limitations](docs/SATQUERY_V1_LIMITATIONS.md).
+
+The exact BigEarthNet v2 **5,000-area multimodal scientific baseline** remains complete and separate from the VLM route. S2-only is an explicit baseline/ablation, S1-only is research-only, and neither is an automatic fallback for normal v1 requests.
 
 ### Foundation Status
 
@@ -297,18 +299,13 @@ The target machine is an **RTX 5060 with 8 GB VRAM and 24 GB RAM**. Historical p
 
 ## Current limitations
 
-The following are **FUTURE / NOT IMPLEMENTED**: a concrete EO VLM; single-image VQA runtime or RSVQA evaluation; captioning runtime or VRSBench evaluation; learned grounding; temporal representation learning or CDVQA evaluation; calibrated task-specific confidence; a full agentic controller; a production temporal/change pipeline; hidden ISRO/SAC evaluation; and automatic BigEarthNet.txt geometry-to-token mapping. Current scientific performance is scene-level and class support is imbalanced, especially for rare classes. See the [training report](docs/PIPELINE3_5000_TRAINING_REPORT.md) for evaluation limits.
+SatQuery v1 provides a concrete paired S1+S2 language route, but its fixed 30-record integration panel did not establish fusion improvement over the S2-only baseline. S2-only was stronger on the small Binary/MCQ comparison, modality identity had weak decision-level influence, and final E2E caption generation produced no nonempty output. These are limitations, not reasons to silently replace the primary multimodal architecture with S2-only. No benchmark, SOTA, or generalization claim is made; TEST data remained untouched. Learned grounding, temporal/change reasoning, calibrated confidence, hidden ISRO/SAC evaluation, and automatic BigEarthNet.txt geometry-to-token mapping remain unsupported.
 
 ## Future research roadmap
 
 Foundation through Phase 2H is **COMPLETE**.
 
-Next: **Phase 3 — EO-VLM landscape audit and model/adapter selection**.
-
-Later: benchmark integration, VQA, captioning, grounding, optical-SAR
-multimodal analysis, temporal/change analysis, agentic controller work, and
-ISRO/SAC hidden evaluation. This README does **not** select EarthDial or any
-other model.
+SatQuery v1 completion closes the bounded Phase 3P–3R optical-SAR investigation. Future research requires separate authorization; it must not be represented as validated v1 behavior.
 
 ## API and local usage
 
@@ -344,7 +341,14 @@ scripts/                     Acquisition, validation, materialization, audits
 - [Phase 2D Representation Catalog](docs/PHASE2D_REPRESENTATION_CATALOG.md), [Phase 2D.2 Materialization](docs/PHASE2D2_REPRESENTATION_MATERIALIZATION.md), [Phase 2E Image-Language Foundation](docs/PHASE2E_IMAGE_LANGUAGE_FOUNDATION.md)
 - [Phase 2F BigEarthNet Spatial Semantics](docs/PHASE2F_BIGEARTHNET_SPATIAL_SEMANTICS.md), [Phase 2G Ravi Engineering Integration](docs/PHASE2G_RAVI_ENGINEERING_INTEGRATION.md), [Phase 2H Representation/Compute/Storage Policy](docs/PHASE2H_REPRESENTATION_COMPUTE_STORAGE_POLICY.md)
 - [Representation Strategy](docs/PHASE3_REPRESENTATION_AUDIT.md), [Performance and Storage Audit](docs/PHASE3_PERFORMANCE_STORAGE_AUDIT.md)
+- [SatQuery v1 Architecture](docs/SATQUERY_V1_MULTIMODAL_ARCHITECTURE.md), [Final Evaluation](docs/SATQUERY_V1_FINAL_EVALUATION.md), [Limitations](docs/SATQUERY_V1_LIMITATIONS.md)
 
-## Next research phase
+## SatQuery v1 demo
 
-Phase 3 — EO-VLM landscape audit and model/adapter selection.
+Run the paired-data demo with a locally available strict BigEarthNet patch:
+
+```powershell
+python scripts/demo_satquery_v1.py --data-root <BigEarthNet-root> --patch-id <patch-id> --task-type caption --question "Describe this paired Sentinel-1 and Sentinel-2 scene."
+```
+
+The demo visibly reports both inputs, the `MULTIMODAL_S1_S2` / `CROMA_JOINT` route, response, and provenance. It does not fall back to S2-only.

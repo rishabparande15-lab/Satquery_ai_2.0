@@ -119,6 +119,21 @@ def build_qwen_token_batch(
         "image_grid_thw": torch.tensor([QWEN_IMAGE_GRID_THW] * len(questions), dtype=torch.long, device=device),
     }
 
+def build_qwen_visual_token_batch(*, tokenizer: Any, model: torch.nn.Module, visual_tokens: torch.Tensor, questions: list[str], answers: list[str] | None = None) -> dict[str, torch.Tensor]:
+    """Assemble validated externally-produced Qwen visual tokens, without modality assumptions."""
+    from .multispectral_projector import QWEN_IMAGE_TOKEN_COUNT, QWEN_IMAGE_GRID_THW, QWEN_HIDDEN_SIZE
+    if visual_tokens.ndim != 3 or tuple(visual_tokens.shape[1:]) != (QWEN_IMAGE_TOKEN_COUNT, QWEN_HIDDEN_SIZE) or not torch.isfinite(visual_tokens).all(): raise ValueError('invalid Qwen visual tokens')
+    device=next(model.parameters()).device
+    if len(questions)!=visual_tokens.shape[0] or (answers is not None and len(answers)!=len(questions)):raise ValueError('batch fields must match visual tokens')
+    prefix=[model.config.vision_start_token_id]+[model.config.image_token_id]*QWEN_IMAGE_TOKEN_COUNT+[model.config.vision_end_token_id];rows=[];labs=[]
+    for i,q in enumerate(questions):
+        prompt=tokenizer(f'Question: {q}\nAnswer:',add_special_tokens=True)['input_ids'];a=[] if answers is None else tokenizer(' '+answers[i],add_special_tokens=False,max_length=32,truncation=True)['input_ids']+([tokenizer.eos_token_id] if tokenizer.eos_token_id is not None else [])
+        rows.append(prefix+prompt+a);labs.append([-100]*(len(prefix)+len(prompt))+a)
+    n=max(map(len,rows));pad=tokenizer.pad_token_id or tokenizer.eos_token_id;ids=torch.full((len(rows),n),pad,dtype=torch.long,device=device);labels=torch.full_like(ids,-100);att=torch.zeros_like(ids)
+    for i,(r,l) in enumerate(zip(rows,labs)):ids[i,:len(r)]=torch.tensor(r,device=device);labels[i,:len(l)]=torch.tensor(l,device=device);att[i,:len(r)]=1
+    emb=model.get_input_embeddings()(ids);mask=ids.eq(model.config.image_token_id).unsqueeze(-1).expand_as(emb)
+    return {'input_ids':ids,'attention_mask':att,'inputs_embeds':emb.masked_scatter(mask,visual_tokens.to(device=emb.device,dtype=emb.dtype).reshape(-1)),'labels':labels,'image_grid_thw':torch.tensor([QWEN_IMAGE_GRID_THW]*len(rows),device=device,dtype=torch.long)}
+
 
 def save_projector_checkpoint(
     path: Path,

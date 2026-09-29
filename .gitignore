@@ -41,6 +41,17 @@ __pycache__/
 /artifacts/annotations/image_language/*.jsonl
 /artifacts/image_language/bigearthnet_txt/samples.jsonl
 
+# Generated Phase 3 experiment and final integration receipts remain local.
+/artifacts/training/
+/artifacts/final/
+/artifacts/audits/
+/artifacts/image_language/
+/artifacts/phase3g/
+/artifacts/phase3g1/
+/artifacts/pipeline3_5000/
+/artifacts/test_fixtures/
+.pytest-full-*/
+
 # Local environments and temporary files.
 .venv/
 venv/

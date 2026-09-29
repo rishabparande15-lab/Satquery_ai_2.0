@@ -6,12 +6,16 @@ from .multispectral_projector import (
     S2MultispectralProjector,
     S2_QWEN_ADAPTER_ID,
 )
+from .sar_projector import S1SARProjector
+from .joint_croma_projector import CromaJointProjector
 from .temporal_contracts import ContractOnlyTemporalFusionAdapter, TemporalInput, TemporalRepresentation
 
 __all__ = [
     "QWEN_HIDDEN_SIZE",
     "QWEN_IMAGE_GRID_THW",
     "S2MultispectralProjector",
+    "S1SARProjector",
+    "CromaJointProjector",
     "S2_QWEN_ADAPTER_ID",
     "ContractOnlyTemporalFusionAdapter",
     "TemporalInput",
