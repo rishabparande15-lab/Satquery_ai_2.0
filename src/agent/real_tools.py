@@ -80,6 +80,33 @@ class TemporalRGBTool(Tool):
         return ToolResult({"text": result["text"], "generated_tokens": result["generated_tokens"]}, (item,), provenance)
 
 
+class TemporalChangeDescriptionTool(Tool):
+    """Adapter for the admitted Chg2Cap PRE/POST caption specialist only."""
+
+    name = "chg2cap"
+
+    def __init__(self, controller) -> None:
+        self._controller = controller
+
+    def execute(self, request: AnalysisRequest, *, representations: tuple[str, ...]) -> ToolResult:
+        if len(request.inputs) != 2:
+            raise ValueError("Chg2Cap requires exactly two ordered image inputs")
+        t1, t2 = request.inputs
+        result = self._controller.run(
+            t1_path=t1.get("path"), t2_path=t2.get("path"), query=request.query,
+            metadata={**request.metadata, "temporal_order": "PRE_POST"},
+        )
+        provenance = dict(result["provenance"])
+        item = Evidence(
+            f"temporal-change:{t1['id']}:{t2['id']}", EvidenceType.MODEL_LANGUAGE_OUTPUT,
+            self.name, result["change_description"], "change_description",
+            modality="optical_rgb_pair", representation="RGB_T1_RGB_T2",
+            confidence_source=ConfidenceSource.UNKNOWN,
+            provenance=provenance,
+        )
+        return ToolResult(result, (item,), provenance)
+
+
 class FrozenScientificCacheTool(Tool):
     """Execute the immutable 830-D probe over an existing checksum-validated cache."""
 

@@ -48,7 +48,7 @@ def test_rgb_and_s2_are_routed_to_injected_tools_only():
 def test_blocked_requests_do_not_invoke_a_fallback_tool():
     fake = FakeTool("qwen_rgb", (evidence(EvidenceType.MODEL_LANGUAGE_OUTPUT),))
     controller = AgentController({fake.name: fake})
-    for query, modality, count, expected in (("What objects are in this SAR image?", "s1", 1, TaskType.SAR_VQA), ("Use optical and SAR together", "s2", 1, TaskType.OPTICAL_SAR_REASONING), ("Compare these images", "rgb", 2, TaskType.CHANGE_VQA), ("Where is the forest? Give a mask", "rgb", 1, TaskType.GROUNDING)):
+    for query, modality, count, expected in (("What objects are in this SAR image?", "s1", 1, TaskType.SAR_VQA), ("Use optical and SAR together", "s2", 1, TaskType.OPTICAL_SAR_REASONING), ("Where is the forest? Give a mask", "rgb", 1, TaskType.GROUNDING)):
         result = controller.analyze(request(query, modality, count))
         assert result.plan.understanding.task_type == expected
         assert result.capability_status == ExecutionStatus.BLOCKED
@@ -81,3 +81,41 @@ def test_planning_is_deterministic():
     first = controller._planner.understand(request("What land-cover distribution is present?", "s2"))
     second = controller._planner.understand(request("What land-cover distribution is present?", "s2"))
     assert first == second
+
+
+def test_explicit_single_image_mode_selects_distinct_routes():
+    planner = AgentController()._planner
+    single = AnalysisRequest("What land cover is visible?", ({"id": "s2-1", "modality": "s2"},),
+                             {"image_task_mode": "SINGLE_IMAGE"})
+    grounding = AnalysisRequest("Highlight the water body", ({"id": "s2-1", "modality": "s2"},),
+                                {"image_task_mode": "SINGLE_IMAGE"})
+    paired = AnalysisRequest("Use optical and SAR together", ({"id": "s2-1", "modality": "optical"},
+                                                                {"id": "s1-1", "modality": "sar"}),
+                             {"image_task_mode": "SINGLE_IMAGE"})
+    temporal = AnalysisRequest("What changed before and after?", ({"id": "s2-1", "modality": "s2"},),
+                               {"image_task_mode": "SINGLE_IMAGE"})
+
+    assert planner.understand(single).task_type == TaskType.SINGLE_IMAGE_VQA
+    assert planner.understand(grounding).task_type == TaskType.SINGLE_IMAGE_GROUNDING
+    assert planner.understand(paired).task_type == TaskType.OPTICAL_SAR_ANALYSIS
+    assert planner.understand(temporal).task_type == TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED
+
+
+def test_new_route_registry_states_do_not_overclaim_grounding():
+    registry = default_capability_registry()
+    assert registry.get(TaskType.SINGLE_IMAGE_VQA).state == CapabilityState.EXPERIMENTAL
+    assert registry.get(TaskType.SINGLE_IMAGE_GROUNDING).state == CapabilityState.BLOCKED
+    assert registry.get(TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED).state == CapabilityState.BLOCKED
+
+
+def test_bitemporal_mode_selects_only_the_chg2cap_capability():
+    tool = FakeTool("chg2cap", (evidence(EvidenceType.MODEL_LANGUAGE_OUTPUT, "a building was added"),))
+    controller = AgentController({tool.name: tool})
+    request = AnalysisRequest("What changed between these two images?", (
+        {"id": "t1", "modality": "optical"}, {"id": "t2", "modality": "optical"},
+    ), {"image_task_mode": "BI_TEMPORAL"})
+    result = controller.analyze(request)
+    assert result.plan.understanding.task_type == TaskType.TEMPORAL_CHANGE_DESCRIPTION
+    assert result.plan.representations == ("RGB_T1", "RGB_T2")
+    assert result.capability_status == ExecutionStatus.EXECUTED
+    assert tool.calls == 1

@@ -21,6 +21,7 @@ class Sample:
     optical_paths: dict[str, Path]
     sar_paths: dict[str, Path]
     reference_map: Path
+    split: str | None = None
 
 
 @dataclass
@@ -31,6 +32,13 @@ class PreparedSample:
     raw_optical: np.ndarray
     raw_sar: np.ndarray
     reference: np.ndarray
+    metadata: dict
+
+
+@dataclass
+class PreparedOpticalSample:
+    patch_id: str
+    raw_optical: np.ndarray
     metadata: dict
 
 
@@ -75,6 +83,70 @@ def discover_samples(root: Path, *, strict: bool = False) -> list[Sample]:
     if not result:
         raise ValueError("No complete samples discovered")
     return result
+
+
+def discover_s2_samples(root: Path, *, allowed_splits: tuple[str, ...] = ("train", "validation")) -> list[Sample]:
+    """Discover canonical S2 samples without requiring S1 or reference-map assets."""
+    root = Path(root)
+    s2_root = root / "BigEarthNet-S2"
+    metadata_path = root / "metadata.parquet"
+    if not s2_root.is_dir():
+        raise FileNotFoundError(f"S2 dataset directory is missing: {s2_root}")
+    if not metadata_path.is_file():
+        raise FileNotFoundError(f"S2 discovery requires metadata.parquet: {metadata_path}")
+    import pandas as pd
+
+    frame = pd.read_parquet(metadata_path, columns=["patch_id", "split"])
+    if frame["patch_id"].duplicated().any():
+        raise ValueError("S2 metadata contains duplicate patch identities")
+    indexed: dict[str, dict[str, Path]] = {}
+    for path in s2_root.rglob("*.tif"):
+        band = path.stem.rsplit("_", 1)[-1]
+        if band not in OPTICAL_BANDS:
+            continue
+        bands = indexed.setdefault(path.parent.name, {})
+        if band in bands:
+            raise ValueError(f"{path.parent.name}: duplicate optical band {band}")
+        bands[band] = path
+    samples = []
+    for row in frame.itertuples(index=False):
+        if str(row.split) not in allowed_splits:
+            continue
+        patch_id = str(row.patch_id)
+        samples.append(Sample(patch_id, indexed.get(patch_id, {}), {}, Path(), str(row.split)))
+    return samples
+
+
+def load_optical_sample(sample: Sample) -> PreparedOpticalSample:
+    """Validate and load one optical patch without reading or requiring S1/reference data."""
+    missing = [band for band in OPTICAL_BANDS if band not in sample.optical_paths]
+    if missing:
+        raise FileNotFoundError(f"{sample.patch_id}: missing optical bands {missing}")
+    _validate_source(sample.optical_paths["B02"], patch_id=sample.patch_id, role="optical B02")
+    with rasterio.open(sample.optical_paths["B02"]) as grid:
+        if grid.crs is None or grid.res[0] <= 0 or grid.res[1] <= 0:
+            raise ValueError(f"{sample.patch_id}: invalid optical CRS/resolution")
+        if (grid.height, grid.width) != (120, 120):
+            raise ValueError(f"{sample.patch_id}: B02 common grid must be 120x120")
+        for band in OPTICAL_BANDS:
+            _validate_source(sample.optical_paths[band], patch_id=sample.patch_id,
+                             role=f"optical {band}", grid=grid)
+        optical = np.stack([
+            _read_to_grid(sample.optical_paths[band], grid, Resampling.bilinear)
+            for band in OPTICAL_BANDS
+        ])
+        metadata = {
+            "shape": [grid.height, grid.width],
+            "crs": str(grid.crs),
+            "resolution": list(grid.res),
+            "bounds": list(grid.bounds),
+            "transform": list(grid.transform),
+            "optical_band_order": list(OPTICAL_BANDS),
+            "optical_resampling": "rasterio bilinear reprojection to B02 grid",
+        }
+    if not np.isfinite(optical).all():
+        raise ValueError(f"{sample.patch_id}: optical tensor contains non-finite values")
+    return PreparedOpticalSample(sample.patch_id, optical, metadata)
 
 
 def _discover_strict(root: Path, s2_files: list[Path], s1_files: list[Path], reference_files: list[Path]) -> list[Sample]:

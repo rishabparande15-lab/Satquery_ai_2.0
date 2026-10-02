@@ -53,11 +53,15 @@ class AgentController:
     def _representations(task: TaskType) -> tuple[str, ...]:
         if task == TaskType.SCIENTIFIC_ANALYSIS:
             return ("physical_62d", "joint_croma_gap_768d", "hybrid_830d")
-        if task in {TaskType.S2_VQA, TaskType.S2_CAPTIONING}:
+        if task in {TaskType.SINGLE_IMAGE_VQA, TaskType.S2_VQA, TaskType.S2_CAPTIONING}:
             return ("learned_s2_representation",)
+        if task == TaskType.OPTICAL_SAR_ANALYSIS:
+            return ("S1", "S2", "CROMA_JOINT")
         if task == TaskType.RGB_VISUAL_REASONING:
             return ("RGB",)
         if task == TaskType.TEMPORAL_RGB_EXECUTION:
+            return ("RGB_T1", "RGB_T2")
+        if task == TaskType.TEMPORAL_CHANGE_DESCRIPTION:
             return ("RGB_T1", "RGB_T2")
         return ()
 
@@ -70,6 +74,11 @@ class AgentController:
                 raise ValueError("each input requires a stable id")
             if task != TaskType.REPORT_GENERATION and not item.get("modality"):
                 raise ValueError("each input requires an explicit modality")
+        if task == TaskType.TEMPORAL_CHANGE_DESCRIPTION:
+            if len(request.inputs) != 2:
+                raise ValueError("TEMPORAL_CHANGE_DESCRIPTION requires exactly T1 and T2 inputs")
+            if any(str(item.get("modality", "")).lower() in {"sar", "s1", "optical_sar"} for item in request.inputs):
+                raise ValueError("TEMPORAL_CHANGE_DESCRIPTION accepts an optical PRE/POST pair, not an optical-SAR pair")
         # Existing adapters/contracts remain authoritative for format, shape, dtype,
         # finite values, CRS, temporal-pair, and grounding geometry validation.
 

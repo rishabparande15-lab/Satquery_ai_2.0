@@ -499,3 +499,312 @@ renderHistory();refreshHealth();updateModeNote();
 updateResolutionStatus();
 const firstSample=Object.entries(SAMPLE_PREVIEWS)[0];
 if(firstSample){el("home-image").src=firstSample[1].views.optical;el("home-image-caption").textContent="Sample "+firstSample[0]+" · "+firstSample[1].crs+" · "+firstSample[1].shape.join(" × ")+" pixels · RGB display";}
+
+async function loadV1Samples() {
+  const select = el("v1-patch-id");
+  if (!select) return;
+  try {
+    const payload = await request("/api/v1/samples", {}, 15000);
+    const samples = Array.isArray(payload.samples) ? payload.samples : [];
+    select.replaceChildren();
+    if (!samples.length) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "No dataset patches available";
+      select.append(option);
+      return;
+    }
+    for (const sample of samples.slice(0, 25)) {
+      const option = document.createElement("option");
+      option.value = sample;
+      option.textContent = sample;
+      select.append(option);
+    }
+  } catch (error) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = error.message || "Dataset unavailable";
+    select.replaceChildren(option);
+  }
+}
+
+async function runV1Route() {
+  const patchId = el("v1-patch-id")?.value;
+  const taskType = el("v1-task-type")?.value || "caption";
+  const question = el("v1-question")?.value || "Describe the scene.";
+  const output = el("v1-output");
+  if (!patchId) {
+    output.textContent = "Select a live patch before running the paired S1 + S2 route.";
+    return;
+  }
+  try {
+    output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
+    const result = await request("/api/v1/query", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({patch_id: patchId, task_type: taskType, query: question,
+        inputs: [{role: "S1", modality: "s1", input_id: patchId + ":s1", source: "approved_local_patch"},
+                 {role: "S2", modality: "s2", input_id: patchId + ":s2", source: "approved_local_patch"}]})
+    }, 120000);
+    const answer = result?.answer || result?.error?.message || "No generated output returned.";
+    output.innerHTML = "<strong>route:</strong> " + (result?.route || "OPTICAL_SAR_ANALYSIS") + "<br><strong>status:</strong> " + (result?.status || "UNKNOWN") + "<br><strong>answer:</strong> " + answer + "<br><small>" + (result?.routing_basis || "") + "</small>";
+    renderEvidence("v1-evidence", result.evidence); el("v1-evidence-details").open = true;
+    el("v1-provenance").textContent = JSON.stringify({model_id: result.details?.model_id,
+      qwen_revision: result.details?.qwen_revision, provenance: result.provenance,
+      warnings: result.warnings, confidence: result.confidence}, null, 2);
+    el("v1-provenance-details").open = true;
+    setAgentExport("v1-export", result);
+  } catch (error) {
+    output.textContent = error.message || "The route failed and did not return valid JSON.";
+  }
+}
+
+function renderEvidence(targetId, evidence) {
+  const target = el(targetId); if (!target) return;
+  target.replaceChildren();
+  if (!evidence) { target.textContent = "No source evidence was returned."; return; }
+  const inputs = Array.isArray(evidence.inputs) ? evidence.inputs : (evidence.geospatial ? [evidence] : []);
+  for (const input of inputs) {
+    const card = document.createElement("div"); card.className = "field-help";
+    const geo = input.geospatial || evidence.geospatial || {}; const fp = geo.footprint || {};
+    const title = document.createElement("strong"); title.textContent = "INPUT: " + (input.input_id || "external raster"); card.append(title);
+    const map = document.createElement("div"); map.className = "evidence-footprint-map";
+    map.textContent = fp.status === "AVAILABLE" ? "OFFLINE FOOTPRINT · " + (fp.crs || "CRS") + " · rectangle " + JSON.stringify(fp.bounds) : "GEOSPATIAL_FOOTPRINT_NOT_AVAILABLE";
+    card.append(map);
+    const stats = (input.raster_statistics || evidence.raster_statistics || {}).bands || [];
+    const pre = document.createElement("pre"); pre.textContent = JSON.stringify({label: "IMAGE STATISTICS", crs: geo.crs, resolution: geo.resolution, dimensions: [geo.width, geo.height], image_statistics: stats, warnings: input.warnings || []}, null, 2); card.append(pre);
+    target.append(card);
+  }
+  if (evidence.pair) { const pre = document.createElement("pre"); pre.textContent = JSON.stringify({spatial_bounds_overlap: evidence.pair, coregistration: "COREGISTRATION_NOT_VERIFIED"}, null, 2); target.append(pre); }
+}
+
+function setAgentExport(id, result) {
+  const link = el(id);
+  if (!link || !result) return;
+  if (link.dataset.objectUrl) URL.revokeObjectURL(link.dataset.objectUrl);
+  const blob = new Blob([JSON.stringify(result, null, 2)], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  link.href = url; link.download = "satquery-agent-result.json"; link.dataset.objectUrl = url; link.hidden = false;
+}
+
+if (el("run-v1")) {
+  el("run-v1").addEventListener("click", runV1Route);
+  loadV1Samples();
+}
+
+function setImageTaskMode(mode) {
+  el("single-image-panel").hidden = mode !== "single";
+  el("paired-v1-panel").hidden = mode !== "paired";
+  el("temporal-change-panel").hidden = mode !== "temporal";
+  for (const button of all("[data-route-mode]")) {
+    const active = button.dataset.routeMode === mode;
+    button.classList.toggle("selected", active);
+    button.setAttribute("aria-selected", active ? "true" : "false");
+  }
+}
+
+for (const button of all("[data-route-mode]")) {
+  button.addEventListener("click", () => setImageTaskMode(button.dataset.routeMode));
+}
+
+function loadSingleImageSamples() {
+  request("/api/v1/single-image/samples", {}, 10000).then(data => {
+    const select = el("single-image-id");
+    select.replaceChildren();
+    const samples = Array.isArray(data.samples) ? data.samples : [];
+    for (const sample of samples.slice(0, 25)) {
+      const option = document.createElement("option");
+      option.value = sample;
+      option.textContent = sample;
+      select.append(option);
+    }
+    if (!samples.length) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = data.warning || "No non-test S2 samples available";
+      select.append(option);
+    }
+  }).catch(error => {
+    const select = el("single-image-id");
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = error.message || "S2 dataset unavailable";
+    select.replaceChildren(option);
+  });
+}
+
+async function runSingleImageTask() {
+  const button = el("run-single-image");
+  const output = el("single-image-output");
+  const task = el("single-image-task").value;
+  const question = el("single-image-question").value.trim();
+  const patchId = el("single-image-id").value;
+  const imageFile = el("single-image-upload").files[0];
+  const sceneFile = el("scene-image-upload").files[0];
+  const isSceneDescription = task === "SINGLE_IMAGE_SCENE_DESCRIPTION";
+  if ((!isSceneDescription && !patchId && !imageFile) || (isSceneDescription && !patchId && !sceneFile)) { output.textContent = isSceneDescription ? "Select a non-test S2 image or upload one explicit RGB image." : "Select a non-test S2 image or upload one 12-band GeoTIFF."; return; }
+  if (imageFile && !el("single-image-sensor-declared").checked) { output.textContent = "Declare the uploaded file as Sentinel-2 before VQA. Use the generic raster inspector for Cartosat-2S, RISAT, or other sensors."; return; }
+  if (!question) { output.textContent = "Enter a question or grounding query."; return; }
+  const isGrounding = task === "SINGLE_IMAGE_GROUNDING";
+  button.disabled = true;
+    output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
+  try {
+    let uploadToken = null;
+    if (isSceneDescription && sceneFile) {
+      const form = new FormData();
+      form.append("scene", sceneFile);
+      const uploaded = await request("/api/upload", {method: "POST", body: form}, 30000);
+      uploadToken = uploaded.files?.scene;
+      if (!uploadToken) throw new Error("The RGB scene upload did not return a usable upload ID.");
+    } else if (imageFile) {
+      const form = new FormData();
+      form.append("optical", imageFile);
+      const uploaded = await request("/api/upload", {method: "POST", body: form}, 30000);
+      uploadToken = uploaded.files?.optical;
+      if (!uploadToken) throw new Error("The S2 GeoTIFF upload did not return a usable upload ID.");
+    }
+    const result = await request("/api/v1/query", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        requested_task: isGrounding ? "SINGLE_IMAGE_GROUNDING" : (isSceneDescription ? "SINGLE_IMAGE_SCENE_DESCRIPTION" : null),
+        task_type: isGrounding ? "grounding" : (isSceneDescription ? "scene_description" : el("single-image-vqa-type").value),
+        query: question,
+        patch_id: (imageFile || sceneFile) ? null : patchId,
+        upload_token: !isSceneDescription ? uploadToken : null,
+        scene_upload_token: isSceneDescription ? uploadToken : null,
+        band_order_confirmed: el("single-image-band-order").checked,
+        sensor_declaration: imageFile ? {sensor: "sentinel-2", modality: "multispectral", role: "SINGLE", band_order: ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B11", "B12"], band_order_confirmed: true} : (isSceneDescription && sceneFile ? {sensor: el("scene-upload-sensor").value, modality: el("scene-upload-sensor").value === "risat" ? "sar" : "rgb", role: "SINGLE", band_order: ["R", "G", "B"], band_order_confirmed: true} : null),
+        inputs: [{role: "SINGLE", modality: isSceneDescription ? "rgb" : "s2", sensor: imageFile ? "sentinel-2" : (sceneFile ? el("scene-upload-sensor").value : null), input_id: (imageFile || sceneFile) ? (isSceneDescription ? sceneFile.name : imageFile.name) : patchId, source: (imageFile || sceneFile) ? "user_upload" : "approved_local_patch", external_descriptor: sceneFile ? {filename: sceneFile.name, declared_sensor: el("scene-upload-sensor").value, declared_modality: "rgb", declared_role: "SINGLE"} : null}]
+      })
+    }, 120000);
+    if (isGrounding) {
+      output.textContent = result.status === "BLOCKED" ?
+        "route: " + result.route + "\nstatus: BLOCKED\nGrounding unavailable: no approved specialist or verified coordinate mapping. No box, mask, or confidence was produced." : (result.error?.message || "Grounding result unavailable.");
+    } else {
+      const answer = typeof result.answer === "string" && result.answer.trim() ? result.answer.trim() : (result.error?.message || "No generated VQA answer returned.");
+      output.textContent = "route: " + result.route + "\nspecialist: " + (result.provenance?.specialist || "not run") + "\nstatus: " + result.status + "\n" + (isSceneDescription ? "description: " : "answer: ") + answer;
+    }
+    el("single-image-provenance").textContent = JSON.stringify({
+      task: result.route, selected_specialist: result.provenance?.specialist,
+      image_identity: result.provenance?.input_summary,
+      visual_evidence: result.visual_evidence, provenance: result.provenance,
+      execution_trace: result.execution_trace, warnings: result.warnings, error: result.error, confidence: result.confidence
+    }, null, 2);
+    el("single-image-provenance-details").open = true;
+    renderEvidence("single-image-evidence", result.evidence); el("single-image-evidence-details").open = true;
+    setAgentExport("single-image-export", result);
+  } catch (error) {
+    output.textContent = error.message || "Single-image request failed.";
+    el("single-image-provenance").textContent = "No successful inference provenance was returned.";
+  } finally {
+    button.disabled = false;
+  }
+}
+
+if (el("run-single-image")) {
+  el("run-single-image").addEventListener("click", runSingleImageTask);
+  loadSingleImageSamples();
+}
+
+if (el("run-sar-vqa")) el("run-sar-vqa").addEventListener("click", async () => {
+  const file = el("sar-vqa-upload").files[0], question = el("sar-vqa-question").value.trim(), output = el("sar-vqa-output");
+  if (!file || !question) { output.textContent = "Select a Sentinel-1 VV/VH GeoTIFF and enter a question."; return; }
+  output.textContent = "Uploading SAR input and running the SAR-only specialist…";
+  try {
+    const form = new FormData(); form.append("sar", file);
+    const upload = await request("/api/upload", {method: "POST", body: form}, 30000);
+    const result = await request("/api/v1/query", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({requested_task: "SINGLE_IMAGE_SAR_VQA", task_type: "binary_qa", query: question, sar_upload_token: upload.files.sar, sensor_declaration: {sensor: "sentinel-1", modality: "sar", role: "SINGLE", band_order: ["VV", "VH"], band_order_confirmed: true}, inputs: [{role: "SINGLE", modality: "sar", sensor: "sentinel-1", input_id: file.name, source: "user_upload"}]})}, 300000);
+    output.textContent = "route: " + result.route + "\nstatus: " + result.status + "\nanswer: " + (result.answer || result.error?.message || "No answer") + "\nwarnings: " + (result.warnings || []).join(", ");
+    el("sar-vqa-provenance").textContent = JSON.stringify({evidence: result.evidence, provenance: result.provenance, trace: result.execution_trace, confidence: result.confidence}, null, 2);
+    el("sar-vqa-provenance-details").open = true;
+    setAgentExport("sar-vqa-export", result);
+  } catch (error) { output.textContent = error.message || "SAR VQA request failed."; }
+});
+
+function bandLabelsForInspection(sensor, count) {
+  if (sensor === "sentinel-2") return ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B09", "B11", "B12"];
+  if (sensor === "sentinel-1") return ["VV", "VH"];
+  if (sensor === "generic-rgb") return ["R", "G", "B", "A"].slice(0, count || 3);
+  return Array.from({length: count || 1}, (_, index) => "DECLARED_" + (index + 1));
+}
+
+async function inspectExternalRaster() {
+  const file = el("external-raster-upload").files[0];
+  const output = el("external-raster-output");
+  const button = el("inspect-external-raster");
+  if (!file) { output.textContent = "Choose a TIFF, PNG, or JPEG file to inspect."; return; }
+  button.disabled = true; output.textContent = "Inspecting bounded source metadata…";
+  try {
+    const sensor = el("external-sensor").value;
+    const form = new FormData(); form.append("raster", file);
+    if (sensor) {
+      const guessedCount = sensor === "sentinel-2" ? 12 : (sensor === "sentinel-1" ? 2 : undefined);
+      const declaration = {sensor, modality: el("external-modality").value, role: el("external-role").value,
+        band_order_confirmed: sensor === "sentinel-2" || sensor === "sentinel-1"};
+      if (sensor === "sentinel-2" || sensor === "sentinel-1" || sensor === "generic-rgb") declaration.band_order = bandLabelsForInspection(sensor, guessedCount);
+      form.append("declaration", JSON.stringify(declaration));
+    }
+    if (el("external-route").value) form.append("requested_route", el("external-route").value);
+    const result = await request("/api/v1/raster/inspect", {method: "POST", body: form}, 30000);
+    const inspection = result.inspection || {}; const gate = result.compatibility_gate || {};
+    const compatibility = gate.status || "UNKNOWN";
+    output.textContent = "FILE INSPECTION: SUCCESS\nformat: " + (inspection.driver || "unknown") + "\ndimensions: " + (inspection.shape || []).join(" × ") + "\nbands: " + (inspection.band_count ?? "unknown") + "\nCRS: " + (inspection.crs || "not supplied") + "\nadapter: " + (result.adapter?.adapter || "none") + "\nMODEL COMPATIBILITY: " + compatibility + (gate.code ? " (" + gate.code + ")" : "") + "\n" + (gate.message || "Inspection only.");
+    el("external-raster-provenance").textContent = JSON.stringify({inspection, declaration: result.sensor_declaration, adapter: result.adapter, compatibility_gate: gate, warnings: gate.warnings}, null, 2);
+    el("external-raster-details").open = true;
+    renderEvidence("external-raster-evidence", result.evidence); el("external-raster-evidence-details").open = true;
+  } catch (error) {
+    output.textContent = error.message || "External file inspection failed.";
+  } finally { button.disabled = false; }
+}
+
+if (el("inspect-external-raster")) el("inspect-external-raster").addEventListener("click", inspectExternalRaster);
+
+async function runTemporalChangeTask() {
+  const button = el("run-temporal-change");
+  const output = el("temporal-change-output");
+  const t1 = el("temporal-t1").files[0];
+  const t2 = el("temporal-t2").files[0];
+  const query = el("temporal-question").value.trim();
+  if (!t1) { output.textContent = "Select T1 / BEFORE image."; return; }
+  if (!t2) { output.textContent = "Select T2 / AFTER image."; return; }
+  button.disabled = true;
+  output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
+  try {
+    const form = new FormData();
+    form.append("t1", t1); form.append("t2", t2);
+    const uploaded = await request("/api/upload", {method: "POST", body: form}, 30000);
+    const result = await request("/api/v1/query", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({t1_token: uploaded.files?.t1, t2_token: uploaded.files?.t2,
+        query, pair_id: t1.name === t2.name ? t1.name : null, temporal_order: "PRE_POST", split: "external_inference",
+        inputs: [{role: "T1", modality: "optical", input_id: t1.name, temporal_role: "PRE", source: "validation_safe_upload"},
+                 {role: "T2", modality: "optical", input_id: t2.name, temporal_role: "POST", source: "validation_safe_upload"}]})
+    }, 120000);
+    output.textContent = "route: " + result.route + "\nstatus: " + result.status +
+      "\nspecialist: " + (result.provenance?.specialist || "not run") + "\nchange description: " + (result.answer || result.error?.message || "No generated result.");
+    el("temporal-change-provenance").textContent = JSON.stringify({
+      temporal_order: "PRE_POST", visual_evidence: result.visual_evidence,
+      provenance: result.provenance, warnings: result.warnings, execution_trace: result.execution_trace, runtime_seconds: result.runtime_seconds
+    }, null, 2);
+    el("temporal-change-provenance-details").open = true;
+    renderEvidence("temporal-change-evidence", result.evidence); el("temporal-change-evidence-details").open = true;
+    setAgentExport("temporal-change-export", result);
+  } catch (error) {
+    output.textContent = error.message || "Temporal change description failed.";
+    el("temporal-change-provenance").textContent = "No successful temporal inference provenance was returned.";
+  } finally { button.disabled = false; }
+}
+
+if (el("run-temporal-change")) el("run-temporal-change").addEventListener("click", runTemporalChangeTask);
+
+function previewTemporalInput(inputId, imageId, emptyId) {
+  const file = el(inputId)?.files?.[0];
+  const image = el(imageId); const empty = el(emptyId);
+  if (!file || !image || !empty) return;
+  image.src = URL.createObjectURL(file);
+  image.hidden = false; empty.hidden = true;
+}
+
+if (el("temporal-t1")) el("temporal-t1").addEventListener("change", () => previewTemporalInput("temporal-t1", "temporal-t1-preview", "temporal-t1-preview-empty"));
+if (el("temporal-t2")) el("temporal-t2").addEventListener("change", () => previewTemporalInput("temporal-t2", "temporal-t2-preview", "temporal-t2-preview-empty"));

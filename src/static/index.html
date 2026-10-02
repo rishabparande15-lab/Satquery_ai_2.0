@@ -96,6 +96,101 @@
   </div></div>
 </section>
 
+<div class="section-heading compact route-mode-heading"><h2>Image task mode</h2><div class="segmented" role="tablist" aria-label="Image task mode"><button type="button" class="selected" data-route-mode="single" aria-selected="true">Single image</button><button type="button" data-route-mode="paired" aria-selected="false">Optical + SAR</button><button type="button" data-route-mode="temporal" aria-selected="false">Bi-temporal</button></div></div>
+
+<section class="panel v1-panel" id="single-image-panel">
+  <div class="section-heading compact"><h2>Single-image VQA</h2><span class="subtle-chip">S2 ONLY · EXPERIMENTAL</span></div>
+  <div class="v1-controls">
+    <label for="single-image-id">Sentinel-2 image</label>
+    <select id="single-image-id"></select>
+    <label for="single-image-upload">Or upload one 12-band S2 GeoTIFF</label>
+    <input id="single-image-upload" type="file" accept=".tif,.tiff">
+    <label class="check"><input id="single-image-sensor-declared" type="checkbox"> I declare this 12-band upload is Sentinel-2 in canonical B01–B12 order. Cartosat-2S, RISAT, and other sensors must first use the generic raster inspector.</label>
+    <label class="check"><input id="single-image-band-order" type="checkbox"> Confirm bands are in canonical B01, B02, B03, B04, B05, B06, B07, B08, B8A, B09, B11, B12 order if TIFF band descriptions are absent.</label>
+    <label for="single-image-task">Task</label>
+    <select id="single-image-task"><option value="SINGLE_IMAGE_VQA">Single-image VQA</option><option value="SINGLE_IMAGE_SCENE_DESCRIPTION">Remote-sensing scene description</option><option value="SINGLE_IMAGE_GROUNDING">Text-guided region grounding · blocked</option></select>
+    <label for="scene-image-upload">Or upload one explicit RGB image for scene description</label>
+    <input id="scene-image-upload" type="file" accept=".png,.jpg,.jpeg,.tif,.tiff">
+    <label for="scene-upload-sensor">External RGB declaration</label>
+    <select id="scene-upload-sensor"><option value="generic-rgb">Generic RGB</option><option value="cartosat-2s">Cartosat-2S · inspection only</option><option value="risat">RISAT · inspection only</option></select>
+    <label for="single-image-vqa-type">VQA format</label>
+    <select id="single-image-vqa-type"><option value="binary_qa">Binary</option><option value="multiple_choice_qa">Multiple choice</option></select>
+    <label for="single-image-question">Question or scene-description request</label>
+    <textarea id="single-image-question">Is water visible in this image?</textarea>
+    <button id="run-single-image" type="button" class="primary">Run single-image task ↗</button>
+  </div>
+  <div id="single-image-output" class="field-help" role="status" aria-live="polite">One non-test optical S2 image is required. S1 is not loaded for this route.</div>
+  <a id="single-image-export" class="button secondary" hidden>Download agent result ↓</a>
+  <details id="single-image-provenance-details"><summary>Model and provenance</summary><pre id="single-image-provenance">No inference has run.</pre></details>
+  <details id="single-image-evidence-details"><summary>Input evidence · geospatial footprint · image statistics</summary><div id="single-image-evidence">No source evidence has run.</div></details>
+</section>
+
+<section class="panel v1-panel" id="single-sar-vqa-panel">
+  <div class="section-heading compact"><h2>Single-image SAR VQA</h2><span class="subtle-chip amber">LIMITED SEMANTIC VALIDATION</span></div>
+  <p class="field-help">Requires one declared Sentinel-1 VV/VH GeoTIFF. No optical fallback is used.</p>
+  <div class="v1-controls"><label for="sar-vqa-upload">Sentinel-1 VV/VH GeoTIFF</label><input id="sar-vqa-upload" type="file" accept=".tif,.tiff"><label for="sar-vqa-question">Question</label><textarea id="sar-vqa-question">Do parts of the image correspond to pastures?</textarea><button id="run-sar-vqa" type="button" class="primary">Run SAR VQA</button></div>
+  <div id="sar-vqa-output" class="field-help" role="status" aria-live="polite">Upload one explicitly declared Sentinel-1 VV/VH raster.</div>
+  <a id="sar-vqa-export" class="button secondary" hidden>Download SAR result</a><details id="sar-vqa-provenance-details"><summary>Evidence and provenance</summary><pre id="sar-vqa-provenance">No inference has run.</pre></details>
+</section>
+
+<section class="panel v1-panel" id="external-input-panel">
+  <div class="section-heading compact"><h2>External input inspection</h2><span class="subtle-chip">NO SENSOR GUESSING</span></div>
+  <p class="field-help">Inspect a bounded TIFF, PNG, or JPEG before requesting any route. Inspection reads metadata only; it never resamples, reorders bands, or runs a specialist when compatibility is blocked.</p>
+  <div class="v1-controls">
+    <label for="external-raster-upload">External file</label><input id="external-raster-upload" type="file" accept=".png,.jpg,.jpeg,.tif,.tiff">
+    <label for="external-sensor">Sensor declaration</label><select id="external-sensor"><option value="">Unknown — inspect only</option><option value="generic-rgb">Generic</option><option value="generic-multispectral">Generic multispectral</option><option value="generic-sar">Generic SAR</option><option value="sentinel-2">Sentinel-2</option><option value="sentinel-1">Sentinel-1</option><option value="cartosat-2s">Cartosat-2S</option><option value="risat">RISAT</option></select>
+    <label for="external-modality">Modality</label><select id="external-modality"><option value="rgb">RGB</option><option value="optical">Optical</option><option value="multispectral">Multispectral</option><option value="sar">SAR</option></select>
+    <label for="external-role">Role</label><select id="external-role"><option value="SINGLE">Single image</option><option value="S2">Optical</option><option value="S1">SAR</option><option value="T1">PRE</option><option value="T2">POST</option></select>
+    <label for="external-route">Compatibility target</label><select id="external-route"><option value="">Inspection only</option><option value="SINGLE_IMAGE_SCENE_DESCRIPTION">Scene description</option><option value="SINGLE_IMAGE_VQA">Single-image VQA</option><option value="OPTICAL_SAR_ANALYSIS">Optical + SAR</option><option value="TEMPORAL_CHANGE_DESCRIPTION">Bi-temporal description</option></select>
+    <button id="inspect-external-raster" type="button" class="secondary">Inspect external file ↗</button>
+  </div>
+  <div id="external-raster-output" class="field-help" role="status" aria-live="polite">Choose a file to view its source metadata and compatibility status.</div>
+  <details id="external-raster-details"><summary>Inspection metadata</summary><pre id="external-raster-provenance">No inspection has run.</pre></details>
+  <details id="external-raster-evidence-details"><summary>Geospatial footprint · image statistics</summary><div id="external-raster-evidence">No source evidence has run.</div></details>
+</section>
+
+<section class="panel v1-panel" id="temporal-change-panel" hidden>
+  <div class="section-heading compact"><h2>Bi-temporal change description</h2><span class="subtle-chip">T1 BEFORE · T2 AFTER</span></div>
+  <div class="v1-controls">
+    <label for="temporal-t1">T1 / BEFORE image</label>
+    <input id="temporal-t1" type="file" accept=".png,.jpg,.jpeg,.tif,.tiff">
+    <label for="temporal-t2">T2 / AFTER image</label>
+    <input id="temporal-t2" type="file" accept=".png,.jpg,.jpeg,.tif,.tiff">
+    <div class="comparison-grid" id="temporal-input-previews">
+      <div class="compare-pane"><span>T1 / BEFORE preview</span><img id="temporal-t1-preview" alt="T1 before image preview" hidden><p id="temporal-t1-preview-empty">No T1 image selected</p></div>
+      <div class="compare-pane"><span>T2 / AFTER preview</span><img id="temporal-t2-preview" alt="T2 after image preview" hidden><p id="temporal-t2-preview-empty">No T2 image selected</p></div>
+    </div>
+    <label for="temporal-question">Question (optional)</label>
+    <textarea id="temporal-question">Describe the changes between the two dates.</textarea>
+    <button id="run-temporal-change" type="button" class="primary">Run Change Analysis ↗</button>
+  </div>
+  <div id="temporal-change-output" class="field-help" role="status" aria-live="polite">Upload an explicitly ordered RGB pair. The route generates a change description only; it does not claim a change mask or boxes.</div>
+  <a id="temporal-change-export" class="button secondary" hidden>Download agent result ↓</a>
+  <details id="temporal-change-provenance-details"><summary>Execution trace and provenance</summary><pre id="temporal-change-provenance">No temporal inference has run.</pre></details>
+  <details id="temporal-change-evidence-details"><summary>Pair evidence · geospatial footprint · image statistics</summary><div id="temporal-change-evidence">No source evidence has run.</div></details>
+</section>
+
+<section class="panel v1-panel" id="paired-v1-panel" hidden>
+  <div class="section-heading compact"><h2>Paired S1 + S2 route</h2><span class="subtle-chip">MULTIMODAL_S1_S2</span></div>
+  <div class="v1-controls">
+    <label for="v1-patch-id">Patch ID</label>
+    <select id="v1-patch-id"></select>
+    <label for="v1-task-type">Task type</label>
+    <select id="v1-task-type">
+      <option value="caption">caption</option>
+      <option value="binary_qa">binary_qa</option>
+      <option value="multiple_choice_qa">multiple_choice_qa</option>
+    </select>
+    <label for="v1-question">Question</label>
+    <textarea id="v1-question">Describe the scene.</textarea>
+    <button id="run-v1" type="button" class="primary">Run paired S1 + S2 route ↗</button>
+  </div>
+  <div id="v1-output" class="field-help">No run yet. The route requires both S1 and S2 for the live dataset patch.</div>
+  <a id="v1-export" class="button secondary" hidden>Download agent result ↓</a>
+  <details id="v1-evidence-details"><summary>Pair evidence · geospatial footprint · image statistics</summary><div id="v1-evidence">No source evidence has run.</div></details>
+  <details id="v1-provenance-details"><summary>Model and provenance</summary><pre id="v1-provenance">No paired-route provenance has run.</pre></details>
+</section>
+
 <section id="view-results" class="app-view" hidden>
   <div class="page-heading"><div><div class="eyebrow">RESULTS &amp; EVIDENCE</div><h1>Follow the evidence.</h1><p>Computed observations, traceable inputs, transparent limitations.</p></div><button type="button" class="button secondary" data-view="analysis">← Research workspace</button></div>
   <div id="result-empty" class="panel big-empty"><span>⌁</span><h2>Your results belong here.</h2><p>Run an analysis or reopen a report from this browser’s history.</p><button type="button" class="primary" data-view="analysis">Start an analysis ↗</button></div>

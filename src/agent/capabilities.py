@@ -39,6 +39,11 @@ def default_capability_registry() -> CapabilityRegistry:
     return CapabilityRegistry((
         Capability(TaskType.SCIENTIFIC_ANALYSIS, CapabilityState.IMPLEMENTED, "scientific_predictor", "Frozen validated Pipeline 3 scientific predictor.", ("physical_62d", "joint_croma_gap_768d", "hybrid_830d")),
         Capability(TaskType.RGB_VISUAL_REASONING, CapabilityState.IMPLEMENTED, "qwen_rgb", "Qwen RGB processing and generation validated.", ("RGB",)),
+        Capability(TaskType.SINGLE_IMAGE_VQA, CapabilityState.EXPERIMENTAL, "single_image_vqa", "Frozen Phase 3O.5 S2 projector plus pinned Qwen; internal VQA proof of concept, not benchmark-validated.", ("learned_s2_representation",)),
+        Capability(TaskType.SINGLE_IMAGE_GROUNDING, CapabilityState.BLOCKED, None, "No admitted remote-sensing grounding specialist or verified image-coordinate mapping."),
+        Capability(TaskType.OPTICAL_SAR_ANALYSIS, CapabilityState.EXPERIMENTAL, "satquery_v1", "Separate paired S1+S2 specialist route; do not substitute single-image VQA."),
+        Capability(TaskType.TEMPORAL_CHANGE_DESCRIPTION, CapabilityState.EXPERIMENTAL, "chg2cap", "Bi-temporal PRE/POST change description via the admitted Chg2Cap specialist; no Change-VQA, change mask, or grounding claim.", ("RGB_T1", "RGB_T2")),
+        Capability(TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED, CapabilityState.BLOCKED, None, "Temporal/change understanding is not implemented in this phase."),
         Capability(TaskType.S2_VQA, CapabilityState.EXPERIMENTAL, "qwen_s2", "Learned S2 language path is a validated PoC, not a production benchmark claim.", ("learned_s2_representation",)),
         Capability(TaskType.S2_CAPTIONING, CapabilityState.EXPERIMENTAL, "qwen_s2", "Learned S2 language path is a validated PoC, not a production benchmark claim.", ("learned_s2_representation",)),
         Capability(TaskType.SAR_VQA, CapabilityState.BLOCKED, None, "SAR language supervision/training is blocked."),

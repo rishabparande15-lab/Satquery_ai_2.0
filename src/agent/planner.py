@@ -26,11 +26,30 @@ class DeterministicPlanner:
         text = request.query.lower()
         modality = _declared_modality(request)
         count = len(request.inputs)
-        grounding = any(token in text for token in ("where", "bounding box", "bbox", "mask", "polygon", "point"))
-        temporal = count >= 2 or any(token in text for token in ("compare", "change", "before", "after", "temporal"))
+        image_task_mode = str(request.metadata.get("image_task_mode", "")).upper()
+        grounding = any(token in text for token in ("highlight", "locate", "outline", "where", "bounding box", "bbox", "mask", "polygon", "point"))
+        temporal_intent = any(token in text for token in ("compare", "change", "before", "after", "temporal"))
+        temporal = count >= 2 or temporal_intent
         scientific = any(token in text for token in ("land cover", "land-cover", "distribution", "scientific", "classify"))
         rationale: list[str] = []
-        if grounding:
+        if image_task_mode == "BI_TEMPORAL":
+            if modality == "optical_sar":
+                task = TaskType.OPTICAL_SAR_ANALYSIS; rationale.append("optical/SAR pair is not a temporal pair")
+            elif count != 2:
+                task = TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED; rationale.append("bi-temporal route requires exactly two ordered images")
+            else:
+                task = TaskType.TEMPORAL_CHANGE_DESCRIPTION; rationale.append("explicit bi-temporal PRE/POST mode")
+        elif image_task_mode == "SINGLE_IMAGE" and temporal_intent:
+            task = TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED; rationale.append("temporal route disabled")
+        elif image_task_mode == "SINGLE_IMAGE" and grounding:
+            task = TaskType.SINGLE_IMAGE_GROUNDING; rationale.append("single-image grounding intent")
+        elif image_task_mode == "SINGLE_IMAGE" and modality == "optical_sar":
+            task = TaskType.OPTICAL_SAR_ANALYSIS; rationale.append("explicit paired optical/SAR input")
+        elif image_task_mode == "SINGLE_IMAGE" and count > 1:
+            task = TaskType.TEMPORAL_ROUTE_NOT_IMPLEMENTED; rationale.append("multi-image route disabled")
+        elif image_task_mode == "SINGLE_IMAGE":
+            task = TaskType.SINGLE_IMAGE_VQA; rationale.append("explicit single-image VQA mode")
+        elif grounding:
             task = TaskType.GROUNDING; rationale.append("grounding keyword")
         elif modality == "optical_sar" or ("optical" in text and "sar" in text):
             task = TaskType.OPTICAL_SAR_REASONING; rationale.append("joint optical/SAR modality")
@@ -39,7 +58,7 @@ class DeterministicPlanner:
         elif request.metadata.get("execution_mode") == "temporal_rgb":
             task = TaskType.TEMPORAL_RGB_EXECUTION; rationale.append("explicit validated temporal RGB execution mode")
         elif temporal:
-            task = TaskType.CHANGE_VQA if any(token in text for token in ("change", "compare")) else TaskType.TEMPORAL_REASONING; rationale.append("temporal pair/keyword")
+            task = TaskType.TEMPORAL_CHANGE_DESCRIPTION; rationale.append("temporal pair/keyword")
         elif scientific and not (modality == "s2" and any(token in text for token in ("describe", "caption"))):
             task = TaskType.SCIENTIFIC_ANALYSIS; rationale.append("scientific-analysis keyword")
         elif modality == "s2" or "sentinel-2" in text or "s2 " in text:

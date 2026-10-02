@@ -1,0 +1,24 @@
+# Validated SatQuery v1 runtime: Windows x64, CPython 3.13.14, CUDA 12.8.
+# Install the CUDA-enabled PyTorch wheel from the official cu128 index.
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+# Repository runtime dependencies, pinned to the tested package set.
+click==8.3.3
+einops==0.8.2
+matplotlib==3.11.1
+numpy==2.4.6
+pandas==2.3.3
+pyarrow==25.0.1
+scikit-learn==1.9.0
+python-dotenv==1.2.2
+rasterio==1.5.1
+earthengine-api==1.7.43
+torch==2.11.0+cu128
+
+# Approved Qwen2.5-VL Hugging Face runtime.
+transformers==4.51.3
+accelerate==1.6.0
+safetensors==0.7.0
+huggingface_hub==0.36.2
+tokenizers==0.21.4
+Pillow==11.3.0

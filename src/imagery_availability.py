@@ -49,11 +49,11 @@ SOURCE_REGISTRY = {
     ),
     "cartosat-2s": SourceDefinition(
         "cartosat-2s", "Cartosat-2S", "High-resolution optical", "optical", None,
-        (), ("optical analysis", "change analysis"), None, "unavailable", "No verified web integration is configured",
+        (), ("external raster inspection",), None, "foundation_only", "Declared external GeoTIFF inspection only; no model adapter or verified web integration is configured",
     ),
     "risat": SourceDefinition(
         "risat", "RISAT", "Synthetic aperture radar", "sar", None,
-        (), ("SAR analysis", "change analysis"), None, "unavailable", "No verified web integration is configured",
+        (), ("external raster inspection",), None, "foundation_only", "Declared external GeoTIFF inspection only; no model adapter or verified web integration is configured",
     ),
 }
 

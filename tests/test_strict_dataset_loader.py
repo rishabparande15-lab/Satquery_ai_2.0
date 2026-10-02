@@ -6,7 +6,8 @@ import pytest
 import rasterio
 from rasterio.transform import from_origin
 
-from src.dataset_loader import OPTICAL_BANDS, SAR_BANDS, Sample, discover_samples, load_sample
+from src.dataset_loader import (OPTICAL_BANDS, SAR_BANDS, Sample, discover_samples,
+                                discover_s2_samples, load_optical_sample, load_sample)
 
 
 def write(path, data, *, crs="EPSG:32633", transform=None):
@@ -64,3 +65,29 @@ def test_strict_discovery_uses_full_metadata_identity(tmp_path):
     pd.DataFrame([{"patch_id":"S2_FULL_01_02","s1_name":"S1_FULL_01_02"}]).to_parquet(tmp_path/"metadata.parquet")
     samples=discover_samples(tmp_path,strict=True)
     assert samples[0].patch_id=="S2_FULL_01_02"
+
+
+def test_s2_discovery_and_load_need_no_s1_or_reference_folders(tmp_path):
+    s2_root=tmp_path/"BigEarthNet-S2"/"S2_ONLY_01_02"
+    paths={}
+    for band in OPTICAL_BANDS:
+        path=s2_root/f"S2_ONLY_01_02_{band}.tif"
+        write(path,np.ones((120,120),dtype=np.float32))
+        paths[band]=path
+    pd.DataFrame([{"patch_id":"S2_ONLY_01_02","split":"train"}]).to_parquet(tmp_path/"metadata.parquet")
+
+    samples=discover_s2_samples(tmp_path)
+    prepared=load_optical_sample(samples[0])
+
+    assert samples[0].patch_id=="S2_ONLY_01_02"
+    assert samples[0].sar_paths=={} and samples[0].reference_map==Path()
+    assert prepared.raw_optical.shape==(12,120,120)
+    assert prepared.metadata["crs"]=="EPSG:32633"
+    assert prepared.metadata["optical_band_order"]==list(OPTICAL_BANDS)
+
+
+def test_s2_discovery_excludes_test_split_by_default(tmp_path):
+    (tmp_path/"BigEarthNet-S2").mkdir()
+    pd.DataFrame([{"patch_id":"held-out","split":"test"}]).to_parquet(tmp_path/"metadata.parquet")
+
+    assert discover_s2_samples(tmp_path)==[]
