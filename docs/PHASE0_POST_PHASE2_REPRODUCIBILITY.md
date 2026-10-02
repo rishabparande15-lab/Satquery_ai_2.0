@@ -81,7 +81,7 @@ The CROMA identity remained unchanged:
 
 The existing selected scientific checkpoint was loaded; no training occurred.
 
-- Checkpoint: `D:\Satquery_ai datasets\comparison\pipeline3-5000\models\baseline\hybrid.pt`.
+- Checkpoint: `<machine-local-data-root>\comparison\pipeline3-5000\models\baseline\hybrid.pt`.
 - File SHA-256:
   `0694dd82d4a3c03663ed7128adb4be6df729178e07b4ff8a1ec4295ed912130f`.
 - Model state SHA-256:

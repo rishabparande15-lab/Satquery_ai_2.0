@@ -41,7 +41,7 @@ started after the dataset hard stop.
 
 The authoritative archive was:
 
-`E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`
+`<external-dataset-root>\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`
 
 Its SHA-256 was independently recomputed as
 `b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595`, matching
@@ -80,7 +80,7 @@ missing rows. This subset cannot be used as a substitute for the declared
 
 The declared frozen checkpoint exists at:
 
-`D:\Satquery_ai datasets\comparison\pipeline3-5000\models\baseline\hybrid.pt`
+`<machine-local-data-root>\comparison\pipeline3-5000\models\baseline\hybrid.pt`
 
 It loaded successfully in the repaired Python 3.11 environment with:
 

@@ -7,12 +7,13 @@ def call(query, modality="rgb", inputs=1, temporal=None):
 
 
 def test_blocked_api_results_are_typed_and_secret_free():
-    for query, modality, count, task in (("What objects are in this SAR image?", "s1", 1, "SAR_VQA"),
-                                         ("Where is the river?", "rgb", 1, "GROUNDING"),
-                                         ("What changed between these two images?", "rgb", 2, "CHANGE_VQA")):
+    for query, modality, count, task, expected_status in (("What objects are in this SAR image?", "s1", 1, "SAR_VQA", "BLOCKED"),
+                                                           ("Where is the river?", "rgb", 1, "GROUNDING", "BLOCKED"),
+                                                           ("What changed between these two images?", "rgb", 2, "TEMPORAL_CHANGE_DESCRIPTION", "NOT_VERIFIED")):
         result = call(query, modality, count)
-        assert result["status"] == "BLOCKED" and result["task_type"] == task
-        assert "Fallback: NONE" in result["blocked_reason"]
+        assert result["status"] == expected_status and result["task_type"] == task
+        reason = result["blocked_reason"] or result["final_answer"]["text"]
+        assert "Fallback: NONE" in reason
         assert "C:\\" not in str(result)
 
 

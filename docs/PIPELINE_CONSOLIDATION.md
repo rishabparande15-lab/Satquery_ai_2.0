@@ -31,7 +31,7 @@ report. It is not the local BigEarthNet+CROMA path; that older label was stale.
 | Data flow | external So2Sat HDF5 `sen1` (8 channels) + `sen2` (10 channels) → float32/channel-first → two CNN branches → concatenation → 17-class logits |
 | Model | locally trained dual-branch `FusionCNN`; cross-entropy; Adam; saved external checkpoint |
 | Features / preprocessing | learned CNN activations; only dtype conversion and HWC→CHW transpose are explicit |
-| Dataset | fixed external `D:\Satquery_ai datasets\github_datasets\So2Sat-LCZ42`; HDF5 train/validation/test |
+| Dataset | fixed external `<machine-local-data-root>\github_datasets\So2Sat-LCZ42`; HDF5 train/validation/test |
 | GEE / CROMA | none / none |
 | API / frontend | no imports or routes; no frontend call reaches it |
 | Tests | no current test imports these modules |

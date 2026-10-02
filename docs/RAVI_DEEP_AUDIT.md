@@ -3,7 +3,7 @@
 ## 1. Audit Scope
 
 - Repositories inspected:
-  - Reference repository: raviasha/Sat_Query at commit `ac55410` (cloned to `E:\temp\Sat_Query_audit` on 2026-09-17)
+  - Reference repository: raviasha/Sat_Query at commit `ac55410` (cloned to `<temporary-audit-clone>` on 2026-09-17)
   - Current project: SatQuery AI 2.0 at commit `fdb91eea` in this workspace
 - Scope: deep technical review of Ravi's data acquisition, preprocessing, CROMA usage, target generation, training, evaluation, annotation matching, provenance, notebooks, docs, and testing, compared against the current SatQuery AI 2.0 implementation.
 - Methodology:

@@ -4,7 +4,7 @@
     {
       "dataset_role": "selected_subset",
       "filename": "bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
-      "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
+      "absolute_path": "<external-dataset-root>\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip",
       "size_bytes": 511585298,
       "sha256": "B3471E5650BD263367BCF4CC650405AB2981A86621579E21A1B1D08AF630C595",
       "outer_integrity": "PASS; ZipFile.testzip returned no bad member",
@@ -24,7 +24,7 @@
     {
       "dataset_role": "partial_official_fragments",
       "filename": "bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
-      "absolute_path": "E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
+      "absolute_path": "<external-dataset-root>\\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip",
       "size_bytes": 1878744461,
       "sha256": "599D4AE1F446F8AC61F7693A70A85F1F37326A87EF7A2256F03310A902B91DDE",
       "outer_integrity": "PASS; ZipFile.testzip returned no bad member",

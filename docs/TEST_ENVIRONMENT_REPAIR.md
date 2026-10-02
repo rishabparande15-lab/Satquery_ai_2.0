@@ -2,7 +2,7 @@
 
 ## Summary
 
-The 114 `PermissionError: [WinError 5] Access is denied` failures were not caused by a scientific regression in SatQuery AI 2.0. They were caused by pytest using Windows temporary directories under `C:\Users\Rishab\AppData\Local\Temp`, which is protected in this sandbox environment and rejects write access during test setup.
+The 114 `PermissionError: [WinError 5] Access is denied` failures were not caused by a scientific regression in SatQuery AI 2.0. They were caused by pytest using Windows temporary directories under `<machine-local-temp>`, which is protected in this sandbox environment and rejects write access during test setup.
 
 The repair is intentionally minimal and environment-only: pytest is now pinned to project-local writable temp/cache paths, and no production scientific code was changed.
 
@@ -12,13 +12,13 @@ Evidence from the failing run shows the stack stops inside pytest temp directory
 
 - `pytest tmp_path` fixture creation
 - `_pytest.tmpdir` → `getbasetemp()`
-- `os.scandir(root)` on `C:\Users\Rishab\AppData\Local\Temp\pytest-of-Rishab`
+- `os.scandir(root)` on `<machine-local-temp>\pytest-of-Rishab`
 - `PermissionError: [WinError 5] Access is denied`
 
 The environment variables also confirmed the default temp root was:
 
-- `TEMP = C:\Users\Rishab\AppData\Local\Temp`
-- `TMP = C:\Users\Rishab\AppData\Local\Temp`
+- `TEMP = <machine-local-temp>`
+- `TMP = <machine-local-temp>`
 
 This is a Windows sandbox permission issue, not an application logic bug.
 

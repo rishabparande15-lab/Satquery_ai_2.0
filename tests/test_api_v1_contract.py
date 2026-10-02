@@ -1,9 +1,13 @@
-from pathlib import Path
+import pytest
 
 from src.api import build_v1_route_request
+from src.config import get_settings
 
 
 def test_build_v1_route_request_uses_live_dataset_patch():
+    root = get_settings().dataset_root
+    if not all((root / name).is_dir() for name in ("BigEarthNet-S1", "BigEarthNet-S2", "Reference_Maps")):
+        pytest.skip("optional live BigEarthNet fixture is unavailable")
     patch_id = "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11"
     payload = build_v1_route_request({
         "patch_id": patch_id,

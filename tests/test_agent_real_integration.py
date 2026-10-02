@@ -85,13 +85,13 @@ def test_real_qwen_rgb_and_temporal_rgb_controller_flows():
 
 def test_real_blocked_flows_stay_blocked_without_tools():
     controller = AgentController()
-    cases = (("What objects are present in this SAR image?", "s1", TaskType.SAR_VQA),
-             ("Using the optical and SAR images together, describe the scene.", "optical_sar", TaskType.OPTICAL_SAR_REASONING),
-             ("What changed between these two images?", "rgb", TaskType.CHANGE_VQA),
-             ("Where is the river?", "rgb", TaskType.GROUNDING))
-    for query, modality, task in cases:
-        inputs = ({"id": "a", "modality": modality}, {"id": "b", "modality": modality}) if task == TaskType.CHANGE_VQA else ({"id": "a", "modality": modality},)
+    cases = (("What objects are present in this SAR image?", "s1", TaskType.SAR_VQA, ExecutionStatus.BLOCKED),
+             ("Using the optical and SAR images together, describe the scene.", "optical_sar", TaskType.OPTICAL_SAR_REASONING, ExecutionStatus.BLOCKED),
+             ("What changed between these two images?", "rgb", TaskType.TEMPORAL_CHANGE_DESCRIPTION, ExecutionStatus.NOT_VERIFIED),
+             ("Where is the river?", "rgb", TaskType.GROUNDING, ExecutionStatus.BLOCKED))
+    for query, modality, task, expected_status in cases:
+        inputs = ({"id": "a", "modality": modality}, {"id": "b", "modality": modality}) if task == TaskType.TEMPORAL_CHANGE_DESCRIPTION else ({"id": "a", "modality": modality},)
         result = controller.analyze(AnalysisRequest(query, inputs))
         assert result.plan.understanding.task_type == task
-        assert result.capability_status == ExecutionStatus.BLOCKED
+        assert result.capability_status == expected_status
         assert "Fallback: NONE" in result.final_answer.text

@@ -1,6 +1,6 @@
 # Dataset Folder Inventory
 
-Inspection target: `E:\SatQuery_ai_2.0\datasets_2.0`
+Inspection target: `<external-dataset-root>`
 
 The directory exists. It contains exactly two files, both ZIP archives, and no additional files or folders.
 

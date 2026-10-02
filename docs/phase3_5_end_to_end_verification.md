@@ -62,7 +62,7 @@ checkpoint hash, physical schema, adapter version, and advanced-pipeline schema.
 ## 6. Real sample and Phase 3 verification
 
 The run used the existing local fixture at
-`D:\Satquery_ai datasets\extracted\small-sample`, sample `61_39`, with no
+`<machine-local-data-root>\extracted\small-sample`, sample `61_39`, with no
 download. Optical and SAR candidates were selected independently for the same
 AOI and acquisition date. Scene IDs contain the same `61_39` sample identity.
 The source hashes cover all 12 optical and both SAR source files.

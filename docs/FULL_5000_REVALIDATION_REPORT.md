@@ -16,7 +16,7 @@ This is the correct scientific stop condition. The pipeline must not be treated 
 
 ## B. Repository identity
 
-- Repository: E:\SatQuery_ai_2.0\Satquery_ai_2.0
+- Repository: <repository-root>
 - Git branch: main
 - Git status: working tree contains uncommitted files, including annotation-related additions and generated artifacts
 - HEAD: 2f7b241e4f4687d2aae263faf4b1d5c08eae9e5e

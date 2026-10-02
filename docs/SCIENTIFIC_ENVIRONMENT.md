@@ -11,7 +11,7 @@ The repo-local environment is kept at:
 Use it with:
 
 ```powershell
-cd E:\SatQuery_ai_2.0\Satquery_ai_2.0
+cd <repository-root>
 .\.venv-scientific\Scripts\Activate.ps1
 ```
 

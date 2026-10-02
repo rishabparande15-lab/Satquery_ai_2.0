@@ -4,7 +4,7 @@ Date: 2026-09-11
 
 ## Dataset and split
 
-The controlled experiment uses the pinned BigEarthNet v2 1,000-area subset already materialized outside Git under `D:\Satquery_ai datasets\comparison`. The immutable area-level split is 600 train, 200 validation, and 200 test areas. Eligible fully labelled blocks are 134,255 train, 44,848 validation, and 44,723 test. Patch and Sentinel-1 identities were checked for cross-split overlap; none was reported.
+The controlled experiment uses the pinned BigEarthNet v2 1,000-area subset already materialized outside Git under `<machine-local-data-root>\comparison`. The immutable area-level split is 600 train, 200 validation, and 200 test areas. Eligible fully labelled blocks are 134,255 train, 44,848 validation, and 44,723 test. Patch and Sentinel-1 identities were checked for cross-split overlap; none was reported.
 
 ## Preprocessing and CROMA
 

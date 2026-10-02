@@ -22,14 +22,14 @@ it is not regenerated from directory enumeration after acquisition.
 
 Recovered data is stored outside Git at:
 
-`D:\Satquery_ai datasets\comparison\raw-5000-additional\BigEarthNet-S2`
+`<machine-local-data-root>\comparison\raw-5000-additional\BigEarthNet-S2`
 
 It supplements, without modifying or duplicating, the validated original root:
 
-`D:\Satquery_ai datasets\comparison\raw-1000\BigEarthNet-S2`
+`<machine-local-data-root>\comparison\raw-1000\BigEarthNet-S2`
 
-The trusted discovery scan covered `D:\Satquery_ai datasets` (including
-`comparison-work` and extracted/raw subtrees) and `E:\SatQuery_ai_2.0`
+The trusted discovery scan covered `<machine-local-data-root>` (including
+`comparison-work` and extracted/raw subtrees) and `<repository-parent>`
 (including `datasets_2.0`). The three concrete S2 candidate roots and every
 inspected archive are enumerated in `acquisition_status.json`; inaccessible or
 unrelated operating-system locations were not searched.

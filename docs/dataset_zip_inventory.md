@@ -2,7 +2,7 @@
 
 ## `bigearthnet-v2-5000-20260911T162804Z-1-001.zip`
 
-- Path: `E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`
+- Path: `<external-dataset-root>\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`
 - Size: 511,585,298 bytes
 - SHA-256: `B3471E5650BD263367BCF4CC650405AB2981A86621579E21A1B1D08AF630C595`
 - Integrity: PASS; exhaustive outer and nested CRC tests returned no bad member
@@ -13,7 +13,7 @@ It contains `metadata.parquet`, `selection.json`, a 5,000-member reference-map Z
 
 ## `bigearthnet-v2-full-official-20260911T162841Z-1-031.zip`
 
-- Path: `E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip`
+- Path: `<external-dataset-root>\bigearthnet-v2-full-official-20260911T162841Z-1-031.zip`
 - Size: 1,878,744,461 bytes
 - SHA-256: `599D4AE1F446F8AC61F7693A70A85F1F37326A87EF7A2256F03310A902B91DDE`
 - Integrity: PASS for the outer ZIP

@@ -54,8 +54,8 @@ def test_registry_distinguishes_verified_and_unavailable_integrations():
     assert sources["sentinel-2"]["native_resolution_m"] == 10.0
     assert sources["sentinel-1"]["modality"] == "sar"
     assert sources["landsat"]["integration_status"] == "planned"
-    assert sources["cartosat-2s"]["integration_status"] == "unavailable"
-    assert sources["risat"]["integration_status"] == "unavailable"
+    assert sources["cartosat-2s"]["integration_status"] == "foundation_only"
+    assert sources["risat"]["integration_status"] == "foundation_only"
 
 
 def test_unconfigured_provider_returns_controlled_result(monkeypatch):

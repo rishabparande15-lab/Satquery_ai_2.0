@@ -67,7 +67,7 @@ approximately 11.6 MB and no weight shard completed.
 | Field | Result |
 | --- | --- |
 | Download status | `BLOCKED` / incomplete |
-| Local cache | `C:\Users\Rishab\.cache\huggingface\hub\models--Qwen--Qwen2.5-VL-3B-Instruct` |
+| Local cache | `<machine-local-huggingface-cache>/<qwen-model-cache-entry>` |
 | Files present | 15 small metadata/repository files observed |
 | Bytes observed | approximately 11,581,678 bytes |
 | Complete checkpoint | No |

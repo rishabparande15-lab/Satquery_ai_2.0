@@ -12,7 +12,7 @@
 
 ## Repository audit
 
-The current project has a standard-library HTTP backend (`src/api.py`), static HTML/CSS/JavaScript frontend (`src/static`), CROMA adapter (`src/croma_adapter.py`), BigEarthNet loader and preprocessing (`src/dataset_loader.py`, `src/preprocessing.py`), raster/API validation (`src/input_validation.py`, `src/raster_inputs.py`), feature/cache/training modules, tests, and extensive experimental GEE/temporal pipelines and saved reports. The authoritative downstream design is the existing physical + CROMA + hybrid pipeline. Dataset defaults point to an external three-sample BigEarthNet v2 fixture and external official CROMA source/checkpoint under `D:\Satquery_ai datasets`.
+The current project has a standard-library HTTP backend (`src/api.py`), static HTML/CSS/JavaScript frontend (`src/static`), CROMA adapter (`src/croma_adapter.py`), BigEarthNet loader and preprocessing (`src/dataset_loader.py`, `src/preprocessing.py`), raster/API validation (`src/input_validation.py`, `src/raster_inputs.py`), feature/cache/training modules, tests, and extensive experimental GEE/temporal pipelines and saved reports. The authoritative downstream design is the existing physical + CROMA + hybrid pipeline. Dataset defaults point to an external three-sample BigEarthNet v2 fixture and external official CROMA source/checkpoint under `<machine-local-data-root>`.
 
 ## Reference mapping
 

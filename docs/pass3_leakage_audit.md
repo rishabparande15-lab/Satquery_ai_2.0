@@ -4,7 +4,7 @@ Date: 2026-09-11
 
 ## Dataset and Identity
 
-- Dataset: `D:\Satquery_ai datasets\comparison\raw-1000`.
+- Dataset: `<machine-local-data-root>\comparison\raw-1000`.
 - Validated areas: 1,000/1,000.
 - Prepared, feature, and target artifacts each report 1,000 samples and passed their validation receipts.
 - Area joins were checked against batch metadata and the Pass 3 manifest.

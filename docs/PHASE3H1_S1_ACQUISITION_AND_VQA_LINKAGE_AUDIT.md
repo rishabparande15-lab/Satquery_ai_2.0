@@ -18,7 +18,7 @@ not resolved, and is now the sole training blocker.
 
 The recovered source is the existing project-pinned BigEarthNet v2 selected
 5,000-area archive at
-`E:\\SatQuery_ai_2.0\\datasets_2.0\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`.
+`<external-dataset-root>\\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`.
 It has SHA-256
 `b3471e5650bd263367bcf4cc650405ab2981a86621579e21a1b1d08af630c595` and
 contains `bigearthnet-v2-5000/metadata.parquet` plus the nested

@@ -86,7 +86,7 @@ Fresh training loaded exactly 4,600 train and 200 validation rows and reported
 ## 5. Checkpoint verification
 
 Historical checkpoint:
-`D:\Satquery_ai datasets\comparison\pipeline3-5000\models\baseline\hybrid.pt`
+`<machine-local-data-root>\comparison\pipeline3-5000\models\baseline\hybrid.pt`
 
 | Property | Verified value |
 |---|---|
@@ -148,7 +148,7 @@ mismatch was found.
 ## 8. Cache/artifact audit
 
 The full inference used the existing cache at
-`D:\Satquery_ai datasets\comparison\pipeline3-5000\scene_features`.
+`<machine-local-data-root>\comparison\pipeline3-5000\scene_features`.
 Its manifest identifies the exact dataset/split fingerprints, CROMA checkpoint
 SHA-256 `0238d8...b63`, source revision
 `59505a6bcadbf36ba20767270154bf9f3067c5e7`, 157 shards, and 5,000 rows. The
@@ -173,7 +173,7 @@ independent comparison only.
 
 Fresh artifacts were written only under:
 
-`D:\Satquery_ai datasets\comparison\pipeline3-5000\revalidation_6R2B`
+`<machine-local-data-root>\comparison\pipeline3-5000\revalidation_6R2B`
 
 The frozen configuration used seed 17, AdamW, learning rate 0.001, weight
 decay 0.01, batch size 1024, maximum 60 epochs, patience 10, train-only

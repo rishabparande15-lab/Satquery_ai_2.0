@@ -32,7 +32,7 @@ The GPU reported BF16 support through `torch.cuda.is_bf16_supported() == True`.
 
 - Model: `Qwen/Qwen2.5-VL-3B-Instruct`
 - Revision: `66285546d2b821cf421d4f5eb2576359d3770cd3`
-- Cache: `C:\Users\Rishab\.cache\huggingface\hub\models--Qwen--Qwen2.5-VL-3B-Instruct`
+- Cache: `<machine-local-huggingface-cache>/<qwen-model-cache-entry>`
 - Checkpoint integrity and shard hashes: [Phase 3D.2 report](PHASE3D2_QWEN_CHECKPOINT_ACQUISITION.md)
 
 ## 4. GPU Validation

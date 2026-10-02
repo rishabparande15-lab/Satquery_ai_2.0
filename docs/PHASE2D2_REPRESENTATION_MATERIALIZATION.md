@@ -6,7 +6,7 @@ The only admitted population is the authoritative 5,000-area Pipeline 3 dataset:
 
 ## 2. Source artifacts
 
-Machine inventory found the complete historical cache at `D:\Satquery_ai datasets\comparison\pipeline3-5000\scene_features`: one manifest and 157 NPZ shards (44,280,954 bytes). All shard hashes, 5,000 ordered identities, split values, shapes, dtypes, and finite values were verified. The cache manifest SHA-256 is `3e37a44b0dd291b15f503a9e1b2b3c32ff9f80ac278fa414a8689ac740e101ed`.
+Machine inventory found the complete historical cache at `<machine-local-data-root>\comparison\pipeline3-5000\scene_features`: one manifest and 157 NPZ shards (44,280,954 bytes). All shard hashes, 5,000 ordered identities, split values, shapes, dtypes, and finite values were verified. The cache manifest SHA-256 is `3e37a44b0dd291b15f503a9e1b2b3c32ff9f80ac278fa414a8689ac740e101ed`.
 
 The frozen predictor is `hybrid.pt`, SHA-256 `0694dd82d4a3c03663ed7128adb4be6df729178e07b4ff8a1ec4295ed912130f`, state-dict SHA-256 `85d9390c66a887276db24a7cadb58c398770cde2e17488a1a9c42e16819da634`.
 
@@ -19,7 +19,7 @@ The core set is `physical_62d`, `joint_croma_gap_768d`, and `hybrid_830d`. Optio
 `src.representation_materialization` reuses physical and joint CROMA arrays in-place after validation. It creates only `hybrid = concatenate(physical, joint)` in the exact evaluated order. It does not run new preprocessing, CROMA inference, training, or evaluation logic. The command is:
 
 ```powershell
-python -m scripts.materialize_pipeline3_representations --source-cache-manifest "D:\Satquery_ai datasets\comparison\pipeline3-5000\scene_features\manifest.json"
+python -m scripts.materialize_pipeline3_representations --source-cache-manifest "<machine-local-data-root>\comparison\pipeline3-5000\scene_features\manifest.json"
 ```
 
 ## 5. Sharding

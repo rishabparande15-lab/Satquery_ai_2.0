@@ -20,7 +20,7 @@ already validated external Pipeline-3 S2 root documented in
 `docs/PIPELINE3_5000_DATA_ACQUISITION.md`:
 
 ```text
-D:\Satquery_ai datasets\comparison\raw-1000\BigEarthNet-S2
+<machine-local-data-root>\comparison\raw-1000\BigEarthNet-S2
 ```
 
 The acquisition provenance is the project-pinned BigEarthNet v2 LMDB route:

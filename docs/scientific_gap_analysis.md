@@ -89,7 +89,7 @@ The worktree already contains user-owned modifications and untracked Phase 3.5/3
 - `src.phase3_6_benchmark`: scientific soft-target training, validation selection, leakage checks, shared held-out manifests, and comparison/report helpers.
 - `src.scientific_artifacts`: deterministic local artifact persistence and integrity verification.
 - Existing API, frontend, upload/report infrastructure, temporal validation, QA scripts, and test fixtures.
-- The external controlled datasets and generated manifests under `D:\Satquery_ai datasets`; they remain external to Git.
+- The external controlled datasets and generated manifests under `<machine-local-data-root>`; they remain external to Git.
 
 ## 4. What must be newly implemented
 

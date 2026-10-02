@@ -102,7 +102,7 @@ independent publisher SHA manifest.
 ## 11. Cache Location
 
 ```text
-C:\Users\Rishab\.cache\huggingface\hub\models--Qwen--Qwen2.5-VL-3B-Instruct
+<machine-local-huggingface-cache>/<qwen-model-cache-entry>
 ```
 
 The model was not copied into the SatQuery repository and is not Git-tracked.

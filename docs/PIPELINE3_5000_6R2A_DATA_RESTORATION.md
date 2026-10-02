@@ -41,7 +41,7 @@ is the exact area ID.
 
 The missing data was already present locally at:
 
-`D:\Satquery_ai datasets\comparison\raw-5000-additional\BigEarthNet-S2`
+`<machine-local-data-root>\comparison\raw-5000-additional\BigEarthNet-S2`
 
 The 4,000 receipts identify the source as:
 

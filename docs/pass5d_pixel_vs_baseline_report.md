@@ -15,9 +15,9 @@ The paired, area-level bootstrap estimate for MAE change was −0.038286 pp with
 
 ## Dataset and protocol
 
-The primary archive was `E:\SatQuery_ai_2.0\datasets_2.0\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`, SHA-256 `B3471E5650BD263367BCF4CC650405AB2981A86621579E21A1B1D08AF630C595`. Current exhaustive CRC checks passed for the outer ZIP, 5,000-member reference ZIP and 10,000-member S1 ZIP. The fragmented archive outer CRC passed but remains unusable.
+The primary archive was `<external-dataset-root>\bigearthnet-v2-5000-20260911T162804Z-1-001.zip`, SHA-256 `B3471E5650BD263367BCF4CC650405AB2981A86621579E21A1B1D08AF630C595`. Current exhaustive CRC checks passed for the outer ZIP, 5,000-member reference ZIP and 10,000-member S1 ZIP. The fragmented archive outer CRC passed but remains unusable.
 
-Matching S2 is at `D:\Satquery_ai datasets\comparison\raw-1000\BigEarthNet-S2`: exactly 1,000 primary IDs, all Pass 3 IDs, each with 12 bands. The remaining 4,000 primary areas have no matching local S2. No archive was merged and no data were downloaded.
+Matching S2 is at `<machine-local-data-root>\comparison\raw-1000\BigEarthNet-S2`: exactly 1,000 primary IDs, all Pass 3 IDs, each with 12 bands. The remaining 4,000 primary areas have no matching local S2. No archive was merged and no data were downloaded.
 
 Version A uses 62 established physical features plus 768 joint CROMA GAP values (830 dimensions). Version B adds only Pass 5B-selected token summaries: mean/std per 8×8 block for NDVI, NDWI, NDBI, BSI, VV−VH and 5×5 NDVI local std, then mean/std across 225 tokens (24 dimensions; total 854). Both used identical scene-level 19-class labelled-pixel coverage targets, linear softmax head, seed 17, AdamW 0.001, batch size 1,024, 60-epoch cap, patience 10, training-only standardization and validation-only model selection. Both selected epoch 60.
 

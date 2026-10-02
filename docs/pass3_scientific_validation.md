@@ -4,9 +4,9 @@ Date: 2026-09-11
 
 ## Dataset
 
-The experiment used the accessible controlled BigEarthNet v2 subset at `D:\Satquery_ai datasets\comparison\raw-1000`. Strict discovery found 1,000 areas with 12 optical bands, VV/VH SAR, integer reference maps, and metadata for every area. All 1,000 areas passed the existing strict loader, including CRS, orientation, bounds, finite-value, grid-alignment, reference, and tensor checks.
+The experiment used the accessible controlled BigEarthNet v2 subset at `<machine-local-data-root>\comparison\raw-1000`. Strict discovery found 1,000 areas with 12 optical bands, VV/VH SAR, integer reference maps, and metadata for every area. All 1,000 areas passed the existing strict loader, including CRS, orientation, bounds, finite-value, grid-alignment, reference, and tensor checks.
 
-The validated machine-readable manifest is `experiments/pass3/dataset_manifest.json`. Existing prepared, CROMA-feature, and target artifacts were reused from `D:\Satquery_ai datasets\comparison\pipeline-1000`; their validation receipts report 1,000 aligned samples, six finite CROMA outputs per sample, and 225-token targets. CROMA feature extraction was not recomputed in this pass because the validated cached artifacts were available and traceable.
+The validated machine-readable manifest is `experiments/pass3/dataset_manifest.json`. Existing prepared, CROMA-feature, and target artifacts were reused from `<machine-local-data-root>\comparison\pipeline-1000`; their validation receipts report 1,000 aligned samples, six finite CROMA outputs per sample, and 225-token targets. CROMA feature extraction was not recomputed in this pass because the validated cached artifacts were available and traceable.
 
 ## Split
 
