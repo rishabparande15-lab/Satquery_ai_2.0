@@ -1,0 +1,79 @@
+{
+  "model_name": "FusionCNN",
+  "model_type": "Multimodal Sentinel-1 + Sentinel-2 LCZ classifier",
+  "modalities": [
+    "Sentinel-1",
+    "Sentinel-2"
+  ],
+  "input_channels": {
+    "sen1": 8,
+    "sen2": 10
+  },
+  "classes": [
+    "Compact high-rise",
+    "Compact mid-rise",
+    "Compact low-rise",
+    "Open high-rise",
+    "Open mid-rise",
+    "Open low-rise",
+    "Lightweight low-rise",
+    "Large low-rise",
+    "Sparsely built",
+    "Heavy industry",
+    "Dense trees",
+    "Scattered trees",
+    "Bush and scrub",
+    "Low plants",
+    "Bare rock or paved",
+    "Bare soil or sand",
+    "Water"
+  ],
+  "number_of_epochs": 1,
+  "best_validation_epoch": 1,
+  "best_validation_result": {
+    "validation_loss": 1.4764454695284726,
+    "validation_accuracy": 0.5461669223433807,
+    "validation_macro_f1": 0.33589719746784386
+  },
+  "test_results": {
+    "test_loss": 1.5341349814733396,
+    "accuracy": 0.5632545063667934,
+    "balanced_accuracy": 0.36313204840621555,
+    "macro_precision": 0.4329855771635098,
+    "macro_recall": 0.36313204840621555,
+    "macro_f1": 0.34872663730622283,
+    "weighted_f1": 0.510773182204121
+  },
+  "class_imbalance_effects": {
+    "summary": "The LCZ dataset is class-imbalanced across built-environment and land-cover categories, so macro metrics are more informative than raw accuracy. Minority classes can be underrepresented in training and therefore show lower recall and F1 despite good overall accuracy.",
+    "support": {
+      "Compact high-rise": 266,
+      "Compact mid-rise": 1262,
+      "Compact low-rise": 2465,
+      "Open high-rise": 857,
+      "Open mid-rise": 763,
+      "Open low-rise": 1936,
+      "Lightweight low-rise": 503,
+      "Large low-rise": 3496,
+      "Sparsely built": 2013,
+      "Heavy industry": 908,
+      "Dense trees": 2368,
+      "Scattered trees": 433,
+      "Bush and scrub": 1166,
+      "Low plants": 2435,
+      "Bare rock or paved": 205,
+      "Bare soil or sand": 572,
+      "Water": 2540
+    }
+  },
+  "limitations": [
+    "Only one epoch was executed in the saved training run, so the model is a lightweight baseline rather than a fully converged classifier.",
+    "The input patches are 32x32, so the model is limited to local spatial context and does not explicitly model broader scene context.",
+    "The dataset contains known class imbalance across LCZ categories, which influences per-class performance and macro averages.",
+    "Model quality is partially constrained by the single-epoch baseline training configuration used in this isolated experiment."
+  ],
+  "checkpoint_usage": {
+    "best_checkpoint": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\experiment\\checkpoints\\best_model.pt",
+    "inference_verified": true
+  }
+}

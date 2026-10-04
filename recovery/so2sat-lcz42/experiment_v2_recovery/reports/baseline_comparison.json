@@ -1,0 +1,25 @@
+{
+  "dataset": "So2Sat-LCZ42",
+  "baseline": {
+    "experiment": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\experiment",
+    "accuracy": 0.5632545063667934,
+    "balanced_accuracy": 0.36313204840621555,
+    "macro_f1": 0.34872663730622283,
+    "weighted_f1": 0.510773182204121
+  },
+  "v2": {
+    "experiment": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery",
+    "checkpoint": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\experiment_v2_recovery\\checkpoints\\best_model.pt",
+    "accuracy": 0.464321150983959,
+    "balanced_accuracy": 0.439708523706586,
+    "macro_f1": 0.37333787829173287,
+    "weighted_f1": 0.45356876399692003
+  },
+  "delta_v2_minus_baseline": {
+    "accuracy": -0.0989333553828344,
+    "balanced_accuracy": 0.07657647530037045,
+    "macro_f1": 0.02461124068551004,
+    "weighted_f1": -0.05720488330320097
+  },
+  "interpretation": "v2 improves balanced accuracy and macro F1 but decreases raw accuracy and weighted F1; no blanket improvement claim is justified."
+}

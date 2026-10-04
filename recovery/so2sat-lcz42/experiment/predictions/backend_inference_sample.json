@@ -1,0 +1,65 @@
+{
+  "dataset_index": 0,
+  "true_label": 16,
+  "true_label_name": "Water",
+  "predicted_label": 16,
+  "predicted_label_name": "Water",
+  "confidence": 0.9991791844367981,
+  "correct": true,
+  "probabilities": {
+    "Compact high-rise": 1.828489359922969e-07,
+    "Compact mid-rise": 3.8168601612653674e-09,
+    "Compact low-rise": 2.594410242195977e-10,
+    "Open high-rise": 8.934389228443251e-08,
+    "Open mid-rise": 1.6986227979742807e-09,
+    "Open low-rise": 5.302006389484859e-09,
+    "Lightweight low-rise": 1.1037289788726201e-12,
+    "Large low-rise": 5.7087678584366586e-08,
+    "Sparsely built": 1.0447983811445738e-08,
+    "Heavy industry": 1.024093990054098e-06,
+    "Dense trees": 0.00036071837530471385,
+    "Scattered trees": 1.4300293514679652e-05,
+    "Bush and scrub": 1.476949364587199e-05,
+    "Low plants": 0.00024192626005969942,
+    "Bare rock or paved": 1.7037560610333458e-05,
+    "Bare soil or sand": 0.0001706440089037642,
+    "Water": 0.9991791844367981
+  },
+  "model": "FusionCNN_S1_S2",
+  "modalities": [
+    "Sentinel-1",
+    "Sentinel-2"
+  ],
+  "input_shape": {
+    "sen1": [
+      8,
+      32,
+      32
+    ],
+    "sen2": [
+      10,
+      32,
+      32
+    ]
+  },
+  "top1_probability": 0.9991791844367981,
+  "softmax_probabilities": {
+    "Compact high-rise": 1.828489359922969e-07,
+    "Compact mid-rise": 3.8168601612653674e-09,
+    "Compact low-rise": 2.594410242195977e-10,
+    "Open high-rise": 8.934389228443251e-08,
+    "Open mid-rise": 1.6986227979742807e-09,
+    "Open low-rise": 5.302006389484859e-09,
+    "Lightweight low-rise": 1.1037289788726201e-12,
+    "Large low-rise": 5.7087678584366586e-08,
+    "Sparsely built": 1.0447983811445738e-08,
+    "Heavy industry": 1.024093990054098e-06,
+    "Dense trees": 0.00036071837530471385,
+    "Scattered trees": 1.4300293514679652e-05,
+    "Bush and scrub": 1.476949364587199e-05,
+    "Low plants": 0.00024192626005969942,
+    "Bare rock or paved": 1.7037560610333458e-05,
+    "Bare soil or sand": 0.0001706440089037642,
+    "Water": 0.9991791844367981
+  }
+}

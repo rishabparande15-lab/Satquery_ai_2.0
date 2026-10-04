@@ -1,0 +1,14 @@
+{
+  "device": "cuda",
+  "runtime_seconds": 489.54777650000324,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0260520815933205,
+      "validation_loss": 1.4764454695284726,
+      "train_accuracy": 0.660421266524012,
+      "validation_accuracy": 0.5461669223433807,
+      "validation_macro_f1": 0.33589719746784386
+    }
+  ]
+}

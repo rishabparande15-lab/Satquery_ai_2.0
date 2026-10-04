@@ -1,0 +1,65 @@
+{
+  "dataset_index": 0,
+  "true_label": 16,
+  "true_label_name": "Water",
+  "predicted_label": 16,
+  "predicted_label_name": "Water",
+  "confidence": 0.9969139099121094,
+  "correct": true,
+  "probabilities": {
+    "Compact high-rise": 0.00022353789245244116,
+    "Compact mid-rise": 0.00030611612601205707,
+    "Compact low-rise": 4.052806161780609e-07,
+    "Open high-rise": 0.0005802707164548337,
+    "Open mid-rise": 0.00046752605703659356,
+    "Open low-rise": 0.00016031744598876685,
+    "Lightweight low-rise": 2.386420505651188e-10,
+    "Large low-rise": 3.8140788092277944e-06,
+    "Sparsely built": 0.00010272064537275583,
+    "Heavy industry": 4.8575413529761136e-05,
+    "Dense trees": 0.000153656757902354,
+    "Scattered trees": 0.0009074884001165628,
+    "Bush and scrub": 5.699685630133899e-07,
+    "Low plants": 0.0001234084920724854,
+    "Bare rock or paved": 6.057833701333948e-08,
+    "Bare soil or sand": 7.584231752844062e-06,
+    "Water": 0.9969139099121094
+  },
+  "model": "FusionCNN_S1_S2",
+  "modalities": [
+    "Sentinel-1",
+    "Sentinel-2"
+  ],
+  "input_shape": {
+    "sen1": [
+      8,
+      32,
+      32
+    ],
+    "sen2": [
+      10,
+      32,
+      32
+    ]
+  },
+  "top1_probability": 0.9969139099121094,
+  "softmax_probabilities": {
+    "Compact high-rise": 0.00022353789245244116,
+    "Compact mid-rise": 0.00030611612601205707,
+    "Compact low-rise": 4.052806161780609e-07,
+    "Open high-rise": 0.0005802707164548337,
+    "Open mid-rise": 0.00046752605703659356,
+    "Open low-rise": 0.00016031744598876685,
+    "Lightweight low-rise": 2.386420505651188e-10,
+    "Large low-rise": 3.8140788092277944e-06,
+    "Sparsely built": 0.00010272064537275583,
+    "Heavy industry": 4.8575413529761136e-05,
+    "Dense trees": 0.000153656757902354,
+    "Scattered trees": 0.0009074884001165628,
+    "Bush and scrub": 5.699685630133899e-07,
+    "Low plants": 0.0001234084920724854,
+    "Bare rock or paved": 6.057833701333948e-08,
+    "Bare soil or sand": 7.584231752844062e-06,
+    "Water": 0.9969139099121094
+  }
+}

@@ -1,0 +1,11 @@
+PS <repo-root>> & '<python-executable>' -c "import torch; print('PyTorch:', torch.__version__); print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda); print('GPU count:', torch.cuda.device_count()); print('GPU name:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'No GPU')"
+PyTorch: 2.11.0+cu128
+CUDA available: True
+CUDA version: 12.8
+GPU count: 1
+GPU name: NVIDIA GeForce RTX 5060 Laptop GPU
+PS <repo-root>> Set-Location '<repo-root>'; $env:SO2SAT_DEVICE = 'cuda'; & '<python-executable>' -m experiments.github_sen12ms_training.train
+2026-09-09 17:09:52,486 INFO Device: cuda
+2026-09-09 17:09:52,487 INFO GPU: NVIDIA GeForce RTX 5060 Laptop GPU
+2026-09-09 17:18:02,941 INFO epoch=1 train_loss=1.0261 val_loss=1.4764 val_f1=0.3359
+2026-09-09 17:18:02,941 INFO training complete checkpoint=<machine-local-data-root>\github_datasets\So2Sat-LCZ42\experiment\checkpoints\best_model.pt

@@ -1,0 +1,179 @@
+{
+  "dataset": "So2Sat-LCZ42",
+  "source": "Hugging Face zhu-xlab/So2Sat-LCZ42",
+  "status": "verified_data_checkpoint_missing",
+  "files": {
+    "training": {
+      "path": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\data\\training.h5",
+      "size_bytes": 52006404720,
+      "keys": [
+        "label",
+        "sen1",
+        "sen2"
+      ],
+      "shapes": {
+        "label": [
+          352366,
+          17
+        ],
+        "sen1": [
+          352366,
+          32,
+          32,
+          8
+        ],
+        "sen2": [
+          352366,
+          32,
+          32,
+          10
+        ]
+      },
+      "dtypes": {
+        "label": "float64",
+        "sen1": "float64",
+        "sen2": "float64"
+      },
+      "sample_count": 352366,
+      "finite": true,
+      "labels_valid": true,
+      "label_positive_counts": [
+        5068,
+        24431,
+        31693,
+        8651,
+        16493,
+        35290,
+        3269,
+        39326,
+        13584,
+        11954,
+        42902,
+        9514,
+        9165,
+        41377,
+        2392,
+        7898,
+        49359
+      ],
+      "valid": true
+    },
+    "validation": {
+      "path": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\data\\validation.h5",
+      "size_bytes": 3559773496,
+      "keys": [
+        "label",
+        "sen1",
+        "sen2"
+      ],
+      "shapes": {
+        "label": [
+          24119,
+          17
+        ],
+        "sen1": [
+          24119,
+          32,
+          32,
+          8
+        ],
+        "sen2": [
+          24119,
+          32,
+          32,
+          10
+        ]
+      },
+      "dtypes": {
+        "label": "float64",
+        "sen1": "float64",
+        "sen2": "float64"
+      },
+      "sample_count": 24119,
+      "finite": true,
+      "labels_valid": true,
+      "label_positive_counts": [
+        256,
+        1254,
+        2353,
+        849,
+        757,
+        1906,
+        474,
+        3395,
+        1914,
+        860,
+        2287,
+        382,
+        1202,
+        2747,
+        202,
+        672,
+        2609
+      ],
+      "valid": true
+    },
+    "testing": {
+      "path": "<machine-local-data-root>\\github_datasets\\So2Sat-LCZ42\\data\\testing.h5",
+      "size_bytes": 3569957440,
+      "keys": [
+        "label",
+        "sen1",
+        "sen2"
+      ],
+      "shapes": {
+        "label": [
+          24188,
+          17
+        ],
+        "sen1": [
+          24188,
+          32,
+          32,
+          8
+        ],
+        "sen2": [
+          24188,
+          32,
+          32,
+          10
+        ]
+      },
+      "dtypes": {
+        "label": "float64",
+        "sen1": "float64",
+        "sen2": "float64"
+      },
+      "sample_count": 24188,
+      "finite": true,
+      "labels_valid": true,
+      "label_positive_counts": [
+        266,
+        1262,
+        2465,
+        857,
+        763,
+        1936,
+        503,
+        3496,
+        2013,
+        908,
+        2368,
+        433,
+        1166,
+        2435,
+        205,
+        572,
+        2540
+      ],
+      "valid": true
+    }
+  },
+  "checkpoint_candidates": [],
+  "errors": [],
+  "checkpoint_present": false,
+  "warnings": [
+    "Previous-stage trained checkpoint was not found; evaluation and inference were not run.",
+    "No training was started in this continuation because the request required loading the previous checkpoint."
+  ]
+}

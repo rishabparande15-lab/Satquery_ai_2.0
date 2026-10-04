@@ -1,0 +1,46 @@
+{
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "runtime_seconds": 1612.1016825000042,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9422597112767851,
+      "validation_loss": 2.602500496982584,
+      "train_accuracy": 0.6948996214163682,
+      "validation_accuracy": 0.46718354823997676,
+      "validation_balanced_accuracy": 0.4266543152075299,
+      "validation_macro_precision": 0.5145777399189937,
+      "validation_macro_recall": 0.4266543152075299,
+      "validation_macro_f1": 0.36992693624868106,
+      "validation_weighted_f1": 0.45849091336383924,
+      "learning_rate": 0.001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6747608681490506,
+      "validation_loss": 3.8283293074134908,
+      "train_accuracy": 0.7794821293768411,
+      "validation_accuracy": 0.47792197023093824,
+      "validation_balanced_accuracy": 0.4009064286680015,
+      "validation_macro_precision": 0.49499154326789235,
+      "validation_macro_recall": 0.4009064286680015,
+      "validation_macro_f1": 0.353071130967212,
+      "validation_weighted_f1": 0.4560081728192866,
+      "learning_rate": 0.001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.5865606341012024,
+      "validation_loss": 18.12957325485434,
+      "train_accuracy": 0.8055317482390469,
+      "validation_accuracy": 0.29271528670342883,
+      "validation_balanced_accuracy": 0.18875468951426197,
+      "validation_macro_precision": 0.30378141689350713,
+      "validation_macro_recall": 0.18875468951426197,
+      "validation_macro_f1": 0.1590105395961903,
+      "validation_weighted_f1": 0.2536608668510454,
+      "learning_rate": 0.0005
+    }
+  ]
+}
