@@ -1,0 +1,8 @@
+{
+  "semantic_output_changes": 0,
+  "warning_regressions": 0,
+  "confidence_regressions": 0,
+  "provenance_regressions": 0,
+  "differences": [],
+  "policy": "timestamps and durations are EXPECTED_NON_SEMANTIC; all other public fields compared recursively"
+}

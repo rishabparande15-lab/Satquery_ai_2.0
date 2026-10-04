@@ -204,6 +204,11 @@ class Chg2CapCaptioner:
                 "vocab_size": len(self.word_vocab) or 501, "device": self.device,
                 "generated_tokens": list(self.last_generated_tokens)}
 
+    def close(self) -> None:
+        """Release the CUDA modules when the temporal family is evicted."""
+        self.encoder = self.transformer = self.decoder = None
+        self.last_generated_tokens = []
+
 
 def validate_temporal_image_path(path: str | Path, role: str) -> TemporalImage:
     """Validate one staged RGB temporal upload before its counterpart arrives."""
@@ -266,6 +271,12 @@ class TemporalChangeDescriptionController:
             "error_code": None,
             "runtime_seconds": elapsed,
         }
+
+    def close(self) -> None:
+        """Release the injected captioner when the specialist family is evicted."""
+        close = getattr(self._captioner, "close", None)
+        if callable(close):
+            close()
 
 
 def run_temporal_change_description(**kwargs: Any) -> dict[str, Any]:

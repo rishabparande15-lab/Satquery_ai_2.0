@@ -1,0 +1,274 @@
+{
+  "test_data_access": {
+    "images_read": 0,
+    "labels_read": 0,
+    "inference_runs": 0,
+    "metrics_computed": 0
+  },
+  "direct_demo": {
+    "endpoint": "/api/v1/demo/run",
+    "approved_fixture_only": true,
+    "routes": {
+      "s2_vqa": {
+        "http": 200,
+        "route": "SINGLE_IMAGE_VQA",
+        "status": "COMPLETED",
+        "answer_present": true,
+        "warnings": [
+          "Internal validation only; benchmark generalization is not established.",
+          "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+          "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+        ],
+        "confidence": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "provenance_present": true,
+        "evidence_present": true,
+        "execution_trace_present": true,
+        "latency_ms": 11092.945
+      },
+      "sar_vqa": {
+        "http": 200,
+        "route": "SINGLE_IMAGE_SAR_VQA",
+        "status": "COMPLETED",
+        "answer_present": true,
+        "warnings": [
+          "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED: the route is technically conditioned on SAR, but standalone SAR did not demonstrate clear semantic improvement.",
+          "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+          "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+          "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+        ],
+        "confidence": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "provenance_present": true,
+        "evidence_present": true,
+        "execution_trace_present": true,
+        "latency_ms": 9458.738
+      },
+      "optical_sar": {
+        "http": 200,
+        "route": "OPTICAL_SAR_ANALYSIS",
+        "status": "COMPLETED",
+        "answer_present": true,
+        "warnings": [
+          "Multimodal path is technically valid but did not demonstrate improvement over the optical-only baseline.",
+          "bounded fixed-panel integration; no claim of fusion accuracy gain",
+          "COREGISTRATION_NOT_VERIFIED"
+        ],
+        "confidence": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "provenance_present": true,
+        "evidence_present": true,
+        "execution_trace_present": true,
+        "latency_ms": 14068.368
+      },
+      "scene": {
+        "http": 200,
+        "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "status": "COMPLETED",
+        "answer_present": true,
+        "warnings": [
+          "Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.",
+          "Answer confidence is not calibrated."
+        ],
+        "confidence": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "provenance_present": true,
+        "evidence_present": true,
+        "execution_trace_present": true,
+        "latency_ms": 20925.953
+      },
+      "temporal": {
+        "http": 200,
+        "route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "status": "COMPLETED",
+        "answer_present": true,
+        "warnings": [
+          "Natural-language change description only; no spatial change mask or area estimate is produced.",
+          "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+        ],
+        "confidence": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "provenance_present": true,
+        "evidence_present": true,
+        "execution_trace_present": true,
+        "latency_ms": 7166.835
+      }
+    }
+  },
+  "json_export": {
+    "routes": {
+      "s2_vqa": {
+        "required_fields_present": {
+          "route": true,
+          "status": true,
+          "warnings": true,
+          "confidence": true,
+          "evidence": true,
+          "provenance": true
+        },
+        "answer_or_output_present": true,
+        "trace_present": true,
+        "confidence_policy": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "public_export_object_created": true
+      },
+      "sar_vqa": {
+        "required_fields_present": {
+          "route": true,
+          "status": true,
+          "warnings": true,
+          "confidence": true,
+          "evidence": true,
+          "provenance": true
+        },
+        "answer_or_output_present": true,
+        "trace_present": true,
+        "confidence_policy": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "public_export_object_created": true
+      },
+      "optical_sar": {
+        "required_fields_present": {
+          "route": true,
+          "status": true,
+          "warnings": true,
+          "confidence": true,
+          "evidence": true,
+          "provenance": true
+        },
+        "answer_or_output_present": true,
+        "trace_present": true,
+        "confidence_policy": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "public_export_object_created": true
+      },
+      "scene": {
+        "required_fields_present": {
+          "route": true,
+          "status": true,
+          "warnings": true,
+          "confidence": true,
+          "evidence": true,
+          "provenance": true
+        },
+        "answer_or_output_present": true,
+        "trace_present": true,
+        "confidence_policy": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "public_export_object_created": true
+      },
+      "temporal": {
+        "required_fields_present": {
+          "route": true,
+          "status": true,
+          "warnings": true,
+          "confidence": true,
+          "evidence": true,
+          "provenance": true
+        },
+        "answer_or_output_present": true,
+        "trace_present": true,
+        "confidence_policy": {
+          "value": null,
+          "type": "NOT_AVAILABLE"
+        },
+        "public_export_object_created": true
+      }
+    },
+    "path_leaks": [],
+    "secret_leaks": [],
+    "secret_scan_policy": "Scanned for credential values and provider-token patterns; ordinary public field names such as tokenizer or token are not secrets."
+  },
+  "route_switch": {
+    "cycles": 2,
+    "max_gpu_allocated": 9145370624,
+    "max_gpu_reserved": 9460252672,
+    "ram_peak": 7967571968,
+    "oom_count": 0,
+    "uncontrolled_gpu_growth": false,
+    "uncontrolled_ram_growth": false
+  },
+  "controller_eviction": {
+    "status": "PASS",
+    "controller_eviction_pass": true,
+    "evidence": "Each real route transition completed with HTTP 200; runtime event stream records release/construct/use transitions.",
+    "final_runtime_events": [
+      {
+        "event": "released",
+        "route": "TEMPORAL_CHANGE_DESCRIPTION"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_VQA"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_VQA"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_SAR_VQA"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_SAR_VQA"
+      },
+      {
+        "event": "constructed",
+        "route": "OPTICAL_SAR_ANALYSIS"
+      },
+      {
+        "event": "released",
+        "route": "OPTICAL_SAR_ANALYSIS"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+      },
+      {
+        "event": "constructed",
+        "route": "TEMPORAL_CHANGE_DESCRIPTION"
+      },
+      {
+        "event": "released",
+        "route": "TEMPORAL_CHANGE_DESCRIPTION"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_VQA"
+      }
+    ],
+    "resident_specialist_after_final_s2": "SINGLE_IMAGE_VQA",
+    "duplicate_heavy_family_detected": false
+  },
+  "output_regression": {
+    "semantic_output_changes": 0,
+    "warning_regressions": 0,
+    "confidence_regressions": 0,
+    "provenance_regressions": 0,
+    "differences": [],
+    "policy": "timestamps and durations are EXPECTED_NON_SEMANTIC; all other public fields compared recursively"
+  }
+}

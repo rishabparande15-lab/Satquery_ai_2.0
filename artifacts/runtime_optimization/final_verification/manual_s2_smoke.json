@@ -1,0 +1,19 @@
+{
+  "fixture_logical_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+  "http": 200,
+  "route": "SINGLE_IMAGE_VQA",
+  "status": "COMPLETED",
+  "answer": "no",
+  "warnings": [
+    "Internal validation only; benchmark generalization is not established.",
+    "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+    "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+  ],
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "evidence_present": true,
+  "provenance_present": true,
+  "path_leaks": []
+}

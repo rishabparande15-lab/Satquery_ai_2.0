@@ -1,0 +1,16 @@
+{
+  "findings": [
+    {
+      "id": "scene_per_request_checkpoint_hash",
+      "evidence": "baseline scene warm mean 4964.7 ms; model.safetensors was reread for provenance each request",
+      "action": "cache hash per admitted controller lifetime",
+      "risk": "none; checksum unchanged"
+    },
+    {
+      "id": "controller_eviction_hooks",
+      "evidence": "four controllers lacked explicit close hooks",
+      "action": "clear model references at runtime family eviction",
+      "risk": "none; construction and inference unchanged"
+    }
+  ]
+}

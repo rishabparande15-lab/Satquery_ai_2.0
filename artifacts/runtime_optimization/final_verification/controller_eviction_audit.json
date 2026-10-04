@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "controller_eviction_pass": true,
+  "evidence": "Each real route transition completed with HTTP 200; runtime event stream records release/construct/use transitions.",
+  "final_runtime_events": [
+    {
+      "event": "released",
+      "route": "TEMPORAL_CHANGE_DESCRIPTION"
+    },
+    {
+      "event": "constructed",
+      "route": "SINGLE_IMAGE_VQA"
+    },
+    {
+      "event": "released",
+      "route": "SINGLE_IMAGE_VQA"
+    },
+    {
+      "event": "constructed",
+      "route": "SINGLE_IMAGE_SAR_VQA"
+    },
+    {
+      "event": "released",
+      "route": "SINGLE_IMAGE_SAR_VQA"
+    },
+    {
+      "event": "constructed",
+      "route": "OPTICAL_SAR_ANALYSIS"
+    },
+    {
+      "event": "released",
+      "route": "OPTICAL_SAR_ANALYSIS"
+    },
+    {
+      "event": "constructed",
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+    },
+    {
+      "event": "released",
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+    },
+    {
+      "event": "constructed",
+      "route": "TEMPORAL_CHANGE_DESCRIPTION"
+    },
+    {
+      "event": "released",
+      "route": "TEMPORAL_CHANGE_DESCRIPTION"
+    },
+    {
+      "event": "constructed",
+      "route": "SINGLE_IMAGE_VQA"
+    }
+  ],
+  "resident_specialist_after_final_s2": "SINGLE_IMAGE_VQA",
+  "duplicate_heavy_family_detected": false
+}

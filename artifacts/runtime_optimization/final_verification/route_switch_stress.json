@@ -1,0 +1,907 @@
+{
+  "cycles": 2,
+  "requests": [
+    {
+      "sequence": 1,
+      "from_route": null,
+      "to_route": "s2_vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "latency_ms": 10828.016,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 2105096704,
+        "reserved": 2273312768,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6083403776
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 8348246528,
+        "reserved": 8535408640,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6877958144
+      },
+      "active_specialist_before": "TEMPORAL_CHANGE_DESCRIPTION",
+      "active_specialist_after": "SINGLE_IMAGE_VQA",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 2,
+      "from_route": "s2_vqa",
+      "to_route": "sar_vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SAR_VQA",
+      "status": "COMPLETED",
+      "latency_ms": 9496.925,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 8348246528,
+        "reserved": 8535408640,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6877958144
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9136654336,
+        "reserved": 9372172288,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7360364544
+      },
+      "active_specialist_before": "SINGLE_IMAGE_VQA",
+      "active_specialist_after": "SINGLE_IMAGE_SAR_VQA",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 3,
+      "from_route": "sar_vqa",
+      "to_route": "optical_sar",
+      "http": 200,
+      "route": "OPTICAL_SAR_ANALYSIS",
+      "status": "COMPLETED",
+      "latency_ms": 13603.979,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9136654336,
+        "reserved": 9372172288,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7360364544
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9145370624,
+        "reserved": 9460252672,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7967571968
+      },
+      "active_specialist_before": "SINGLE_IMAGE_SAR_VQA",
+      "active_specialist_after": "OPTICAL_SAR_ANALYSIS",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 4,
+      "from_route": "optical_sar",
+      "to_route": "scene",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "status": "COMPLETED",
+      "latency_ms": 21509.594,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9145370624,
+        "reserved": 9460252672,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7967555584
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 5205021184,
+        "reserved": 5832179712,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6287888384
+      },
+      "active_specialist_before": "OPTICAL_SAR_ANALYSIS",
+      "active_specialist_after": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 5,
+      "from_route": "scene",
+      "to_route": "temporal",
+      "http": 200,
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "status": "COMPLETED",
+      "latency_ms": 7255.235,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 5205021184,
+        "reserved": 5832179712,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6287888384
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 2105096704,
+        "reserved": 2273312768,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6073466880
+      },
+      "active_specialist_before": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "active_specialist_after": "TEMPORAL_CHANGE_DESCRIPTION",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 6,
+      "from_route": "temporal",
+      "to_route": "s2_vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "latency_ms": 10592.259,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 2105096704,
+        "reserved": 2273312768,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6073475072
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 8348246528,
+        "reserved": 8535408640,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7064887296
+      },
+      "active_specialist_before": "TEMPORAL_CHANGE_DESCRIPTION",
+      "active_specialist_after": "SINGLE_IMAGE_VQA",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 7,
+      "from_route": "s2_vqa",
+      "to_route": "sar_vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SAR_VQA",
+      "status": "COMPLETED",
+      "latency_ms": 9399.195,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 8348246528,
+        "reserved": 8535408640,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7064866816
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9136654336,
+        "reserved": 9372172288,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7363072000
+      },
+      "active_specialist_before": "SINGLE_IMAGE_VQA",
+      "active_specialist_after": "SINGLE_IMAGE_SAR_VQA",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 8,
+      "from_route": "sar_vqa",
+      "to_route": "optical_sar",
+      "http": 200,
+      "route": "OPTICAL_SAR_ANALYSIS",
+      "status": "COMPLETED",
+      "latency_ms": 12815.303,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9136654336,
+        "reserved": 9372172288,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7363059712
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9145370624,
+        "reserved": 9460252672,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7904006144
+      },
+      "active_specialist_before": "SINGLE_IMAGE_SAR_VQA",
+      "active_specialist_after": "OPTICAL_SAR_ANALYSIS",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 9,
+      "from_route": "optical_sar",
+      "to_route": "scene",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "status": "COMPLETED",
+      "latency_ms": 21782.074,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 9145370624,
+        "reserved": 9460252672,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 7904006144
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 5205021184,
+        "reserved": 5832179712,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6185213952
+      },
+      "active_specialist_before": "OPTICAL_SAR_ANALYSIS",
+      "active_specialist_after": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 10,
+      "from_route": "scene",
+      "to_route": "temporal",
+      "http": 200,
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "status": "COMPLETED",
+      "latency_ms": 7328.907,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 5205021184,
+        "reserved": 5832179712,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6185230336
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 2105096704,
+        "reserved": 2273312768,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 5970538496
+      },
+      "active_specialist_before": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "active_specialist_after": "TEMPORAL_CHANGE_DESCRIPTION",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    },
+    {
+      "sequence": 11,
+      "from_route": "temporal",
+      "to_route": "s2_vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "latency_ms": 11380.436,
+      "gpu_before": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 2105096704,
+        "reserved": 2273312768,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 5970538496
+      },
+      "gpu_after": {
+        "status": "ok",
+        "cuda": true,
+        "allocated": 8348246528,
+        "reserved": 8535408640,
+        "peak_allocated": 9182268928,
+        "peak_reserved": 9460252672,
+        "rss": 6810685440
+      },
+      "active_specialist_before": "TEMPORAL_CHANGE_DESCRIPTION",
+      "active_specialist_after": "SINGLE_IMAGE_VQA",
+      "recent_runtime_events": [
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SAR_VQA"
+        },
+        {
+          "event": "constructed",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "released",
+          "route": "OPTICAL_SAR_ANALYSIS"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "released",
+          "route": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        {
+          "event": "constructed",
+          "route": "SINGLE_IMAGE_VQA"
+        }
+      ],
+      "oom": false,
+      "exception": null
+    }
+  ],
+  "approved_fixture_only": true,
+  "max_gpu_allocated": 9145370624,
+  "max_gpu_reserved": 9460252672,
+  "ram_peak": 7967571968,
+  "net_gpu_allocated_growth": 6243149824,
+  "net_ram_growth": 727281664,
+  "cycle_1_mean_latency_ms": 12538.7498,
+  "cycle_2_mean_latency_ms": 12383.5476,
+  "oom_count": 0,
+  "uncontrolled_gpu_growth": false,
+  "uncontrolled_ram_growth": false
+}

@@ -254,3 +254,7 @@ class SingleImageVQAController:
                 "This route uses S2 only; no S1 input or optical-SAR fusion is used.",
             ],
         }
+
+    def close(self) -> None:
+        """Release resident model references at a specialist-family boundary."""
+        self.projector = self.model = self.tokenizer = None

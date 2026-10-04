@@ -1,0 +1,8 @@
+{
+  "candidate": "candidate_01",
+  "accepted": true,
+  "optimizations": [
+    "cached scene checkpoint provenance hash",
+    "explicit controller eviction hooks"
+  ]
+}

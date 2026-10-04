@@ -1,0 +1,89 @@
+{
+  "real_browser": "Codex in-app loopback browser",
+  "endpoint": "/api/v1/demo/run",
+  "dedicated_demo_controls": {
+    "s2_vqa": {
+      "control": "#run-single-image",
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "rendered_result": true,
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "warnings_rendered": true,
+      "provenance_rendered": true
+    },
+    "scene": {
+      "control": "#run-single-image",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "status": "COMPLETED",
+      "rendered_result": true,
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "warnings_rendered": true,
+      "provenance_rendered": true
+    },
+    "sar_vqa": {
+      "control": "#run-sar-vqa",
+      "http": 200,
+      "route": "SINGLE_IMAGE_SAR_VQA",
+      "status": "COMPLETED",
+      "rendered_result": true,
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "warnings_rendered": true,
+      "provenance_rendered": true,
+      "sar_limitation_warning_rendered": true
+    },
+    "optical_sar": {
+      "control": "#run-v1",
+      "http": 200,
+      "route": "OPTICAL_SAR_ANALYSIS",
+      "status": "COMPLETED",
+      "rendered_result": true,
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "warnings_rendered": true,
+      "provenance_rendered": true,
+      "coregistration_warning_rendered": true
+    },
+    "temporal": {
+      "control": "#run-temporal-change",
+      "http": 200,
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "status": "COMPLETED",
+      "rendered_result": true,
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "warnings_rendered": true,
+      "provenance_rendered": true,
+      "pre_post_rendered": true,
+      "fake_geometry_claims": []
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "uncaught_js_errors": [],
+  "generic_analysis_control_used": false,
+  "source_mode_labels_rendered": true,
+  "stale_result_detected": false,
+  "export_links_created": {
+    "s2_vqa": true,
+    "scene": true,
+    "sar_vqa": true,
+    "optical_sar": true,
+    "temporal": true
+  }
+}

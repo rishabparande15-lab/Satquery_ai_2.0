@@ -1,0 +1,55 @@
+{
+  "candidate": "candidate_01",
+  "routes": {
+    "OPTICAL_SAR_ANALYSIS": {
+      "cold_ms_before": 9454.924,
+      "cold_ms_after": 9896.847,
+      "warm_ms_before": 1705.7163333333333,
+      "warm_ms_after": 1697.9470000000001,
+      "peak_allocated_before": 8375084544,
+      "peak_allocated_after": 8375084544,
+      "peak_reserved_before": 8489271296,
+      "peak_reserved_after": 8489271296
+    },
+    "SINGLE_IMAGE_SAR_VQA": {
+      "cold_ms_before": 7175.63,
+      "cold_ms_after": 8857.826,
+      "warm_ms_before": 376.3913333333333,
+      "warm_ms_after": 446.262,
+      "peak_allocated_before": 8386876928,
+      "peak_allocated_after": 8386876928,
+      "peak_reserved_before": 8491368448,
+      "peak_reserved_after": 8491368448
+    },
+    "SINGLE_IMAGE_SCENE_DESCRIPTION": {
+      "cold_ms_before": 16189.183,
+      "cold_ms_after": 16608.527,
+      "warm_ms_before": 4964.668,
+      "warm_ms_after": 659.7473333333334,
+      "peak_allocated_before": 4894286848,
+      "peak_allocated_after": 4894286848,
+      "peak_reserved_before": 7079985152,
+      "peak_reserved_after": 7079985152
+    },
+    "SINGLE_IMAGE_VQA": {
+      "cold_ms_before": 20371.866,
+      "cold_ms_after": 25555.203,
+      "warm_ms_before": 464.05933333333337,
+      "warm_ms_after": 493.4723333333333,
+      "peak_allocated_before": 7564320256,
+      "peak_allocated_after": 7564320256,
+      "peak_reserved_before": 7654604800,
+      "peak_reserved_after": 7654604800
+    },
+    "TEMPORAL_CHANGE_DESCRIPTION": {
+      "cold_ms_before": 7097.174,
+      "cold_ms_after": 7203.484,
+      "warm_ms_before": 86.73366666666666,
+      "warm_ms_after": 85.87733333333334,
+      "peak_allocated_before": 1373724672,
+      "peak_allocated_after": 1373724672,
+      "peak_reserved_before": 7084179456,
+      "peak_reserved_after": 7084179456
+    }
+  }
+}

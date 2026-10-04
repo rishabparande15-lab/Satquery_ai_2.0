@@ -1,0 +1,9 @@
+{
+  "expected_handler": "chooseDemo(kind) then route-specific Run control then runSelectedDemo(kind, question)",
+  "actual_handler": "same expected dedicated handler",
+  "general_form_interference": false,
+  "endpoint_selected": "/api/v1/demo/run",
+  "root_cause": "VERIFICATION_FLOW_ERROR: the earlier check used general #run instead of the selected route-specific control.",
+  "production_frontend_bug": false,
+  "fix_applied": "none"
+}

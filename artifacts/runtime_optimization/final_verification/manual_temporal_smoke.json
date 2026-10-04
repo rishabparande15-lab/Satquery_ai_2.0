@@ -1,0 +1,20 @@
+{
+  "fixture_logical_id": "val_000001.png",
+  "http": 200,
+  "route": "TEMPORAL_CHANGE_DESCRIPTION",
+  "status": "COMPLETED",
+  "answer": "a row of houses is built at the top of the scene",
+  "warnings": [
+    "Natural-language change description only; no spatial change mask or area estimate is produced.",
+    "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+  ],
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "evidence_present": true,
+  "provenance_present": true,
+  "temporal_order": "PRE_POST",
+  "path_leaks": [],
+  "fake_geometry_claims": []
+}

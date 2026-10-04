@@ -1,0 +1,1190 @@
+{
+  "final_runtime_status": {
+    "construction_counts": {
+      "OPTICAL_SAR_ANALYSIS": 1,
+      "SINGLE_IMAGE_SAR_VQA": 1,
+      "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+      "SINGLE_IMAGE_VQA": 1,
+      "TEMPORAL_CHANGE_DESCRIPTION": 1
+    },
+    "loaded_routes": [],
+    "recent_events": [
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_VQA"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_VQA"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_SAR_VQA"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_SAR_VQA"
+      },
+      {
+        "event": "constructed",
+        "route": "OPTICAL_SAR_ANALYSIS"
+      },
+      {
+        "event": "released",
+        "route": "OPTICAL_SAR_ANALYSIS"
+      },
+      {
+        "event": "constructed",
+        "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+      },
+      {
+        "event": "released",
+        "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+      },
+      {
+        "event": "constructed",
+        "route": "TEMPORAL_CHANGE_DESCRIPTION"
+      },
+      {
+        "event": "released",
+        "route": "TEMPORAL_CHANGE_DESCRIPTION"
+      }
+    ],
+    "resident_specialist": null
+  },
+  "finished_at_unix": 1791113661.6507862,
+  "label": "candidate_01",
+  "routes": {
+    "OPTICAL_SAR_ANALYSIS": [
+      {
+        "actual_route": "OPTICAL_SAR_ANALYSIS",
+        "expected_route": "OPTICAL_SAR_ANALYSIS",
+        "fixture_id": "optical_sar",
+        "gpu_after": {
+          "allocated": 8347854848,
+          "peak_allocated": 8375084544,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "gpu_before": {
+          "allocated": 9568256,
+          "peak_allocated": 9568256,
+          "peak_reserved": 7019167744,
+          "reserved": 7019167744
+        },
+        "latency_ms": 9896.847,
+        "output_fingerprint": "223fdb1cd9aafd6842232c57ea8b245caacbfa6505ca1d05685ae259ce246b35",
+        "ram_after_bytes": 4858830848,
+        "ram_before_bytes": 3481108480,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "OPTICAL_SAR_ANALYSIS"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            }
+          ],
+          "resident_specialist": "OPTICAL_SAR_ANALYSIS"
+        },
+        "state": "cold",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "OPTICAL_SAR_ANALYSIS",
+        "expected_route": "OPTICAL_SAR_ANALYSIS",
+        "fixture_id": "optical_sar",
+        "gpu_after": {
+          "allocated": 8347854848,
+          "peak_allocated": 8367011328,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "gpu_before": {
+          "allocated": 8347854848,
+          "peak_allocated": 8347854848,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "latency_ms": 1687.71,
+        "output_fingerprint": "6a07cd0bad437500d9cc3fb8dd3e37a71bffe123aa3b2be30d1a2691395df90c",
+        "ram_after_bytes": 4861030400,
+        "ram_before_bytes": 4858834944,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "OPTICAL_SAR_ANALYSIS"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            }
+          ],
+          "resident_specialist": "OPTICAL_SAR_ANALYSIS"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "OPTICAL_SAR_ANALYSIS",
+        "expected_route": "OPTICAL_SAR_ANALYSIS",
+        "fixture_id": "optical_sar",
+        "gpu_after": {
+          "allocated": 8347854848,
+          "peak_allocated": 8367011328,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "gpu_before": {
+          "allocated": 8347854848,
+          "peak_allocated": 8347854848,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "latency_ms": 1684.746,
+        "output_fingerprint": "d8470ab4b3db733e50259f8d82a9afd32f6697e4cf02e66878b4db7df6144224",
+        "ram_after_bytes": 4861054976,
+        "ram_before_bytes": 4861030400,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "OPTICAL_SAR_ANALYSIS"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            }
+          ],
+          "resident_specialist": "OPTICAL_SAR_ANALYSIS"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "OPTICAL_SAR_ANALYSIS",
+        "expected_route": "OPTICAL_SAR_ANALYSIS",
+        "fixture_id": "optical_sar",
+        "gpu_after": {
+          "allocated": 8347854848,
+          "peak_allocated": 8367011328,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "gpu_before": {
+          "allocated": 8347854848,
+          "peak_allocated": 8347854848,
+          "peak_reserved": 8489271296,
+          "reserved": 8489271296
+        },
+        "latency_ms": 1721.385,
+        "output_fingerprint": "e32f405a101b912e3510c6c2f95809e4038c0ffbe35b53edf2c26f99c453f24d",
+        "ram_after_bytes": 4861038592,
+        "ram_before_bytes": 4861050880,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "OPTICAL_SAR_ANALYSIS"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            }
+          ],
+          "resident_specialist": "OPTICAL_SAR_ANALYSIS"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      }
+    ],
+    "SINGLE_IMAGE_SAR_VQA": [
+      {
+        "actual_route": "SINGLE_IMAGE_SAR_VQA",
+        "expected_route": "SINGLE_IMAGE_SAR_VQA",
+        "fixture_id": "sar_vqa",
+        "gpu_after": {
+          "allocated": 8342441984,
+          "peak_allocated": 8386876928,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "gpu_before": {
+          "allocated": 9568256,
+          "peak_allocated": 9568256,
+          "peak_reserved": 7019167744,
+          "reserved": 7019167744
+        },
+        "latency_ms": 8857.826,
+        "output_fingerprint": "c628fd0cd8cfd0a0e7bb24f6fb639717d4fb39485ff108aa1dea002c0330b216",
+        "ram_after_bytes": 4259942400,
+        "ram_before_bytes": 2328596480,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SAR_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SAR_VQA"
+        },
+        "state": "cold",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SAR_VQA",
+        "expected_route": "SINGLE_IMAGE_SAR_VQA",
+        "fixture_id": "sar_vqa",
+        "gpu_after": {
+          "allocated": 8342441984,
+          "peak_allocated": 8386876928,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "gpu_before": {
+          "allocated": 8342441984,
+          "peak_allocated": 8342441984,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "latency_ms": 441.869,
+        "output_fingerprint": "8edb0ac6b8f04ebfa3bc3ca2d2c3695d4faa3ce7457d8536b575d58cea7f8f9e",
+        "ram_after_bytes": 4260950016,
+        "ram_before_bytes": 4259962880,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SAR_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SAR_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SAR_VQA",
+        "expected_route": "SINGLE_IMAGE_SAR_VQA",
+        "fixture_id": "sar_vqa",
+        "gpu_after": {
+          "allocated": 8342441984,
+          "peak_allocated": 8386876928,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "gpu_before": {
+          "allocated": 8342441984,
+          "peak_allocated": 8342441984,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "latency_ms": 454.061,
+        "output_fingerprint": "f1d3f748a8672970cc9dc05ca1a8d8c0875b98b75145af14b70bfdb3277c992f",
+        "ram_after_bytes": 4261220352,
+        "ram_before_bytes": 4260962304,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SAR_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SAR_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SAR_VQA",
+        "expected_route": "SINGLE_IMAGE_SAR_VQA",
+        "fixture_id": "sar_vqa",
+        "gpu_after": {
+          "allocated": 8342441984,
+          "peak_allocated": 8386876928,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "gpu_before": {
+          "allocated": 8342441984,
+          "peak_allocated": 8342441984,
+          "peak_reserved": 8491368448,
+          "reserved": 8491368448
+        },
+        "latency_ms": 442.856,
+        "output_fingerprint": "ef49da60351d114697541ae85394653bafb9e20cef30e310031f3e98323b57f8",
+        "ram_after_bytes": 4261228544,
+        "ram_before_bytes": 4261220352,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SAR_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SAR_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      }
+    ],
+    "SINGLE_IMAGE_SCENE_DESCRIPTION": [
+      {
+        "actual_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "expected_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "fixture_id": "scene",
+        "gpu_after": {
+          "allocated": 4427555328,
+          "peak_allocated": 4894286848,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "gpu_before": {
+          "allocated": 9568256,
+          "peak_allocated": 9568256,
+          "peak_reserved": 7019167744,
+          "reserved": 7019167744
+        },
+        "latency_ms": 16608.527,
+        "output_fingerprint": "80ef7b21ef169788e52fdfa2d3c42dd98b7af8e03ed47d5092b081ec157feaeb",
+        "ram_after_bytes": 2576035840,
+        "ram_before_bytes": 3994648576,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SCENE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        "state": "cold",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "expected_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "fixture_id": "scene",
+        "gpu_after": {
+          "allocated": 4427555328,
+          "peak_allocated": 4442107392,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "gpu_before": {
+          "allocated": 4427555328,
+          "peak_allocated": 4427555328,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "latency_ms": 695.943,
+        "output_fingerprint": "cad5cf250631af300a30c7f8200447dca80482a3ca4133dd0eafaba9d3f0d0a7",
+        "ram_after_bytes": 2578337792,
+        "ram_before_bytes": 2576019456,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SCENE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "expected_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "fixture_id": "scene",
+        "gpu_after": {
+          "allocated": 4427555328,
+          "peak_allocated": 4442107392,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "gpu_before": {
+          "allocated": 4427555328,
+          "peak_allocated": 4427555328,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "latency_ms": 636.439,
+        "output_fingerprint": "1b309bf8ab8eee84cd6310d90ac90335e8a1c5c042b4a240662a4eed4649dbea",
+        "ram_after_bytes": 2578366464,
+        "ram_before_bytes": 2578345984,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SCENE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "expected_route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+        "fixture_id": "scene",
+        "gpu_after": {
+          "allocated": 4427555328,
+          "peak_allocated": 4442107392,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "gpu_before": {
+          "allocated": 4427555328,
+          "peak_allocated": 4427555328,
+          "peak_reserved": 7079985152,
+          "reserved": 7079985152
+        },
+        "latency_ms": 646.86,
+        "output_fingerprint": "585c7fa8eb9f3db494db448df21c98508765225689bf60f25b78dedf0194864f",
+        "ram_after_bytes": 2578477056,
+        "ram_before_bytes": 2578382848,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_SCENE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      }
+    ],
+    "SINGLE_IMAGE_VQA": [
+      {
+        "actual_route": "SINGLE_IMAGE_VQA",
+        "expected_route": "SINGLE_IMAGE_VQA",
+        "fixture_id": "s2_vqa",
+        "gpu_after": {
+          "allocated": 7552881152,
+          "peak_allocated": 7564320256,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "gpu_before": {
+          "allocated": 0,
+          "peak_allocated": 0,
+          "peak_reserved": 0,
+          "reserved": 0
+        },
+        "latency_ms": 25555.203,
+        "output_fingerprint": "dd242cae4ee23a33cca183d54db742bf3248fa22237ddb454b8148923eb5ca16",
+        "ram_after_bytes": 2339143680,
+        "ram_before_bytes": 855326720,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_VQA"
+        },
+        "state": "cold",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_VQA",
+        "expected_route": "SINGLE_IMAGE_VQA",
+        "fixture_id": "s2_vqa",
+        "gpu_after": {
+          "allocated": 7552881152,
+          "peak_allocated": 7564320256,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "gpu_before": {
+          "allocated": 7552881152,
+          "peak_allocated": 7552881152,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "latency_ms": 557.595,
+        "output_fingerprint": "253f10ba614f6261c361da566135191267026593fe712fdf750c7f983e714bbd",
+        "ram_after_bytes": 2347466752,
+        "ram_before_bytes": 2339143680,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_VQA",
+        "expected_route": "SINGLE_IMAGE_VQA",
+        "fixture_id": "s2_vqa",
+        "gpu_after": {
+          "allocated": 7552881152,
+          "peak_allocated": 7564320256,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "gpu_before": {
+          "allocated": 7552881152,
+          "peak_allocated": 7552881152,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "latency_ms": 449.921,
+        "output_fingerprint": "1fd1930352065434988a749b55690a1a0379feed07cbe4587f3a68d5e2272787",
+        "ram_after_bytes": 2349252608,
+        "ram_before_bytes": 2347470848,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "SINGLE_IMAGE_VQA",
+        "expected_route": "SINGLE_IMAGE_VQA",
+        "fixture_id": "s2_vqa",
+        "gpu_after": {
+          "allocated": 7552881152,
+          "peak_allocated": 7564320256,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "gpu_before": {
+          "allocated": 7552881152,
+          "peak_allocated": 7552881152,
+          "peak_reserved": 7654604800,
+          "reserved": 7654604800
+        },
+        "latency_ms": 472.901,
+        "output_fingerprint": "17fbd3d7e4fd24fe226fc8492927fa0f87c4ec92efbd3d5f1ec467e771b13815",
+        "ram_after_bytes": 2350338048,
+        "ram_before_bytes": 2349252608,
+        "runtime_status": {
+          "construction_counts": {
+            "SINGLE_IMAGE_VQA": 1
+          },
+          "loaded_routes": [
+            "SINGLE_IMAGE_VQA"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            }
+          ],
+          "resident_specialist": "SINGLE_IMAGE_VQA"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      }
+    ],
+    "TEMPORAL_CHANGE_DESCRIPTION": [
+      {
+        "actual_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "expected_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "fixture_id": "temporal",
+        "gpu_after": {
+          "allocated": 1326537216,
+          "peak_allocated": 1373724672,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "gpu_before": {
+          "allocated": 9568256,
+          "peak_allocated": 9568256,
+          "peak_reserved": 7019167744,
+          "reserved": 7019167744
+        },
+        "latency_ms": 7203.484,
+        "output_fingerprint": "73c1efe8d58de01c4d647c28afa02fe33b727120e1738e8db9273193f9dad26e",
+        "ram_after_bytes": 5406359552,
+        "ram_before_bytes": 2556706816,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1,
+            "TEMPORAL_CHANGE_DESCRIPTION": 1
+          },
+          "loaded_routes": [
+            "TEMPORAL_CHANGE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "constructed",
+              "route": "TEMPORAL_CHANGE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        "state": "cold",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "expected_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "fixture_id": "temporal",
+        "gpu_after": {
+          "allocated": 1326537216,
+          "peak_allocated": 1373724672,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "gpu_before": {
+          "allocated": 1326537216,
+          "peak_allocated": 1326537216,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "latency_ms": 88.737,
+        "output_fingerprint": "713e67ed7527b0e827277cc41e7a702a3405ab37dd48b6ee4563e6929a429f28",
+        "ram_after_bytes": 5408735232,
+        "ram_before_bytes": 5406351360,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1,
+            "TEMPORAL_CHANGE_DESCRIPTION": 1
+          },
+          "loaded_routes": [
+            "TEMPORAL_CHANGE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "constructed",
+              "route": "TEMPORAL_CHANGE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "expected_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "fixture_id": "temporal",
+        "gpu_after": {
+          "allocated": 1326537216,
+          "peak_allocated": 1373724672,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "gpu_before": {
+          "allocated": 1326537216,
+          "peak_allocated": 1326537216,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "latency_ms": 85.212,
+        "output_fingerprint": "040f3947e8eb9e5b9b592f82d52112470d8f459bfc7da7ba9dc8ed2af6d7b8cd",
+        "ram_after_bytes": 5408755712,
+        "ram_before_bytes": 5408735232,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1,
+            "TEMPORAL_CHANGE_DESCRIPTION": 1
+          },
+          "loaded_routes": [
+            "TEMPORAL_CHANGE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "constructed",
+              "route": "TEMPORAL_CHANGE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      },
+      {
+        "actual_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "expected_route": "TEMPORAL_CHANGE_DESCRIPTION",
+        "fixture_id": "temporal",
+        "gpu_after": {
+          "allocated": 1326537216,
+          "peak_allocated": 1373724672,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "gpu_before": {
+          "allocated": 1326537216,
+          "peak_allocated": 1326537216,
+          "peak_reserved": 7084179456,
+          "reserved": 7084179456
+        },
+        "latency_ms": 83.683,
+        "output_fingerprint": "265c70740cc96ea90c064a67bf2b257a90552ff2c07b40a6deb238ccbe0b67ad",
+        "ram_after_bytes": 5408755712,
+        "ram_before_bytes": 5408739328,
+        "runtime_status": {
+          "construction_counts": {
+            "OPTICAL_SAR_ANALYSIS": 1,
+            "SINGLE_IMAGE_SAR_VQA": 1,
+            "SINGLE_IMAGE_SCENE_DESCRIPTION": 1,
+            "SINGLE_IMAGE_VQA": 1,
+            "TEMPORAL_CHANGE_DESCRIPTION": 1
+          },
+          "loaded_routes": [
+            "TEMPORAL_CHANGE_DESCRIPTION"
+          ],
+          "recent_events": [
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SAR_VQA"
+            },
+            {
+              "event": "constructed",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "released",
+              "route": "OPTICAL_SAR_ANALYSIS"
+            },
+            {
+              "event": "constructed",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "released",
+              "route": "SINGLE_IMAGE_SCENE_DESCRIPTION"
+            },
+            {
+              "event": "constructed",
+              "route": "TEMPORAL_CHANGE_DESCRIPTION"
+            }
+          ],
+          "resident_specialist": "TEMPORAL_CHANGE_DESCRIPTION"
+        },
+        "state": "warm",
+        "status": "COMPLETED"
+      }
+    ]
+  },
+  "started_at_unix": 1791113582.4463232
+}

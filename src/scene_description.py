@@ -73,6 +73,10 @@ class SceneDescriptionController:
             raise FileNotFoundError(f"Scene-description checkpoint is unavailable: {self.model_root}")
         self._model = None
         self._processor = None
+        # The approved checkpoint is immutable for one controller lifetime.
+        # Hash it once after the model is admitted, then reuse that provenance
+        # value for warm requests instead of rereading multi-gigabyte weights.
+        self._model_sha256: str | None = None
 
     def _load(self) -> None:
         if self._model is not None:
@@ -90,6 +94,7 @@ class SceneDescriptionController:
             self.model_root, local_files_only=True, torch_dtype=torch.bfloat16,
             device_map={"": 0}, low_cpu_mem_usage=True,
         ).eval()
+        self._model_sha256 = hashlib.sha256((self.model_root / "model.safetensors").read_bytes()).hexdigest()
 
     def run(self, *, image: Image.Image, image_identity: str, source_kind: str,
             source_metadata: Mapping[str, Any] | None = None, query: str | None = None) -> dict[str, Any]:
@@ -110,14 +115,19 @@ class SceneDescriptionController:
         description = self._processor.batch_decode(trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0].strip()
         if not description:
             raise RuntimeError("Scene-description specialist returned no non-empty language output.")
-        checksum = hashlib.sha256((self.model_root / "model.safetensors").read_bytes()).hexdigest()
+        assert self._model_sha256 is not None
         return {
             "status": "OK", "task": "SINGLE_IMAGE_SCENE_DESCRIPTION", "selected_specialist": MODEL_ID,
             "model_tool": MODEL_ID, "answer": description, "generated_response": description,
             "image_identity": image_identity, "source_kind": source_kind,
             "image_size": [image.width, image.height], "source_metadata": dict(source_metadata or {}),
             "visual_evidence": {"type": "INPUT_IMAGE_ONLY", "masks": [], "boxes": []},
-            "provenance": {"model_id": MODEL_ID, "model_sha256": checksum, "model_license": "Apache-2.0", "device": "cuda:0", "source_kind": source_kind},
+            "provenance": {"model_id": MODEL_ID, "model_sha256": self._model_sha256, "model_license": "Apache-2.0", "device": "cuda:0", "source_kind": source_kind},
             "warnings": ["Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.", "Answer confidence is not calibrated."],
             "runtime_seconds": round(perf_counter() - started, 6),
         }
+
+    def close(self) -> None:
+        """Release resident model references at a specialist-family boundary."""
+        self._model = None
+        self._processor = None

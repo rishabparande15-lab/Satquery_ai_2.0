@@ -1,0 +1,20 @@
+{
+  "suite_version": 1,
+  "fixture_source": "src.api.DEMO_FIXTURES",
+  "selection_policy": "fixed allowlisted non-test SIH Demo Mode fixtures only",
+  "routes": [
+    {"fixture_id": "s2_vqa", "route": "SINGLE_IMAGE_VQA", "question": "Is water visible in this image?"},
+    {"fixture_id": "sar_vqa", "route": "SINGLE_IMAGE_SAR_VQA", "question": "Do parts of the image correspond to pastures?"},
+    {"fixture_id": "optical_sar", "route": "OPTICAL_SAR_ANALYSIS", "question": "Use the SAR and optical information together."},
+    {"fixture_id": "scene", "route": "SINGLE_IMAGE_SCENE_DESCRIPTION", "question": "Describe this image."},
+    {"fixture_id": "temporal", "route": "TEMPORAL_CHANGE_DESCRIPTION", "question": "Describe the changes between the two dates."}
+  ],
+  "cold_repetitions": 1,
+  "warm_repetitions": 3,
+  "test_data_policy": {
+    "TEST_IMAGES_READ": 0,
+    "TEST_LABELS_READ": 0,
+    "TEST_INFERENCE_RUNS": 0,
+    "TEST_METRICS_COMPUTED": 0
+  }
+}

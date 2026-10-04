@@ -69,3 +69,7 @@ class SatQueryV1Controller:
     def unchanged(self)->dict[str,bool]:
         if self.model is None:return {}
         return {'qwen':hash_state(self.model)==self._hashes['qwen'],'croma':module_fingerprint(self.croma.model)==self._hashes['croma'],'joint_projector':module_fingerprint(self.projector)==self._hashes['joint']}
+    def close(self)->None:
+        """Release resident model references at a specialist-family boundary."""
+        self.croma=self.projector=self.model=self.tokenizer=None
+        self._hashes={}

@@ -1,0 +1,92 @@
+{
+  "routes": {
+    "s2_vqa": {
+      "required_fields_present": {
+        "route": true,
+        "status": true,
+        "warnings": true,
+        "confidence": true,
+        "evidence": true,
+        "provenance": true
+      },
+      "answer_or_output_present": true,
+      "trace_present": true,
+      "confidence_policy": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "public_export_object_created": true
+    },
+    "sar_vqa": {
+      "required_fields_present": {
+        "route": true,
+        "status": true,
+        "warnings": true,
+        "confidence": true,
+        "evidence": true,
+        "provenance": true
+      },
+      "answer_or_output_present": true,
+      "trace_present": true,
+      "confidence_policy": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "public_export_object_created": true
+    },
+    "optical_sar": {
+      "required_fields_present": {
+        "route": true,
+        "status": true,
+        "warnings": true,
+        "confidence": true,
+        "evidence": true,
+        "provenance": true
+      },
+      "answer_or_output_present": true,
+      "trace_present": true,
+      "confidence_policy": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "public_export_object_created": true
+    },
+    "scene": {
+      "required_fields_present": {
+        "route": true,
+        "status": true,
+        "warnings": true,
+        "confidence": true,
+        "evidence": true,
+        "provenance": true
+      },
+      "answer_or_output_present": true,
+      "trace_present": true,
+      "confidence_policy": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "public_export_object_created": true
+    },
+    "temporal": {
+      "required_fields_present": {
+        "route": true,
+        "status": true,
+        "warnings": true,
+        "confidence": true,
+        "evidence": true,
+        "provenance": true
+      },
+      "answer_or_output_present": true,
+      "trace_present": true,
+      "confidence_policy": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "public_export_object_created": true
+    }
+  },
+  "path_leaks": [],
+  "secret_leaks": [],
+  "secret_scan_policy": "Scanned for credential values and provider-token patterns; ordinary public field names such as tokenizer or token are not secrets."
+}

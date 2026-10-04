@@ -1,0 +1,242 @@
+[
+  {
+    "fixture_id": "s2_vqa",
+    "gpu": {
+      "allocated": 7552881152,
+      "peak_allocated": 7564320256,
+      "peak_reserved": 7654604800,
+      "reserved": 7654604800
+    },
+    "ram_after_bytes": 2339143680,
+    "resident": "SINGLE_IMAGE_VQA",
+    "state": "cold"
+  },
+  {
+    "fixture_id": "s2_vqa",
+    "gpu": {
+      "allocated": 7552881152,
+      "peak_allocated": 7564320256,
+      "peak_reserved": 7654604800,
+      "reserved": 7654604800
+    },
+    "ram_after_bytes": 2347466752,
+    "resident": "SINGLE_IMAGE_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "s2_vqa",
+    "gpu": {
+      "allocated": 7552881152,
+      "peak_allocated": 7564320256,
+      "peak_reserved": 7654604800,
+      "reserved": 7654604800
+    },
+    "ram_after_bytes": 2349252608,
+    "resident": "SINGLE_IMAGE_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "s2_vqa",
+    "gpu": {
+      "allocated": 7552881152,
+      "peak_allocated": 7564320256,
+      "peak_reserved": 7654604800,
+      "reserved": 7654604800
+    },
+    "ram_after_bytes": 2350338048,
+    "resident": "SINGLE_IMAGE_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "sar_vqa",
+    "gpu": {
+      "allocated": 8342441984,
+      "peak_allocated": 8386876928,
+      "peak_reserved": 8491368448,
+      "reserved": 8491368448
+    },
+    "ram_after_bytes": 4259942400,
+    "resident": "SINGLE_IMAGE_SAR_VQA",
+    "state": "cold"
+  },
+  {
+    "fixture_id": "sar_vqa",
+    "gpu": {
+      "allocated": 8342441984,
+      "peak_allocated": 8386876928,
+      "peak_reserved": 8491368448,
+      "reserved": 8491368448
+    },
+    "ram_after_bytes": 4260950016,
+    "resident": "SINGLE_IMAGE_SAR_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "sar_vqa",
+    "gpu": {
+      "allocated": 8342441984,
+      "peak_allocated": 8386876928,
+      "peak_reserved": 8491368448,
+      "reserved": 8491368448
+    },
+    "ram_after_bytes": 4261220352,
+    "resident": "SINGLE_IMAGE_SAR_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "sar_vqa",
+    "gpu": {
+      "allocated": 8342441984,
+      "peak_allocated": 8386876928,
+      "peak_reserved": 8491368448,
+      "reserved": 8491368448
+    },
+    "ram_after_bytes": 4261228544,
+    "resident": "SINGLE_IMAGE_SAR_VQA",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "optical_sar",
+    "gpu": {
+      "allocated": 8347854848,
+      "peak_allocated": 8375084544,
+      "peak_reserved": 8489271296,
+      "reserved": 8489271296
+    },
+    "ram_after_bytes": 4858830848,
+    "resident": "OPTICAL_SAR_ANALYSIS",
+    "state": "cold"
+  },
+  {
+    "fixture_id": "optical_sar",
+    "gpu": {
+      "allocated": 8347854848,
+      "peak_allocated": 8367011328,
+      "peak_reserved": 8489271296,
+      "reserved": 8489271296
+    },
+    "ram_after_bytes": 4861030400,
+    "resident": "OPTICAL_SAR_ANALYSIS",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "optical_sar",
+    "gpu": {
+      "allocated": 8347854848,
+      "peak_allocated": 8367011328,
+      "peak_reserved": 8489271296,
+      "reserved": 8489271296
+    },
+    "ram_after_bytes": 4861054976,
+    "resident": "OPTICAL_SAR_ANALYSIS",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "optical_sar",
+    "gpu": {
+      "allocated": 8347854848,
+      "peak_allocated": 8367011328,
+      "peak_reserved": 8489271296,
+      "reserved": 8489271296
+    },
+    "ram_after_bytes": 4861038592,
+    "resident": "OPTICAL_SAR_ANALYSIS",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "scene",
+    "gpu": {
+      "allocated": 4427555328,
+      "peak_allocated": 4894286848,
+      "peak_reserved": 7079985152,
+      "reserved": 7079985152
+    },
+    "ram_after_bytes": 2576035840,
+    "resident": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "state": "cold"
+  },
+  {
+    "fixture_id": "scene",
+    "gpu": {
+      "allocated": 4427555328,
+      "peak_allocated": 4442107392,
+      "peak_reserved": 7079985152,
+      "reserved": 7079985152
+    },
+    "ram_after_bytes": 2578337792,
+    "resident": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "scene",
+    "gpu": {
+      "allocated": 4427555328,
+      "peak_allocated": 4442107392,
+      "peak_reserved": 7079985152,
+      "reserved": 7079985152
+    },
+    "ram_after_bytes": 2578366464,
+    "resident": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "scene",
+    "gpu": {
+      "allocated": 4427555328,
+      "peak_allocated": 4442107392,
+      "peak_reserved": 7079985152,
+      "reserved": 7079985152
+    },
+    "ram_after_bytes": 2578477056,
+    "resident": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "temporal",
+    "gpu": {
+      "allocated": 1326537216,
+      "peak_allocated": 1373724672,
+      "peak_reserved": 7084179456,
+      "reserved": 7084179456
+    },
+    "ram_after_bytes": 5406359552,
+    "resident": "TEMPORAL_CHANGE_DESCRIPTION",
+    "state": "cold"
+  },
+  {
+    "fixture_id": "temporal",
+    "gpu": {
+      "allocated": 1326537216,
+      "peak_allocated": 1373724672,
+      "peak_reserved": 7084179456,
+      "reserved": 7084179456
+    },
+    "ram_after_bytes": 5408735232,
+    "resident": "TEMPORAL_CHANGE_DESCRIPTION",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "temporal",
+    "gpu": {
+      "allocated": 1326537216,
+      "peak_allocated": 1373724672,
+      "peak_reserved": 7084179456,
+      "reserved": 7084179456
+    },
+    "ram_after_bytes": 5408755712,
+    "resident": "TEMPORAL_CHANGE_DESCRIPTION",
+    "state": "warm"
+  },
+  {
+    "fixture_id": "temporal",
+    "gpu": {
+      "allocated": 1326537216,
+      "peak_allocated": 1373724672,
+      "peak_reserved": 7084179456,
+      "reserved": 7084179456
+    },
+    "ram_after_bytes": 5408755712,
+    "resident": "TEMPORAL_CHANGE_DESCRIPTION",
+    "state": "warm"
+  }
+]
