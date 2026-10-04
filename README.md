@@ -450,25 +450,43 @@ These numbers are not VQA, caption, grounding, SAR-VQA, temporal, or current uni
 
 ## Dataset Recovery / Re-download Guide
 
-This guide records the verified local recovery information for the datasets and
+This guide records the verified recovery information for the datasets and
 Pipeline 3 artifacts used during development. It is operational documentation
 only: it does not change the frozen release, tag, metrics, fingerprints, or
 scientific claims above.
 
 ### Recovery classes
 
-| Class | Meaning | Local items in this project |
+| Class | Meaning | Relevant items in this project |
 | --- | --- | --- |
-| **REDOWNLOADABLE** | Raw source data that can be recovered from its recorded source/provenance. Preserve the local provenance file so the exact selection can be checked. | `raw-1000`; `raw-5000-additional` |
-| **REGENERATABLE** | Derived non-checkpoint outputs that can be recreated from the appropriate raw inputs and Pipeline 3 process. | `pipeline3-5000/scene_features/manifest.json`; revalidation JSON result/receipt files |
-| **MUST BACK UP** | Local trained checkpoints. These are derived artifacts, not raw downloadable data. | `pipeline3-5000/models/`; model checkpoints under `pipeline3-5000/revalidation_6R2B/` |
+| **REDOWNLOADABLE** | Raw source data that can be recovered from its recorded source/provenance. The raw datasets were removed locally; preserve the acquisition records in this repository to check the intended selections. | `raw-1000`; `raw-5000-additional` |
+| **REGENERATABLE** | Derived non-checkpoint outputs that can be recreated from the appropriate raw inputs and Pipeline 3 process. The complete generated scene-feature shard collection was not archived in Git. | `pipeline3-5000/scene_features/`; revalidation JSON result/receipt files |
+| **MUST BACK UP** | Trained checkpoints are derived artifacts, not raw downloadable data. Pipeline 3 model/checkpoint recovery artifacts are retained in this repository. | Pipeline 3 checkpoints and revalidation checkpoints |
 
-Do **not** delete any local trained checkpoint until it has been backed up and
-the backup has been verified.
+### Completed local dataset cleanup
+
+The local derived Pipeline 3 workspace previously located at
+`D:\Satquery_ai datasets\comparison\pipeline3-5000` was intentionally deleted
+after project completion to reclaim disk space. The raw BigEarthNet source
+datasets, including `raw-1000` and `raw-5000-additional`, were also removed
+locally after their download/acquisition provenance was preserved.
+
+Important recovery materials retained in this repository include Pipeline 3
+model/checkpoint recovery artifacts, revalidation receipts/checkpoints, the
+scene-feature manifest, dataset acquisition/provenance records, semantic
+experiment artifacts and final evaluation receipts, and scripts required for
+the original experiments. The full generated `scene_features` shard collection
+was not archived in Git, so the exact derived feature cache cannot be restored
+directly from this repository. These deletions were intentional because active
+development of the project had concluded.
+
+The following dataset details document the original acquisitions and remain
+useful for recovery; they do not imply that the datasets are currently present
+on disk.
 
 ### `raw-1000`: BigEarthNet v2 1,000-patch multimodal subset — REDOWNLOADABLE
 
-Local layout:
+Original acquisition layout:
 
 - `BigEarthNet-S1/`
 - `BigEarthNet-S2/`
@@ -476,7 +494,7 @@ Local layout:
 - `metadata.parquet`
 - `download-provenance.json`
 
-Verified subset and storage facts:
+Verified subset and original storage facts:
 
 - `1,000` patches split `600 / 200 / 200` (train / validation / test)
 - selection seed: `17`
@@ -501,7 +519,7 @@ identities in addition to the source metadata.
 
 ### `raw-5000-additional`: additional Sentinel-2 acquisition — REDOWNLOADABLE
 
-This local source set contains:
+The original local source set contained:
 
 - `BigEarthNet-S2/`
 - `pipeline3-5000-s2-acquisition.json`
@@ -513,15 +531,15 @@ Its acquisition record verifies `requested_count: 4000`, `4,000` `area_ids`,
 `pipeline3-5000-s2-acquisition.json` with any recovery copy; it records the
 requested area identities and completion status.
 
-Together, `raw-1000` and this additional Sentinel-2 acquisition support the
+Together, `raw-1000` and this additional Sentinel-2 acquisition supported the
 5,000-area Pipeline 3 source set. This record does **not** establish
 Sentinel-1 or reference-map coverage for the added 4,000 areas; do not infer
 that coverage from this directory.
 
-### `pipeline3-5000`: derived Pipeline 3 outputs — REGENERATABLE / MUST BACK UP
+### `pipeline3-5000`: derived Pipeline 3 outputs — historical contents
 
-`pipeline3-5000/` is a local derived-output directory, not downloadable raw
-data. Its verified contents are:
+`pipeline3-5000/` was a local derived-output directory, not downloadable raw
+data. Its verified historical contents were:
 
 - `models/`: six small local checkpoint files (**MUST BACK UP**)
 - `scene_features/manifest.json`: approximately `36.23 KB`
@@ -754,7 +772,7 @@ tests/        routing, specialist, API, raster, runtime, staging, serialization,
 docs/         architecture, phase reports, SIH compliance, limitations, setup, audit records
 scripts/      reproducible development/verification scripts
 artifacts/    local receipts and generated evidence; large/local artifacts are not source of truth in Git
-data/         contracts and compact project data; raw external imagery remains machine-local
+data/         contracts and compact project data; raw external imagery is not stored in Git
 ```
 
 Key modules include:
