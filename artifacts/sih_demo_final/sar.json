@@ -1,0 +1,564 @@
+{
+  "status": "COMPLETED",
+  "request_id": "18e6669b-1c1b-4ddc-9a6c-b4cc479a2bca",
+  "query": "Do parts of the image correspond to pastures?",
+  "route": "SINGLE_IMAGE_SAR_VQA",
+  "capability_status": "AVAILABLE_WITH_LIMITATIONS",
+  "answer": "no",
+  "visual_evidence": {
+    "type": "S1_SAR_CROMA_PROJECTED_TOKENS",
+    "input_shape": [
+      2,
+      120,
+      120
+    ],
+    "croma_token_shape": [
+      1,
+      225,
+      768
+    ],
+    "projected_token_shape": [
+      1,
+      16,
+      2048
+    ],
+    "crs": "EPSG:32629",
+    "resolution": [
+      10,
+      10
+    ],
+    "bounds": [
+      642000,
+      5972400,
+      643200,
+      5973600
+    ],
+    "bounding_boxes": [],
+    "masks": []
+  },
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "warnings": [
+    "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED: the route is technically conditioned on SAR, but standalone SAR did not demonstrate clear semantic improvement.",
+    "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+    "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+    "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+  ],
+  "provenance": {
+    "route": "SINGLE_IMAGE_SAR_VQA",
+    "input_summary": [
+      {
+        "input_id": "phase3ad_validation_s1.tif",
+        "role": "SINGLE",
+        "modality": "sar",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": "sentinel-1",
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": null,
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      }
+    ],
+    "specialist": "official_croma_s1 + phase3p1_s1_sar_projector + qwen25vl",
+    "specialist_provenance": {
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "croma_model": "official CROMA Base S1 encoder",
+      "croma_image_resolution": 120,
+      "projector_checkpoint_sha256": "a7e57bff0cba141db5c34f549d0bc3f25638960fe39ab25246bbab49e979accd",
+      "projector_state_fingerprint": "7bf9935839cd7f3417227d46e09e217729d466fa1b2d95ef3524d8c86d568a6f",
+      "projector_adapter_id": "phase3p1_s1_sar_projector",
+      "canonical_band_order": [
+        "VV",
+        "VH"
+      ],
+      "normalization": "official CROMA per-channel mean +/- 2 std, clipped to [0,1]",
+      "generation_interface": "phase3o10_multimodal_prefix_v1",
+      "qwen_trainable_parameter_count": 0,
+      "image_id": "upload:de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+      "split": "external_inference",
+      "answer_source": "QWEN_CANDIDATE_LIKELIHOOD",
+      "candidate_scores": {
+        "yes": -11.687113761901855,
+        "no": -10.888936042785645
+      }
+    },
+    "source_metadata": null,
+    "model": "official_croma_s1_phase3p1_projector_qwen25vl"
+  },
+  "execution_trace": [
+    {
+      "step_id": 1,
+      "component": "INPUT_CONFIGURATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "One image is explicitly declared as SINGLE.",
+      "timestamp": 1791081629.1870728
+    },
+    {
+      "step_id": 2,
+      "component": "QUERY_CLASSIFICATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "The query is a single-image visual question.",
+      "timestamp": 1791081629.1870832
+    },
+    {
+      "step_id": 3,
+      "component": "ROUTE_SELECTION",
+      "action": "select_capability",
+      "status": "COMPLETED",
+      "detail": "User-selected SINGLE_IMAGE_SAR_VQA is compatible with declared inputs and query intent.",
+      "timestamp": 1791081629.1870902
+    },
+    {
+      "step_id": 4,
+      "component": "INPUT_VALIDATION",
+      "action": "validate",
+      "status": "COMPLETED",
+      "detail": "Declared inputs passed configuration-level validation.",
+      "timestamp": 1791081629.1870923
+    },
+    {
+      "step_id": 5,
+      "component": "SPECIALIST_EXECUTION",
+      "action": "run",
+      "status": "COMPLETED",
+      "detail": "official_croma_s1 + phase3p1_s1_sar_projector + qwen25vl completed.",
+      "timestamp": 1791081644.9971986,
+      "duration_ms": 15810.103
+    },
+    {
+      "step_id": 6,
+      "component": "RESULT_INTEGRATION",
+      "action": "normalize",
+      "status": "COMPLETED",
+      "detail": "A common response contract was assembled.",
+      "timestamp": 1791081644.9972086
+    }
+  ],
+  "details": {
+    "status": "OK",
+    "task": "SINGLE_IMAGE_SAR_VQA",
+    "task_type": "binary_qa",
+    "selected_specialist": "official_croma_s1_phase3p1_projector_qwen25vl",
+    "image_id": "upload:de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+    "split": "external_inference",
+    "route": "SINGLE_IMAGE_SAR_VQA",
+    "question": "Do parts of the image correspond to pastures?",
+    "answer": "no",
+    "generated_response": "no",
+    "parsed_answer": "no",
+    "visual_evidence": {
+      "type": "S1_SAR_CROMA_PROJECTED_TOKENS",
+      "input_shape": [
+        2,
+        120,
+        120
+      ],
+      "croma_token_shape": [
+        1,
+        225,
+        768
+      ],
+      "projected_token_shape": [
+        1,
+        16,
+        2048
+      ],
+      "crs": "EPSG:32629",
+      "resolution": [
+        10,
+        10
+      ],
+      "bounds": [
+        642000,
+        5972400,
+        643200,
+        5973600
+      ],
+      "bounding_boxes": [],
+      "masks": []
+    },
+    "provenance": {
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "croma_model": "official CROMA Base S1 encoder",
+      "croma_image_resolution": 120,
+      "projector_checkpoint_sha256": "a7e57bff0cba141db5c34f549d0bc3f25638960fe39ab25246bbab49e979accd",
+      "projector_state_fingerprint": "7bf9935839cd7f3417227d46e09e217729d466fa1b2d95ef3524d8c86d568a6f",
+      "projector_adapter_id": "phase3p1_s1_sar_projector",
+      "canonical_band_order": [
+        "VV",
+        "VH"
+      ],
+      "normalization": "official CROMA per-channel mean +/- 2 std, clipped to [0,1]",
+      "generation_interface": "phase3o10_multimodal_prefix_v1",
+      "qwen_trainable_parameter_count": 0,
+      "image_id": "upload:de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+      "split": "external_inference",
+      "answer_source": "QWEN_CANDIDATE_LIKELIHOOD",
+      "candidate_scores": {
+        "yes": -11.687113761901855,
+        "no": -10.888936042785645
+      }
+    },
+    "warnings": [
+      "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+      "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+      "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+    ],
+    "execution_trace": [
+      {
+        "step": "s1_validation",
+        "status": "EXECUTED",
+        "shape": [
+          2,
+          120,
+          120
+        ]
+      },
+      {
+        "step": "official_croma_s1_encoder",
+        "status": "EXECUTED",
+        "token_shape": [
+          1,
+          225,
+          768
+        ]
+      },
+      {
+        "step": "phase3p1_s1_projector",
+        "status": "EXECUTED",
+        "token_shape": [
+          1,
+          16,
+          2048
+        ]
+      },
+      {
+        "step": "frozen_qwen_generation",
+        "status": "EXECUTED",
+        "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3"
+      }
+    ],
+    "evidence_inputs": [
+      {
+        "input_id": "upload:de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+        "inspection": {
+          "readable": true,
+          "input_kind": "RASTER",
+          "file_name": "phase3ad_validation_s1.tif",
+          "file_suffix": ".tif",
+          "file_size_bytes": 116294,
+          "sha256": "de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+          "driver": "GTiff",
+          "width": 120,
+          "height": 120,
+          "shape": [
+            120,
+            120
+          ],
+          "band_count": 2,
+          "dtypes": [
+            "float32",
+            "float32"
+          ],
+          "crs": "EPSG:32629",
+          "transform": [
+            10,
+            0,
+            642000,
+            0,
+            -10,
+            5973600,
+            0,
+            0,
+            1
+          ],
+          "resolution": [
+            10,
+            10
+          ],
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "nodata": [
+            null,
+            null
+          ],
+          "band_descriptions": [
+            "VV",
+            "VH"
+          ],
+          "color_interpretation": [
+            "gray",
+            "undefined"
+          ],
+          "finite_value_checks": {
+            "bounded_full_read": true,
+            "total_band_pixels": 28800,
+            "valid_unmasked_values": 28800,
+            "masked_or_nodata_values": 0,
+            "nonfinite_unmasked_values": 0,
+            "all_unmasked_values_finite": true,
+            "all_unmasked_values_zero": false,
+            "all_unmasked_values_constant": false,
+            "finite_min": 0,
+            "finite_max": 1
+          },
+          "band_statistics": [
+            {
+              "band_index": 1,
+              "sample_count": 14400,
+              "nodata_fraction": 0,
+              "finite_fraction": 1,
+              "min": 0,
+              "max": 1,
+              "mean": 0.49874147772789,
+              "std": 0.23554666340351105,
+              "percentiles": {
+                "p02": 0,
+                "p50": 0.4950496703386307,
+                "p98": 1
+              }
+            },
+            {
+              "band_index": 2,
+              "sample_count": 14400,
+              "nodata_fraction": 0,
+              "finite_fraction": 1,
+              "min": 0,
+              "max": 1,
+              "mean": 0.5018815398216248,
+              "std": 0.2318761944770813,
+              "percentiles": {
+                "p02": 0,
+                "p50": 0.5047455430030823,
+                "p98": 0.9913696968555458
+              }
+            }
+          ]
+        },
+        "declaration": {
+          "sensor": "sentinel-1",
+          "modality": "sar",
+          "role": "SINGLE",
+          "band_order": [
+            "VV",
+            "VH"
+          ],
+          "band_order_confirmed": true,
+          "source": "user_declaration"
+        },
+        "adapter": {
+          "sensor": "sentinel-1",
+          "modality": "sar",
+          "role": "SINGLE",
+          "band_order": [
+            "VV",
+            "VH"
+          ],
+          "band_order_confirmed": true,
+          "transforms_applied": [],
+          "resampling_applied": false,
+          "band_reordering_applied": false,
+          "adapter": "sentinel-1-declared",
+          "status": "DECLARED_COMPATIBILITY_CHECK_REQUIRED"
+        },
+        "compatibility": {
+          "status": "COMPATIBLE",
+          "code": null,
+          "eligible_for_agent": true,
+          "requested_route": "SINGLE_IMAGE_SAR_VQA",
+          "message": "Declared raster meets the existing Sentinel-1 SAR VQA input contract.",
+          "warnings": [
+            "SAR-only semantic validation remains limited; no optical fallback is used."
+          ]
+        }
+      }
+    ]
+  },
+  "error": null,
+  "runtime_seconds": 15.810174,
+  "routing_basis": "User-selected SINGLE_IMAGE_SAR_VQA is compatible with declared inputs and query intent.",
+  "evidence": {
+    "schema": "SATQUERY_GEOSPATIAL_EVIDENCE_V1",
+    "inputs": [
+      {
+        "input_id": "upload:de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+        "geospatial": {
+          "available": true,
+          "crs": "EPSG:32629",
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "transform": [
+            10,
+            0,
+            642000,
+            0,
+            -10,
+            5973600,
+            0,
+            0,
+            1
+          ],
+          "resolution": [
+            10,
+            10
+          ],
+          "width": 120,
+          "height": 120,
+          "footprint": {
+            "status": "AVAILABLE",
+            "crs": "EPSG:32629",
+            "bounds": [
+              642000,
+              5972400,
+              643200,
+              5973600
+            ],
+            "geometry": "BOUNDING_RECTANGLE",
+            "wgs84_bounds": [
+              -6.839720568006989,
+              53.88026866234289,
+              -6.820918454626872,
+              53.89137650265001
+            ]
+          }
+        },
+        "raster_statistics": {
+          "label": "IMAGE STATISTICS",
+          "bands": [
+            {
+              "band_index": 1,
+              "sample_count": 14400,
+              "nodata_fraction": 0,
+              "finite_fraction": 1,
+              "min": 0,
+              "max": 1,
+              "mean": 0.49874147772789,
+              "std": 0.23554666340351105,
+              "percentiles": {
+                "p02": 0,
+                "p50": 0.4950496703386307,
+                "p98": 1
+              }
+            },
+            {
+              "band_index": 2,
+              "sample_count": 14400,
+              "nodata_fraction": 0,
+              "finite_fraction": 1,
+              "min": 0,
+              "max": 1,
+              "mean": 0.5018815398216248,
+              "std": 0.2318761944770813,
+              "percentiles": {
+                "p02": 0,
+                "p50": 0.5047455430030823,
+                "p98": 0.9913696968555458
+              }
+            }
+          ],
+          "band_count": 2,
+          "band_names": [
+            "VV",
+            "VH"
+          ],
+          "dtypes": [
+            "float32",
+            "float32"
+          ],
+          "nodata": [
+            null,
+            null
+          ],
+          "finite_value_checks": {
+            "bounded_full_read": true,
+            "total_band_pixels": 28800,
+            "valid_unmasked_values": 28800,
+            "masked_or_nodata_values": 0,
+            "nonfinite_unmasked_values": 0,
+            "all_unmasked_values_finite": true,
+            "all_unmasked_values_zero": false,
+            "all_unmasked_values_constant": false,
+            "finite_min": 0,
+            "finite_max": 1
+          }
+        },
+        "source": {
+          "file_name": "phase3ad_validation_s1.tif",
+          "sha256": "de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+          "driver": "GTiff"
+        },
+        "declaration": {
+          "sensor": "sentinel-1",
+          "modality": "sar",
+          "role": "SINGLE",
+          "band_order": [
+            "VV",
+            "VH"
+          ],
+          "band_order_confirmed": true,
+          "source": "user_declaration"
+        },
+        "adapter": {
+          "sensor": "sentinel-1",
+          "modality": "sar",
+          "role": "SINGLE",
+          "band_order": [
+            "VV",
+            "VH"
+          ],
+          "band_order_confirmed": true,
+          "transforms_applied": [],
+          "resampling_applied": false,
+          "band_reordering_applied": false,
+          "adapter": "sentinel-1-declared",
+          "status": "DECLARED_COMPATIBILITY_CHECK_REQUIRED"
+        },
+        "compatibility": {
+          "status": "COMPATIBLE",
+          "code": null,
+          "eligible_for_agent": true,
+          "requested_route": "SINGLE_IMAGE_SAR_VQA",
+          "message": "Declared raster meets the existing Sentinel-1 SAR VQA input contract.",
+          "warnings": [
+            "SAR-only semantic validation remains limited; no optical fallback is used."
+          ]
+        },
+        "warnings": []
+      }
+    ],
+    "provenance": {
+      "route": "SINGLE_IMAGE_SAR_VQA",
+      "specialist": "official_croma_s1 + phase3p1_s1_sar_projector + qwen25vl",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED: the route is technically conditioned on SAR, but standalone SAR did not demonstrate clear semantic improvement.",
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ],
+      "confidence_policy": "MODEL_CONFIDENCE_IS_SEPARATE_FROM_IMAGE_STATISTICS"
+    }
+  }
+}

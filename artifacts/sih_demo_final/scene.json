@@ -1,0 +1,254 @@
+{
+  "status": "COMPLETED",
+  "request_id": "898606aa-2b21-45af-b46d-61a17f7c1665",
+  "query": "Describe this image.",
+  "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+  "capability_status": "AVAILABLE",
+  "answer": "There are two green trees in the picture.",
+  "visual_evidence": {
+    "type": "INPUT_IMAGE_ONLY",
+    "masks": [],
+    "boxes": []
+  },
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "warnings": [
+    "Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.",
+    "Answer confidence is not calibrated."
+  ],
+  "provenance": {
+    "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "input_summary": [
+      {
+        "input_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+        "role": "SINGLE",
+        "modality": "rgb",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": "sentinel-2",
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": null,
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      }
+    ],
+    "specialist": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+    "specialist_provenance": {
+      "model_id": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+      "model_sha256": "7901956be7ababfff6d313d6d1df43d13863ff62df6af2f2d07401782307e143",
+      "model_license": "Apache-2.0",
+      "device": "cuda:0",
+      "source_kind": "verified_local_s2_b04_b03_b02_rgb_rendering"
+    },
+    "source_metadata": {
+      "split": "train",
+      "shape": [
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10,
+        10
+      ],
+      "bounds": [
+        606000,
+        5385600,
+        607200,
+        5386800
+      ],
+      "transform": [
+        10,
+        0,
+        606000,
+        0,
+        -10,
+        5386800,
+        0,
+        0,
+        1
+      ],
+      "optical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "optical_resampling": "rasterio bilinear reprojection to B02 grid",
+      "rendering": "B04/B03/B02 contrast-stretched RGB"
+    },
+    "model": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct"
+  },
+  "execution_trace": [
+    {
+      "step_id": 1,
+      "component": "INPUT_CONFIGURATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "One image is explicitly declared as SINGLE.",
+      "timestamp": 1791081611.7508304
+    },
+    {
+      "step_id": 2,
+      "component": "QUERY_CLASSIFICATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "The query explicitly requests a single-image scene description.",
+      "timestamp": 1791081611.7508411
+    },
+    {
+      "step_id": 3,
+      "component": "ROUTE_SELECTION",
+      "action": "select_capability",
+      "status": "COMPLETED",
+      "detail": "User-selected SINGLE_IMAGE_SCENE_DESCRIPTION is compatible with declared inputs and query intent.",
+      "timestamp": 1791081611.7508473
+    },
+    {
+      "step_id": 4,
+      "component": "INPUT_VALIDATION",
+      "action": "validate",
+      "status": "COMPLETED",
+      "detail": "Declared inputs passed configuration-level validation.",
+      "timestamp": 1791081611.7508492
+    },
+    {
+      "step_id": 5,
+      "component": "SPECIALIST_EXECUTION",
+      "action": "run",
+      "status": "COMPLETED",
+      "detail": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct completed.",
+      "timestamp": 1791081628.8879414,
+      "duration_ms": 17137.088
+    },
+    {
+      "step_id": 6,
+      "component": "RESULT_INTEGRATION",
+      "action": "normalize",
+      "status": "COMPLETED",
+      "detail": "A common response contract was assembled.",
+      "timestamp": 1791081628.8879526
+    }
+  ],
+  "details": {
+    "status": "OK",
+    "task": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+    "selected_specialist": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+    "model_tool": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+    "answer": "There are two green trees in the picture.",
+    "generated_response": "There are two green trees in the picture.",
+    "image_identity": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+    "source_kind": "verified_local_s2_b04_b03_b02_rgb_rendering",
+    "image_size": [
+      120,
+      120
+    ],
+    "source_metadata": {
+      "split": "train",
+      "shape": [
+        120,
+        120
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10,
+        10
+      ],
+      "bounds": [
+        606000,
+        5385600,
+        607200,
+        5386800
+      ],
+      "transform": [
+        10,
+        0,
+        606000,
+        0,
+        -10,
+        5386800,
+        0,
+        0,
+        1
+      ],
+      "optical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "optical_resampling": "rasterio bilinear reprojection to B02 grid",
+      "rendering": "B04/B03/B02 contrast-stretched RGB"
+    },
+    "visual_evidence": {
+      "type": "INPUT_IMAGE_ONLY",
+      "masks": [],
+      "boxes": []
+    },
+    "provenance": {
+      "model_id": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+      "model_sha256": "7901956be7ababfff6d313d6d1df43d13863ff62df6af2f2d07401782307e143",
+      "model_license": "Apache-2.0",
+      "device": "cuda:0",
+      "source_kind": "verified_local_s2_b04_b03_b02_rgb_rendering"
+    },
+    "warnings": [
+      "Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.",
+      "Answer confidence is not calibrated."
+    ],
+    "runtime_seconds": 16.605317,
+    "details": {
+      "evidence_inputs": [
+        {
+          "input_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+          "inspection": null,
+          "declaration": null,
+          "adapter": null,
+          "compatibility": null
+        }
+      ]
+    }
+  },
+  "error": null,
+  "runtime_seconds": 17.137197,
+  "routing_basis": "User-selected SINGLE_IMAGE_SCENE_DESCRIPTION is compatible with declared inputs and query intent.",
+  "evidence": {
+    "schema": "SATQUERY_GEOSPATIAL_EVIDENCE_V1",
+    "inputs": [],
+    "provenance": {
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "specialist": "AdaptLLM/remote-sensing-Qwen2-VL-2B-Instruct",
+      "warnings": [
+        "Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.",
+        "Answer confidence is not calibrated."
+      ],
+      "confidence_policy": "MODEL_CONFIDENCE_IS_SEPARATE_FROM_IMAGE_STATISTICS"
+    }
+  }
+}

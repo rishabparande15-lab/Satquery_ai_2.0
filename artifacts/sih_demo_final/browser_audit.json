@@ -1,0 +1,114 @@
+{
+  "results": {
+    "s2": {
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "answer": "no",
+      "warnings": [
+        "Internal validation only; benchmark generalization is not established.",
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    },
+    "scene": {
+      "http": 200,
+      "route": "SINGLE_IMAGE_SCENE_DESCRIPTION",
+      "status": "COMPLETED",
+      "answer": "There are two green trees in the picture.",
+      "warnings": [
+        "Scene description is generated from an explicit RGB rendering or RGB upload; sensor identity is not inferred from pixels.",
+        "Answer confidence is not calibrated."
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    },
+    "sar": {
+      "http": 200,
+      "route": "SINGLE_IMAGE_SAR_VQA",
+      "status": "COMPLETED",
+      "answer": "no",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED: the route is technically conditioned on SAR, but standalone SAR did not demonstrate clear semantic improvement.",
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    },
+    "pair": {
+      "http": 200,
+      "route": "OPTICAL_SAR_ANALYSIS",
+      "status": "COMPLETED",
+      "answer": "The SAR and optical information together can be",
+      "warnings": [
+        "Multimodal path is technically valid but did not demonstrate improvement over the optical-only baseline.",
+        "bounded fixed-panel integration; no claim of fusion accuracy gain",
+        "COREGISTRATION_NOT_VERIFIED"
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    },
+    "temporal": {
+      "http": 200,
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "status": "COMPLETED",
+      "answer": "a row of houses is built at the top of the scene",
+      "warnings": [
+        "Natural-language change description only; no spatial change mask or area estimate is produced.",
+        "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    },
+    "s2_revisit": {
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "answer": "no",
+      "warnings": [
+        "Internal validation only; benchmark generalization is not established.",
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ],
+      "confidence": {
+        "value": null,
+        "type": "NOT_AVAILABLE"
+      },
+      "evidence": true,
+      "provenance": true,
+      "trace": true
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "failed_requests": []
+}

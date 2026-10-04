@@ -50,6 +50,7 @@ __pycache__/
 /artifacts/phase3g1/
 /artifacts/pipeline3_5000/
 /artifacts/test_fixtures/
+/artifacts/phase3ad_browser/
 .pytest-full-*/
 
 # Local environments and temporary files.

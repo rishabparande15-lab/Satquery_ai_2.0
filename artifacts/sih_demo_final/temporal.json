@@ -1,0 +1,446 @@
+{
+  "status": "COMPLETED",
+  "request_id": "fa962285-8936-4149-a3db-1fbd217fc89b",
+  "query": "Describe the changes between the two dates.",
+  "route": "TEMPORAL_CHANGE_DESCRIPTION",
+  "capability_status": "AVAILABLE",
+  "answer": "a row of houses is built at the top of the scene",
+  "visual_evidence": {
+    "type": "INPUT_PAIR_PREVIEWS",
+    "t1": {
+      "filename": "val_000001.png",
+      "sha256": "96c05a8f1e53b0563e06f0ec08b974a91ecb74bd12951a4d3f434a74013235c6",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    "t2": {
+      "filename": "val_000001.png",
+      "sha256": "17443fba0abccd9c366112fce502490bf843ca1f15d7c898dd13c1ecdfe9cb30",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    "masks": [],
+    "boxes": []
+  },
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "warnings": [
+    "Natural-language change description only; no spatial change mask or area estimate is produced.",
+    "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+  ],
+  "provenance": {
+    "route": "TEMPORAL_CHANGE_DESCRIPTION",
+    "input_summary": [
+      {
+        "input_id": "val_000001.png",
+        "role": "T1",
+        "modality": "optical",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": null,
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": "PRE",
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      },
+      {
+        "input_id": "val_000001.png",
+        "role": "T2",
+        "modality": "optical",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": null,
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": "POST",
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      }
+    ],
+    "specialist": "Chg2Cap",
+    "specialist_provenance": {
+      "source_dataset": "external",
+      "model": {
+        "model": "Chg2Cap",
+        "checkpoint": "LEVIR_CC_batchsize_32_resnet101.pth",
+        "checkpoint_sha256": "d737a92afa3cb76a07f672ee905afb59278211c77ccce517a37ae4637110194c",
+        "vocab_source": "artifacts/final/temporal/phase3v2a_inference_unblock/rscama_vocab.json",
+        "vocab_size": 501,
+        "device": "cuda",
+        "generated_tokens": [
+          2,
+          4,
+          365,
+          288,
+          211,
+          224,
+          65,
+          30,
+          428,
+          437,
+          288,
+          428,
+          373,
+          3
+        ]
+      }
+    },
+    "source_metadata": null,
+    "model": "Chg2Cap"
+  },
+  "execution_trace": [
+    {
+      "step_id": 1,
+      "component": "INPUT_CONFIGURATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "Two inputs are explicitly labelled T1 and T2.",
+      "timestamp": 1791081657.1422873
+    },
+    {
+      "step_id": 2,
+      "component": "QUERY_CLASSIFICATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "The query explicitly requests change between dates.",
+      "timestamp": 1791081657.1422968
+    },
+    {
+      "step_id": 3,
+      "component": "ROUTE_SELECTION",
+      "action": "select_capability",
+      "status": "COMPLETED",
+      "detail": "User-selected TEMPORAL_CHANGE_DESCRIPTION is compatible with declared inputs and query intent.",
+      "timestamp": 1791081657.142302
+    },
+    {
+      "step_id": 4,
+      "component": "INPUT_VALIDATION",
+      "action": "validate",
+      "status": "COMPLETED",
+      "detail": "Declared inputs passed configuration-level validation.",
+      "timestamp": 1791081657.1423037
+    },
+    {
+      "step_id": 5,
+      "component": "SPECIALIST_EXECUTION",
+      "action": "run",
+      "status": "COMPLETED",
+      "detail": "Chg2Cap completed.",
+      "timestamp": 1791081665.686087,
+      "duration_ms": 8543.781
+    },
+    {
+      "step_id": 6,
+      "component": "RESULT_INTEGRATION",
+      "action": "normalize",
+      "status": "COMPLETED",
+      "detail": "A common response contract was assembled.",
+      "timestamp": 1791081665.6860929
+    }
+  ],
+  "details": {
+    "status": "COMPLETED",
+    "route": "TEMPORAL_CHANGE_DESCRIPTION",
+    "task": "TEMPORAL_CHANGE_DESCRIPTION",
+    "change_description": "a row of houses is built at the top of the scene",
+    "selected_specialist": "Chg2Cap",
+    "model_tool": "Chg2Cap",
+    "temporal_order": "PRE_POST",
+    "pair_id": "val_000001.png",
+    "query": "Describe the changes between the two dates.",
+    "t1_identity": {
+      "filename": "val_000001.png",
+      "sha256": "96c05a8f1e53b0563e06f0ec08b974a91ecb74bd12951a4d3f434a74013235c6",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    "t2_identity": {
+      "filename": "val_000001.png",
+      "sha256": "17443fba0abccd9c366112fce502490bf843ca1f15d7c898dd13c1ecdfe9cb30",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    "provenance": {
+      "source_dataset": "external",
+      "model": {
+        "model": "Chg2Cap",
+        "checkpoint": "LEVIR_CC_batchsize_32_resnet101.pth",
+        "checkpoint_sha256": "d737a92afa3cb76a07f672ee905afb59278211c77ccce517a37ae4637110194c",
+        "vocab_source": "artifacts/final/temporal/phase3v2a_inference_unblock/rscama_vocab.json",
+        "vocab_size": 501,
+        "device": "cuda",
+        "generated_tokens": [
+          2,
+          4,
+          365,
+          288,
+          211,
+          224,
+          65,
+          30,
+          428,
+          437,
+          288,
+          428,
+          373,
+          3
+        ]
+      }
+    },
+    "warnings": [
+      "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+    ],
+    "error_code": null,
+    "runtime_seconds": 8.202533300000141,
+    "details": {
+      "evidence_inputs": [
+        {
+          "input_id": "val_000001.png",
+          "inspection": {
+            "readable": true,
+            "input_kind": "RGB_IMAGE",
+            "file_name": "val_000001.png",
+            "file_suffix": ".png",
+            "file_size_bytes": 130916,
+            "sha256": "96c05a8f1e53b0563e06f0ec08b974a91ecb74bd12951a4d3f434a74013235c6",
+            "driver": "PNG",
+            "width": 256,
+            "height": 256,
+            "shape": [
+              256,
+              256
+            ],
+            "band_count": 3,
+            "dtypes": [
+              "uint8",
+              "uint8",
+              "uint8"
+            ],
+            "crs": null,
+            "transform": null,
+            "resolution": null,
+            "bounds": null,
+            "nodata": [
+              null,
+              null,
+              null
+            ],
+            "band_descriptions": [
+              "R",
+              "G",
+              "B"
+            ],
+            "color_interpretation": [
+              "red",
+              "green",
+              "blue"
+            ],
+            "finite_value_checks": {
+              "bounded_full_read": true,
+              "total_band_pixels": 196608,
+              "valid_unmasked_values": 196608,
+              "masked_or_nodata_values": 0,
+              "nonfinite_unmasked_values": 0,
+              "all_unmasked_values_finite": true,
+              "all_unmasked_values_zero": false,
+              "all_unmasked_values_constant": false,
+              "finite_min": 0,
+              "finite_max": 255
+            },
+            "band_statistics": [
+              {
+                "band_index": 1,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 255,
+                "mean": 122.95391845703125,
+                "std": 49.47837200402952,
+                "percentiles": {
+                  "p02": 0,
+                  "p50": 136,
+                  "p98": 186
+                }
+              },
+              {
+                "band_index": 2,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 255,
+                "mean": 120.66213989257812,
+                "std": 40.77430928677318,
+                "percentiles": {
+                  "p02": 6,
+                  "p50": 131,
+                  "p98": 173
+                }
+              },
+              {
+                "band_index": 3,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 225,
+                "mean": 95.70794677734375,
+                "std": 33.55520865548571,
+                "percentiles": {
+                  "p02": 5,
+                  "p50": 104,
+                  "p98": 141
+                }
+              }
+            ]
+          }
+        },
+        {
+          "input_id": "val_000001.png",
+          "inspection": {
+            "readable": true,
+            "input_kind": "RGB_IMAGE",
+            "file_name": "val_000001.png",
+            "file_suffix": ".png",
+            "file_size_bytes": 111466,
+            "sha256": "17443fba0abccd9c366112fce502490bf843ca1f15d7c898dd13c1ecdfe9cb30",
+            "driver": "PNG",
+            "width": 256,
+            "height": 256,
+            "shape": [
+              256,
+              256
+            ],
+            "band_count": 3,
+            "dtypes": [
+              "uint8",
+              "uint8",
+              "uint8"
+            ],
+            "crs": null,
+            "transform": null,
+            "resolution": null,
+            "bounds": null,
+            "nodata": [
+              null,
+              null,
+              null
+            ],
+            "band_descriptions": [
+              "R",
+              "G",
+              "B"
+            ],
+            "color_interpretation": [
+              "red",
+              "green",
+              "blue"
+            ],
+            "finite_value_checks": {
+              "bounded_full_read": true,
+              "total_band_pixels": 196608,
+              "valid_unmasked_values": 196608,
+              "masked_or_nodata_values": 0,
+              "nonfinite_unmasked_values": 0,
+              "all_unmasked_values_finite": true,
+              "all_unmasked_values_zero": false,
+              "all_unmasked_values_constant": false,
+              "finite_min": 0,
+              "finite_max": 247
+            },
+            "band_statistics": [
+              {
+                "band_index": 1,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 247,
+                "mean": 90.94090270996094,
+                "std": 38.356177890767995,
+                "percentiles": {
+                  "p02": 20,
+                  "p50": 92,
+                  "p98": 209
+                }
+              },
+              {
+                "band_index": 2,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 234,
+                "mean": 88.24623107910156,
+                "std": 35.38092909423259,
+                "percentiles": {
+                  "p02": 19,
+                  "p50": 89,
+                  "p98": 197
+                }
+              },
+              {
+                "band_index": 3,
+                "sample_count": 65536,
+                "nodata_fraction": 0,
+                "finite_fraction": 1,
+                "min": 0,
+                "max": 218,
+                "mean": 73.67652893066406,
+                "std": 32.37981640825565,
+                "percentiles": {
+                  "p02": 13,
+                  "p50": 73,
+                  "p98": 175
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "error": null,
+  "runtime_seconds": 8.543845,
+  "routing_basis": "User-selected TEMPORAL_CHANGE_DESCRIPTION is compatible with declared inputs and query intent.",
+  "evidence": {
+    "schema": "SATQUERY_GEOSPATIAL_EVIDENCE_V1",
+    "inputs": [],
+    "provenance": {
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "specialist": "Chg2Cap",
+      "warnings": [
+        "Natural-language change description only; no spatial change mask or area estimate is produced.",
+        "Change description is generated language; no change mask, bounding box, or area estimate is produced."
+      ],
+      "confidence_policy": "MODEL_CONFIDENCE_IS_SEPARATE_FROM_IMAGE_STATISTICS"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "results": {
+    "manual_s2": {
+      "http": 200,
+      "route": "SINGLE_IMAGE_VQA",
+      "status": "COMPLETED",
+      "answer": "no"
+    },
+    "manual_temporal": {
+      "http": 200,
+      "route": "TEMPORAL_CHANGE_DESCRIPTION",
+      "status": "COMPLETED",
+      "answer": "a row of houses is built at the top of the scene"
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "failed_requests": []
+}

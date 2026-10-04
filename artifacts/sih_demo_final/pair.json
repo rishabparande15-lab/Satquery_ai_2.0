@@ -1,0 +1,402 @@
+{
+  "status": "COMPLETED",
+  "request_id": "0fbf8c4b-5afb-40f2-a2d6-23dcb6fc0a2f",
+  "query": "Use the SAR and optical information together.",
+  "route": "OPTICAL_SAR_ANALYSIS",
+  "capability_status": "AVAILABLE_WITH_LIMITATIONS",
+  "answer": "The SAR and optical information together can be",
+  "visual_evidence": {
+    "type": "INPUT_MODALITY_PAIR",
+    "modalities": [
+      "S1",
+      "S2"
+    ],
+    "masks": [],
+    "boxes": []
+  },
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "warnings": [
+    "Multimodal path is technically valid but did not demonstrate improvement over the optical-only baseline.",
+    "bounded fixed-panel integration; no claim of fusion accuracy gain",
+    "COREGISTRATION_NOT_VERIFIED"
+  ],
+  "provenance": {
+    "route": "OPTICAL_SAR_ANALYSIS",
+    "input_summary": [
+      {
+        "input_id": "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22",
+        "role": "S1",
+        "modality": "s1",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": "sentinel-1",
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": null,
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      },
+      {
+        "input_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+        "role": "S2",
+        "modality": "s2",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": "sentinel-2",
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": null,
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      }
+    ],
+    "specialist": "CROMA joint representation + CromaJointProjector + Qwen2.5-VL-3B-Instruct",
+    "specialist_provenance": {
+      "s1_used": true,
+      "s2_used": true,
+      "fusion_mode": "CROMA_JOINT",
+      "joint_projector_sha256": "bedcb8dc60d3375878b6fe732cb90b568283c7d5565148fb1a52eae0d1b12eaa",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "bigearthnet_patch_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct"
+    },
+    "source_metadata": null,
+    "model": "CROMA joint representation + CromaJointProjector + Qwen2.5-VL-3B-Instruct"
+  },
+  "execution_trace": [
+    {
+      "step_id": 1,
+      "component": "INPUT_CONFIGURATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "Inputs are explicitly labelled S1 and S2.",
+      "timestamp": 1791081645.1982121
+    },
+    {
+      "step_id": 2,
+      "component": "QUERY_CLASSIFICATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "The query is a single-image visual question.",
+      "timestamp": 1791081645.1982198
+    },
+    {
+      "step_id": 3,
+      "component": "ROUTE_SELECTION",
+      "action": "select_capability",
+      "status": "COMPLETED",
+      "detail": "User-selected OPTICAL_SAR_ANALYSIS is compatible with declared inputs and query intent.",
+      "timestamp": 1791081645.1982238
+    },
+    {
+      "step_id": 4,
+      "component": "INPUT_VALIDATION",
+      "action": "validate",
+      "status": "COMPLETED",
+      "detail": "Declared inputs passed configuration-level validation.",
+      "timestamp": 1791081645.1982255
+    },
+    {
+      "step_id": 5,
+      "component": "SPECIALIST_EXECUTION",
+      "action": "run",
+      "status": "COMPLETED",
+      "detail": "CROMA joint representation + CromaJointProjector + Qwen2.5-VL-3B-Instruct completed.",
+      "timestamp": 1791081656.8718207,
+      "duration_ms": 11673.593
+    },
+    {
+      "step_id": 6,
+      "component": "RESULT_INTEGRATION",
+      "action": "normalize",
+      "status": "COMPLETED",
+      "detail": "A common response contract was assembled.",
+      "timestamp": 1791081656.871832
+    }
+  ],
+  "details": {
+    "status": "OK",
+    "task_type": "caption",
+    "generated_response": " The SAR and optical information together can be",
+    "parsed_answer": null,
+    "route": "MULTIMODAL_S1_S2",
+    "modalities_used": [
+      "S1",
+      "S2"
+    ],
+    "bigearthnet_patch_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+    "croma_mode": "CROMA_JOINT",
+    "joint_projector_sha256": "bedcb8dc60d3375878b6fe732cb90b568283c7d5565148fb1a52eae0d1b12eaa",
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "warnings": [
+      "bounded fixed-panel integration; no claim of fusion accuracy gain",
+      "COREGISTRATION_NOT_VERIFIED"
+    ],
+    "error_code": null,
+    "provenance": {
+      "s1_used": true,
+      "s2_used": true,
+      "fusion_mode": "CROMA_JOINT",
+      "joint_projector_sha256": "bedcb8dc60d3375878b6fe732cb90b568283c7d5565148fb1a52eae0d1b12eaa",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "bigearthnet_patch_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct"
+    },
+    "diagnostics": {
+      "joint_token_shape": [
+        1,
+        225,
+        768
+      ],
+      "visual_token_shape": [
+        1,
+        16,
+        2048
+      ],
+      "finite": true
+    },
+    "evidence_inputs": [
+      {
+        "input_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+        "inspection": {
+          "file_name": "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22_VV.tif",
+          "crs": "EPSG:32629",
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "resolution": [
+            10,
+            10
+          ],
+          "width": 120,
+          "height": 120,
+          "band_count": 2,
+          "band_descriptions": [
+            "VV",
+            "VH"
+          ]
+        }
+      },
+      {
+        "input_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+        "inspection": {
+          "file_name": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22_B02.tif",
+          "crs": "EPSG:32629",
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "resolution": [
+            10,
+            10
+          ],
+          "width": 120,
+          "height": 120,
+          "band_count": 12,
+          "band_descriptions": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B8A",
+            "B09",
+            "B11",
+            "B12"
+          ]
+        }
+      }
+    ]
+  },
+  "error": null,
+  "runtime_seconds": 11.673652,
+  "routing_basis": "User-selected OPTICAL_SAR_ANALYSIS is compatible with declared inputs and query intent.",
+  "evidence": {
+    "schema": "SATQUERY_GEOSPATIAL_EVIDENCE_V1",
+    "inputs": [
+      {
+        "input_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+        "geospatial": {
+          "available": true,
+          "crs": "EPSG:32629",
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "transform": null,
+          "resolution": [
+            10,
+            10
+          ],
+          "width": 120,
+          "height": 120,
+          "footprint": {
+            "status": "AVAILABLE",
+            "crs": "EPSG:32629",
+            "bounds": [
+              642000,
+              5972400,
+              643200,
+              5973600
+            ],
+            "geometry": "BOUNDING_RECTANGLE",
+            "wgs84_bounds": [
+              -6.839720568006989,
+              53.88026866234289,
+              -6.820918454626872,
+              53.89137650265001
+            ]
+          }
+        },
+        "raster_statistics": {
+          "label": "IMAGE STATISTICS",
+          "bands": [],
+          "band_count": 2,
+          "band_names": [
+            "VV",
+            "VH"
+          ],
+          "dtypes": null,
+          "nodata": null,
+          "finite_value_checks": null
+        },
+        "source": {
+          "file_name": "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22_VV.tif",
+          "sha256": null,
+          "driver": null
+        },
+        "declaration": null,
+        "adapter": null,
+        "compatibility": null,
+        "warnings": []
+      },
+      {
+        "input_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+        "geospatial": {
+          "available": true,
+          "crs": "EPSG:32629",
+          "bounds": [
+            642000,
+            5972400,
+            643200,
+            5973600
+          ],
+          "transform": null,
+          "resolution": [
+            10,
+            10
+          ],
+          "width": 120,
+          "height": 120,
+          "footprint": {
+            "status": "AVAILABLE",
+            "crs": "EPSG:32629",
+            "bounds": [
+              642000,
+              5972400,
+              643200,
+              5973600
+            ],
+            "geometry": "BOUNDING_RECTANGLE",
+            "wgs84_bounds": [
+              -6.839720568006989,
+              53.88026866234289,
+              -6.820918454626872,
+              53.89137650265001
+            ]
+          }
+        },
+        "raster_statistics": {
+          "label": "IMAGE STATISTICS",
+          "bands": [],
+          "band_count": 12,
+          "band_names": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B8A",
+            "B09",
+            "B11",
+            "B12"
+          ],
+          "dtypes": null,
+          "nodata": null,
+          "finite_value_checks": null
+        },
+        "source": {
+          "file_name": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22_B02.tif",
+          "sha256": null,
+          "driver": null
+        },
+        "declaration": null,
+        "adapter": null,
+        "compatibility": null,
+        "warnings": []
+      }
+    ],
+    "provenance": {
+      "route": "OPTICAL_SAR_ANALYSIS",
+      "specialist": "CROMA joint representation + CromaJointProjector + Qwen2.5-VL-3B-Instruct",
+      "warnings": [
+        "Multimodal path is technically valid but did not demonstrate improvement over the optical-only baseline.",
+        "bounded fixed-panel integration; no claim of fusion accuracy gain",
+        "COREGISTRATION_NOT_VERIFIED"
+      ],
+      "confidence_policy": "MODEL_CONFIDENCE_IS_SEPARATE_FROM_IMAGE_STATISTICS"
+    },
+    "pair": {
+      "label": "SPATIAL BOUNDS OVERLAP",
+      "coregistration": "COREGISTRATION_NOT_VERIFIED",
+      "pixel_difference": {
+        "status": "PIXEL_DIFFERENCE_NOT_AVAILABLE",
+        "label": "NON-SEMANTIC PIXEL DIFFERENCE",
+        "reason": "Alignment was not established by this route."
+      },
+      "status": "OVERLAP",
+      "intersection": {
+        "bounds": [
+          642000,
+          5972400,
+          643200,
+          5973600
+        ],
+        "area": 1440000,
+        "fraction_of_first": 1,
+        "fraction_of_second": 1
+      }
+    }
+  }
+}

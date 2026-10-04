@@ -1,0 +1,277 @@
+{
+  "status": "COMPLETED",
+  "request_id": "4a93d954-6ba6-47c0-944a-898c3150acf4",
+  "query": "Is water visible in this image?",
+  "route": "SINGLE_IMAGE_VQA",
+  "capability_status": "AVAILABLE_WITH_LIMITATIONS",
+  "answer": "no",
+  "visual_evidence": {
+    "type": "S2_MULTISPECTRAL_PROJECTED_TOKENS",
+    "input_shape": [
+      12,
+      120,
+      120
+    ],
+    "projected_token_shape": [
+      1,
+      16,
+      2048
+    ],
+    "crs": "EPSG:32633",
+    "resolution": [
+      10,
+      10
+    ],
+    "bounds": [
+      606000,
+      5385600,
+      607200,
+      5386800
+    ],
+    "bounding_boxes": [],
+    "masks": []
+  },
+  "confidence": {
+    "value": null,
+    "type": "NOT_AVAILABLE"
+  },
+  "warnings": [
+    "Internal validation only; benchmark generalization is not established.",
+    "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+    "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+  ],
+  "provenance": {
+    "route": "SINGLE_IMAGE_VQA",
+    "input_summary": [
+      {
+        "input_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+        "role": "SINGLE",
+        "modality": "s2",
+        "source": "approved_demo",
+        "file_type": null,
+        "sensor": "sentinel-2",
+        "shape": null,
+        "channels": null,
+        "crs": null,
+        "resolution": null,
+        "bounds": null,
+        "pair_id": null,
+        "temporal_role": null,
+        "split": null,
+        "provenance": null,
+        "external_descriptor": null,
+        "adapter": null,
+        "compatibility": null
+      }
+    ],
+    "specialist": "phase3o5_s2_projector_qwen25vl",
+    "specialist_provenance": {
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "projector_checkpoint_sha256": "e7f22d74e048cde31a746186b52b9ca5eb18b71532fc248d9a1c15fbd90819db",
+      "projector_state_fingerprint": "db9ae1c4ed85e7c5044150fa32797a49403a4a3e3cfbe65d875b15803892df46",
+      "projector_adapter_id": "phase3g_s2_qwen_token_projector_v1",
+      "canonical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "normalization": "robust_channel_scale_v1",
+      "generation_interface": "phase3o10_multimodal_prefix_v1",
+      "scientific_representation_used": false,
+      "qwen_trainable_parameter_count": 0,
+      "image_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+      "split": "train"
+    },
+    "source_metadata": null,
+    "model": "phase3o5_s2_projector_qwen25vl"
+  },
+  "execution_trace": [
+    {
+      "step_id": 1,
+      "component": "INPUT_CONFIGURATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "One image is explicitly declared as SINGLE.",
+      "timestamp": 1791081666.0634155
+    },
+    {
+      "step_id": 2,
+      "component": "QUERY_CLASSIFICATION",
+      "action": "classify",
+      "status": "COMPLETED",
+      "detail": "The query is a single-image visual question.",
+      "timestamp": 1791081666.063425
+    },
+    {
+      "step_id": 3,
+      "component": "ROUTE_SELECTION",
+      "action": "select_capability",
+      "status": "COMPLETED",
+      "detail": "User-selected SINGLE_IMAGE_VQA is compatible with declared inputs and query intent.",
+      "timestamp": 1791081666.0634298
+    },
+    {
+      "step_id": 4,
+      "component": "INPUT_VALIDATION",
+      "action": "validate",
+      "status": "COMPLETED",
+      "detail": "Declared inputs passed configuration-level validation.",
+      "timestamp": 1791081666.063431
+    },
+    {
+      "step_id": 5,
+      "component": "SPECIALIST_EXECUTION",
+      "action": "run",
+      "status": "COMPLETED",
+      "detail": "phase3o5_s2_projector_qwen25vl completed.",
+      "timestamp": 1791081677.8238614,
+      "duration_ms": 11760.428
+    },
+    {
+      "step_id": 6,
+      "component": "RESULT_INTEGRATION",
+      "action": "normalize",
+      "status": "COMPLETED",
+      "detail": "A common response contract was assembled.",
+      "timestamp": 1791081677.8238704
+    }
+  ],
+  "details": {
+    "status": "OK",
+    "task": "SINGLE_IMAGE_VQA",
+    "task_type": "binary_qa",
+    "selected_specialist": "phase3o5_s2_projector_qwen25vl",
+    "image_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+    "split": "train",
+    "route": "SINGLE_IMAGE_VQA",
+    "question": "Is water visible in this image?",
+    "answer": "no",
+    "generated_response": " no",
+    "parsed_answer": "no",
+    "visual_evidence": {
+      "type": "S2_MULTISPECTRAL_PROJECTED_TOKENS",
+      "input_shape": [
+        12,
+        120,
+        120
+      ],
+      "projected_token_shape": [
+        1,
+        16,
+        2048
+      ],
+      "crs": "EPSG:32633",
+      "resolution": [
+        10,
+        10
+      ],
+      "bounds": [
+        606000,
+        5385600,
+        607200,
+        5386800
+      ],
+      "bounding_boxes": [],
+      "masks": []
+    },
+    "execution_trace": [
+      {
+        "step": "route_selection",
+        "status": "EXECUTED",
+        "route": "SINGLE_IMAGE_VQA"
+      },
+      {
+        "step": "single_s2_validation",
+        "status": "EXECUTED",
+        "shape": [
+          12,
+          120,
+          120
+        ]
+      },
+      {
+        "step": "s2_projector",
+        "status": "EXECUTED",
+        "token_shape": [
+          1,
+          16,
+          2048
+        ]
+      },
+      {
+        "step": "frozen_qwen_generation",
+        "status": "EXECUTED",
+        "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3"
+      }
+    ],
+    "provenance": {
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "qwen_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "projector_checkpoint_sha256": "e7f22d74e048cde31a746186b52b9ca5eb18b71532fc248d9a1c15fbd90819db",
+      "projector_state_fingerprint": "db9ae1c4ed85e7c5044150fa32797a49403a4a3e3cfbe65d875b15803892df46",
+      "projector_adapter_id": "phase3g_s2_qwen_token_projector_v1",
+      "canonical_band_order": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B8A",
+        "B09",
+        "B11",
+        "B12"
+      ],
+      "normalization": "robust_channel_scale_v1",
+      "generation_interface": "phase3o10_multimodal_prefix_v1",
+      "scientific_representation_used": false,
+      "qwen_trainable_parameter_count": 0,
+      "image_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+      "split": "train"
+    },
+    "warnings": [
+      "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+      "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+    ],
+    "details": {
+      "evidence_inputs": [
+        {
+          "input_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11",
+          "inspection": null,
+          "declaration": null,
+          "adapter": null,
+          "compatibility": null
+        }
+      ]
+    }
+  },
+  "error": null,
+  "runtime_seconds": 11.760485,
+  "routing_basis": "User-selected SINGLE_IMAGE_VQA is compatible with declared inputs and query intent.",
+  "evidence": {
+    "schema": "SATQUERY_GEOSPATIAL_EVIDENCE_V1",
+    "inputs": [],
+    "provenance": {
+      "route": "SINGLE_IMAGE_VQA",
+      "specialist": "phase3o5_s2_projector_qwen25vl",
+      "warnings": [
+        "Internal validation only; benchmark generalization is not established.",
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ],
+      "confidence_policy": "MODEL_CONFIDENCE_IS_SEPARATE_FROM_IMAGE_STATISTICS"
+    }
+  }
+}
