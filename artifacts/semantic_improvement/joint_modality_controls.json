@@ -1,0 +1,164 @@
+[
+  {
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 13.755634307861328
+  },
+  {
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "task_type": "binary_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 25.972421646118164
+  },
+  {
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 14.932053565979004
+  },
+  {
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "task_type": "binary_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "yes",
+    "reference_prediction": "yes",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 31.618234634399414
+  },
+  {
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "no",
+    "reference_prediction": "no",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "task_type": "binary_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "no",
+    "reference_prediction": "no",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 12.906100273132324
+  },
+  {
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "task_type": "binary_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "no",
+    "reference_prediction": "no",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 42.303749084472656
+  },
+  {
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 10.963729858398438
+  },
+  {
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "task_type": "multiple_choice_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 21.13544464111328
+  },
+  {
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "c",
+    "reference_prediction": "c",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "c",
+    "reference_prediction": "c",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 10.556024551391602
+  },
+  {
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "task_type": "multiple_choice_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "c",
+    "reference_prediction": "c",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 23.006206512451172
+  },
+  {
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_correct_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 0.0
+  },
+  {
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "task_type": "multiple_choice_qa",
+    "condition": "correct_s2_shuffled_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 14.310969352722168
+  },
+  {
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "task_type": "multiple_choice_qa",
+    "condition": "shuffled_s2_correct_sar",
+    "prediction": "d",
+    "reference_prediction": "d",
+    "decision_changed": false,
+    "visual_token_l2_vs_correct": 43.05906677246094
+  }
+]

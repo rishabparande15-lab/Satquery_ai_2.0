@@ -1,0 +1,53 @@
+{
+  "JOINT": {
+    "aggregate": {
+      "accuracy": 0.25,
+      "correct": 2,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.5,
+      "correct": 2,
+      "total": 4
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    }
+  },
+  "S2": {
+    "aggregate": {
+      "accuracy": 0.125,
+      "correct": 1,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.25,
+      "correct": 1,
+      "total": 4
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    }
+  },
+  "SAR": {
+    "aggregate": {
+      "accuracy": 0.25,
+      "correct": 2,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.5,
+      "correct": 2,
+      "total": 4
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    }
+  }
+}

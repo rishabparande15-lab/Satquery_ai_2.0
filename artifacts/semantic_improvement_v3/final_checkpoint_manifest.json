@@ -1,0 +1,27 @@
+{
+  "base_model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "base_model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "logical_checkpoint_name": "exp01_final_layer_qv_lora_rejected_candidate",
+  "lora_configuration": {
+    "alpha": 8,
+    "base_qwen_frozen": true,
+    "dropout": 0.0,
+    "rank": 4,
+    "targets": [
+      "model.layers.35.self_attn.q_proj",
+      "model.layers.35.self_attn.v_proj"
+    ]
+  },
+  "projector_hashes": {
+    "joint": "bedcb8dc60d3375878b6fe732cb90b568283c7d5565148fb1a52eae0d1b12eaa",
+    "s2": "e7f22d74e048cde31a746186b52b9ca5eb18b71532fc248d9a1c15fbd90819db",
+    "sar": "a7e57bff0cba141db5c34f549d0bc3f25638960fe39ab25246bbab49e979accd"
+  },
+  "relative_path": "artifacts/semantic_improvement_v3/experiments/exp01/adapter.pt",
+  "sha256": "1238850492bc3807bd3a3559a6e40851982ce0385a60c050cf4a21b38b6b498b",
+  "size_bytes": 104669,
+  "splits_path": "artifacts/semantic_improvement_v3/splits.json",
+  "status": "EXPERIMENTAL_REJECTED_DO_NOT_DEPLOY",
+  "test_access_count": 0,
+  "training_seed": 20261004
+}

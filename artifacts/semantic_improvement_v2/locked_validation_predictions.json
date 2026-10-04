@@ -1,0 +1,202 @@
+[
+  {
+    "answer": "yes",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "yes",
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "score_margin_correct_minus_shuffled": 0.00962364673614502,
+    "shuffled_prediction": "yes",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "yes",
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "score_margin_correct_minus_shuffled": -0.0011885017156600952,
+    "shuffled_prediction": "yes",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "no",
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "score_margin_correct_minus_shuffled": -0.021546214818954468,
+    "shuffled_prediction": "no",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "no",
+    "record_id": "ilr:12b9124a6be259179a4582fb855276765ee20acd2bf7520808ec84440cca5c91",
+    "score_margin_correct_minus_shuffled": 0.03206482529640198,
+    "shuffled_prediction": "no",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "no",
+    "record_id": "ilr:1422ed730a02f2729c7b5e14d3a4f0f154db10481c5f81aacb5b458cdd7797fd",
+    "score_margin_correct_minus_shuffled": -0.0004279613494873047,
+    "shuffled_prediction": "no",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "yes",
+    "record_id": "ilr:1a12a334e0965e13c93dc5d25224b274c90ac71d22a3d7abfe76851875682191",
+    "score_margin_correct_minus_shuffled": 0.020459532737731934,
+    "shuffled_prediction": "yes",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "no",
+    "record_id": "ilr:1d11d4ed33cdf973f4983cbb3fefe5bd236797d3a3dc2a7aa7573fbc9abfe005",
+    "score_margin_correct_minus_shuffled": -0.004685819149017334,
+    "shuffled_prediction": "no",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "yes",
+    "record_id": "ilr:1d436a3e2da95691af4c413d3e51a4b9f8ed334e2353836fd6fff0d8c70aebdc",
+    "score_margin_correct_minus_shuffled": 8.618831634521484e-05,
+    "shuffled_prediction": "yes",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "yes",
+    "record_id": "ilr:1dc127658f05c6d611e2e19f999433069093dba73d4aaf4e137a063fa39da697",
+    "score_margin_correct_minus_shuffled": -0.002166926860809326,
+    "shuffled_prediction": "yes",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "no",
+    "record_id": "ilr:207131b7325e472f30bfc0e311dba22ed5cf09897f0da950fbc507f8590f426b",
+    "score_margin_correct_minus_shuffled": 0.007262051105499268,
+    "shuffled_prediction": "no",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "d",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "b",
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "score_margin_correct_minus_shuffled": 0.36994457244873047,
+    "shuffled_prediction": "b",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "score_margin_correct_minus_shuffled": 0.0019932985305786133,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "d",
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "score_margin_correct_minus_shuffled": -0.007685422897338867,
+    "shuffled_prediction": "d",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:170006dc5b40866ce55ce1dbc24ea93a9f89a781b1c52fb130eda26772a97f22",
+    "score_margin_correct_minus_shuffled": 0.0031554698944091797,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:23f6ac0d09bdbbed98cda49d30e0d5aa21c14d5f74009ec3f4594534e2eb4354",
+    "score_margin_correct_minus_shuffled": 0.01256263256072998,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "correct": true,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:25b375e655b2763773a50d10d386ada8677d88e83f09e49ccbb534737da1222a",
+    "score_margin_correct_minus_shuffled": 0.009344875812530518,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:2791f1cfc99a6b7e454fbec614b94356ec5526d615411fd0300d6653e2ba0ae2",
+    "score_margin_correct_minus_shuffled": -0.19362783432006836,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "b",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "d",
+    "record_id": "ilr:3e551b22a897fdd3d53f833b00705b7395814162123353cc80cd2421b92e7147",
+    "score_margin_correct_minus_shuffled": -0.06879186630249023,
+    "shuffled_prediction": "d",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "c",
+    "record_id": "ilr:4ab242ea20e55cc374b58db890d307c5142ee6ba3a39e38b99c212937a520aa0",
+    "score_margin_correct_minus_shuffled": -0.07886111736297607,
+    "shuffled_prediction": "c",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "correct": false,
+    "decision_changed": false,
+    "prediction": "b",
+    "record_id": "ilr:4f82f2357a47598a2a94d4b1fc439ad0a007f6e634f462130baa3096bbcc6e74",
+    "score_margin_correct_minus_shuffled": 0.0013259649276733398,
+    "shuffled_prediction": "b",
+    "task_type": "multiple_choice_qa"
+  }
+]

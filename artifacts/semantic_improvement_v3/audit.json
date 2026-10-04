@@ -1,0 +1,102 @@
+{
+  "decoding": "legal answer candidate likelihood over yes/no or MCQ option keys",
+  "observed_qwen_attention_targets": [
+    "model.layers.35.self_attn.q_proj",
+    "model.layers.35.self_attn.v_proj"
+  ],
+  "peft_available": false,
+  "projector_hashes": {
+    "joint": "bedcb8dc60d3375878b6fe732cb90b568283c7d5565148fb1a52eae0d1b12eaa",
+    "s2": "e7f22d74e048cde31a746186b52b9ca5eb18b71532fc248d9a1c15fbd90819db",
+    "sar": "a7e57bff0cba141db5c34f549d0bc3f25638960fe39ab25246bbab49e979accd"
+  },
+  "test_access_count": 0,
+  "v2_classification": "PROJECTOR_ONLY_CEILING_CONFIRMED",
+  "v2_conclusion": "Both projector-only shuffled-negative experiments reduced training loss but regressed DEV correctness. The selected joint candidate retained zero shuffled-SAR decision changes on the historical validation diagnostic. No fresh validation VQA identities remain in the approved manifest, so no acceptance-quality locked validation claim is possible.",
+  "v2_metrics": {
+    "joint": {
+      "baseline": {
+        "aggregate": {
+          "accuracy": 0.25,
+          "correct": 2,
+          "total": 8
+        },
+        "binary_qa": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        },
+        "mean_target_margin": -0.010076388716697693,
+        "multiple_choice_qa": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "shuffle_decision_change": 0.0
+      },
+      "candidate": {
+        "aggregate": {
+          "accuracy": 0.125,
+          "correct": 1,
+          "total": 8
+        },
+        "binary_qa": {
+          "accuracy": 0.25,
+          "correct": 1,
+          "total": 4
+        },
+        "mean_target_margin": 0.0003887005150318146,
+        "multiple_choice_qa": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "shuffle_decision_change": 0.0
+      },
+      "final_loss": 0.46387121081352234,
+      "steps": 48
+    },
+    "sar": {
+      "baseline": {
+        "aggregate": {
+          "accuracy": 0.25,
+          "correct": 2,
+          "total": 8
+        },
+        "binary_qa": {
+          "accuracy": 0.5,
+          "correct": 2,
+          "total": 4
+        },
+        "mean_target_margin": -0.2322976291179657,
+        "multiple_choice_qa": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "shuffle_decision_change": 0.0
+      },
+      "candidate": {
+        "aggregate": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 8
+        },
+        "binary_qa": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "mean_target_margin": -0.2158292755484581,
+        "multiple_choice_qa": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "shuffle_decision_change": 0.125
+      },
+      "final_loss": 0.22171102464199066,
+      "steps": 48
+    }
+  }
+}

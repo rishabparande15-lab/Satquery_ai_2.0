@@ -1,0 +1,50 @@
+{
+  "JOINT": {
+    "binary_qa": {
+      "accuracy": 0.5714285714285714,
+      "accuracy_over_total": 0.4,
+      "correct": 4,
+      "parsed": 7,
+      "total": 10
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.1111111111111111,
+      "accuracy_over_total": 0.1,
+      "correct": 1,
+      "parsed": 9,
+      "total": 10
+    }
+  },
+  "S2": {
+    "binary_qa": {
+      "accuracy": 0.4444444444444444,
+      "accuracy_over_total": 0.4,
+      "correct": 4,
+      "parsed": 9,
+      "total": 10
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.1111111111111111,
+      "accuracy_over_total": 0.1,
+      "correct": 1,
+      "parsed": 9,
+      "total": 10
+    }
+  },
+  "SAR": {
+    "binary_qa": {
+      "accuracy": 0.4444444444444444,
+      "accuracy_over_total": 0.4,
+      "correct": 4,
+      "parsed": 9,
+      "total": 10
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.2857142857142857,
+      "accuracy_over_total": 0.2,
+      "correct": 2,
+      "parsed": 7,
+      "total": 10
+    }
+  }
+}

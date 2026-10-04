@@ -1,0 +1,19 @@
+{
+  "aggregate": {
+    "accuracy": 0.45,
+    "correct": 9,
+    "total": 20
+  },
+  "binary_qa": {
+    "accuracy": 0.8,
+    "correct": 8,
+    "total": 10
+  },
+  "mean_target_margin": -0.002420097589492798,
+  "multiple_choice_qa": {
+    "accuracy": 0.1,
+    "correct": 1,
+    "total": 10
+  },
+  "shuffle_decision_change": 0.0
+}

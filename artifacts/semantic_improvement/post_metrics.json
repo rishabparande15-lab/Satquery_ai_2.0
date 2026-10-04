@@ -1,0 +1,50 @@
+{
+  "S2": {
+    "binary_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 4,
+      "accuracy": 0.4,
+      "accuracy_over_total": 0.4
+    },
+    "multiple_choice_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 2,
+      "accuracy": 0.2,
+      "accuracy_over_total": 0.2
+    }
+  },
+  "SAR": {
+    "binary_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 8,
+      "accuracy": 0.8,
+      "accuracy_over_total": 0.8
+    },
+    "multiple_choice_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 1,
+      "accuracy": 0.1,
+      "accuracy_over_total": 0.1
+    }
+  },
+  "JOINT": {
+    "binary_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 8,
+      "accuracy": 0.8,
+      "accuracy_over_total": 0.8
+    },
+    "multiple_choice_qa": {
+      "total": 10,
+      "parsed": 10,
+      "correct": 1,
+      "accuracy": 0.1,
+      "accuracy_over_total": 0.1
+    }
+  }
+}

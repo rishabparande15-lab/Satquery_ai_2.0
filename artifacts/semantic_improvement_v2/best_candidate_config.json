@@ -1,0 +1,6 @@
+{
+  "production_deployment": "forbidden",
+  "selected": "JOINT",
+  "selection_rule": "DEV aggregate only",
+  "test_access_count": 0
+}

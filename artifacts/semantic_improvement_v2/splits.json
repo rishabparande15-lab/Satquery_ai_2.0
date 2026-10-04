@@ -1,0 +1,1207 @@
+{
+  "counts": {
+    "dev": {
+      "answers": {
+        "a": 1,
+        "c": 2,
+        "d": 1,
+        "no": 3,
+        "yes": 1
+      },
+      "mcq_positions": {
+        "a": 1,
+        "c": 2,
+        "d": 1
+      },
+      "tasks": {
+        "binary_qa": 4,
+        "multiple_choice_qa": 4
+      }
+    },
+    "historically_exposed_locked_validation": {
+      "answers": {
+        "a": 3,
+        "b": 1,
+        "c": 3,
+        "d": 3,
+        "no": 6,
+        "yes": 4
+      },
+      "mcq_positions": {
+        "a": 3,
+        "b": 1,
+        "c": 3,
+        "d": 3
+      },
+      "tasks": {
+        "binary_qa": 10,
+        "multiple_choice_qa": 10
+      }
+    },
+    "internal_holdout": {
+      "answers": {
+        "a": 1,
+        "b": 1,
+        "d": 2,
+        "no": 3,
+        "yes": 1
+      },
+      "mcq_positions": {
+        "a": 1,
+        "b": 1,
+        "d": 2
+      },
+      "tasks": {
+        "binary_qa": 4,
+        "multiple_choice_qa": 4
+      }
+    },
+    "train": {
+      "answers": {
+        "a": 3,
+        "b": 6,
+        "c": 1,
+        "d": 2,
+        "no": 5,
+        "yes": 7
+      },
+      "mcq_positions": {
+        "a": 3,
+        "b": 6,
+        "c": 1,
+        "d": 2
+      },
+      "tasks": {
+        "binary_qa": 12,
+        "multiple_choice_qa": 12
+      }
+    }
+  },
+  "dev": [
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20171107T105229_N9999_R051_T31UER_80_07",
+      "options": null,
+      "question": "Can you confirm that the image has exactly three contiguous areas of arable lands?",
+      "record_id": "ilr:9e77ee38f59d7e5cbc4c6a5de6aa60d374e418e31f596240dc3717af4a22f586",
+      "shuffled_image_id": "S2B_MSIL2A_20180428T095029_N9999_R079_T33TXN_06_15",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20180428T095029_N9999_R079_T33TXN_06_15",
+      "options": null,
+      "question": "Does this satellite image include mixed forest?",
+      "record_id": "ilr:a025b9c0cec923538976b154ed50da7d589ef5c6b60ea812c6835ad9cbb123aa",
+      "shuffled_image_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_85_49",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_85_49",
+      "options": null,
+      "question": "Do broad-leaved forests take up between 70% and 90% of the image?",
+      "record_id": "ilr:a4f9d37280b0ae304ed25b3879497ee98086da94053275798ec476ad0efdb5ba",
+      "shuffled_image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_14_88",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_14_88",
+      "options": null,
+      "question": "Is the area of broad-leaved forests greater than 50% but smaller than 90%?",
+      "record_id": "ilr:a67925940cec941b73730ce5c4815de2edc5c2baccac4ddc45d67fffdfce094c",
+      "shuffled_image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_04_87",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_08_45",
+      "options": [
+        {
+          "key": "a",
+          "text": "Mixed forest and Pastures"
+        },
+        {
+          "key": "b",
+          "text": "Broad-leaved forest and Pastures"
+        },
+        {
+          "key": "c",
+          "text": "Complex cultivation patterns and Coniferous forest"
+        },
+        {
+          "key": "d",
+          "text": "Beaches, dunes, sands and Complex cultivation patterns"
+        }
+      ],
+      "question": "Which classes are directly connected? a) Mixed forest and Pastures, b) Broad-leaved forest and Pastures, c) Complex cultivation patterns and Coniferous forest, d) Beaches, dunes, sands and Complex cultivation patterns",
+      "record_id": "ilr:a0b0f3dd74bf75bc08720f38a1b73965e55e7a75eb9ef0f9d3827b83cfa961a2",
+      "shuffled_image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_04_28",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_04_28",
+      "options": [
+        {
+          "key": "a",
+          "text": "to the top"
+        },
+        {
+          "key": "b",
+          "text": "to the right"
+        },
+        {
+          "key": "c",
+          "text": "to the bottom"
+        },
+        {
+          "key": "d",
+          "text": "to the top-left"
+        }
+      ],
+      "question": "Where is the mixed forest located compared with the inland waters? a) to the top, b) to the right, c) to the bottom, d) to the top-left",
+      "record_id": "ilr:ae62426268d2949d31c2f72a105f7ef7d6570d13f6dd41834de367edcab5a2d1",
+      "shuffled_image_id": "S2A_MSIL2A_20171002T094031_N9999_R036_T34TCR_45_07",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2A_MSIL2A_20171002T094031_N9999_R036_T34TCR_45_07",
+      "options": [
+        {
+          "key": "a",
+          "text": "to the left"
+        },
+        {
+          "key": "b",
+          "text": "to the top-left"
+        },
+        {
+          "key": "c",
+          "text": "to the top"
+        },
+        {
+          "key": "d",
+          "text": "to the bottom"
+        }
+      ],
+      "question": "Considering the pastures as a reference, where do the natural grasslands or sparsely vegetated areas appear? a) to the left, b) to the top-left, c) to the top, d) to the bottom",
+      "record_id": "ilr:be126c6d29974f0ad73697f07eb4ef072f655ccbc53d2df0542458853abf250d",
+      "shuffled_image_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_02_79",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_02_79",
+      "options": [
+        {
+          "key": "a",
+          "text": "Arable land"
+        },
+        {
+          "key": "b",
+          "text": "Industrial or commercial units"
+        },
+        {
+          "key": "c",
+          "text": "Land principally occupied by agriculture, with significant areas of natural vegetation"
+        },
+        {
+          "key": "d",
+          "text": "Agro-forestry areas"
+        }
+      ],
+      "question": "From the options below, identify the land cover type in the image: a) Arable land, b) Industrial or commercial units, c) Land principally occupied by agriculture, with significant areas of natural vegetation, d) Agro-forestry areas",
+      "record_id": "ilr:c42cbe55a5d6384a6bf1cc4d789dcae27f9c546b836e2b739bdfd036419064e9",
+      "shuffled_image_id": "S2A_MSIL2A_20180318T093031_N9999_R136_T35UMB_10_05",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    }
+  ],
+  "fresh_locked_validation_available": false,
+  "historically_exposed_locked_validation": [
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+      "options": null,
+      "question": "Do parts of the image correspond to pastures?",
+      "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+      "shuffled_image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_15_47",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_15_47",
+      "options": null,
+      "question": "Can multiple continuous areas of arable lands be detected in this image?",
+      "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+      "shuffled_image_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_45_70",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_45_70",
+      "options": null,
+      "question": "Is any arable land and complex cultivation patterns adjoining regions in this scene?",
+      "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+      "shuffled_image_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_70_20",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_70_20",
+      "options": null,
+      "question": "Does the image show inland waters?",
+      "record_id": "ilr:12b9124a6be259179a4582fb855276765ee20acd2bf7520808ec84440cca5c91",
+      "shuffled_image_id": "S2B_MSIL2A_20180502T093039_N9999_R136_T34TEP_18_45",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20180502T093039_N9999_R136_T34TEP_18_45",
+      "options": null,
+      "question": "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?",
+      "record_id": "ilr:1422ed730a02f2729c7b5e14d3a4f0f154db10481c5f81aacb5b458cdd7797fd",
+      "shuffled_image_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_75",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_75",
+      "options": null,
+      "question": "Would you say that mixed forests occupy four or more continuous areas in the image?",
+      "record_id": "ilr:1a12a334e0965e13c93dc5d25224b274c90ac71d22a3d7abfe76851875682191",
+      "shuffled_image_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_14",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_14",
+      "options": null,
+      "question": "Would you identify any broad-leaved forest as lying right beside a coniferous forest?",
+      "record_id": "ilr:1d11d4ed33cdf973f4983cbb3fefe5bd236797d3a3dc2a7aa7573fbc9abfe005",
+      "shuffled_image_id": "S2A_MSIL2A_20171002T112111_N9999_R037_T29SNB_51_75",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20171002T112111_N9999_R037_T29SNB_51_75",
+      "options": null,
+      "question": "Do permanent crops cover less than 20% of the image?",
+      "record_id": "ilr:1d436a3e2da95691af4c413d3e51a4b9f8ed334e2353836fd6fff0d8c70aebdc",
+      "shuffled_image_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_29_20",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_29_20",
+      "options": null,
+      "question": "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?",
+      "record_id": "ilr:1dc127658f05c6d611e2e19f999433069093dba73d4aaf4e137a063fa39da697",
+      "shuffled_image_id": "S2B_MSIL2A_20180515T112109_N9999_R037_T29SNC_55_74",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20180515T112109_N9999_R037_T29SNC_55_74",
+      "options": null,
+      "question": "Does the image capture pastures?",
+      "record_id": "ilr:207131b7325e472f30bfc0e311dba22ed5cf09897f0da950fbc507f8590f426b",
+      "shuffled_image_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+      "split": "validation",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_16_43",
+      "options": [
+        {
+          "key": "a",
+          "text": "Industrial or commercial units"
+        },
+        {
+          "key": "b",
+          "text": "Pastures"
+        },
+        {
+          "key": "c",
+          "text": "Permanent crops"
+        },
+        {
+          "key": "d",
+          "text": "Arable land"
+        }
+      ],
+      "question": "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land",
+      "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+      "shuffled_image_id": "S2B_MSIL2A_20171219T095409_N9999_R079_T33TWN_25_69",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20171219T095409_N9999_R079_T33TWN_25_69",
+      "options": [
+        {
+          "key": "a",
+          "text": "Complex cultivation patterns and Urban fabric"
+        },
+        {
+          "key": "b",
+          "text": "Broad-leaved forest and Industrial or commercial units"
+        },
+        {
+          "key": "c",
+          "text": "Mixed forest and Urban fabric"
+        },
+        {
+          "key": "d",
+          "text": "Coastal wetlands and Moors, heathland and sclerophyllous vegetation"
+        }
+      ],
+      "question": "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation",
+      "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+      "shuffled_image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_20_32",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_20_32",
+      "options": [
+        {
+          "key": "a",
+          "text": "Moors, heathland and sclerophyllous vegetation"
+        },
+        {
+          "key": "b",
+          "text": "Coastal wetlands"
+        },
+        {
+          "key": "c",
+          "text": "Transitional woodland, shrub"
+        },
+        {
+          "key": "d",
+          "text": "Natural grassland and sparsely vegetated areas"
+        }
+      ],
+      "question": "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas",
+      "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+      "shuffled_image_id": "S2B_MSIL2A_20170808T094029_N9999_R036_T35ULA_77_21",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2B_MSIL2A_20170808T094029_N9999_R036_T35ULA_77_21",
+      "options": [
+        {
+          "key": "a",
+          "text": "10 to 20%"
+        },
+        {
+          "key": "b",
+          "text": "60 to 90%"
+        },
+        {
+          "key": "c",
+          "text": "20 to 40%"
+        },
+        {
+          "key": "d",
+          "text": "40 to 50%"
+        }
+      ],
+      "question": "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%",
+      "record_id": "ilr:170006dc5b40866ce55ce1dbc24ea93a9f89a781b1c52fb130eda26772a97f22",
+      "shuffled_image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_20_43",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_20_43",
+      "options": [
+        {
+          "key": "a",
+          "text": "to the left"
+        },
+        {
+          "key": "b",
+          "text": "to the top-right"
+        },
+        {
+          "key": "c",
+          "text": "to the right"
+        },
+        {
+          "key": "d",
+          "text": "to the top"
+        }
+      ],
+      "question": "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top",
+      "record_id": "ilr:23f6ac0d09bdbbed98cda49d30e0d5aa21c14d5f74009ec3f4594534e2eb4354",
+      "shuffled_image_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_15_46",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_15_46",
+      "options": [
+        {
+          "key": "a",
+          "text": "288000 to 576000 sqm"
+        },
+        {
+          "key": "b",
+          "text": "864000 to 1296000 sqm"
+        },
+        {
+          "key": "c",
+          "text": "0 to 144000 sqm"
+        },
+        {
+          "key": "d",
+          "text": "144000 to 288000 sqm"
+        }
+      ],
+      "question": "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm",
+      "record_id": "ilr:25b375e655b2763773a50d10d386ada8677d88e83f09e49ccbb534737da1222a",
+      "shuffled_image_id": "S2B_MSIL2A_20170923T100019_N9999_R122_T33TWM_61_13",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2B_MSIL2A_20170923T100019_N9999_R122_T33TWM_61_13",
+      "options": [
+        {
+          "key": "a",
+          "text": "2"
+        },
+        {
+          "key": "b",
+          "text": "0"
+        },
+        {
+          "key": "c",
+          "text": "3"
+        },
+        {
+          "key": "d",
+          "text": "1"
+        }
+      ],
+      "question": "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1",
+      "record_id": "ilr:2791f1cfc99a6b7e454fbec614b94356ec5526d615411fd0300d6653e2ba0ae2",
+      "shuffled_image_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_44_18",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_44_18",
+      "options": [
+        {
+          "key": "a",
+          "text": "Marine waters and Urban fabric"
+        },
+        {
+          "key": "b",
+          "text": "Arable land and Mixed forest"
+        },
+        {
+          "key": "c",
+          "text": "Arable land and Broad-leaved forest"
+        },
+        {
+          "key": "d",
+          "text": "Arable land and Inland waters"
+        }
+      ],
+      "question": "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters",
+      "record_id": "ilr:3e551b22a897fdd3d53f833b00705b7395814162123353cc80cd2421b92e7147",
+      "shuffled_image_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_73_64",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_73_64",
+      "options": [
+        {
+          "key": "a",
+          "text": "0"
+        },
+        {
+          "key": "b",
+          "text": "4"
+        },
+        {
+          "key": "c",
+          "text": "1"
+        },
+        {
+          "key": "d",
+          "text": "2"
+        }
+      ],
+      "question": "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2",
+      "record_id": "ilr:4ab242ea20e55cc374b58db890d307c5142ee6ba3a39e38b99c212937a520aa0",
+      "shuffled_image_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_27_71",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_27_71",
+      "options": [
+        {
+          "key": "a",
+          "text": "1"
+        },
+        {
+          "key": "b",
+          "text": "4"
+        },
+        {
+          "key": "c",
+          "text": "2"
+        },
+        {
+          "key": "d",
+          "text": "More than five"
+        }
+      ],
+      "question": "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five",
+      "record_id": "ilr:4f82f2357a47598a2a94d4b1fc439ad0a007f6e634f462130baa3096bbcc6e74",
+      "shuffled_image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_16_43",
+      "split": "validation",
+      "task_type": "multiple_choice_qa"
+    }
+  ],
+  "image_overlap_checks": {
+    "dev_internal_holdout": [],
+    "train_dev": [],
+    "train_internal_holdout": []
+  },
+  "internal_holdout": [
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_04_87",
+      "options": null,
+      "question": "Is any coniferous forest positioned right next to permanent crops?",
+      "record_id": "ilr:c4312876db9a4684999fda4d84a9ec22c6af464dc480ee230b2aea1f1896c80a",
+      "shuffled_image_id": "S2A_MSIL2A_20180510T094031_N9999_R036_T35VLC_00_40",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20180510T094031_N9999_R036_T35VLC_00_40",
+      "options": null,
+      "question": "Does the image depict complex cultivation patterns?",
+      "record_id": "ilr:c44d083936e72eab90b2d68f16aa54615906e1df44ad49aae7128456fe125d1a",
+      "shuffled_image_id": "S2A_MSIL2A_20171221T112501_N9999_R037_T29SND_78_86",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20171221T112501_N9999_R037_T29SND_78_86",
+      "options": null,
+      "question": "Is there any instance of an agro-forestry area adjacent to arable land?",
+      "record_id": "ilr:dced0ddabd455bfe1fd7a4657d079742424bf0f59726021b74532ace83388d19",
+      "shuffled_image_id": "S2A_MSIL2A_20170704T112111_N9999_R037_T29SND_87_18",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20170704T112111_N9999_R037_T29SND_87_18",
+      "options": null,
+      "question": "Is there any coniferous forest located alongside transitional woodlands or shrubs in the image?",
+      "record_id": "ilr:de94a325f6da6c917769fb68aeb0d38fec4466b041d7a6c8811da8882530d63d",
+      "shuffled_image_id": "S2A_MSIL2A_20170905T095031_N9999_R079_T35VNL_15_89",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2A_MSIL2A_20180318T093031_N9999_R136_T35UMB_10_05",
+      "options": [
+        {
+          "key": "a",
+          "text": "Mixed forest"
+        },
+        {
+          "key": "b",
+          "text": "Moors, heathland and sclerophyllous vegetation"
+        },
+        {
+          "key": "c",
+          "text": "Urban fabric"
+        },
+        {
+          "key": "d",
+          "text": "Coniferous forest"
+        }
+      ],
+      "question": "Which of the following land cover classes is in the image? a) Mixed forest, b) Moors, heathland and sclerophyllous vegetation, c) Urban fabric, d) Coniferous forest",
+      "record_id": "ilr:df5729c04ff4f4e6165ed38766f33ec02fe4546bd940ccbacba341030360f3f7",
+      "shuffled_image_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_33_87",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_33_87",
+      "options": [
+        {
+          "key": "a",
+          "text": "Coastal wetlands and Inland waters"
+        },
+        {
+          "key": "b",
+          "text": "Land principally occupied by agriculture, with significant areas of natural vegetation and Permanent crops"
+        },
+        {
+          "key": "c",
+          "text": "Arable land and Coniferous forest"
+        },
+        {
+          "key": "d",
+          "text": "Broad-leaved forest and Permanent crops"
+        }
+      ],
+      "question": "From the options below, pick the touching pair: a) Coastal wetlands and Inland waters, b) Land principally occupied by agriculture, with significant areas of natural vegetation and Permanent crops, c) Arable land and Coniferous forest, d) Broad-leaved forest and Permanent crops",
+      "record_id": "ilr:e19b47268dc266e7e4dc2aa619342d41d3f798851539db156e11ca18936ea66c",
+      "shuffled_image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_28_82",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_28_82",
+      "options": [
+        {
+          "key": "a",
+          "text": "50 to 90%"
+        },
+        {
+          "key": "b",
+          "text": "0 to 10%"
+        },
+        {
+          "key": "c",
+          "text": "30 to 50%"
+        },
+        {
+          "key": "d",
+          "text": "10 to 30%"
+        }
+      ],
+      "question": "Select the total area covered by urban fabrics: a) 50 to 90%, b) 0 to 10%, c) 30 to 50%, d) 10 to 30%",
+      "record_id": "ilr:eae8367085fdf11b93bc01459d70ea0f300a59658cd08a94ccbb90104a6d17ec",
+      "shuffled_image_id": "S2B_MSIL2A_20171206T094349_N9999_R036_T34TCR_79_40",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20171206T094349_N9999_R036_T34TCR_79_40",
+      "options": [
+        {
+          "key": "a",
+          "text": "Arable land"
+        },
+        {
+          "key": "b",
+          "text": "Inland waters"
+        },
+        {
+          "key": "c",
+          "text": "Pastures"
+        },
+        {
+          "key": "d",
+          "text": "Permanent crops"
+        }
+      ],
+      "question": "From these options, which class can be observed in the image? a) Arable land, b) Inland waters, c) Pastures, d) Permanent crops",
+      "record_id": "ilr:eb6e106b24b59332e75a536d4ccf8b7d1e2da4f20789222301e27949ed488274",
+      "shuffled_image_id": "S2A_MSIL2A_20180510T094031_N9999_R036_T35VLC_07_61",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    }
+  ],
+  "seed": 20261004,
+  "selection_policy": "sorted record IDs; per-task 12 train, 4 dev, 4 internal holdout; original validation VQA is historically exposed final-comparison-only",
+  "test_access_count": 0,
+  "train": [
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20170905T095031_N9999_R079_T35VNL_15_89",
+      "options": null,
+      "question": "Are there at least two connected regions of coniferous forests visible in the image?",
+      "record_id": "ilr:01730d8b2946f5396f7b8c042a40e26b0141f02400c9b2e0a4a98252af7fe7bd",
+      "shuffled_image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_82_45",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_82_45",
+      "options": null,
+      "question": "Does any arable land make contact with a broad-leaved forest in the image?",
+      "record_id": "ilr:0ffc4ac49aeda99e6f35e39e3060a0f56c5ef77e6ffa92d7d35617eb9d638b01",
+      "shuffled_image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_11_87",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_11_87",
+      "options": null,
+      "question": "Can you observe any mixed forest in the satellite image?",
+      "record_id": "ilr:2741cd077a67ae322270ee67c8cbeb411c9f3f964b5a2bb15589cb00ed2e531e",
+      "shuffled_image_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_00",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_00",
+      "options": null,
+      "question": "Is any portion of the image covered by agro-forestry areas?",
+      "record_id": "ilr:388d266115439a6fdd5710e20fe09e1623d9ca54852bb1b2d01464d98f6aec79",
+      "shuffled_image_id": "S2B_MSIL2A_20171107T105229_N9999_R051_T31UER_24_04",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2B_MSIL2A_20171107T105229_N9999_R051_T31UER_24_04",
+      "options": null,
+      "question": "Do complex cultivation patterns appear in a maximum of one continuous area within the image?",
+      "record_id": "ilr:4a90e93757114fcf632efff1cf6f17280cf2911b6e1027c252d3bfb9b58d19f0",
+      "shuffled_image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_80_17",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_80_17",
+      "options": null,
+      "question": "Do urban fabrics account for less than 50% of the image?",
+      "record_id": "ilr:5acb25e361582b908038d08e6004d90e34ee482d73289b467e48565c0496281f",
+      "shuffled_image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_03_86",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_03_86",
+      "options": null,
+      "question": "Is any arable land situated directly next to urban fabrics?",
+      "record_id": "ilr:5caeb4e45cfb6af9889b1ebecc3f22d48bf318504caedaec7c302cc59fbe37d7",
+      "shuffled_image_id": "S2B_MSIL2A_20180422T093029_N9999_R136_T34TEQ_05_09",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20180422T093029_N9999_R136_T34TEQ_05_09",
+      "options": null,
+      "question": "Would you classify arable lands as taking up between 20% and 90% of the image?",
+      "record_id": "ilr:5eda52c88cda1fcd2023aece8b3f8d463ae2e49a03cb0f797d07aae59e2129a7",
+      "shuffled_image_id": "S2B_MSIL2A_20170914T093029_N9999_R136_T34TEP_78_34",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20170914T093029_N9999_R136_T34TEP_78_34",
+      "options": null,
+      "question": "Is any broad-leaved forest situated directly next to complex cultivation patterns?",
+      "record_id": "ilr:5f8c7422727a3b769fd09ae2bf1fae09eb4b37598d9b6a716b415cc7a84ef0e9",
+      "shuffled_image_id": "S2A_MSIL2A_20170905T095031_N9999_R079_T35VNL_52_80",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2A_MSIL2A_20170905T095031_N9999_R079_T35VNL_52_80",
+      "options": null,
+      "question": "Are fewer than four continuous areas of coniferous forests observed in the image?",
+      "record_id": "ilr:618b242074d791d90989d4c5a9f0b64cccb8404afccdd16b7acdad5ff0c8e18c",
+      "shuffled_image_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_10_08",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "image_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_10_08",
+      "options": null,
+      "question": "Is there exactly one continuous patch of lands principally occupied by agriculture with significant areas of natural vegetation in the image?",
+      "record_id": "ilr:72e2a6c2bb88ebda50501bae226afa76c5dc65c4f12a6e7482bc945014137a2a",
+      "shuffled_image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_43_84",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "image_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_43_84",
+      "options": null,
+      "question": "Does any instance of complex cultivation patterns border a coniferous forest in this scene?",
+      "record_id": "ilr:94b78abd16babbd06e671aa51691458d25e8b4c2a22a03514c8bba57d8ea2567",
+      "shuffled_image_id": "S2B_MSIL2A_20171107T105229_N9999_R051_T31UER_80_07",
+      "split": "train",
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2A_MSIL2A_20180510T094031_N9999_R036_T35VLC_07_61",
+      "options": [
+        {
+          "key": "a",
+          "text": "Agro-forestry areas"
+        },
+        {
+          "key": "b",
+          "text": "Land principally occupied by agriculture, with significant areas of natural vegetation"
+        },
+        {
+          "key": "c",
+          "text": "Natural grassland and sparsely vegetated areas"
+        },
+        {
+          "key": "d",
+          "text": "Broad-leaved forest"
+        }
+      ],
+      "question": "Which class is present in this satellite scene? a) Agro-forestry areas, b) Land principally occupied by agriculture, with significant areas of natural vegetation, c) Natural grassland and sparsely vegetated areas, d) Broad-leaved forest",
+      "record_id": "ilr:08f30f32b66b58da026c9c706a94a783fa1f3e64e09098e056bd4bc987066394",
+      "shuffled_image_id": "S2A_MSIL2A_20180430T094031_N9999_R036_T34TCR_80_10",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2A_MSIL2A_20180430T094031_N9999_R036_T34TCR_80_10",
+      "options": [
+        {
+          "key": "a",
+          "text": "Beaches, dunes, sands"
+        },
+        {
+          "key": "b",
+          "text": "Urban fabric"
+        },
+        {
+          "key": "c",
+          "text": "Land principally occupied by agriculture, with significant areas of natural vegetation"
+        },
+        {
+          "key": "d",
+          "text": "Industrial or commercial units"
+        }
+      ],
+      "question": "Which land cover class appears in this satellite image? a) Beaches, dunes, sands, b) Urban fabric, c) Land principally occupied by agriculture, with significant areas of natural vegetation, d) Industrial or commercial units",
+      "record_id": "ilr:08fd315d920f1d9946abbf59f12f962f87f1ae6a9f3d30206ff5f6fe179eb8af",
+      "shuffled_image_id": "S2B_MSIL2A_20170911T092019_N9999_R093_T34TFN_03_02",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20170911T092019_N9999_R093_T34TFN_03_02",
+      "options": [
+        {
+          "key": "a",
+          "text": "288000 to 720000 square meters"
+        },
+        {
+          "key": "b",
+          "text": "1296000 to 1440000 square meters"
+        },
+        {
+          "key": "c",
+          "text": "864000 to 1152000 square meters"
+        },
+        {
+          "key": "d",
+          "text": "144000 to 288000 square meters"
+        }
+      ],
+      "question": "Select the area range of broad-leaved forests: a) 288000 to 720000 square meters, b) 1296000 to 1440000 square meters, c) 864000 to 1152000 square meters, d) 144000 to 288000 square meters",
+      "record_id": "ilr:0a0ee11070828758ad917fc2a114e1a623efc045833635f6365cb48874d1051b",
+      "shuffled_image_id": "S2B_MSIL2A_20170906T101019_N9999_R022_T34WFS_79_28",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "c",
+      "image_id": "S2B_MSIL2A_20170906T101019_N9999_R022_T34WFS_79_28",
+      "options": [
+        {
+          "key": "a",
+          "text": "Mixed forest and Natural grassland and sparsely vegetated areas"
+        },
+        {
+          "key": "b",
+          "text": "Inland wetlands and Permanent crops"
+        },
+        {
+          "key": "c",
+          "text": "Coniferous forest and Mixed forest"
+        },
+        {
+          "key": "d",
+          "text": "Inland waters and Urban fabric"
+        }
+      ],
+      "question": "Identify touching classes: a) Mixed forest and Natural grassland and sparsely vegetated areas, b) Inland wetlands and Permanent crops, c) Coniferous forest and Mixed forest, d) Inland waters and Urban fabric",
+      "record_id": "ilr:0aab2553ec025b3e460c5166d5d159df206f129e0b990650603b68fa77cec56c",
+      "shuffled_image_id": "S2B_MSIL2A_20171206T094349_N9999_R036_T34TCR_83_48",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20171206T094349_N9999_R036_T34TCR_83_48",
+      "options": [
+        {
+          "key": "a",
+          "text": "90 to 100%"
+        },
+        {
+          "key": "b",
+          "text": "70 to 90%"
+        },
+        {
+          "key": "c",
+          "text": "30 to 40%"
+        },
+        {
+          "key": "d",
+          "text": "0 to 10%"
+        }
+      ],
+      "question": "What is the total area of arable lands in the image? a) 90 to 100%, b) 70 to 90%, c) 30 to 40%, d) 0 to 10%",
+      "record_id": "ilr:2b5bc921f665fff25a807957bf23182ccc0cad568f006d43fe755fa6b998a66f",
+      "shuffled_image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_34_89",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_34_89",
+      "options": [
+        {
+          "key": "a",
+          "text": "Industrial or commercial units and Mixed forest"
+        },
+        {
+          "key": "b",
+          "text": "Land principally occupied by agriculture, with significant areas of natural vegetation and Pastures"
+        },
+        {
+          "key": "c",
+          "text": "Arable land and Permanent crops"
+        },
+        {
+          "key": "d",
+          "text": "Broad-leaved forest and Permanent crops"
+        }
+      ],
+      "question": "Which pair of classes touch in the satellite image? a) Industrial or commercial units and Mixed forest, b) Land principally occupied by agriculture, with significant areas of natural vegetation and Pastures, c) Arable land and Permanent crops, d) Broad-leaved forest and Permanent crops",
+      "record_id": "ilr:2e90fdf879827ba317be33a4116e19ada2e4944083730b8d99a69611508789ac",
+      "shuffled_image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_11_44",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_11_44",
+      "options": [
+        {
+          "key": "a",
+          "text": "More than five"
+        },
+        {
+          "key": "b",
+          "text": "0"
+        },
+        {
+          "key": "c",
+          "text": "4"
+        },
+        {
+          "key": "d",
+          "text": "1"
+        }
+      ],
+      "question": "How many separate areas of arable land exist? a) More than five, b) 0, c) 4, d) 1",
+      "record_id": "ilr:3b1d91c8c928bfaa54b996020f2ffabb1403a996940b275a37d70e8865441635",
+      "shuffled_image_id": "S2B_MSIL2A_20170709T094029_N9999_R036_T35VNL_40_12",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2B_MSIL2A_20170709T094029_N9999_R036_T35VNL_40_12",
+      "options": [
+        {
+          "key": "a",
+          "text": "Agro-forestry areas"
+        },
+        {
+          "key": "b",
+          "text": "Coniferous forest"
+        },
+        {
+          "key": "c",
+          "text": "Broad-leaved forest"
+        },
+        {
+          "key": "d",
+          "text": "Mixed forest"
+        }
+      ],
+      "question": "Which class appears in the image? a) Agro-forestry areas, b) Coniferous forest, c) Broad-leaved forest, d) Mixed forest",
+      "record_id": "ilr:428f964d1a91c369d65b7599f925b1f7da9a24db95589209a632422d18e9092e",
+      "shuffled_image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_02_58",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_02_58",
+      "options": [
+        {
+          "key": "a",
+          "text": "0 to 20%"
+        },
+        {
+          "key": "b",
+          "text": "50 to 90%"
+        },
+        {
+          "key": "c",
+          "text": "90 to 100%"
+        },
+        {
+          "key": "d",
+          "text": "30 to 50%"
+        }
+      ],
+      "question": "Choose the correct coverage of inland waters: a) 0 to 20%, b) 50 to 90%, c) 90 to 100%, d) 30 to 50%",
+      "record_id": "ilr:5be0e62027ec754ccaac87dfd41c15a6a70f7e3ce32f1e81ed742fa1948d6fc3",
+      "shuffled_image_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_71_10",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "image_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_71_10",
+      "options": [
+        {
+          "key": "a",
+          "text": "Coniferous forest"
+        },
+        {
+          "key": "b",
+          "text": "Permanent crops"
+        },
+        {
+          "key": "c",
+          "text": "Coastal wetlands"
+        },
+        {
+          "key": "d",
+          "text": "Industrial or commercial units"
+        }
+      ],
+      "question": "Select the class visible in the image from these options: a) Coniferous forest, b) Permanent crops, c) Coastal wetlands, d) Industrial or commercial units",
+      "record_id": "ilr:60adb47a77de92d519ba6d1d599ae1f32ed20649b8350ba06833db24eab043d4",
+      "shuffled_image_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_74_78",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_74_78",
+      "options": [
+        {
+          "key": "a",
+          "text": "40 to 70%"
+        },
+        {
+          "key": "b",
+          "text": "10 to 20%"
+        },
+        {
+          "key": "c",
+          "text": "70 to 90%"
+        },
+        {
+          "key": "d",
+          "text": "30 to 40%"
+        }
+      ],
+      "question": "Pick the area covered by mixed forests: a) 40 to 70%, b) 10 to 20%, c) 70 to 90%, d) 30 to 40%",
+      "record_id": "ilr:7ae130b2a32a5fe34b9d46f8f5be92c3e9e5585c4865fd9cd0c6b5505d43602b",
+      "shuffled_image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_87_11",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "image_id": "S2B_MSIL2A_20170829T105019_N9999_R051_T31UER_87_11",
+      "options": [
+        {
+          "key": "a",
+          "text": "20 to 30%"
+        },
+        {
+          "key": "b",
+          "text": "0 to 20%"
+        },
+        {
+          "key": "c",
+          "text": "90 to 100%"
+        },
+        {
+          "key": "d",
+          "text": "50 to 60%"
+        }
+      ],
+      "question": "How much area do moors, heathland, or sclerophyllous vegetation occupy? a) 20 to 30%, b) 0 to 20%, c) 90 to 100%, d) 50 to 60%",
+      "record_id": "ilr:9469ff6def285cf2497ca1940b0deb9ceed816f44cbd4e765dd24f21c25b7e84",
+      "shuffled_image_id": "S2B_MSIL2A_20171015T104009_N9999_R008_T31UGR_08_45",
+      "split": "train",
+      "task_type": "multiple_choice_qa"
+    }
+  ]
+}

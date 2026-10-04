@@ -1,0 +1,284 @@
+{
+  "answer_balance": {
+    "no": 6,
+    "yes": 4
+  },
+  "final_decision_invariance_observed": {
+    "S2": "0/6",
+    "SAR": "1/6",
+    "joint_full_controls": "0/18",
+    "joint_shuffled_sar": "0/6"
+  },
+  "locked_validation_status": "All 20 available validation VQA records were used by the prior experiment; no fresh validation VQA identities exist in this approved manifest.",
+  "mcq_position_balance": {
+    "a": 3,
+    "b": 1,
+    "c": 3,
+    "d": 3
+  },
+  "previous_improvement": "answer-format constrained candidate likelihood; it removed unparsed outputs and was not deployed",
+  "prior_answer_distributions": {
+    "JOINT": {
+      "binary_qa": {
+        "generated_answer_counts": {
+          "None": 3,
+          "no": 1,
+          "yes": 6
+        },
+        "generated_unparsed": 3
+      },
+      "multiple_choice_qa": {
+        "generated_answer_counts": {
+          "None": 1,
+          "a": 1,
+          "b": 2,
+          "c": 4,
+          "d": 2
+        },
+        "generated_unparsed": 1
+      }
+    },
+    "S2": {
+      "binary_qa": {
+        "generated_answer_counts": {
+          "None": 1,
+          "no": 2,
+          "yes": 7
+        },
+        "generated_unparsed": 1
+      },
+      "multiple_choice_qa": {
+        "generated_answer_counts": {
+          "None": 1,
+          "a": 2,
+          "b": 1,
+          "c": 5,
+          "d": 1
+        },
+        "generated_unparsed": 1
+      }
+    },
+    "SAR": {
+      "binary_qa": {
+        "generated_answer_counts": {
+          "None": 1,
+          "no": 4,
+          "yes": 5
+        },
+        "generated_unparsed": 1
+      },
+      "multiple_choice_qa": {
+        "generated_answer_counts": {
+          "None": 3,
+          "a": 1,
+          "c": 4,
+          "d": 2
+        },
+        "generated_unparsed": 3
+      }
+    },
+    "panel_distribution": {
+      "ground_truth_binary": {
+        "no": 6,
+        "yes": 4
+      },
+      "ground_truth_mcq_option": {
+        "a": 3,
+        "b": 1,
+        "c": 3,
+        "d": 3
+      },
+      "immediate_or_empty_generated_outputs": 7,
+      "question_counts": {
+        "Can multiple continuous areas of arable lands be detected in this image?": 1,
+        "Do parts of the image correspond to pastures?": 1,
+        "Do permanent crops cover less than 20% of the image?": 1,
+        "Does the image capture pastures?": 1,
+        "Does the image show inland waters?": 1,
+        "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top": 1,
+        "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1": 1,
+        "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm": 1,
+        "Is any arable land and complex cultivation patterns adjoining regions in this scene?": 1,
+        "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?": 1,
+        "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?": 1,
+        "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters": 1,
+        "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five": 1,
+        "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2": 1,
+        "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%": 1,
+        "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation": 1,
+        "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas": 1,
+        "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land": 1,
+        "Would you identify any broad-leaved forest as lying right beside a coniferous forest?": 1,
+        "Would you say that mixed forests occupy four or more continuous areas in the image?": 1
+      },
+      "repeated_generated_outputs": {
+        "JOINT": {
+          "": 3,
+          " Yes": 6,
+          " b": 2,
+          " c": 4,
+          " d": 2
+        },
+        "S2": {
+          "a": 2,
+          "c": 5,
+          "no": 2,
+          "yes": 7
+        },
+        "SAR": {
+          "": 3,
+          "Yes": 4,
+          "no": 4
+        }
+      },
+      "supervision_construction_audit": {
+        "attention_mask": "constructed for multimodal sequence",
+        "checked": "src/eo_vlm/training.py build_qwen_visual_token_batch; existing targeted regression tests passed",
+        "target_text": "provided answer text is tokenized as labels",
+        "training_run": false,
+        "visual_token_placement": "visual token batch builder is shared by the measured constrained scorer"
+      }
+    }
+  },
+  "prior_modality_diagnostics": {
+    "JOINT": {
+      "decision_changes": 0,
+      "mean_visual_token_l2": 12.904085318247477,
+      "records": 6
+    },
+    "JOINT_FULL_CONTROLS": {
+      "decision_changes": 0,
+      "mean_visual_token_l2": 14.695535288916695,
+      "records": 18
+    },
+    "S2": {
+      "decision_changes": 0,
+      "mean_visual_token_l2": 13.523771444956461,
+      "records": 6
+    },
+    "SAR": {
+      "decision_changes": 1,
+      "mean_visual_token_l2": 51.36040941874186,
+      "records": 6
+    }
+  },
+  "prior_route_metrics": {
+    "JOINT": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.5714285714285714,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 7,
+          "total": 10
+        },
+        "delta_accuracy_over_total": 0.4,
+        "post": {
+          "accuracy": 0.8,
+          "accuracy_over_total": 0.8,
+          "correct": 8,
+          "parsed": 10,
+          "total": 10
+        }
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.1111111111111111,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 9,
+          "total": 10
+        },
+        "delta_accuracy_over_total": 0.0,
+        "post": {
+          "accuracy": 0.1,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 10,
+          "total": 10
+        }
+      }
+    },
+    "S2": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.4444444444444444,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 9,
+          "total": 10
+        },
+        "delta_accuracy_over_total": 0.0,
+        "post": {
+          "accuracy": 0.4,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 10,
+          "total": 10
+        }
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.1111111111111111,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 9,
+          "total": 10
+        },
+        "delta_accuracy_over_total": 0.1,
+        "post": {
+          "accuracy": 0.2,
+          "accuracy_over_total": 0.2,
+          "correct": 2,
+          "parsed": 10,
+          "total": 10
+        }
+      }
+    },
+    "SAR": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.4444444444444444,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 9,
+          "total": 10
+        },
+        "delta_accuracy_over_total": 0.4,
+        "post": {
+          "accuracy": 0.8,
+          "accuracy_over_total": 0.8,
+          "correct": 8,
+          "parsed": 10,
+          "total": 10
+        }
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.2857142857142857,
+          "accuracy_over_total": 0.2,
+          "correct": 2,
+          "parsed": 7,
+          "total": 10
+        },
+        "delta_accuracy_over_total": -0.1,
+        "post": {
+          "accuracy": 0.1,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 10,
+          "total": 10
+        }
+      }
+    }
+  },
+  "supervision_audit": {
+    "attention_mask": "constructed for multimodal sequence",
+    "checked": "src/eo_vlm/training.py build_qwen_visual_token_batch; existing targeted regression tests passed",
+    "target_text": "provided answer text is tokenized as labels",
+    "training_run": false,
+    "visual_token_placement": "visual token batch builder is shared by the measured constrained scorer"
+  },
+  "test_access_count": 0,
+  "visual_token_change_observed": true
+}

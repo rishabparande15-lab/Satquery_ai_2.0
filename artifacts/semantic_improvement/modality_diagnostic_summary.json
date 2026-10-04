@@ -1,0 +1,22 @@
+{
+  "JOINT": {
+    "records": 6,
+    "decision_changes": 0,
+    "mean_visual_token_l2": 12.904085318247477
+  },
+  "S2": {
+    "records": 6,
+    "decision_changes": 0,
+    "mean_visual_token_l2": 13.523771444956461
+  },
+  "SAR": {
+    "records": 6,
+    "decision_changes": 1,
+    "mean_visual_token_l2": 51.36040941874186
+  },
+  "JOINT_FULL_CONTROLS": {
+    "records": 18,
+    "decision_changes": 0,
+    "mean_visual_token_l2": 14.695535288916695
+  }
+}

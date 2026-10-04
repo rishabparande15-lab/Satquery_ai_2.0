@@ -1,0 +1,7 @@
+{
+  "mean_inference_seconds": 0.3942875999999463,
+  "oom_count": 0,
+  "peak_allocated": 8138592256,
+  "peak_reserved": 9082765312,
+  "test_access_count": 0
+}

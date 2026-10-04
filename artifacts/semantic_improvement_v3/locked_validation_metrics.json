@@ -1,0 +1,97 @@
+{
+  "JOINT": {
+    "aggregate": {
+      "accuracy": 0.75,
+      "correct": 6,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 1.0,
+      "answers": {
+        "no": 3,
+        "yes": 1
+      },
+      "correct": 4,
+      "total": 4
+    },
+    "dependence": {
+      "correct_visual_accuracy": 0.75,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 17.626791417598724,
+      "shuffled_visual_accuracy": 0.75
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.5,
+      "answers": {
+        "a": 3,
+        "d": 1
+      },
+      "correct": 2,
+      "total": 4
+    }
+  },
+  "S2": {
+    "aggregate": {
+      "accuracy": 0.5,
+      "correct": 4,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.75,
+      "answers": {
+        "no": 2,
+        "yes": 2
+      },
+      "correct": 3,
+      "total": 4
+    },
+    "dependence": {
+      "correct_visual_accuracy": 0.5,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 11.34487920999527,
+      "shuffled_visual_accuracy": 0.5
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.25,
+      "answers": {
+        "a": 1,
+        "b": 2,
+        "d": 1
+      },
+      "correct": 1,
+      "total": 4
+    }
+  },
+  "SAR": {
+    "aggregate": {
+      "accuracy": 0.625,
+      "correct": 5,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 1.0,
+      "answers": {
+        "no": 3,
+        "yes": 1
+      },
+      "correct": 4,
+      "total": 4
+    },
+    "dependence": {
+      "correct_visual_accuracy": 0.625,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 67.3012330532074,
+      "shuffled_visual_accuracy": 0.625
+    },
+    "multiple_choice_qa": {
+      "accuracy": 0.25,
+      "answers": {
+        "a": 1,
+        "b": 2,
+        "d": 1
+      },
+      "correct": 1,
+      "total": 4
+    }
+  }
+}

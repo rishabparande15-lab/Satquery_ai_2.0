@@ -1,0 +1,43 @@
+{
+  "baseline": {
+    "JOINT": {
+      "correct_visual_accuracy": 0.75,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 18.15246942639351,
+      "shuffled_visual_accuracy": 0.75
+    },
+    "S2": {
+      "correct_visual_accuracy": 0.5,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 11.478081583976746,
+      "shuffled_visual_accuracy": 0.5
+    },
+    "SAR": {
+      "correct_visual_accuracy": 0.75,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 68.1084508895874,
+      "shuffled_visual_accuracy": 0.75
+    }
+  },
+  "candidate": {
+    "JOINT": {
+      "correct_visual_accuracy": 0.75,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 17.626791417598724,
+      "shuffled_visual_accuracy": 0.75
+    },
+    "S2": {
+      "correct_visual_accuracy": 0.5,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 11.34487920999527,
+      "shuffled_visual_accuracy": 0.5
+    },
+    "SAR": {
+      "correct_visual_accuracy": 0.625,
+      "decision_change_rate": 0.0,
+      "mean_first_step_logit_l2": 67.3012330532074,
+      "shuffled_visual_accuracy": 0.625
+    }
+  },
+  "test_access_count": 0
+}

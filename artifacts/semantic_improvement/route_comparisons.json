@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "SAR": {
+      "s2_correct_candidate_wrong": 1,
+      "both_correct": 4,
+      "both_wrong": 13,
+      "candidate_correct_s2_wrong": 2
+    },
+    "JOINT": {
+      "both_correct": 2,
+      "s2_correct_candidate_wrong": 3,
+      "both_wrong": 12,
+      "candidate_correct_s2_wrong": 3
+    }
+  },
+  "post": {
+    "SAR": {
+      "s2_correct_candidate_wrong": 3,
+      "both_correct": 3,
+      "candidate_correct_s2_wrong": 6,
+      "both_wrong": 8
+    },
+    "JOINT": {
+      "both_correct": 3,
+      "candidate_correct_s2_wrong": 6,
+      "both_wrong": 8,
+      "s2_correct_candidate_wrong": 3
+    }
+  }
+}

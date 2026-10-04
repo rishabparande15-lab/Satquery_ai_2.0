@@ -1,0 +1,123 @@
+{
+  "S2": {
+    "binary_qa": {
+      "generated_unparsed": 1,
+      "generated_answer_counts": {
+        "yes": 7,
+        "no": 2,
+        "None": 1
+      }
+    },
+    "multiple_choice_qa": {
+      "generated_unparsed": 1,
+      "generated_answer_counts": {
+        "a": 2,
+        "c": 5,
+        "d": 1,
+        "None": 1,
+        "b": 1
+      }
+    }
+  },
+  "SAR": {
+    "binary_qa": {
+      "generated_unparsed": 1,
+      "generated_answer_counts": {
+        "no": 4,
+        "yes": 5,
+        "None": 1
+      }
+    },
+    "multiple_choice_qa": {
+      "generated_unparsed": 3,
+      "generated_answer_counts": {
+        "a": 1,
+        "c": 4,
+        "d": 2,
+        "None": 3
+      }
+    }
+  },
+  "JOINT": {
+    "binary_qa": {
+      "generated_unparsed": 3,
+      "generated_answer_counts": {
+        "yes": 6,
+        "None": 3,
+        "no": 1
+      }
+    },
+    "multiple_choice_qa": {
+      "generated_unparsed": 1,
+      "generated_answer_counts": {
+        "a": 1,
+        "c": 4,
+        "d": 2,
+        "b": 2,
+        "None": 1
+      }
+    }
+  },
+  "panel_distribution": {
+    "ground_truth_binary": {
+      "yes": 4,
+      "no": 6
+    },
+    "ground_truth_mcq_option": {
+      "d": 3,
+      "a": 3,
+      "c": 3,
+      "b": 1
+    },
+    "question_counts": {
+      "Do parts of the image correspond to pastures?": 1,
+      "Can multiple continuous areas of arable lands be detected in this image?": 1,
+      "Is any arable land and complex cultivation patterns adjoining regions in this scene?": 1,
+      "Does the image show inland waters?": 1,
+      "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?": 1,
+      "Would you say that mixed forests occupy four or more continuous areas in the image?": 1,
+      "Would you identify any broad-leaved forest as lying right beside a coniferous forest?": 1,
+      "Do permanent crops cover less than 20% of the image?": 1,
+      "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?": 1,
+      "Does the image capture pastures?": 1,
+      "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land": 1,
+      "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation": 1,
+      "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas": 1,
+      "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%": 1,
+      "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top": 1,
+      "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm": 1,
+      "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1": 1,
+      "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters": 1,
+      "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2": 1,
+      "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five": 1
+    },
+    "immediate_or_empty_generated_outputs": 7,
+    "repeated_generated_outputs": {
+      "S2": {
+        "yes": 7,
+        "no": 2,
+        "a": 2,
+        "c": 5
+      },
+      "SAR": {
+        "no": 4,
+        "Yes": 4,
+        "": 3
+      },
+      "JOINT": {
+        " Yes": 6,
+        "": 3,
+        " c": 4,
+        " d": 2,
+        " b": 2
+      }
+    },
+    "supervision_construction_audit": {
+      "checked": "src/eo_vlm/training.py build_qwen_visual_token_batch; existing targeted regression tests passed",
+      "target_text": "provided answer text is tokenized as labels",
+      "attention_mask": "constructed for multimodal sequence",
+      "visual_token_placement": "visual token batch builder is shared by the measured constrained scorer",
+      "training_run": false
+    }
+  }
+}

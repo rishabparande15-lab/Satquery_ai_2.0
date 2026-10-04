@@ -1,0 +1,219 @@
+{
+  "branch": "experiments/semantic-improvement",
+  "classification": "PROJECTOR_ONLY_CEILING_CONFIRMED",
+  "conclusion": "Both projector-only shuffled-negative experiments reduced training loss but regressed DEV correctness. The selected joint candidate retained zero shuffled-SAR decision changes on the historical validation diagnostic. No fresh validation VQA identities remain in the approved manifest, so no acceptance-quality locked validation claim is possible.",
+  "data_counts": {
+    "dev": 8,
+    "historically_exposed_locked_validation": 20,
+    "internal_holdout": 8,
+    "train": 24
+  },
+  "deployment_recommendation": "DO_NOT_DEPLOY",
+  "dev_baseline": {
+    "JOINT": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      }
+    },
+    "S2": {
+      "aggregate": {
+        "accuracy": 0.125,
+        "correct": 1,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "total": 4
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      }
+    },
+    "SAR": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      }
+    }
+  },
+  "frozen_tag_target": "148459d95a8499e58a95a42504d1bc0f57691fd2",
+  "historically_exposed_locked": {
+    "baseline": {
+      "aggregate": {
+        "accuracy": 0.45,
+        "correct": 9,
+        "total": 20
+      },
+      "binary_qa": {
+        "accuracy": 0.8,
+        "correct": 8,
+        "total": 10
+      },
+      "mean_target_margin": -0.002420097589492798,
+      "multiple_choice_qa": {
+        "accuracy": 0.1,
+        "correct": 1,
+        "total": 10
+      },
+      "shuffle_decision_change": 0.0
+    },
+    "candidate": {
+      "aggregate": {
+        "accuracy": 0.45,
+        "correct": 9,
+        "total": 20
+      },
+      "binary_qa": {
+        "accuracy": 0.7,
+        "correct": 7,
+        "total": 10
+      },
+      "mean_target_margin": 0.0044420696794986725,
+      "multiple_choice_qa": {
+        "accuracy": 0.2,
+        "correct": 2,
+        "total": 10
+      },
+      "shuffle_decision_change": 0.0
+    }
+  },
+  "joint_experiment": {
+    "baseline": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "mean_target_margin": -0.010076388716697693,
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "shuffle_decision_change": 0.0
+    },
+    "candidate": {
+      "aggregate": {
+        "accuracy": 0.125,
+        "correct": 1,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.25,
+        "correct": 1,
+        "total": 4
+      },
+      "mean_target_margin": 0.0003887005150318146,
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "shuffle_decision_change": 0.0
+    },
+    "final_loss": 0.46387121081352234,
+    "steps": 48
+  },
+  "runtime": {
+    "inferences": [
+      {
+        "prediction": "yes",
+        "seconds": 1.0466698000000179,
+        "task_type": "binary_qa"
+      },
+      {
+        "prediction": "b",
+        "seconds": 0.493746099999953,
+        "task_type": "multiple_choice_qa"
+      }
+    ],
+    "load_plus_two_inference_seconds": 1.564865700000155,
+    "mean_inference_seconds": 0.7702079499999854,
+    "oom_count": 0,
+    "panel": "two DEV records",
+    "peak_allocated": 7646499328,
+    "peak_reserved": 7782531072,
+    "process_rss_bytes": 3796135936,
+    "route": "JOINT",
+    "test_access_count": 0
+  },
+  "sar_experiment": {
+    "baseline": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "correct": 2,
+        "total": 4
+      },
+      "mean_target_margin": -0.2322976291179657,
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "shuffle_decision_change": 0.0
+    },
+    "candidate": {
+      "aggregate": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "mean_target_margin": -0.2158292755484581,
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "correct": 0,
+        "total": 4
+      },
+      "shuffle_decision_change": 0.125
+    },
+    "final_loss": 0.22171102464199066,
+    "steps": 48
+  },
+  "starting_sha": "070e6eac1950ad710cb28c9cfd9a2f25abc1f5fb",
+  "test_images_read": 0,
+  "test_inference_runs": 0,
+  "test_labels_read": 0,
+  "test_metrics_computed": 0,
+  "working_sha": "070e6eac1950ad710cb28c9cfd9a2f25abc1f5fb"
+}

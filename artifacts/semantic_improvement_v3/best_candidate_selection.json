@@ -1,0 +1,100 @@
+{
+  "dev_metrics": {
+    "JOINT": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "answers": {
+          "no": 1,
+          "yes": 3
+        },
+        "correct": 2,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.25,
+        "decision_change_rate": 0.0,
+        "mean_first_step_logit_l2": 13.070971012115479,
+        "shuffled_visual_accuracy": 0.25
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "answers": {
+          "b": 2,
+          "c": 2
+        },
+        "correct": 0,
+        "total": 4
+      }
+    },
+    "S2": {
+      "aggregate": {
+        "accuracy": 0.125,
+        "correct": 1,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.25,
+        "answers": {
+          "yes": 4
+        },
+        "correct": 1,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.125,
+        "decision_change_rate": 0.0,
+        "mean_first_step_logit_l2": 9.261623919010162,
+        "shuffled_visual_accuracy": 0.125
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "answers": {
+          "a": 1,
+          "b": 2,
+          "c": 1
+        },
+        "correct": 0,
+        "total": 4
+      }
+    },
+    "SAR": {
+      "aggregate": {
+        "accuracy": 0.25,
+        "correct": 2,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.5,
+        "answers": {
+          "no": 1,
+          "yes": 3
+        },
+        "correct": 2,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.25,
+        "decision_change_rate": 0.125,
+        "mean_first_step_logit_l2": 102.59175229072571,
+        "shuffled_visual_accuracy": 0.25
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.0,
+        "answers": {
+          "a": 2,
+          "b": 2
+        },
+        "correct": 0,
+        "total": 4
+      }
+    }
+  },
+  "selected": "exp01",
+  "selection_scope": "DEV only",
+  "test_access_count": 0
+}

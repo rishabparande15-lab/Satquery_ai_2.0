@@ -1,0 +1,115 @@
+{
+  "name": "validation-wide constrained candidate likelihood",
+  "scope": "All legal binary or MCQ answer candidates are scored with frozen visual tokens; no sample-specific rule is used.",
+  "selection": "Experimental only; not integrated into product routes because SAR MCQ regressed on this fixed validation panel.",
+  "comparison": {
+    "S2": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.4444444444444444,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 9,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 4,
+          "accuracy": 0.4,
+          "accuracy_over_total": 0.4
+        },
+        "delta_accuracy_over_total": 0.0
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.1111111111111111,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 9,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 2,
+          "accuracy": 0.2,
+          "accuracy_over_total": 0.2
+        },
+        "delta_accuracy_over_total": 0.1
+      }
+    },
+    "SAR": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.4444444444444444,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 9,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 8,
+          "accuracy": 0.8,
+          "accuracy_over_total": 0.8
+        },
+        "delta_accuracy_over_total": 0.4
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.2857142857142857,
+          "accuracy_over_total": 0.2,
+          "correct": 2,
+          "parsed": 7,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 1,
+          "accuracy": 0.1,
+          "accuracy_over_total": 0.1
+        },
+        "delta_accuracy_over_total": -0.1
+      }
+    },
+    "JOINT": {
+      "binary_qa": {
+        "baseline": {
+          "accuracy": 0.5714285714285714,
+          "accuracy_over_total": 0.4,
+          "correct": 4,
+          "parsed": 7,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 8,
+          "accuracy": 0.8,
+          "accuracy_over_total": 0.8
+        },
+        "delta_accuracy_over_total": 0.4
+      },
+      "multiple_choice_qa": {
+        "baseline": {
+          "accuracy": 0.1111111111111111,
+          "accuracy_over_total": 0.1,
+          "correct": 1,
+          "parsed": 9,
+          "total": 10
+        },
+        "post": {
+          "total": 10,
+          "parsed": 10,
+          "correct": 1,
+          "accuracy": 0.1,
+          "accuracy_over_total": 0.1
+        },
+        "delta_accuracy_over_total": 0.0
+      }
+    }
+  }
+}

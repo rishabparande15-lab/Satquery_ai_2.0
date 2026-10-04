@@ -1,0 +1,19 @@
+{
+  "no_deletion_performed": true,
+  "pipeline3_5000": {
+    "classification": "KEEP_REQUIRED",
+    "path": "D:/Satquery_ai datasets/comparison/pipeline3-5000",
+    "reason": "README identifies derived model outputs/checkpoints that must be backed up; this phase did not inventory and back them up."
+  },
+  "raw_1000": {
+    "classification": "SAFE_TO_DELETE_AFTER_BACKUP",
+    "path": "D:/Satquery_ai datasets/comparison/raw-1000",
+    "reason": "raw source is documented as REDOWNLOADABLE; retain recovery/datasets/raw-1000-download-provenance.json and all semantic_improvement_v3 receipts/checkpoint first."
+  },
+  "raw_5000_additional": {
+    "classification": "SAFE_TO_DELETE_AFTER_BACKUP",
+    "path": "D:/Satquery_ai datasets/comparison/raw-5000-additional",
+    "reason": "README documents it as REDOWNLOADABLE; retain recovery acquisition records first."
+  },
+  "test_access_count": 0
+}

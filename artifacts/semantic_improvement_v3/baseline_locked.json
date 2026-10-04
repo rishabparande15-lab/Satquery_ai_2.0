@@ -1,0 +1,413 @@
+{
+  "metrics": {
+    "JOINT": {
+      "aggregate": {
+        "accuracy": 0.75,
+        "correct": 6,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 1.0,
+        "answers": {
+          "no": 3,
+          "yes": 1
+        },
+        "correct": 4,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.75,
+        "decision_change_rate": 0.0,
+        "mean_first_step_logit_l2": 18.15246942639351,
+        "shuffled_visual_accuracy": 0.75
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.5,
+        "answers": {
+          "a": 3,
+          "d": 1
+        },
+        "correct": 2,
+        "total": 4
+      }
+    },
+    "S2": {
+      "aggregate": {
+        "accuracy": 0.5,
+        "correct": 4,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 0.75,
+        "answers": {
+          "no": 2,
+          "yes": 2
+        },
+        "correct": 3,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.5,
+        "decision_change_rate": 0.0,
+        "mean_first_step_logit_l2": 11.478081583976746,
+        "shuffled_visual_accuracy": 0.5
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.25,
+        "answers": {
+          "a": 1,
+          "b": 2,
+          "d": 1
+        },
+        "correct": 1,
+        "total": 4
+      }
+    },
+    "SAR": {
+      "aggregate": {
+        "accuracy": 0.75,
+        "correct": 6,
+        "total": 8
+      },
+      "binary_qa": {
+        "accuracy": 1.0,
+        "answers": {
+          "no": 3,
+          "yes": 1
+        },
+        "correct": 4,
+        "total": 4
+      },
+      "dependence": {
+        "correct_visual_accuracy": 0.75,
+        "decision_change_rate": 0.0,
+        "mean_first_step_logit_l2": 68.1084508895874,
+        "shuffled_visual_accuracy": 0.75
+      },
+      "multiple_choice_qa": {
+        "accuracy": 0.5,
+        "answers": {
+          "b": 3,
+          "d": 1
+        },
+        "correct": 2,
+        "total": 4
+      }
+    }
+  },
+  "predictions": [
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 24.980262756347656,
+      "prediction": "no",
+      "record_id": "ilr:c4312876db9a4684999fda4d84a9ec22c6af464dc480ee230b2aea1f1896c80a",
+      "route": "S2",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": 0.01586824655532837,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 9.558106422424316,
+      "prediction": "yes",
+      "record_id": "ilr:c44d083936e72eab90b2d68f16aa54615906e1df44ad49aae7128456fe125d1a",
+      "route": "S2",
+      "shuffled_correct": false,
+      "shuffled_prediction": "yes",
+      "target_margin": -0.01202392578125,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 7.2552690505981445,
+      "prediction": "yes",
+      "record_id": "ilr:dced0ddabd455bfe1fd7a4657d079742424bf0f59726021b74532ace83388d19",
+      "route": "S2",
+      "shuffled_correct": true,
+      "shuffled_prediction": "yes",
+      "target_margin": -0.006945252418518066,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 18.371320724487305,
+      "prediction": "no",
+      "record_id": "ilr:de94a325f6da6c917769fb68aeb0d38fec4466b041d7a6c8811da8882530d63d",
+      "route": "S2",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": -0.019455790519714355,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 7.141457557678223,
+      "prediction": "b",
+      "record_id": "ilr:df5729c04ff4f4e6165ed38766f33ec02fe4546bd940ccbacba341030360f3f7",
+      "route": "S2",
+      "shuffled_correct": false,
+      "shuffled_prediction": "b",
+      "target_margin": -0.01176464557647705,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 8.604762077331543,
+      "prediction": "d",
+      "record_id": "ilr:e19b47268dc266e7e4dc2aa619342d41d3f798851539db156e11ca18936ea66c",
+      "route": "S2",
+      "shuffled_correct": true,
+      "shuffled_prediction": "d",
+      "target_margin": 0.012684822082519531,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 6.3145599365234375,
+      "prediction": "a",
+      "record_id": "ilr:eae8367085fdf11b93bc01459d70ea0f300a59658cd08a94ccbb90104a6d17ec",
+      "route": "S2",
+      "shuffled_correct": false,
+      "shuffled_prediction": "a",
+      "target_margin": -0.003538846969604492,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 9.59891414642334,
+      "prediction": "b",
+      "record_id": "ilr:eb6e106b24b59332e75a536d4ccf8b7d1e2da4f20789222301e27949ed488274",
+      "route": "S2",
+      "shuffled_correct": false,
+      "shuffled_prediction": "b",
+      "target_margin": 0.014747142791748047,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 93.94005584716797,
+      "prediction": "no",
+      "record_id": "ilr:c4312876db9a4684999fda4d84a9ec22c6af464dc480ee230b2aea1f1896c80a",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": 0.4038209915161133,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 97.6184310913086,
+      "prediction": "no",
+      "record_id": "ilr:c44d083936e72eab90b2d68f16aa54615906e1df44ad49aae7128456fe125d1a",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": 0.034958839416503906,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 34.315155029296875,
+      "prediction": "yes",
+      "record_id": "ilr:dced0ddabd455bfe1fd7a4657d079742424bf0f59726021b74532ace83388d19",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "yes",
+      "target_margin": -0.060337066650390625,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 84.16256713867188,
+      "prediction": "no",
+      "record_id": "ilr:de94a325f6da6c917769fb68aeb0d38fec4466b041d7a6c8811da8882530d63d",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": -0.16456985473632812,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 22.169132232666016,
+      "prediction": "b",
+      "record_id": "ilr:df5729c04ff4f4e6165ed38766f33ec02fe4546bd940ccbacba341030360f3f7",
+      "route": "SAR",
+      "shuffled_correct": false,
+      "shuffled_prediction": "b",
+      "target_margin": 0.0340113639831543,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 95.87300109863281,
+      "prediction": "d",
+      "record_id": "ilr:e19b47268dc266e7e4dc2aa619342d41d3f798851539db156e11ca18936ea66c",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "d",
+      "target_margin": -0.23797869682312012,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 66.6469955444336,
+      "prediction": "b",
+      "record_id": "ilr:eae8367085fdf11b93bc01459d70ea0f300a59658cd08a94ccbb90104a6d17ec",
+      "route": "SAR",
+      "shuffled_correct": true,
+      "shuffled_prediction": "b",
+      "target_margin": 0.17258262634277344,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 50.142269134521484,
+      "prediction": "b",
+      "record_id": "ilr:eb6e106b24b59332e75a536d4ccf8b7d1e2da4f20789222301e27949ed488274",
+      "route": "SAR",
+      "shuffled_correct": false,
+      "shuffled_prediction": "b",
+      "target_margin": -0.30948829650878906,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 17.93806266784668,
+      "prediction": "no",
+      "record_id": "ilr:c4312876db9a4684999fda4d84a9ec22c6af464dc480ee230b2aea1f1896c80a",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": -0.006721019744873047,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 24.887062072753906,
+      "prediction": "no",
+      "record_id": "ilr:c44d083936e72eab90b2d68f16aa54615906e1df44ad49aae7128456fe125d1a",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": 0.05285453796386719,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "yes",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 15.264486312866211,
+      "prediction": "yes",
+      "record_id": "ilr:dced0ddabd455bfe1fd7a4657d079742424bf0f59726021b74532ace83388d19",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "yes",
+      "target_margin": -0.032506465911865234,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "no",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 13.08068561553955,
+      "prediction": "no",
+      "record_id": "ilr:de94a325f6da6c917769fb68aeb0d38fec4466b041d7a6c8811da8882530d63d",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "no",
+      "target_margin": -0.004730701446533203,
+      "task_type": "binary_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 3.9860451221466064,
+      "prediction": "d",
+      "record_id": "ilr:df5729c04ff4f4e6165ed38766f33ec02fe4546bd940ccbacba341030360f3f7",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "d",
+      "target_margin": -0.00771486759185791,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "d",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 13.674005508422852,
+      "prediction": "a",
+      "record_id": "ilr:e19b47268dc266e7e4dc2aa619342d41d3f798851539db156e11ca18936ea66c",
+      "route": "JOINT",
+      "shuffled_correct": false,
+      "shuffled_prediction": "a",
+      "target_margin": 0.04383432865142822,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "b",
+      "changed": false,
+      "correct": false,
+      "first_step_logit_l2": 20.853477478027344,
+      "prediction": "a",
+      "record_id": "ilr:eae8367085fdf11b93bc01459d70ea0f300a59658cd08a94ccbb90104a6d17ec",
+      "route": "JOINT",
+      "shuffled_correct": false,
+      "shuffled_prediction": "a",
+      "target_margin": -0.0022606849670410156,
+      "task_type": "multiple_choice_qa"
+    },
+    {
+      "answer": "a",
+      "changed": false,
+      "correct": true,
+      "first_step_logit_l2": 35.53593063354492,
+      "prediction": "a",
+      "record_id": "ilr:eb6e106b24b59332e75a536d4ccf8b7d1e2da4f20789222301e27949ed488274",
+      "route": "JOINT",
+      "shuffled_correct": true,
+      "shuffled_prediction": "a",
+      "target_margin": -0.04971277713775635,
+      "task_type": "multiple_choice_qa"
+    }
+  ],
+  "test_access_count": 0
+}

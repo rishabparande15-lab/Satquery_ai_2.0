@@ -1,0 +1,1667 @@
+[
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.4403984546661377,
+        "yes": -0.5342661142349243
+      },
+      "token_l2": 283.93450927734375
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+    "prediction": "yes",
+    "question": "Do parts of the image correspond to pastures?",
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.6195088624954224,
+        "yes": -0.29109615087509155
+      },
+      "token_l2": 278.1610107421875
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_15_47",
+    "prediction": "yes",
+    "question": "Can multiple continuous areas of arable lands be detected in this image?",
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.1716606616973877,
+        "yes": -1.0311192274093628
+      },
+      "token_l2": 282.7567138671875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_45_70",
+    "prediction": "yes",
+    "question": "Is any arable land and complex cultivation patterns adjoining regions in this scene?",
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -0.9996733665466309,
+        "yes": -0.6405777335166931
+      },
+      "token_l2": 286.06146240234375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_70_20",
+    "prediction": "yes",
+    "question": "Does the image show inland waters?",
+    "record_id": "ilr:12b9124a6be259179a4582fb855276765ee20acd2bf7520808ec84440cca5c91",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -0.9831642508506775,
+        "yes": -1.7800620794296265
+      },
+      "token_l2": 284.7585144042969
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180502T093039_N9999_R136_T34TEP_18_45",
+    "prediction": "no",
+    "question": "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?",
+    "record_id": "ilr:1422ed730a02f2729c7b5e14d3a4f0f154db10481c5f81aacb5b458cdd7797fd",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.4371726512908936,
+        "yes": -1.312178373336792
+      },
+      "token_l2": 283.3700256347656
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "four",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_75",
+    "prediction": "yes",
+    "question": "Would you say that mixed forests occupy four or more continuous areas in the image?",
+    "record_id": "ilr:1a12a334e0965e13c93dc5d25224b274c90ac71d22a3d7abfe76851875682191",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.2539387941360474,
+        "yes": -1.2226628065109253
+      },
+      "token_l2": 278.82843017578125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_14",
+    "prediction": "yes",
+    "question": "Would you identify any broad-leaved forest as lying right beside a coniferous forest?",
+    "record_id": "ilr:1d11d4ed33cdf973f4983cbb3fefe5bd236797d3a3dc2a7aa7573fbc9abfe005",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -0.9358479976654053,
+        "yes": -0.8262701630592346
+      },
+      "token_l2": 281.267578125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171002T112111_N9999_R037_T29SNB_51_75",
+    "prediction": "yes",
+    "question": "Do permanent crops cover less than 20% of the image?",
+    "record_id": "ilr:1d436a3e2da95691af4c413d3e51a4b9f8ed334e2353836fd6fff0d8c70aebdc",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -1.7979300022125244,
+        "yes": -0.6729483008384705
+      },
+      "token_l2": 280.85308837890625
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_29_20",
+    "prediction": "yes",
+    "question": "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?",
+    "record_id": "ilr:1dc127658f05c6d611e2e19f999433069093dba73d4aaf4e137a063fa39da697",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -0.7389298677444458,
+        "yes": -1.0676982402801514
+      },
+      "token_l2": 283.80987548828125
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180515T112109_N9999_R037_T29SNC_55_74",
+    "prediction": "no",
+    "question": "Does the image capture pastures?",
+    "record_id": "ilr:207131b7325e472f30bfc0e311dba22ed5cf09897f0da950fbc507f8590f426b",
+    "route": "S2",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "a",
+      "scores": {
+        "a": -0.9238335490226746,
+        "b": -1.8874059915542603,
+        "c": -1.8484891653060913,
+        "d": -1.5194091796875
+      },
+      "token_l2": 282.07122802734375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "a",
+      "route_raw_status": "OK",
+      "text": "a",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_16_43",
+    "prediction": "a",
+    "question": "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land",
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.3205158710479736,
+        "b": -1.8953293561935425,
+        "c": -1.0463985204696655,
+        "d": -1.9388800859451294
+      },
+      "token_l2": 282.54095458984375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20171219T095409_N9999_R079_T33TWN_25_69",
+    "prediction": "c",
+    "question": "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation",
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "d",
+      "scores": {
+        "a": -1.4175206422805786,
+        "b": -1.9351489543914795,
+        "c": -2.091068744659424,
+        "d": -0.8656158447265625
+      },
+      "token_l2": 281.50970458984375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "d",
+      "route_raw_status": "OK",
+      "text": "d",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_20_32",
+    "prediction": "d",
+    "question": "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas",
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.439236640930176,
+        "b": -1.4555639028549194,
+        "c": -1.4292842149734497,
+        "d": -2.861966848373413
+      },
+      "token_l2": 280.5622863769531
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170808T094029_N9999_R036_T35ULA_77_21",
+    "prediction": "c",
+    "question": "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%",
+    "record_id": "ilr:170006dc5b40866ce55ce1dbc24ea93a9f89a781b1c52fb130eda26772a97f22",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.5734453201293945,
+        "b": -1.8092344999313354,
+        "c": -1.0147337913513184,
+        "d": -1.9782437086105347
+      },
+      "token_l2": 281.9073486328125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_20_43",
+    "prediction": "c",
+    "question": "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top",
+    "record_id": "ilr:23f6ac0d09bdbbed98cda49d30e0d5aa21c14d5f74009ec3f4594534e2eb4354",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.6856210231781006,
+        "b": -1.3621454238891602,
+        "c": -1.265871524810791,
+        "d": -1.6881908178329468
+      },
+      "token_l2": 278.925048828125
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_15_46",
+    "prediction": "c",
+    "question": "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm",
+    "record_id": "ilr:25b375e655b2763773a50d10d386ada8677d88e83f09e49ccbb534737da1222a",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "a",
+      "scores": {
+        "a": -1.152711272239685,
+        "b": -2.4195220470428467,
+        "c": -1.6262534856796265,
+        "d": -1.4897122383117676
+      },
+      "token_l2": 280.88104248046875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "a",
+      "route_raw_status": "OK",
+      "text": "a",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170923T100019_N9999_R122_T33TWM_61_13",
+    "prediction": "a",
+    "question": "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1",
+    "record_id": "ilr:2791f1cfc99a6b7e454fbec614b94356ec5526d615411fd0300d6653e2ba0ae2",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "b",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.2224843502044678,
+        "b": -2.4631295204162598,
+        "c": -1.0170174837112427,
+        "d": -1.1756943464279175
+      },
+      "token_l2": 283.65899658203125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_44_18",
+    "prediction": "c",
+    "question": "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters",
+    "record_id": "ilr:3e551b22a897fdd3d53f833b00705b7395814162123353cc80cd2421b92e7147",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -1.4972811937332153,
+        "b": -1.4577875137329102,
+        "c": -1.5776065587997437,
+        "d": -1.6335502862930298
+      },
+      "token_l2": 280.2879333496094
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "b",
+      "route_raw_status": "OK",
+      "text": "b",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_73_64",
+    "prediction": "b",
+    "question": "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2",
+    "record_id": "ilr:4ab242ea20e55cc374b58db890d307c5142ee6ba3a39e38b99c212937a520aa0",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.4829411506652832,
+        "b": -1.6007925271987915,
+        "c": -1.3160539865493774,
+        "d": -1.951154112815857
+      },
+      "token_l2": 282.8794860839844
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "S2 language capability is an internal projector proof of concept, not an RSVQA benchmark result.",
+        "This route uses S2 only; no S1 input or optical-SAR fusion is used."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_27_71",
+    "prediction": "c",
+    "question": "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five",
+    "record_id": "ilr:4f82f2357a47598a2a94d4b1fc439ad0a007f6e634f462130baa3096bbcc6e74",
+    "route": "S2",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -10.888936042785645,
+        "yes": -11.687113761901855
+      },
+      "token_l2": 310.9510498046875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+    "prediction": "no",
+    "question": "Do parts of the image correspond to pastures?",
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -10.31678295135498,
+        "yes": -9.745856285095215
+      },
+      "token_l2": 280.50567626953125
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "yes",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_15_47",
+    "prediction": "yes",
+    "question": "Can multiple continuous areas of arable lands be detected in this image?",
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -6.661769390106201,
+        "yes": -7.222907066345215
+      },
+      "token_l2": 282.5818786621094
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "Yes",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_45_70",
+    "prediction": "no",
+    "question": "Is any arable land and complex cultivation patterns adjoining regions in this scene?",
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -6.7274909019470215,
+        "yes": -6.910115718841553
+      },
+      "token_l2": 274.5396728515625
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "Yes",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_70_20",
+    "prediction": "no",
+    "question": "Does the image show inland waters?",
+    "record_id": "ilr:12b9124a6be259179a4582fb855276765ee20acd2bf7520808ec84440cca5c91",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -10.088479995727539,
+        "yes": -11.784307479858398
+      },
+      "token_l2": 304.27685546875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180502T093039_N9999_R136_T34TEP_18_45",
+    "prediction": "no",
+    "question": "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?",
+    "record_id": "ilr:1422ed730a02f2729c7b5e14d3a4f0f154db10481c5f81aacb5b458cdd7797fd",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -7.937613487243652,
+        "yes": -8.459733009338379
+      },
+      "token_l2": 299.8949279785156
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "Four",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_75",
+    "prediction": "no",
+    "question": "Would you say that mixed forests occupy four or more continuous areas in the image?",
+    "record_id": "ilr:1a12a334e0965e13c93dc5d25224b274c90ac71d22a3d7abfe76851875682191",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -4.386511325836182,
+        "yes": -4.651123046875
+      },
+      "token_l2": 307.1835632324219
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "Yes",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_14",
+    "prediction": "no",
+    "question": "Would you identify any broad-leaved forest as lying right beside a coniferous forest?",
+    "record_id": "ilr:1d11d4ed33cdf973f4983cbb3fefe5bd236797d3a3dc2a7aa7573fbc9abfe005",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -7.492084503173828,
+        "yes": -8.49930477142334
+      },
+      "token_l2": 307.0841369628906
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171002T112111_N9999_R037_T29SNB_51_75",
+    "prediction": "no",
+    "question": "Do permanent crops cover less than 20% of the image?",
+    "record_id": "ilr:1d436a3e2da95691af4c413d3e51a4b9f8ed334e2353836fd6fff0d8c70aebdc",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -5.231667518615723,
+        "yes": -5.000894069671631
+      },
+      "token_l2": 296.35498046875
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": "Yes",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_29_20",
+    "prediction": "yes",
+    "question": "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?",
+    "record_id": "ilr:1dc127658f05c6d611e2e19f999433069093dba73d4aaf4e137a063fa39da697",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -9.911368370056152,
+        "yes": -12.757596969604492
+      },
+      "token_l2": 305.61529541015625
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": "no",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback.",
+        "Qwen generation emitted no text; binary answer is the frozen Qwen candidate-likelihood decision."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180515T112109_N9999_R037_T29SNC_55_74",
+    "prediction": "no",
+    "question": "Does the image capture pastures?",
+    "record_id": "ilr:207131b7325e472f30bfc0e311dba22ed5cf09897f0da950fbc507f8590f426b",
+    "route": "SAR",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "a",
+      "scores": {
+        "a": -3.292229413986206,
+        "b": -4.33680534362793,
+        "c": -5.488014221191406,
+        "d": -4.218331336975098
+      },
+      "token_l2": 292.88824462890625
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "a",
+      "route_raw_status": "OK",
+      "text": "a) Industrial or commercial units",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_16_43",
+    "prediction": "a",
+    "question": "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land",
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.035715103149414,
+        "b": -2.3809008598327637,
+        "c": -1.8428387641906738,
+        "d": -2.0435404777526855
+      },
+      "token_l2": 242.4970703125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c) Mixed forest and Urban fabric",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20171219T095409_N9999_R079_T33TWN_25_69",
+    "prediction": "c",
+    "question": "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation",
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "d",
+      "scores": {
+        "a": -2.7388851642608643,
+        "b": -3.005662202835083,
+        "c": -3.971653938293457,
+        "d": -2.6161627769470215
+      },
+      "token_l2": 267.00836181640625
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "d",
+      "route_raw_status": "OK",
+      "text": "d) Natural grassland and sparsely vegetated areas",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_20_32",
+    "prediction": "d",
+    "question": "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas",
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -5.459991931915283,
+        "b": -2.896667003631592,
+        "c": -3.4667911529541016,
+        "d": -5.797656536102295
+      },
+      "token_l2": 298.65277099609375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170808T094029_N9999_R036_T35ULA_77_21",
+    "prediction": "b",
+    "question": "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%",
+    "record_id": "ilr:170006dc5b40866ce55ce1dbc24ea93a9f89a781b1c52fb130eda26772a97f22",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "a",
+      "scores": {
+        "a": -4.128903388977051,
+        "b": -5.796812057495117,
+        "c": -5.956846237182617,
+        "d": -6.803215980529785
+      },
+      "token_l2": 225.5295867919922
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c) to the right",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_20_43",
+    "prediction": "a",
+    "question": "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top",
+    "record_id": "ilr:23f6ac0d09bdbbed98cda49d30e0d5aa21c14d5f74009ec3f4594534e2eb4354",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -2.396427631378174,
+        "b": -1.6546697616577148,
+        "c": -1.7727421522140503,
+        "d": -2.4961674213409424
+      },
+      "token_l2": 312.0140686035156
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_15_46",
+    "prediction": "b",
+    "question": "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm",
+    "record_id": "ilr:25b375e655b2763773a50d10d386ada8677d88e83f09e49ccbb534737da1222a",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "a",
+      "scores": {
+        "a": -3.2808127403259277,
+        "b": -4.667140483856201,
+        "c": -4.112746715545654,
+        "d": -5.173822402954102
+      },
+      "token_l2": 301.9501037597656
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "d",
+      "route_raw_status": "OK",
+      "text": "d) 1",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170923T100019_N9999_R122_T33TWM_61_13",
+    "prediction": "a",
+    "question": "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1",
+    "record_id": "ilr:2791f1cfc99a6b7e454fbec614b94356ec5526d615411fd0300d6653e2ba0ae2",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "b",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -3.973224639892578,
+        "b": -2.8112056255340576,
+        "c": -1.929940104484558,
+        "d": -2.373871326446533
+      },
+      "token_l2": 303.12200927734375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": "c) Arable land and Broad-leaved forest",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_44_18",
+    "prediction": "c",
+    "question": "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters",
+    "record_id": "ilr:3e551b22a897fdd3d53f833b00705b7395814162123353cc80cd2421b92e7147",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -2.7138922214508057,
+        "b": -2.5141379833221436,
+        "c": -2.77683162689209,
+        "d": -2.905179500579834
+      },
+      "token_l2": 299.3367919921875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_73_64",
+    "prediction": "b",
+    "question": "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2",
+    "record_id": "ilr:4ab242ea20e55cc374b58db890d307c5142ee6ba3a39e38b99c212937a520aa0",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -2.954662322998047,
+        "b": -2.4444706439971924,
+        "c": -2.578188419342041,
+        "d": -3.2947964668273926
+      },
+      "token_l2": 293.9178466796875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "SAR_ONLY_SEMANTIC_VALIDATION_LIMITED",
+        "Standalone SAR did not demonstrate clear semantic improvement; this route has no optical fallback."
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_27_71",
+    "prediction": "b",
+    "question": "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five",
+    "record_id": "ilr:4f82f2357a47598a2a94d4b1fc439ad0a007f6e634f462130baa3096bbcc6e74",
+    "route": "SAR",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -4.933888912200928,
+        "yes": -4.887356281280518
+      },
+      "token_l2": 595.8974609375
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22",
+    "prediction": "yes",
+    "question": "Do parts of the image correspond to pastures?",
+    "record_id": "ilr:006127c080a9a0e92217362bc65df7ff471770def5cf97eca555aaa3b1f83772",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "yes",
+      "scores": {
+        "no": -7.274026870727539,
+        "yes": -5.875086784362793
+      },
+      "token_l2": 586.314697265625
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180508T104031_N9999_R008_T31UGR_15_47",
+    "prediction": "yes",
+    "question": "Can multiple continuous areas of arable lands be detected in this image?",
+    "record_id": "ilr:01e8ffb6299f68f53abfddd09251fb8aa6ff091cb9624c6c746a28ed06f0afc5",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -5.2100372314453125,
+        "yes": -5.460161209106445
+      },
+      "token_l2": 580.8099365234375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_45_70",
+    "prediction": "no",
+    "question": "Is any arable land and complex cultivation patterns adjoining regions in this scene?",
+    "record_id": "ilr:03e56d16c1f44ac813ee0ed6a06adfe58498cb683b7f2ad58b8011b3b76834ef",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -5.152584552764893,
+        "yes": -5.291993618011475
+      },
+      "token_l2": 569.203857421875
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_70_20",
+    "prediction": "no",
+    "question": "Does the image show inland waters?",
+    "record_id": "ilr:12b9124a6be259179a4582fb855276765ee20acd2bf7520808ec84440cca5c91",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -5.3350348472595215,
+        "yes": -5.96811580657959
+      },
+      "token_l2": 595.5706176757812
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180502T093039_N9999_R136_T34TEP_18_45",
+    "prediction": "no",
+    "question": "Is there direct adjacency between any instance of complex cultivation patterns and urban fabrics in the scene?",
+    "record_id": "ilr:1422ed730a02f2729c7b5e14d3a4f0f154db10481c5f81aacb5b458cdd7797fd",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -5.158428192138672,
+        "yes": -5.93151330947876
+      },
+      "token_l2": 587.0599365234375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": " Mixed forests occupy four continuous areas in the",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170927T094019_N9999_R036_T35ULB_66_75",
+    "prediction": "no",
+    "question": "Would you say that mixed forests occupy four or more continuous areas in the image?",
+    "record_id": "ilr:1a12a334e0965e13c93dc5d25224b274c90ac71d22a3d7abfe76851875682191",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -4.675681114196777,
+        "yes": -4.960123062133789
+      },
+      "token_l2": 570.5481567382812
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "no",
+      "route_raw_status": "OK",
+      "text": " No",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180225T105019_N9999_R051_T31UER_68_14",
+    "prediction": "no",
+    "question": "Would you identify any broad-leaved forest as lying right beside a coniferous forest?",
+    "record_id": "ilr:1d11d4ed33cdf973f4983cbb3fefe5bd236797d3a3dc2a7aa7573fbc9abfe005",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -4.433572292327881,
+        "yes": -4.918341636657715
+      },
+      "token_l2": 572.4869995117188
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171002T112111_N9999_R037_T29SNB_51_75",
+    "prediction": "no",
+    "question": "Do permanent crops cover less than 20% of the image?",
+    "record_id": "ilr:1d436a3e2da95691af4c413d3e51a4b9f8ed334e2353836fd6fff0d8c70aebdc",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "yes",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -4.584944725036621,
+        "yes": -4.811369895935059
+      },
+      "token_l2": 580.8804931640625
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180201T093219_N9999_R136_T34TEP_29_20",
+    "prediction": "no",
+    "question": "Is the region of lands principally occupied by agriculture with significant areas of natural vegetation greater than 0%?",
+    "record_id": "ilr:1dc127658f05c6d611e2e19f999433069093dba73d4aaf4e137a063fa39da697",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "no",
+    "constrained": {
+      "prediction": "no",
+      "scores": {
+        "no": -4.122474193572998,
+        "yes": -4.443300724029541
+      },
+      "token_l2": 596.7118530273438
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "yes",
+      "route_raw_status": "OK",
+      "text": " Yes",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180515T112109_N9999_R037_T29SNC_55_74",
+    "prediction": "no",
+    "question": "Does the image capture pastures?",
+    "record_id": "ilr:207131b7325e472f30bfc0e311dba22ed5cf09897f0da950fbc507f8590f426b",
+    "route": "JOINT",
+    "task_type": "binary_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "d",
+      "scores": {
+        "a": -1.6637208461761475,
+        "b": -2.1337521076202393,
+        "c": -1.992867350578308,
+        "d": -1.6546432971954346
+      },
+      "token_l2": 578.4122924804688
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "a",
+      "route_raw_status": "OK",
+      "text": " a",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_16_43",
+    "prediction": "d",
+    "question": "Which of these classes can be found in the image? a) Industrial or commercial units, b) Pastures, c) Permanent crops, d) Arable land",
+    "record_id": "ilr:0bc2268d7e96aafc7c25fe1bfed5458d4dcc5dbeaf5d9673a26fb4e992d29dfb",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.9867408275604248,
+        "b": -2.1466386318206787,
+        "c": -1.3241841793060303,
+        "d": -1.9336256980895996
+      },
+      "token_l2": 565.5401611328125
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": " c",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20171219T095409_N9999_R079_T33TWN_25_69",
+    "prediction": "c",
+    "question": "Which classes are directly connected? a) Complex cultivation patterns and Urban fabric, b) Broad-leaved forest and Industrial or commercial units, c) Mixed forest and Urban fabric, d) Coastal wetlands and Moors, heathland and sclerophyllous vegetation",
+    "record_id": "ilr:12772cd3e8512ea5c3a17547894b8d9ef8ca35d2e3917b77a4e71465d057177d",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "d",
+      "scores": {
+        "a": -2.1871674060821533,
+        "b": -2.5785584449768066,
+        "c": -2.360806703567505,
+        "d": -0.7540627121925354
+      },
+      "token_l2": 554.9212036132812
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "d",
+      "route_raw_status": "OK",
+      "text": " d",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171208T093351_N9999_R136_T34TEN_20_32",
+    "prediction": "d",
+    "question": "Which land cover class appears in this satellite image? a) Moors, heathland and sclerophyllous vegetation, b) Coastal wetlands, c) Transitional woodland, shrub, d) Natural grassland and sparsely vegetated areas",
+    "record_id": "ilr:132088d29c7b79e139585e8479fcdb7d61d8f297e1d2bbd766e4fd89c3b5d17b",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -3.1591005325317383,
+        "b": -1.3454314470291138,
+        "c": -1.9644381999969482,
+        "d": -3.723276138305664
+      },
+      "token_l2": 581.095458984375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "b",
+      "route_raw_status": "OK",
+      "text": " b",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170808T094029_N9999_R036_T35ULA_77_21",
+    "prediction": "b",
+    "question": "Select the total area covered by mixed forests: a) 10 to 20%, b) 60 to 90%, c) 20 to 40%, d) 40 to 50%",
+    "record_id": "ilr:170006dc5b40866ce55ce1dbc24ea93a9f89a781b1c52fb130eda26772a97f22",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.7144484519958496,
+        "b": -2.464247941970825,
+        "c": -1.3547908067703247,
+        "d": -2.267890691757202
+      },
+      "token_l2": 563.5070190429688
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": " c",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_20_43",
+    "prediction": "c",
+    "question": "How is the mixed forest relatively positioned to the industrial or commercial units in the image? a) to the left, b) to the top-right, c) to the right, d) to the top",
+    "record_id": "ilr:23f6ac0d09bdbbed98cda49d30e0d5aa21c14d5f74009ec3f4594534e2eb4354",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "c",
+    "constrained": {
+      "prediction": "b",
+      "scores": {
+        "a": -1.815353512763977,
+        "b": -1.5396589040756226,
+        "c": -1.6962060928344727,
+        "d": -2.206847667694092
+      },
+      "token_l2": 588.5716552734375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "b",
+      "route_raw_status": "OK",
+      "text": " b",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170930T095019_N9999_R079_T34UEG_15_46",
+    "prediction": "b",
+    "question": "How much of the image is covered by coniferous forests? a) 288000 to 576000 sqm, b) 864000 to 1296000 sqm, c) 0 to 144000 sqm, d) 144000 to 288000 sqm",
+    "record_id": "ilr:25b375e655b2763773a50d10d386ada8677d88e83f09e49ccbb534737da1222a",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -1.6614469289779663,
+        "b": -2.6187326908111572,
+        "c": -1.5903277397155762,
+        "d": -1.6076472997665405
+      },
+      "token_l2": 585.94580078125
+    },
+    "generated": {
+      "correct": true,
+      "parsed": "d",
+      "route_raw_status": "OK",
+      "text": " d",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20170923T100019_N9999_R122_T33TWM_61_13",
+    "prediction": "c",
+    "question": "How many separate regions of arable land exist in this image? a) 2, b) 0, c) 3, d) 1",
+    "record_id": "ilr:2791f1cfc99a6b7e454fbec614b94356ec5526d615411fd0300d6653e2ba0ae2",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "b",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.403632640838623,
+        "b": -2.5639846324920654,
+        "c": -1.2033603191375732,
+        "d": -1.5208711624145508
+      },
+      "token_l2": 582.7161865234375
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": " c",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2B_MSIL2A_20180506T105029_N9999_R051_T31UER_44_18",
+    "prediction": "c",
+    "question": "Select the classes sharing a boundary: a) Marine waters and Urban fabric, b) Arable land and Mixed forest, c) Arable land and Broad-leaved forest, d) Arable land and Inland waters",
+    "record_id": "ilr:3e551b22a897fdd3d53f833b00705b7395814162123353cc80cd2421b92e7147",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "d",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.362093448638916,
+        "b": -1.9687150716781616,
+        "c": -1.8895485401153564,
+        "d": -2.3498849868774414
+      },
+      "token_l2": 578.4432983398438
+    },
+    "generated": {
+      "correct": false,
+      "parsed": null,
+      "route_raw_status": "OK",
+      "text": "",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20180413T095031_N9999_R079_T34UEG_73_64",
+    "prediction": "c",
+    "question": "Select the number of patches covered by transitional woodlands or shrubs: a) 0, b) 4, c) 1, d) 2",
+    "record_id": "ilr:4ab242ea20e55cc374b58db890d307c5142ee6ba3a39e38b99c212937a520aa0",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  },
+  {
+    "answer": "a",
+    "constrained": {
+      "prediction": "c",
+      "scores": {
+        "a": -2.178344964981079,
+        "b": -1.9068490266799927,
+        "c": -1.6090015172958374,
+        "d": -2.8069863319396973
+      },
+      "token_l2": 583.1901245117188
+    },
+    "generated": {
+      "correct": false,
+      "parsed": "c",
+      "route_raw_status": "OK",
+      "text": " c",
+      "warnings": [
+        "bounded fixed-panel integration; no claim of fusion accuracy gain"
+      ]
+    },
+    "logical_sample_id": "S2A_MSIL2A_20171015T095031_N9999_R079_T33UXP_27_71",
+    "prediction": "c",
+    "question": "Select the number of areas covered by permanent crops: a) 1, b) 4, c) 2, d) More than five",
+    "record_id": "ilr:4f82f2357a47598a2a94d4b1fc439ad0a007f6e634f462130baa3096bbcc6e74",
+    "route": "JOINT",
+    "task_type": "multiple_choice_qa"
+  }
+]

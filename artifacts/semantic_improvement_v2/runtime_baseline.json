@@ -1,0 +1,23 @@
+{
+  "inferences": [
+    {
+      "prediction": "yes",
+      "seconds": 1.0466698000000179,
+      "task_type": "binary_qa"
+    },
+    {
+      "prediction": "b",
+      "seconds": 0.493746099999953,
+      "task_type": "multiple_choice_qa"
+    }
+  ],
+  "load_plus_two_inference_seconds": 1.564865700000155,
+  "mean_inference_seconds": 0.7702079499999854,
+  "oom_count": 0,
+  "panel": "two DEV records",
+  "peak_allocated": 7646499328,
+  "peak_reserved": 7782531072,
+  "process_rss_bytes": 3796135936,
+  "route": "JOINT",
+  "test_access_count": 0
+}

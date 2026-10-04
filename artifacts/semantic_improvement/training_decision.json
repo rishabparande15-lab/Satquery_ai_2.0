@@ -1,0 +1,5 @@
+{
+  "training_run": false,
+  "reason": "No training was justified: the candidate is inference-only and the fixed validation panel showed a SAR MCQ regression.",
+  "test_access_count": 0
+}

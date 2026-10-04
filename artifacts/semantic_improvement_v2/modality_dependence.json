@@ -1,0 +1,13 @@
+{
+  "baseline": {
+    "mean_target_margin": -0.002420097589492798,
+    "shuffle_decision_change": 0.0
+  },
+  "candidate": {
+    "mean_target_margin": 0.0044420696794986725,
+    "shuffle_decision_change": 0.0
+  },
+  "selected": "JOINT",
+  "status": "historically exposed validation; diagnostic only",
+  "test_access_count": 0
+}

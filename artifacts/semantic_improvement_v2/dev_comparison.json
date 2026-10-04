@@ -1,0 +1,43 @@
+{
+  "JOINT": {
+    "aggregate": {
+      "accuracy": 0.125,
+      "correct": 1,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.25,
+      "correct": 1,
+      "total": 4
+    },
+    "mean_target_margin": 0.0003887005150318146,
+    "multiple_choice_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    },
+    "shuffle_decision_change": 0.0
+  },
+  "SAR": {
+    "aggregate": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 8
+    },
+    "binary_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    },
+    "mean_target_margin": -0.2158292755484581,
+    "multiple_choice_qa": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 4
+    },
+    "shuffle_decision_change": 0.125
+  },
+  "selected": "JOINT",
+  "selection_scope": "DEV only",
+  "test_access_count": 0
+}
