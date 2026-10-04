@@ -448,6 +448,93 @@ These numbers are not VQA, caption, grounding, SAR-VQA, temporal, or current uni
 
 ---
 
+## Dataset Recovery / Re-download Guide
+
+This guide records the verified local recovery information for the datasets and
+Pipeline 3 artifacts used during development. It is operational documentation
+only: it does not change the frozen release, tag, metrics, fingerprints, or
+scientific claims above.
+
+### Recovery classes
+
+| Class | Meaning | Local items in this project |
+| --- | --- | --- |
+| **REDOWNLOADABLE** | Raw source data that can be recovered from its recorded source/provenance. Preserve the local provenance file so the exact selection can be checked. | `raw-1000`; `raw-5000-additional` |
+| **REGENERATABLE** | Derived non-checkpoint outputs that can be recreated from the appropriate raw inputs and Pipeline 3 process. | `pipeline3-5000/scene_features/manifest.json`; revalidation JSON result/receipt files |
+| **MUST BACK UP** | Local trained checkpoints. These are derived artifacts, not raw downloadable data. | `pipeline3-5000/models/`; model checkpoints under `pipeline3-5000/revalidation_6R2B/` |
+
+Do **not** delete any local trained checkpoint until it has been backed up and
+the backup has been verified.
+
+### `raw-1000`: BigEarthNet v2 1,000-patch multimodal subset — REDOWNLOADABLE
+
+Local layout:
+
+- `BigEarthNet-S1/`
+- `BigEarthNet-S2/`
+- `Reference_Maps/`
+- `metadata.parquet`
+- `download-provenance.json`
+
+Verified subset and storage facts:
+
+- `1,000` patches split `600 / 200 / 200` (train / validation / test)
+- selection seed: `17`
+- country-balanced within official splits, with unique Sentinel-1 pairs
+- the original demo patch was excluded
+- `15,002` local files, approximately `0.26 GB`
+
+The imagery provenance pins the BigEarthNetV2-LMDB source to revision
+`118d1b6285c080ba8e4078414e1b8a243b18c9bd`:
+
+<https://huggingface.co/datasets/hackelle/BigEarthNetV2-LMDB/resolve/118d1b6285c080ba8e4078414e1b8a243b18c9bd/BENv2.lmdb/data.mdb>
+
+This is recorded as an **unofficial pre-conversion mirror**. The reference-map
+archive is:
+
+<https://huggingface.co/datasets/torchgeo/bigearthnet/resolve/3cf3a5910a5302d449fdb8e570e5b78de24fe07f/V2/Reference_Maps.tar.gzaa>
+
+Verify that archive against SHA-256
+`23311e4efee2622052a7102a164473a5150f1e3bc47625c4a897b1c21063efd1`.
+Retain `download-provenance.json`: it contains the exact selected patch
+identities in addition to the source metadata.
+
+### `raw-5000-additional`: additional Sentinel-2 acquisition — REDOWNLOADABLE
+
+This local source set contains:
+
+- `BigEarthNet-S2/`
+- `pipeline3-5000-s2-acquisition.json`
+- `52,001` files, approximately `0.64 GB`
+
+Its acquisition record verifies `requested_count: 4000`, `4,000` `area_ids`,
+`complete_for_requested_rows: true`, and source revision
+`118d1b6285c080ba8e4078414e1b8a243b18c9bd`. Keep
+`pipeline3-5000-s2-acquisition.json` with any recovery copy; it records the
+requested area identities and completion status.
+
+Together, `raw-1000` and this additional Sentinel-2 acquisition support the
+5,000-area Pipeline 3 source set. This record does **not** establish
+Sentinel-1 or reference-map coverage for the added 4,000 areas; do not infer
+that coverage from this directory.
+
+### `pipeline3-5000`: derived Pipeline 3 outputs — REGENERATABLE / MUST BACK UP
+
+`pipeline3-5000/` is a local derived-output directory, not downloadable raw
+data. Its verified contents are:
+
+- `models/`: six small local checkpoint files (**MUST BACK UP**)
+- `scene_features/manifest.json`: approximately `36.23 KB`
+  (**REGENERATABLE**)
+- `revalidation_6R2B/`: five JSON result/receipt files
+  (**REGENERATABLE**) and five model checkpoints (**MUST BACK UP**)
+
+The revalidation test receipt records `consumed_once` over `200` test areas.
+Retain receipts when preserving an experiment record, but never treat them or
+the local model files as redownloadable raw data.
+
+---
+
 ## Dataset and annotation foundation
 
 The BigEarthNet.txt foundation was built conservatively and source-preserving.
