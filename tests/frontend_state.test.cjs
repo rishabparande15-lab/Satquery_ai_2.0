@@ -5,6 +5,7 @@ const vm = require("node:vm");
 const fs = require("node:fs");
 const path = require("node:path");
 const source = fs.readFileSync(path.join(__dirname,"../src/static/app.js"),"utf8");
+const html = fs.readFileSync(path.join(__dirname,"../src/static/index.html"),"utf8");
 
 function harness(fetcher) {
   const nodes = new Map();
@@ -103,4 +104,17 @@ test("paired optical-SAR renders provenance and creates a JSON export",async()=>
   assert.match(h.nodes.get("v1-provenance").textContent,/66285546d2b821cf421d4f5eb2576359d3770cd3/);
   assert.equal(h.nodes.get("v1-export").hidden,false);
   assert.equal(JSON.parse(h.exportedJson()).route,"OPTICAL_SAR_ANALYSIS");
+});
+
+test("SIH demo controls use the backend demo endpoint and preserve editable questions",()=>{
+  assert.match(html,/id="demo-s2"/);
+  assert.match(html,/id="demo-scene"/);
+  assert.match(html,/id="demo-sar"/);
+  assert.match(html,/id="demo-pair"/);
+  assert.match(html,/id="demo-temporal"/);
+  assert.match(source,/\/api\/v1\/demo\/run/);
+  assert.match(source,/Is water visible in this image\?/);
+  assert.match(source,/Do parts of the image correspond to pastures\?/);
+  assert.match(source,/BEFORE \(PRE\) loaded/);
+  assert.match(source,/Input source: DEMO SAMPLE/);
 });

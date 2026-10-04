@@ -52,6 +52,7 @@
 
 <section id="view-analysis" class="app-view" hidden>
   <div class="page-heading"><div><div class="eyebrow">RESEARCH WORKSPACE</div><h1>Start with a question.</h1><p>Bring your imagery. Define your perspective. Inspect the evidence.</p></div><span class="subtle-chip">LOCAL PROCESSING</span></div>
+  <section class="panel demo-mode" aria-labelledby="demo-mode-title"><div><span class="eyebrow">PRESENTATION READY</span><h2 id="demo-mode-title">SIH Demo Mode</h2><p>Use verified demo samples — no file upload required. Each run uses the real backend and model route.</p></div><div class="demo-actions"><button id="demo-s2" type="button" class="secondary">Use S2 Demo Sample</button><button id="demo-scene" type="button" class="secondary">Use Scene Demo Sample</button><button id="demo-sar" type="button" class="secondary">Use SAR Demo Sample</button><button id="demo-pair" type="button" class="secondary">Use Optical + SAR Demo Pair</button><button id="demo-temporal" type="button" class="secondary">Load Before + After Demo</button></div><p id="demo-status" class="field-help" role="status">Choose a verified sample, then review or edit its question before running.</p></section>
   <p id="notice" class="notice">Development demonstration using local sample data. Supervised accuracy evaluation is pending a larger labeled dataset.</p>
   <div class="analysis-grid">
   <form id="analysis-form" class="panel input-panel">
@@ -119,7 +120,7 @@
     <textarea id="single-image-question">Is water visible in this image?</textarea>
     <button id="run-single-image" type="button" class="primary">Run single-image task ↗</button>
   </div>
-  <div id="single-image-output" class="field-help" role="status" aria-live="polite">One non-test optical S2 image is required. S1 is not loaded for this route.</div>
+  <div id="single-image-input-mode" class="field-help">Input source: MANUAL UPLOAD or local selection</div><div id="single-image-output" class="field-help" role="status" aria-live="polite">One non-test optical S2 image is required. S1 is not loaded for this route.</div>
   <a id="single-image-export" class="button secondary" hidden>Download agent result ↓</a>
   <details id="single-image-provenance-details"><summary>Model and provenance</summary><pre id="single-image-provenance">No inference has run.</pre></details>
   <details id="single-image-evidence-details"><summary>Input evidence · geospatial footprint · image statistics</summary><div id="single-image-evidence">No source evidence has run.</div></details>
@@ -129,7 +130,7 @@
   <div class="section-heading compact"><h2>Single-image SAR VQA</h2><span class="subtle-chip amber">LIMITED SEMANTIC VALIDATION</span></div>
   <p class="field-help">Requires one declared Sentinel-1 VV/VH GeoTIFF. No optical fallback is used.</p>
   <div class="v1-controls"><label for="sar-vqa-upload">Sentinel-1 VV/VH GeoTIFF</label><input id="sar-vqa-upload" type="file" accept=".tif,.tiff"><label for="sar-vqa-question">Question</label><textarea id="sar-vqa-question">Do parts of the image correspond to pastures?</textarea><button id="run-sar-vqa" type="button" class="primary">Run SAR VQA</button></div>
-  <div id="sar-vqa-output" class="field-help" role="status" aria-live="polite">Upload one explicitly declared Sentinel-1 VV/VH raster.</div>
+  <div id="sar-vqa-input-mode" class="field-help">Input source: MANUAL UPLOAD</div><div id="sar-vqa-output" class="field-help" role="status" aria-live="polite">Upload one explicitly declared Sentinel-1 VV/VH raster.</div>
   <a id="sar-vqa-export" class="button secondary" hidden>Download SAR result</a><details id="sar-vqa-provenance-details"><summary>Evidence and provenance</summary><pre id="sar-vqa-provenance">No inference has run.</pre></details>
 </section>
 
@@ -164,7 +165,7 @@
     <textarea id="temporal-question">Describe the changes between the two dates.</textarea>
     <button id="run-temporal-change" type="button" class="primary">Run Change Analysis ↗</button>
   </div>
-  <div id="temporal-change-output" class="field-help" role="status" aria-live="polite">Upload an explicitly ordered RGB pair. The route generates a change description only; it does not claim a change mask or boxes.</div>
+  <div id="temporal-input-mode" class="field-help">Input source: MANUAL UPLOAD</div><div id="temporal-change-output" class="field-help" role="status" aria-live="polite">Upload an explicitly ordered RGB pair. The route generates a change description only; it does not claim a change mask or boxes.</div>
   <a id="temporal-change-export" class="button secondary" hidden>Download agent result ↓</a>
   <details id="temporal-change-provenance-details"><summary>Execution trace and provenance</summary><pre id="temporal-change-provenance">No temporal inference has run.</pre></details>
   <details id="temporal-change-evidence-details"><summary>Pair evidence · geospatial footprint · image statistics</summary><div id="temporal-change-evidence">No source evidence has run.</div></details>
@@ -185,7 +186,7 @@
     <textarea id="v1-question">Describe the scene.</textarea>
     <button id="run-v1" type="button" class="primary">Run paired S1 + S2 route ↗</button>
   </div>
-  <div id="v1-output" class="field-help">No run yet. The route requires both S1 and S2 for the live dataset patch.</div>
+  <div id="v1-input-mode" class="field-help">Input source: MANUAL LOCAL SELECTION</div><div id="v1-output" class="field-help">No run yet. The route requires both S1 and S2 for the live dataset patch.</div>
   <a id="v1-export" class="button secondary" hidden>Download agent result ↓</a>
   <details id="v1-evidence-details"><summary>Pair evidence · geospatial footprint · image statistics</summary><div id="v1-evidence">No source evidence has run.</div></details>
   <details id="v1-provenance-details"><summary>Model and provenance</summary><pre id="v1-provenance">No paired-route provenance has run.</pre></details>

@@ -1,5 +1,5 @@
 from .dataset_loader import (OPTICAL_BANDS, SAR_BANDS, discover_samples, discover_s2_samples,
-                             load_optical_sample, load_sample)
+                             load_optical_sample, load_sample, Sample)
 """Loopback HTTP application with bounded uploads and serialized inference."""
 from email import policy
 from email.parser import BytesParser
@@ -67,6 +67,21 @@ TEMPORAL_CONTROLLER = None
 SCENE_DESCRIPTION_LOCK = threading.Lock()
 SCENE_DESCRIPTION_CONTROLLER = None
 OPTICAL_SAR_CONTROLLER = None
+DEMO_BUNDLE_ROOT = PROJECT_ROOT / "artifacts"
+
+# These are identities, never filesystem paths.  The resolver below is the only
+# place that maps them to local assets, and it admits only non-test fixtures.
+DEMO_FIXTURES = {
+    "s2_vqa": {"patch_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11", "split": "train"},
+    "scene": {"patch_id": "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11", "split": "train"},
+    "sar_vqa": {
+        "relative_path": "phase3ad_validation_s1.tif",
+        "sha256": "de74e83655d6a794aca6c834758e6c1cc216c5a8db8bdff51bf61909df40a085",
+        "split": "validation",
+    },
+    "optical_sar": {"patch_id": "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22", "split": "validation"},
+    "temporal": {"pair_id": "val_000001.png", "split": "validation"},
+}
 
 
 def _claim_upload(token, role):
@@ -112,7 +127,8 @@ def run_unified_query(request):
     def optical_sar_executor(payload):
         global OPTICAL_SAR_CONTROLLER
         source = {**request, "question": payload["query"]}
-        resolved = build_v1_route_request(source)
+        sample = request.get("_demo_pair_sample")
+        resolved = build_fixed_pair_route_request(source, sample) if isinstance(sample, Sample) else build_v1_route_request(source)
         kwargs = {key: value for key, value in resolved.items() if key in {"task_type", "question", "s1", "s2", "patch_id", "s1_patch_id", "s2_patch_id", "spatial_metadata"}}
         with RUNTIME.use("OPTICAL_SAR_ANALYSIS", SatQueryV1Controller) as controller:
             result = controller.run_satquery(**kwargs)
@@ -133,7 +149,7 @@ def run_unified_query(request):
 
     def single_sar_executor(payload):
         token = request.get("sar_upload_token") or request.get("upload_token")
-        uploaded_path = _claim_upload(token, "sar") if token else None
+        uploaded_path = _claim_upload(token, "sar") if token else request.get("_demo_sar_path")
         if token: tokens.append(token)
         resolved = build_single_sar_request({**request, "question": payload["query"]}, uploaded_path=uploaded_path)
         with RUNTIME.use("SINGLE_IMAGE_SAR_VQA", SingleImageSARVQAController) as controller:
@@ -144,8 +160,11 @@ def run_unified_query(request):
     def temporal_executor(payload):
         global TEMPORAL_CONTROLLER
         t1_token, t2_token = request.get("t1_token"), request.get("t2_token")
-        t1_path = _claim_upload(t1_token, "t1"); t2_path = _claim_upload(t2_token, "t2")
-        tokens.extend((t1_token, t2_token))
+        if request.get("_demo_t1_path") and request.get("_demo_t2_path"):
+            t1_path, t2_path = request["_demo_t1_path"], request["_demo_t2_path"]
+        else:
+            t1_path = _claim_upload(t1_token, "t1"); t2_path = _claim_upload(t2_token, "t2")
+            tokens.extend((t1_token, t2_token))
         source = {**request, "query": payload["query"], "temporal_order": "PRE_POST"}
         resolved = build_temporal_change_request(source, t1_path=t1_path, t2_path=t2_path)
         if not TEMPORAL_LOCK.acquire(blocking=False): raise RuntimeError("A temporal change description is already running.")
@@ -185,6 +204,95 @@ def run_unified_query(request):
     finally:
         cleanup_uploads(tokens)
     return result
+
+
+def run_demo_query(demo_id: str, question: str | None = None):
+    """Run one approved non-test demo through the normal unified agent path.
+
+    This intentionally does not accept paths, arbitrary identifiers, or any
+    caller-provided split. Missing assets fail closed instead of falling back.
+    """
+    fixture = DEMO_FIXTURES.get(demo_id)
+    if fixture is None:
+        raise ValueError("Approved demo sample unavailable.")
+    settings = get_settings()
+    if demo_id in {"s2_vqa", "scene"}:
+        patch = fixture["patch_id"]
+        sample = _approved_s2_demo_sample(settings.dataset_root, patch, fixture["split"])
+        if not sample.optical_paths:
+            raise FileNotFoundError("Approved demo sample unavailable.")
+        return run_unified_query({
+            "requested_task": "SINGLE_IMAGE_SCENE_DESCRIPTION" if demo_id == "scene" else "SINGLE_IMAGE_VQA",
+            "task_type": "scene_description" if demo_id == "scene" else "binary_qa",
+            "query": question or ("Describe this image." if demo_id == "scene" else "Is water visible in this image?"),
+            "patch_id": patch,
+            "inputs": [{"role": "SINGLE", "modality": "rgb" if demo_id == "scene" else "s2", "sensor": "sentinel-2", "input_id": patch, "source": "approved_demo"}],
+        })
+    if demo_id == "sar_vqa":
+        sar_path = _approved_demo_bundle_path(
+            DEMO_BUNDLE_ROOT, fixture["relative_path"], fixture["sha256"]
+        )
+        return run_unified_query({
+            "requested_task": "SINGLE_IMAGE_SAR_VQA",
+            "task_type": "binary_qa",
+            "query": question or "Do parts of the image correspond to pastures?",
+            "_demo_sar_path": sar_path,
+            "sensor_declaration": {"sensor": "sentinel-1", "modality": "sar", "role": "SINGLE", "band_order": ["VV", "VH"], "band_order_confirmed": True},
+            "inputs": [{"role": "SINGLE", "modality": "sar", "sensor": "sentinel-1", "input_id": fixture["relative_path"], "source": "approved_demo"}],
+        })
+    if demo_id == "optical_sar":
+        patch = fixture["patch_id"]
+        sample = _approved_pair_demo_sample(settings.dataset_root, patch, fixture["split"])
+        if not sample.optical_paths or not sample.sar_paths or sample.reference_map == Path():
+            raise FileNotFoundError("Approved demo sample unavailable.")
+        if demo_id == "optical_sar":
+            return run_unified_query({"requested_task": "OPTICAL_SAR_ANALYSIS", "task_type": "caption", "query": question or "Use the SAR and optical information together.", "patch_id": patch,
+                "_demo_pair_sample": sample,
+                "inputs": [{"role": "S1", "modality": "s1", "sensor": "sentinel-1", "input_id": "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22", "source": "approved_demo"}, {"role": "S2", "modality": "s2", "sensor": "sentinel-2", "input_id": patch, "source": "approved_demo"}]})
+    if demo_id == "temporal":
+        t1 = settings.levir_root / "images" / "val" / "A" / fixture["pair_id"]
+        t2 = settings.levir_root / "images" / "val" / "B" / fixture["pair_id"]
+        if not t1.is_file() or not t2.is_file():
+            raise FileNotFoundError("Approved demo sample unavailable.")
+        return run_unified_query({"requested_task": "TEMPORAL_CHANGE_DESCRIPTION", "query": question or "Describe the changes between the two dates.", "pair_id": fixture["pair_id"], "split": "validation", "_demo_t1_path": t1, "_demo_t2_path": t2,
+            "inputs": [{"role": "T1", "modality": "optical", "temporal_role": "PRE", "input_id": fixture["pair_id"], "source": "approved_demo"}, {"role": "T2", "modality": "optical", "temporal_role": "POST", "input_id": fixture["pair_id"], "source": "approved_demo"}]})
+    raise ValueError("Approved demo sample unavailable.")
+
+
+def _approved_s2_demo_sample(root: Path, patch_id: str, split: str) -> Sample:
+    """Construct one allowlisted S2 fixture without opening dataset metadata."""
+    scene = patch_id.rsplit("_", 2)[0]
+    base = Path(root) / "BigEarthNet-S2" / scene / patch_id
+    paths = {band: base / f"{patch_id}_{band}.tif" for band in OPTICAL_BANDS}
+    if not all(path.is_file() for path in paths.values()):
+        raise FileNotFoundError("Approved demo sample unavailable.")
+    return Sample(patch_id, paths, {}, Path(), split)
+
+
+def _approved_demo_bundle_path(bundle_root: Path, relative_path: str, expected_sha256: str) -> Path:
+    """Resolve one fixed demo-bundle asset without permitting path escape or substitution."""
+    root = Path(bundle_root).resolve()
+    candidate = (root / relative_path).resolve()
+    if not candidate.is_relative_to(root) or not candidate.is_file():
+        raise FileNotFoundError("Approved demo sample unavailable.")
+    with candidate.open("rb") as handle:
+        digest = hashlib.file_digest(handle, "sha256").hexdigest()
+    if digest != expected_sha256:
+        raise FileNotFoundError("Approved demo sample unavailable.")
+    return candidate
+
+
+def _approved_pair_demo_sample(root: Path, patch_id: str, split: str) -> Sample:
+    """Construct the exact approved S1/S2 pair without split enumeration."""
+    s1_id = "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22"
+    root = Path(root)
+    s2_scene, s1_scene = patch_id.rsplit("_", 2)[0], s1_id.rsplit("_", 3)[0]
+    optical = {band: root / "BigEarthNet-S2" / s2_scene / patch_id / f"{patch_id}_{band}.tif" for band in OPTICAL_BANDS}
+    sar = {band: root / "BigEarthNet-S1" / s1_scene / s1_id / f"{s1_id}_{band}.tif" for band in SAR_BANDS}
+    reference = root / "Reference_Maps" / s2_scene / patch_id / f"{patch_id}_reference_map.tif"
+    if not all(path.is_file() for path in [*optical.values(), *sar.values(), reference]):
+        raise FileNotFoundError("Approved demo sample unavailable.")
+    return Sample(patch_id, optical, sar, reference, split)
 
 
 def build_task_request(request):
@@ -238,6 +346,21 @@ def build_v1_route_request(request):
         "s2": s2,
         "spatial_metadata": spatial,
     }
+
+
+def build_fixed_pair_route_request(request, sample: Sample):
+    """Resolve the single approved paired fixture without metadata discovery."""
+    if not isinstance(sample, Sample):
+        raise ValueError("Approved demo sample unavailable.")
+    prepared = load_sample(sample)
+    s1_id = "S1B_IW_GRDH_1SDV_20170717T064605_29UPV_35_22"
+    spatial = {"crs": prepared.metadata.get("crs"), "resolution": prepared.metadata.get("resolution"), "bounds": prepared.metadata.get("bounds"), "shape": prepared.metadata.get("shape"),
+               "optical_band_order": prepared.metadata.get("optical_band_order"), "sar_band_order": prepared.metadata.get("sar_band_order"),
+               "source_filenames": {"S1": sample.sar_paths["VV"].name, "S2": sample.optical_paths["B02"].name}}
+    return {"route": "MULTIMODAL_S1_S2", "task_type": str(request.get("task_type") or "caption"),
+            "question": str(request.get("question") or "Describe the scene."), "patch_id": sample.patch_id,
+            "s1_patch_id": sample.patch_id, "s2_patch_id": sample.patch_id, "s1": prepared.sar.astype("float32"),
+            "s2": prepared.optical.astype("float32"), "spatial_metadata": spatial}
 
 
 def build_scene_description_request(request, *, uploaded_path=None):
@@ -578,6 +701,22 @@ class Handler(BaseHTTPRequestHandler):
                 except (ValueError, TemporalChangeInputError) as exc:
                     raise HTTPProblem(422, "invalid_unified_query", str(exc)) from None
                 status = 200 if result["status"] in {"COMPLETED", "BLOCKED"} else 422
+                self._json(result, status)
+                return
+            if route == "/api/v1/demo/run":
+                if self.headers.get_content_type() != "application/json":
+                    raise HTTPProblem(415, "content_type", "Demo requests require application/json.")
+                try:
+                    request = json.loads(self._body(MAX_JSON), parse_constant=lambda value: (_ for _ in ()).throw(ValueError("nonfinite")))
+                    demo_id = request.get("demo_id")
+                    if not isinstance(demo_id, str):
+                        raise ValueError("Approved demo sample unavailable.")
+                    result = run_demo_query(demo_id, request.get("query"))
+                except FileNotFoundError as exc:
+                    raise HTTPProblem(503, "approved_demo_unavailable", str(exc)) from None
+                except (ValueError, TemporalChangeInputError) as exc:
+                    raise HTTPProblem(422, "invalid_demo_request", str(exc)) from None
+                status = 200 if result.get("status") in {"COMPLETED", "BLOCKED"} else 422
                 self._json(result, status)
                 return
             if route == "/api/v1/temporal":

@@ -539,6 +539,13 @@ async function runV1Route() {
   }
   try {
     output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
+    const demoResult = await runSelectedDemo("optical_sar", question);
+    if (demoResult) {
+      output.textContent = "route: " + demoResult.route + "\nstatus: " + demoResult.status + "\nANSWER: " + (demoResult.answer || demoResult.error?.message || "No generated output returned.") + "\nwarnings: " + (demoResult.warnings || []).join(", ");
+      renderEvidence("v1-evidence", demoResult.evidence); el("v1-evidence-details").open = true;
+      el("v1-provenance").textContent = JSON.stringify({provenance: demoResult.provenance, warnings: demoResult.warnings, confidence: demoResult.confidence, execution_trace: demoResult.execution_trace}, null, 2);
+      el("v1-provenance-details").open = true; setAgentExport("v1-export", demoResult); return;
+    }
     const result = await request("/api/v1/query", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -603,6 +610,47 @@ function setImageTaskMode(mode) {
   }
 }
 
+let selectedDemo = null;
+const DEMO_S2 = "S2B_MSIL2A_20170831T095029_N9999_R079_T33UXP_05_11";
+const DEMO_PAIR = "S2A_MSIL2A_20170717T113321_N9999_R080_T29UPV_35_22";
+function setDemoStatus(message) { const target = el("demo-status"); if (target) target.textContent = message; }
+function chooseDemo(kind) {
+  selectedDemo = kind;
+  if (kind === "s2_vqa" || kind === "scene") {
+    setImageTaskMode("single");
+    el("single-image-task").value = kind === "scene" ? "SINGLE_IMAGE_SCENE_DESCRIPTION" : "SINGLE_IMAGE_VQA";
+    const select = el("single-image-id"); if (select && ![...select.children].some(option => option.value === DEMO_S2)) { const option = document.createElement("option"); option.value = DEMO_S2; option.textContent = DEMO_S2; select.append(option); } if (select) select.value = DEMO_S2;
+    el("single-image-question").value = kind === "scene" ? "Describe this image." : "Is water visible in this image?";
+    el("single-image-input-mode").textContent = "Input source: DEMO SAMPLE — Sentinel-2 TRAIN sample loaded ✓";
+    setDemoStatus("Demo sample loaded: " + DEMO_S2 + ". The question remains editable.");
+  } else if (kind === "sar_vqa") {
+    setImageTaskMode("single");
+    el("sar-vqa-question").value = "Do parts of the image correspond to pastures?";
+    el("sar-vqa-input-mode").textContent = "Input source: DEMO SAMPLE — Sentinel-1 VV,VH loaded ✓";
+    setDemoStatus("SAR demo sample loaded. Sentinel-1 / SAR / VV,VH / SINGLE. The question remains editable.");
+  } else if (kind === "optical_sar") {
+    setImageTaskMode("paired");
+    el("v1-question").value = "Use the SAR and optical information together.";
+    const select = el("v1-patch-id"); if (select && ![...select.children].some(option => option.value === DEMO_PAIR)) { const option = document.createElement("option"); option.value = DEMO_PAIR; option.textContent = DEMO_PAIR; select.append(option); } if (select) select.value = DEMO_PAIR;
+    el("v1-input-mode").textContent = "Input source: DEMO SAMPLE — Optical: Sentinel-2 loaded ✓  SAR: Sentinel-1 loaded ✓";
+    setDemoStatus("Optical + SAR demo pair loaded: S1 and S2 validation assets are ready.");
+  } else if (kind === "temporal") {
+    setImageTaskMode("temporal");
+    el("temporal-question").value = "Describe the changes between the two dates.";
+    el("temporal-input-mode").textContent = "Input source: DEMO SAMPLE — BEFORE (PRE) loaded ✓  AFTER (POST) loaded ✓";
+    el("temporal-t1-preview-empty").textContent = "BEFORE demo loaded ✓";
+    el("temporal-t2-preview-empty").textContent = "AFTER demo loaded ✓";
+    setDemoStatus("Before + After validation demo loaded with explicit PRE and POST roles.");
+  }
+}
+async function runSelectedDemo(kind, question) {
+  if (selectedDemo !== kind) return null;
+  return request("/api/v1/demo/run", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({demo_id: kind, query: question})}, 300000);
+}
+for (const [id, kind] of [["demo-s2", "s2_vqa"], ["demo-scene", "scene"], ["demo-sar", "sar_vqa"], ["demo-pair", "optical_sar"], ["demo-temporal", "temporal"]]) {
+  if (el(id)) el(id).addEventListener("click", () => chooseDemo(kind));
+}
+
 for (const button of all("[data-route-mode]")) {
   button.addEventListener("click", () => setImageTaskMode(button.dataset.routeMode));
 }
@@ -649,6 +697,13 @@ async function runSingleImageTask() {
   button.disabled = true;
     output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
   try {
+    const demoKind = isSceneDescription ? "scene" : "s2_vqa";
+    const demoResult = (!imageFile && !sceneFile) ? await runSelectedDemo(demoKind, question) : null;
+    if (demoResult) {
+      output.textContent = "route: " + demoResult.route + "\nstatus: " + demoResult.status + "\nANSWER: " + (demoResult.answer || demoResult.error?.message || "No generated output returned.") + "\nConfidence: Not calibrated / not available\nwarnings: " + (demoResult.warnings || []).join(", ");
+      el("single-image-provenance").textContent = JSON.stringify({provenance: demoResult.provenance, execution_trace: demoResult.execution_trace, warnings: demoResult.warnings, confidence: demoResult.confidence}, null, 2);
+      el("single-image-provenance-details").open = true; renderEvidence("single-image-evidence", demoResult.evidence); el("single-image-evidence-details").open = true; setAgentExport("single-image-export", demoResult); return;
+    }
     let uploadToken = null;
     if (isSceneDescription && sceneFile) {
       const form = new FormData();
@@ -709,9 +764,14 @@ if (el("run-single-image")) {
 
 if (el("run-sar-vqa")) el("run-sar-vqa").addEventListener("click", async () => {
   const file = el("sar-vqa-upload").files[0], question = el("sar-vqa-question").value.trim(), output = el("sar-vqa-output");
-  if (!file || !question) { output.textContent = "Select a Sentinel-1 VV/VH GeoTIFF and enter a question."; return; }
+  if ((!file && selectedDemo !== "sar_vqa") || !question) { output.textContent = "Select a Sentinel-1 VV/VH GeoTIFF and enter a question."; return; }
   output.textContent = "Uploading SAR input and running the SAR-only specialist…";
   try {
+    const demoResult = !file ? await runSelectedDemo("sar_vqa", question) : null;
+    if (demoResult) {
+      output.textContent = "route: " + demoResult.route + "\nstatus: " + demoResult.status + "\nANSWER: " + (demoResult.answer || demoResult.error?.message || "No answer") + "\nwarnings: " + (demoResult.warnings || []).join(", ") + "\nConfidence: Not calibrated / not available";
+      el("sar-vqa-provenance").textContent = JSON.stringify({evidence: demoResult.evidence, provenance: demoResult.provenance, trace: demoResult.execution_trace, confidence: demoResult.confidence}, null, 2); el("sar-vqa-provenance-details").open = true; setAgentExport("sar-vqa-export", demoResult); return;
+    }
     const form = new FormData(); form.append("sar", file);
     const upload = await request("/api/upload", {method: "POST", body: form}, 30000);
     const result = await request("/api/v1/query", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({requested_task: "SINGLE_IMAGE_SAR_VQA", task_type: "binary_qa", query: question, sar_upload_token: upload.files.sar, sensor_declaration: {sensor: "sentinel-1", modality: "sar", role: "SINGLE", band_order: ["VV", "VH"], band_order_confirmed: true}, inputs: [{role: "SINGLE", modality: "sar", sensor: "sentinel-1", input_id: file.name, source: "user_upload"}]})}, 300000);
@@ -766,11 +826,16 @@ async function runTemporalChangeTask() {
   const t1 = el("temporal-t1").files[0];
   const t2 = el("temporal-t2").files[0];
   const query = el("temporal-question").value.trim();
-  if (!t1) { output.textContent = "Select T1 / BEFORE image."; return; }
-  if (!t2) { output.textContent = "Select T2 / AFTER image."; return; }
+  if (!t1 && selectedDemo !== "temporal") { output.textContent = "Select T1 / BEFORE image."; return; }
+  if (!t2 && selectedDemo !== "temporal") { output.textContent = "Select T2 / AFTER image."; return; }
   button.disabled = true;
   output.textContent = "Analyzing inputs… Understanding query… Selecting specialist…";
   try {
+    const demoResult = (!t1 && !t2) ? await runSelectedDemo("temporal", query) : null;
+    if (demoResult) {
+      output.textContent = "route: " + demoResult.route + "\nstatus: " + demoResult.status + "\nANSWER: " + (demoResult.answer || demoResult.error?.message || "No generated result.") + "\nConfidence: Not calibrated / not available";
+      el("temporal-change-provenance").textContent = JSON.stringify({temporal_order: "PRE_POST", provenance: demoResult.provenance, warnings: demoResult.warnings, execution_trace: demoResult.execution_trace, confidence: demoResult.confidence}, null, 2); el("temporal-change-provenance-details").open = true; renderEvidence("temporal-change-evidence", demoResult.evidence); el("temporal-change-evidence-details").open = true; setAgentExport("temporal-change-export", demoResult); return;
+    }
     const form = new FormData();
     form.append("t1", t1); form.append("t2", t2);
     const uploaded = await request("/api/upload", {method: "POST", body: form}, 30000);
